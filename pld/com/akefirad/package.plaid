@@ -1,0 +1,6 @@
+package com.akefirad;
+
+method main()
+{
+    printLine("Hello, world!");
+}

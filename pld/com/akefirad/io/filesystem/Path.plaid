@@ -1,0 +1,5 @@
+package com.akefirad.io.filesystem;
+
+state Path
+{
+}
