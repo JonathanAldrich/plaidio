@@ -1,6 +1,16 @@
 package com.akefirad;
 
+import com.akefirad.io.filesystem.*;
+
 method main()
 {
-    printLine("Hello, world!");
+	val s = "Hello, world!";
+    printLine(s);
+	var p = new Path
+	{
+		val name = "c:";
+	};
+    printLine(p.name);
+    
+    printLine("End Test 11");
 }
