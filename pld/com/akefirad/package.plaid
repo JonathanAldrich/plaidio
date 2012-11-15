@@ -1,16 +1,93 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SS-0
+	AUTHOR: Rad Akefirad rad@akefirad.com
+	DESC:	Main package of I/O API.
+	FILE:	package.plaid
+**/
 package com.akefirad;
 
 import com.akefirad.io.filesystem.*;
 
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-0.0
+	DESC:	Main method of the package
+**/
 method main()
 {
-	val s = "Hello, world!";
-    printLine(s);
-	var p = new Path
+
+	val unique Path v = makePath("test");
+	match (v)
 	{
-		val name = "c:";
+		case String
+		{
+			printLine("v is String!");
+		}
+		case Character
+		{
+			printLine("v is Character!");
+		}
+		case Path
+		{
+			printLine("v is Path!");
+		}
+		default
+		{
+			printLine("v is unknown!");
+		}
 	};
-    printLine(p.name);
-    
-    printLine("End Test 11");
+    printLine(v);
+
+    printLine("End Test 6");
 }
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-0.2
+	DESC:	The system-dependent path-separator character.
+**/
+/*static*/ method immutable Character pathSeparator()
+{
+	/*return*/ new Character { val nativeVal = java.io.File.pathSeparatorChar; };
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-0.4
+	DESC:	The system-dependent default name-separator character.
+**/
+/*static*/ method immutable Character separator()
+{
+	/*return*/ new Character { val nativeVal = java.io.File.separatorChar; };
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-1.1.0
+	DESC:	constructor for TS-1.1
+**/
+method unique Path makePath(immutable String path)
+{
+	/*return*/ new Path { val file = java.io.File.new(path); };
+}
+
