@@ -35,6 +35,7 @@ state Path
 {
 	/*private*/ val /*java.io.File*/ file;
 	
+	/*-----------------------------------------------------------------------------
 	/**
 		CID:	TS-1.1.1
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
@@ -42,5 +43,15 @@ state Path
 	/*public*/ method immutable String getName()
 	{
 		/*return*/ file.getName();
-	}
+	} // method immutable String getName()
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	TS-1.1.2
+		DESC:	Converts this abstract pathname into a pathname string.
+	**/
+	/*public*/ method immutable String getPath()
+	{
+		/*return*/ file.getPath();
+	} // method immutable String getPath()
 }

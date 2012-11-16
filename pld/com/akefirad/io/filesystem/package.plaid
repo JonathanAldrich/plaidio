@@ -34,7 +34,7 @@ package com.akefirad.io.filesystem;
 /*static*/ method immutable String pathSeparator()
 {
 	/*return*/ ("" + pathSeparatorChar());
-}
+} // method immutable String pathSeparator()
 
 /*------------------------------------------------------------------------------
 /**
@@ -44,7 +44,7 @@ package com.akefirad.io.filesystem;
 /*static*/ method immutable Character pathSeparatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.pathSeparatorChar; };
-}
+} // method immutable Character pathSeparatorChar()
 
 /*------------------------------------------------------------------------------
 /**
@@ -54,7 +54,7 @@ package com.akefirad.io.filesystem;
 /*static*/ method immutable String separator()
 {
 	/*return*/ ("" + separatorChar());
-}
+} // method immutable String separator()
 
 /*------------------------------------------------------------------------------
 /**
@@ -64,7 +64,7 @@ package com.akefirad.io.filesystem;
 /*static*/ method immutable Character separatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.separatorChar; };
-}
+} // method immutable Character separatorChar()
 
 /*------------------------------------------------------------------------------
 /**
@@ -75,3 +75,4 @@ method unique Path makePath(immutable String path)
 {
 	/*return*/ new Path { file = java.io.File.new(path); };
 }
+

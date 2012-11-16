@@ -35,9 +35,9 @@ import com.akefirad.io.filesystem.*;
 **/
 method main()
 {
-	//val unique Path v = makePath("test");
-	val v = pathSeparatorChar();
-	match (v)
+	val unique Path v = makePath("test");
+	//val v = pathSeparatorChar();
+	match (v.getPath())
 	{
 		case String
 		{
@@ -56,7 +56,7 @@ method main()
 			printLine("v is unknown!");
 		}
 	};
-    printLine(v);
+    printLine(v.getPath());
 
-    printLine("End Test 5");
+    printLine("End Test 6");
 }
