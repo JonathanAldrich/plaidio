@@ -3,10 +3,10 @@
  * 
  *  This file is part of PLAIDIO, I/O Library for Plaid Language.
  *
- * This library is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  * 
  *  This library is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,7 +20,7 @@
 /*------------------------------------------------------------------------------
 /**
 	CID:	SS-1
-	AUTHOR: Rad Akefirad rad@akefirad.com
+	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Basic statespace for SR-11 features
 	FILE:	Path.plaid
 **/
@@ -34,4 +34,13 @@ package com.akefirad.io.filesystem;
 state Path
 {
 	/*private*/ val /*java.io.File*/ file;
+	
+	/**
+		CID:	TS-1.1.1
+		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
+	**/
+	/*public*/ method immutable String getName()
+	{
+		/*return*/ file.getName();
+	}
 }
