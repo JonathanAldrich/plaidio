@@ -19,44 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-0
+	CID:	SR-1.1.1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of I/O API.
-	FILE:	package.plaid
+	DESC:	"Validity" state region of "Path" typestate.
+	FILE:	Invalid.plaid
 **/
-package com.akefirad;
+package rad.io.filesystem.path.validity;
 
-import com.akefirad.io.filesystem.*;
+import rad.io.filesystem.Path;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-0.0
-	DESC:	Main method of the package
+	CID:	TS-1.1.1.2
+	DESC:	"Invalid" typestate which contains n invalid path.
 **/
-method main()
+state Invalid case of Path
 {
-	val unique Path v = makePath("test");
-	//val v = pathSeparatorChar();
-	match (v.getPath())
-	{
-		case String
-		{
-			printLine("v is String!");
-		}
-		case Character
-		{
-			printLine("v is Character!");
-		}
-		case Path
-		{
-			printLine("v is Path!");
-		}
-		default
-		{
-			printLine("v is unknown!");
-		}
-	};
-    printLine(v.getPath());
-
-    printLine("End Test 6");
 }

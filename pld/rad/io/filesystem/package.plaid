@@ -21,10 +21,10 @@
 /**
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of plaid.io.filesystem statespace.
+	DESC:	Package of plaid.io.filesystem statespace.
 	FILE:	package.plaid
 **/
-package com.akefirad.io.filesystem;
+package rad.io.filesystem;
 
 /*------------------------------------------------------------------------------
 /**
@@ -75,4 +75,3 @@ method unique Path makePath(immutable String path)
 {
 	/*return*/ new Path { file = java.io.File.new(path); };
 }
-

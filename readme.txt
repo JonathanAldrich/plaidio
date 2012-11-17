@@ -63,3 +63,12 @@ method main()
     val c1 = new Character { val nativeVal = 'c'; };
     val c2 = new Character with { val nativeVal = 'c'; };
 }
+
+//Bug #rad.6
+// Why cannot parser compile below code becasue of "/**/"?
+method main()
+{
+	/**/
+    val c1 = new Character { val nativeVal = 'c'; };
+    val c2 = new Character with { val nativeVal = 'c'; };
+}

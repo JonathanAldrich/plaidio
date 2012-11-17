@@ -19,39 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-1
+	CID:	SR-1.1.1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Basic statespace for SR-11 features
-	FILE:	Path.plaid
+	DESC:	"Validity" state region of "Path" typestate.
+	FILE:	Valid.plaid
 **/
-package com.akefirad.io.filesystem;
+package rad.io.filesystem.path.validity;
+
+import rad.io.filesystem.Path;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1
-	DESC:	Basic typestate for SR-11 features
+	CID:	TS-1.1.1.1
+	DESC:	"Valid" typestate which contains a valid path.
 **/
-state Path
+state Valid case of Path
 {
-	/*private*/ val /*java.io.File*/ file;
-	
-	/*-----------------------------------------------------------------------------
-	/**
-		CID:	TS-1.1.1
-		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
-	**/
-	/*public*/ method immutable String getName()
-	{
-		/*return*/ file.getName();
-	} // method immutable String getName()
-
-	/*-----------------------------------------------------------------------------
-	/**
-		CID:	TS-1.1.2
-		DESC:	Converts this abstract pathname into a pathname string.
-	**/
-	/*public*/ method immutable String getPath()
-	{
-		/*return*/ file.getPath();
-	} // method immutable String getPath()
 }
