@@ -89,7 +89,7 @@ state Path
 			this <- Invalid;
 		}
 		*/
-		ifElse (plaid.auxiliary.IOHelper.IsValidPath(file))
+		ifElse (plaidio.auxiliary.Helper.IsValidPath(file))
 		{
 			this <- Valid;
 		}

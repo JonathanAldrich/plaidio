@@ -1,9 +1,9 @@
-package plaid.auxiliary;
+package plaidio.auxiliary;
 
 import java.io.File;
 import java.io.IOException;
 
-public class IOHelper
+public class Helper
 {
 	public static boolean IsValidPath(File file)
 	{
