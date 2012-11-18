@@ -40,7 +40,7 @@ state Path
 	
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	TS-1.1.1
+		CID:	ST-1.1.1
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
 	/*public*/ method immutable String getName()
@@ -50,7 +50,7 @@ state Path
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	TS-1.1.2
+		CID:	ST-1.1.2
 		DESC:	Converts this abstract pathname into a pathname string.
 	**/
 	/*public*/ method immutable String getPath()
@@ -60,7 +60,7 @@ state Path
 	
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	TS-1.1.3
+		CID:	ST-1.1.3
 		DESC:	Returns the pathname string of this abstract pathname.
 	**/
 	/*public*/ method immutable String toString()
@@ -70,7 +70,7 @@ state Path
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	TS-1.1.4
+		CID:	ST-1.1.4
 		DESC:	Checks whether the path is valid or not, and
 				changes the state of "this" into either "Valid" or "Invalid".				
 	**/
@@ -78,11 +78,24 @@ state Path
 	{
 		// This method should try to check validity by using either regex or exception handling.
 		// Since Plaid has no try & catch feature (not yet), the transition into "Invalid" state does not work.
-		
-		/*try*/
+		/*
+		try
+		{
 			file.getCanonicalPath();
 			this <- Valid;
-		/*catch*/
-			/*this <- Invalid;*/
+		}
+		catch (exception e)
+		{
+			this <- Invalid;
+		}
+		*/
+		ifElse (plaid.auxiliary.IOHelper.IsValidPath(file))
+		{
+			this <- Valid;
+		}
+		//else
+		{
+			this <- Invalid;
+		}
 	} // method validate()
 }

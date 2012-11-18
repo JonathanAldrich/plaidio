@@ -121,10 +121,10 @@ method TC_ST_1_1_0()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-TS-1.1.1
-	DESC:	Test case for TS-1.1.1
+	CID: 	TC-ST-1.1.1
+	DESC:	Test case for ST-1.1.1
 **/
-method TC_TS_1_1_1()
+method TC_ST_1_1_1()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.1:");
@@ -139,10 +139,10 @@ method TC_TS_1_1_1()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-TS-1.1.2
-	DESC:	Test case for TS-1.1.2
+	CID: 	TC-ST-1.1.2
+	DESC:	Test case for ST-1.1.2
 **/
-method TC_TS_1_1_2()
+method TC_ST_1_1_2()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.2:");
@@ -157,10 +157,10 @@ method TC_TS_1_1_2()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-TS-1.1.3
-	DESC:	Test case for TS-1.1.3
+	CID: 	TC-ST-1.1.3
+	DESC:	Test case for ST-1.1.3
 **/
-method TC_TS_1_1_3()
+method TC_ST_1_1_3()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.3:");
@@ -175,21 +175,21 @@ method TC_TS_1_1_3()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-TS-1.1.4
-	DESC:	Test case for TS-1.1.4
+	CID: 	TC-ST-1.1.4
+	DESC:	Test case for ST-1.1.4
 **/
-method TC_TS_1_1_4()
+method TC_ST_1_1_4()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.4:");
 	val unique Path p = makePath("foo");
-	printLine("Path (valid): " + p.getName());
-	p.validate(); // Throw a Java exception if the path is invalid.
+	printLine("Path: " + p.getName());
+	p.validate();
 	printLine("Value: " + p);
 	match (p)
 	{
 		case Valid { printLine("Typestate: Valid"); }
-		case Invalid { printLine("Typestate: Invalid"); } // Does not work.
+		case Invalid { printLine("Typestate: Invalid"); }
 	};
     printLine("Successful!");
 }
