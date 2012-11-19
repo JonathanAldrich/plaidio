@@ -27,22 +27,22 @@
 package plaidio.filesystem.path.tc;
 
 import plaidio.filesystem.*;
+import plaidio.filesystem.path.*;
 import plaidio.filesystem.path.valid.*;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-ST-1.1.1.1.1
-	DESC:	Test case for ST-1.1.1.1.1
+	CID: 	TC-ST-1.1.1.2.1
+	DESC:	Test case for ST-1.1.1.2.1
 **/
 method TC_ST_1_1_1_2_1()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.1.2.1.a:");
 	val unique Path p1 = makePath(java.lang.System.getProperty("user.dir"));
-	printLine("Valid Path (existent): " + p1.getName());
+	printLine("Valid Path (existent): '" + p1.getPathName() + "'");
 	p1.validate();
 	p1.checkExistency();
-	printLine("Value (existent): " + p1);
 	match (p1)
 	{
 		case Existent { printLine("Typestate: Existent"); }
@@ -53,14 +53,53 @@ method TC_ST_1_1_1_2_1()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.1.2.1.b:");
 	val unique Path p2 = makePath("foo");
-	printLine("Valid Path (nonexistent): " + p2.getName());
+	printLine("Valid Path (nonexistent): '" + p2.getPathName() + "'");
 	p2.validate();
 	p2.checkExistency();
-	printLine("Value (nonexistent): " + p2);
 	match (p2)
 	{
 		case Existent { printLine("Typestate: Existent"); }
 		case NonExistent { printLine("Typestate: NonExistent"); }
+	};
+    printLine("Successful!");
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	TC-ST-1.1.1.2.2
+	DESC:	Test case for ST-1.1.1.2.2
+**/
+method TC_ST_1_1_1_2_2()
+{
+    printLine("--------------------------------------------------------------------------------");
+    printLine("Test Case ST-1.1.1.2.2:");
+	val unique Path p = makePath("foo");
+	p.validate();
+	val immutable String s = p.getAbsolutePathString();
+	printLine("Valid.getAbsolutePathString() returns '" + s + "'");
+	match (s)
+	{
+		case String { printLine("Typestate: String"); }
+	};
+    printLine("Successful!");
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	TC-ST-1.1.1.2.3
+	DESC:	Test case for ST-1.1.1.2.3
+**/
+method TC_ST_1_1_1_2_3()
+{
+    printLine("--------------------------------------------------------------------------------");
+    printLine("Test Case ST-1.1.1.2.3:");
+	val unique Path p = makePath("foo");
+	p.validate();
+	val unique Valid v = p.getAbsoluteValid();
+	printLine("Valid.getAbsoluteValid() returns '" + v + "'");
+	match (v)
+	{
+		case Valid { printLine("Typestate: Valid"); }
 	};
     printLine("Successful!");
 }

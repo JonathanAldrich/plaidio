@@ -43,20 +43,20 @@ state Path
 		CID:	ST-1.1.1
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
-	/*public*/ method immutable String getName()
+	/*public*/ method immutable String getPathName()
 	{
 		/*return*/ file.getName();
-	} // method immutable String getName()
+	} // method immutable String getPathName()
 
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1.1.2
 		DESC:	Converts this abstract pathname into a pathname string.
 	**/
-	/*public*/ method immutable String getPath()
+	/*public*/ method immutable String getPathString()
 	{
 		/*return*/ file.getPath();
-	} // method immutable String getPath()
+	} // method immutable String getPathString()
 	
 	/*-----------------------------------------------------------------------------
 	/**

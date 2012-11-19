@@ -39,7 +39,7 @@ method TC_ST_1_1()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1:");
 	val unique String s = pathSeparator();
-    printLine("Value: " + s);
+    printLine("pathSeparator() returns '" + s + "'");
 	match (s)
 	{
 		case String { printLine("Typestate: String"); }
@@ -57,7 +57,7 @@ method TC_ST_1_2()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.2:");
 	val unique Character c = pathSeparatorChar();
-    printLine("Value: " + c);
+    printLine("pathSeparatorChar() returns '" + c + "'");
 	match (c)
 	{
 		case Character { printLine("Typestate: Character"); }
@@ -75,7 +75,7 @@ method TC_ST_1_3()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.3:");
 	val unique String s = separator();
-    printLine("Value: " + s);
+    printLine("separator() returns '" + s + "'");
 	match (s)
 	{
 		case String { printLine("Typestate: String"); }
@@ -93,7 +93,7 @@ method TC_ST_1_4()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.4:");
 	val unique Character c = separatorChar();
-    printLine("Value: " + c);
+    printLine("separatorChar() returns '" + c + "'");
 	match (c)
 	{
 		case Character { printLine("Typestate: Character"); }
@@ -111,7 +111,7 @@ method TC_ST_1_1_0()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.0:");
 	val unique Path p = makePath("foo");
-	printLine("Value: " + p);
+	printLine("Path: '" + p + "'");
 	match (p)
 	{
 		case Path { printLine("Typestate: Path"); }
@@ -128,8 +128,8 @@ method TC_ST_1_1_1()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.1:");
-	val immutable String s = makePath("foo").getName();
-	printLine("Value: " + s);
+	val immutable String s = makePath("foo").getPathName();
+	printLine("Path.getPathName() returns '" + s + "'");
 	match (s)
 	{
 		case String { printLine("Typestate: String"); }
@@ -146,8 +146,8 @@ method TC_ST_1_1_2()
 {
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.2:");
-	val immutable String s = makePath("foo").getPath();
-	printLine("Value: " + s);
+	val immutable String s = makePath("foo").getPathString();
+	printLine("Path.getPathString() returns '" + s + "'");
 	match (s)
 	{
 		case String { printLine("Typestate: String"); }
@@ -165,7 +165,7 @@ method TC_ST_1_1_3()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.3:");
 	val immutable String s = makePath("foo").toString();
-	printLine("Value: " + s);
+	printLine("Path.toString() returns '" + s + "'");
 	match (s)
 	{
 		case String { printLine("Typestate: String"); }
@@ -183,9 +183,8 @@ method TC_ST_1_1_4()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.4.a:");
 	val unique Path p1 = makePath("foo");
-	printLine("Path (valid): " + p1.getName());
+	printLine("Path (valid): '" + p1.getPathName() + "'");
 	p1.validate();
-	printLine("Value (valid): " + p1);
 	match (p1)
 	{
 		case Valid { printLine("Typestate: Valid"); }
@@ -196,9 +195,8 @@ method TC_ST_1_1_4()
     printLine("--------------------------------------------------------------------------------");
     printLine("Test Case ST-1.1.4.b:");
 	val unique Path p2 = makePath("con");
-	printLine("Path (invalid): " + p2.getName());
+	printLine("Path (invalid): '" + p2.getPathName() + "'");
 	p2.validate();
-	printLine("Value (invalid): " + p2);
 	match (p2)
 	{
 		case Valid { printLine("Typestate: Valid"); }
