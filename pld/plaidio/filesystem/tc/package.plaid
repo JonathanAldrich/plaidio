@@ -24,10 +24,10 @@
 	DESC:	Test cases of plaid.io.filesystem package.
 	FILE:	package.plaid
 **/
-package rad.io.filesystem.tc;
+package plaidio.filesystem.tc;
 
-import rad.io.filesystem.*;
-import rad.io.filesystem.path.validity.*;
+import plaidio.filesystem.*;
+import plaidio.filesystem.path.*;
 
 /*------------------------------------------------------------------------------
 /**
@@ -181,12 +181,25 @@ method TC_ST_1_1_3()
 method TC_ST_1_1_4()
 {
     printLine("--------------------------------------------------------------------------------");
-    printLine("Test Case ST-1.1.4:");
-	val unique Path p = makePath("foo");
-	printLine("Path: " + p.getName());
-	p.validate();
-	printLine("Value: " + p);
-	match (p)
+    printLine("Test Case ST-1.1.4.a:");
+	val unique Path p1 = makePath("foo");
+	printLine("Path (valid): " + p1.getName());
+	p1.validate();
+	printLine("Value (valid): " + p1);
+	match (p1)
+	{
+		case Valid { printLine("Typestate: Valid"); }
+		case Invalid { printLine("Typestate: Invalid"); }
+	};
+    printLine("Successful!");
+
+    printLine("--------------------------------------------------------------------------------");
+    printLine("Test Case ST-1.1.4.b:");
+	val unique Path p2 = makePath("con");
+	printLine("Path (invalid): " + p2.getName());
+	p2.validate();
+	printLine("Value (invalid): " + p2);
+	match (p2)
 	{
 		case Valid { printLine("Typestate: Valid"); }
 		case Invalid { printLine("Typestate: Invalid"); }

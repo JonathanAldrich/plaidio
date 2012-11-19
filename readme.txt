@@ -56,8 +56,8 @@ method main()
     printLine(c.getClass());
 }
 
-//Bug #rad.5
-// Q1: What is the difference between c1 and c2?
+//Question #rad.5
+// Q: What is the difference between c1 and c2?
 method main()
 {
     val c1 = new Character { val nativeVal = 'c'; };
@@ -72,3 +72,8 @@ method main()
     val c1 = new Character { val nativeVal = 'c'; };
     val c2 = new Character with { val nativeVal = 'c'; };
 }
+
+//Question #rad.7
+// Q: How can specify conditional transition?
+// For example the following transition goes into either Valid or Invalid states.
+method validate() [unique Path >> unique Valid | unique Invalid this]

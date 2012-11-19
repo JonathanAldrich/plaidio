@@ -24,10 +24,10 @@
 	DESC:	Basic statespace for SR-11 features
 	FILE:	Path.plaid
 **/
-package rad.io.filesystem;
+package plaidio.filesystem;
 
-import rad.io.filesystem.path.validity.Valid;
-import rad.io.filesystem.path.validity.Invalid;
+import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.path.Invalid;
 
 /*------------------------------------------------------------------------------
 /**
@@ -74,10 +74,8 @@ state Path
 		DESC:	Checks whether the path is valid or not, and
 				changes the state of "this" into either "Valid" or "Invalid".				
 	**/
-	/*public*/ method validate() /* [unique Path >> unique Valid | unique Invalid this] */
+	/*public*/ method /*void*/ validate() /*[unique Path >> unique Valid | unique Invalid this]*/
 	{
-		// This method should try to check validity by using either regex or exception handling.
-		// Since Plaid has no try & catch feature (not yet), the transition into "Invalid" state does not work.
 		/*
 		try
 		{
@@ -89,7 +87,9 @@ state Path
 			this <- Invalid;
 		}
 		*/
-		ifElse (plaidio.auxiliary.Helper.IsValidPath(file))
+		// This method should try to check validity by using either regex or exception handling.
+		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
+		ifElse (com.akefirad.auxiliary.Helper.isValidPath(file))
 		{
 			this <- Valid;
 		}
@@ -97,5 +97,5 @@ state Path
 		{
 			this <- Invalid;
 		}
-	} // method validate()
+	} // method /*void*/ validate()
 }

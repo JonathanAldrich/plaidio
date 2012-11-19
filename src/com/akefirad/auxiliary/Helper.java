@@ -1,11 +1,11 @@
-package plaidio.auxiliary;
+package com.akefirad.auxiliary;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Helper
 {
-	public static boolean IsValidPath(File file)
+	public static boolean isValidPath(File file)
 	{
 		try
 		{
@@ -16,5 +16,10 @@ public class Helper
 		{
 			return false;
 		}
+	}
+	
+	public static void debug(Object object)
+	{
+		System.out.println(object.toString());
 	}
 }

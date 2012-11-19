@@ -24,15 +24,34 @@
 	DESC:	"Validity" state region of "Path" typestate.
 	FILE:	Valid.plaid
 **/
-package rad.io.filesystem.path.validity;
+package plaidio.filesystem.path;
 
-import rad.io.filesystem.Path;
+import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.Existent;
+import plaidio.filesystem.path.valid.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1.1
+	CID:	TS-1.1.1.2
 	DESC:	"Valid" typestate which contains a valid path.
 **/
 state Valid case of Path
 {
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1.1.1.2.1
+		DESC:	Checks whether the path exists or not, and
+				changes the state of "this" into either "Existent" or "NonExistent".
+	**/
+	/*public*/ method /*void*/ checkExistency() /*[unique Valid >> unique Existent | unique NonExistent this]*/
+	{
+		ifElse (file.exists())
+		{
+			this <- Existent;
+		}
+		//else
+		{
+			this <- NonExistent;
+		}
+	} // method /*void*/ checkExistency()
 }

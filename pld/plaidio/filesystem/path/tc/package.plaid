@@ -1,0 +1,66 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SR-1.1.1
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Test cases of plaid.io.filesystem.path package.
+	FILE:	package.plaid
+**/
+package plaidio.filesystem.path.tc;
+
+import plaidio.filesystem.*;
+import plaidio.filesystem.path.valid.*;
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	TC-ST-1.1.1.1.1
+	DESC:	Test case for ST-1.1.1.1.1
+**/
+method TC_ST_1_1_1_2_1()
+{
+    printLine("--------------------------------------------------------------------------------");
+    printLine("Test Case ST-1.1.1.2.1.a:");
+	val unique Path p1 = makePath(java.lang.System.getProperty("user.dir"));
+	printLine("Valid Path (existent): " + p1.getName());
+	p1.validate();
+	p1.checkExistency();
+	printLine("Value (existent): " + p1);
+	match (p1)
+	{
+		case Existent { printLine("Typestate: Existent"); }
+		case NonExistent { printLine("Typestate: NonExistent"); }
+	};
+    printLine("Successful!");
+
+    printLine("--------------------------------------------------------------------------------");
+    printLine("Test Case ST-1.1.1.2.1.b:");
+	val unique Path p2 = makePath("foo");
+	printLine("Valid Path (nonexistent): " + p2.getName());
+	p2.validate();
+	p2.checkExistency();
+	printLine("Value (nonexistent): " + p2);
+	match (p2)
+	{
+		case Existent { printLine("Typestate: Existent"); }
+		case NonExistent { printLine("Typestate: NonExistent"); }
+	};
+    printLine("Successful!");
+}

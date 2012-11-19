@@ -24,7 +24,7 @@
 	DESC:	Package of plaid.io.filesystem statespace.
 	FILE:	package.plaid
 **/
-package rad.io.filesystem;
+package plaidio.filesystem;
 
 /*------------------------------------------------------------------------------
 /**
