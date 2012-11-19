@@ -184,7 +184,7 @@ method TC_ST_1_1_4()
     printLine("Test Case ST-1.1.4.a:");
 	val unique Path p1 = makePath("foo");
 	printLine("Path (valid): '" + p1.getPathName() + "'");
-	p1.validate();
+	p1.checkValidity();
 	match (p1)
 	{
 		case Valid { printLine("Typestate: Valid"); }
@@ -196,7 +196,7 @@ method TC_ST_1_1_4()
     printLine("Test Case ST-1.1.4.b:");
 	val unique Path p2 = makePath("con");
 	printLine("Path (invalid): '" + p2.getPathName() + "'");
-	p2.validate();
+	p2.checkValidity();
 	match (p2)
 	{
 		case Valid { printLine("Typestate: Valid"); }

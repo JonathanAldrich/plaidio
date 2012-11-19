@@ -32,6 +32,7 @@ import plaidio.filesystem.path.Valid;
 /**
 	CID:	TS-1.1.1.1.1
 	DESC:	"Existent" typestate which contains an existent valid path.
+			The constructor of this typestate should be private.
 **/
 state Existent case of Valid
 {

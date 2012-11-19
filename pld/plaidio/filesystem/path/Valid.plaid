@@ -34,6 +34,7 @@ import plaidio.filesystem.path.valid.NonExistent;
 /**
 	CID:	TS-1.1.1.2
 	DESC:	"Valid" typestate which contains a valid path.
+			The constructor of this typestate should be private.
 **/
 state Valid case of Path
 {
@@ -76,4 +77,26 @@ state Valid case of Path
 		p.validate();
 		/*return*/ p;
 	} // method unique Valid getAbsoluteValid()
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1.1.1.2.4
+		DESC:	Returns the canonical pathname string of this abstract pathname.
+	**/
+	/*public*/ method immutable String getCanonicalPathString()
+	{
+		/*return*/ file.getCanonicalPath();
+	} // method immutable String getCanonicalPathString()
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1.1.1.2.5
+		DESC:	Returns the canonical form of this abstract pathname.
+	**/
+	/*public*/ method unique Valid getCanonicalValid()
+	{
+		val p = new Path { file = java.io.File.new(getCanonicalPathString()); };
+		p.validate();
+		/*return*/ p;
+	} // method unique Valid getCanonicalValid()
 }

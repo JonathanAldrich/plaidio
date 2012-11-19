@@ -74,7 +74,7 @@ state Path
 		DESC:	Checks whether the path is valid or not, and
 				changes the state of "this" into either "Valid" or "Invalid".				
 	**/
-	/*public*/ method /*void*/ validate() /*[unique Path >> unique Valid | unique Invalid this]*/
+	/*public*/ method /*void*/ checkValidity() /*[unique Path >> unique Valid | unique Invalid this]*/
 	{
 		/*
 		try
@@ -97,5 +97,5 @@ state Path
 		{
 			this <- Invalid;
 		}
-	} // method /*void*/ validate()
+	} // method /*void*/ checkValidity()
 }
