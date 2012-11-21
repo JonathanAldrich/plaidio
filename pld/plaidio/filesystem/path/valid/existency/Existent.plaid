@@ -19,20 +19,22 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.1.2.1.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
+	FILE:	Existent.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.PermissionDimension;
+import plaidio.filesystem.path.valid.ExistencyDimension;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.1.2.1.1
+	DESC:	"Existent" typestate which contains an existent valid path.
 **/
-state Invalid case of Path
+state Existent case of ExistencyDimension = PermissionDimension with PathTypeDimension with
 {
 }

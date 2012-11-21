@@ -1,0 +1,61 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1.2.1
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	"Readability" state region of "Permission" typestate.
+	FILE:	ReadabilityDimension.plaid
+**/
+package plaidio.filesystem.permission;
+
+import plaidio.filesystem.path.valid.existency.Existent;
+import plaidio.filesystem.path.valid.existency.NonExistent;
+import plaidio.filesystem.permission.readability.Readable;
+import plaidio.filesystem.permission.readability.NonReadable;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1.2.2
+	DESC:	"ReadabilityDimension" typestate which is one dimension of Permission typestate.
+**/
+state ReadabilityDimension
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1.2.2.1
+		DESC:	Checks whether the path is readable or not, and
+				changes the state of "this" into either "Readable" or "NonReadable".				
+	**/
+	/*public*/ method /*void*/ checkReadability() /*[shared Valid >> shared Valid this]*/
+	{
+		match (this)
+		{
+			case Existent
+			{
+				ifElse (jFile.canRead())
+				{ this <- Readable; }
+				//else
+				{ this <- NonReadable; }
+			}
+		};
+	}
+	///*public*/ method /*void*/ checkReadability() /*[shared Valid >> shared Valid this]*/
+}

@@ -19,20 +19,39 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.1.2.2
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Relativity" state region of "Valid" typestate.
+	FILE:	RelativityDimension.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.relativity.NonRelative;
+import plaidio.filesystem.path.valid.relativity.Relative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.1.2.2
+	DESC:	"RelativityDimension" typestate which is one dimension of Valid typestate.
 **/
-state Invalid case of Path
+state RelativityDimension
 {
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1.1.2.2.1
+		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
+				changes the state of "this" into either "NonRelative" or "Relative".
+	**/
+	/*public*/ method /*void*/ checkRelativity() /*[unique RelativityDimension >> unique NonRelative | unique Relative this]*/
+	{
+		ifElse (jFile.isAbsolute())
+		{
+			this <- NonRelative;
+		}
+		//else
+		{
+			this <- Relative;
+		}
+	}
+	///*public*/ method /*void*/ checkRelativity() /*[unique RelativityDimension >> unique NonRelative | unique Relative this]*/
 }

@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.1.2.2.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	FILE:	Relative.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.relativity;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.RelativityDimension;
 
-/*------------------------------------------------------------------------------
+	/*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.1.2.2.2
+	DESC:	"Relative" typestate which contains a relative valid path.
 **/
-state Invalid case of Path
+state Relative case of RelativityDimension
 {
 }

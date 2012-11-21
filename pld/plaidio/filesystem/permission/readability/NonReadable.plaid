@@ -19,21 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.1.1
+	CID:	SR-1.2.2.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Existency" state region of "Valid" typestate.
-	FILE:	Existent.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	NonReadable.plaid
 **/
-package plaidio.filesystem.path.valid;
+package plaidio.filesystem.permission.readability;
 
-import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.permission.ReadabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1.1.1
-	DESC:	"Existent" typestate which contains an existent valid path.
-			The constructor of this typestate should be private.
+	CID:	TS-1.2.2.1
+	DESC:	"NonReadable" typestate which represent a non-readable permission state.
 **/
-state Existent case of Valid
+state NonReadable case of ReadabilityDimension
 {
 }

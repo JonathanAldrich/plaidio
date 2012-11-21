@@ -19,45 +19,41 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-1.1.0
+	CID:	SR-1.1.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Test cases of plaid.io.filesystem package.
+	DESC:	Package of plaid.io.filesystem.path statespace.
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.path.tc;
+package plaidio.filesystem.path;
 
 import plaidio.filesystem.*;
-import plaidio.filesystem.path.*;
-import plaidio.filesystem.path.valid.*;
+import plaidio.filesystem.path.Invalid;
+import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-ST-1.1.1.0
-	DESC:	Test case for ST-1.1.1.0
+	CID: 	ST-1.1.1.0
+	DESC:	constructor for TS-1.1.1
 **/
-method TC_ST_1_1_1_0()
+method unique Invalid makeInvalidPath(immutable String path)
 {
-    printLine("--------------------------------------------------------------------------------");
-    printLine("Test Case ST-1.1.1.0:");
-	val unique Invalid p = makeInvalidPath("con");
-	printLine("Path (invalid): '" + p.getPathName() + "'");
+	val unique Path p = makePath(path);
 	p.checkValidity();
-	match (p) { case Invalid { printLine("Typestate: Invalid"); } };
-    printLine("Successful!");
+	match (p) { case Invalid {} };
+	/*return*/ p;
 }
+//method unique Invalid makeInvalidPath(immutable String path)
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	TC-ST-1.1.2.0
-	DESC:	Test case for ST-1.1.2.0
+	CID: 	ST-1.1.2.0
+	DESC:	constructor for TS-1.2.1
 **/
-method TC_ST_1_1_2_0()
+method unique Valid makeValidPath(immutable String path)
 {
-    printLine("--------------------------------------------------------------------------------");
-    printLine("Test Case ST-1.1.2.0:");
-	val unique Valid p = makeValidPath("foo");
-	printLine("Path (valid): '" + p.getPathName() + "'");
+	val unique Path p = makePath(path);
 	p.checkValidity();
-	match (p) { case Valid { printLine("Typestate: Valid"); } };
-    printLine("Successful!");
+	match (p) { case Valid {} };
+	/*return*/ p;
 }
+//method unique Valid makeValidPath(immutable String path)

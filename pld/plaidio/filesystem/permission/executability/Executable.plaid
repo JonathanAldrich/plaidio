@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.2.1.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
+	FILE:	Executable.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.permission.executability;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.permission.ExecutabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.2.1.1
+	DESC:	"Executable" typestate which represent an executable permission state.
 **/
-state Invalid case of Path
+state Executable case of ExecutabilityDimension
 {
 }

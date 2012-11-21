@@ -26,6 +26,8 @@
 **/
 package plaidio.filesystem;
 
+import plaidio.filesystem.path.Valid;
+
 /*------------------------------------------------------------------------------
 /**
 	CID: 	ST-1.1
@@ -34,7 +36,7 @@ package plaidio.filesystem;
 /*static*/ method immutable String pathSeparator()
 {
 	/*return*/ ("" + pathSeparatorChar());
-} // method immutable String pathSeparator()
+}
 
 /*------------------------------------------------------------------------------
 /**
@@ -44,7 +46,7 @@ package plaidio.filesystem;
 /*static*/ method immutable Character pathSeparatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.pathSeparatorChar; };
-} // method immutable Character pathSeparatorChar()
+}
 
 /*------------------------------------------------------------------------------
 /**
@@ -54,7 +56,7 @@ package plaidio.filesystem;
 /*static*/ method immutable String separator()
 {
 	/*return*/ ("" + separatorChar());
-} // method immutable String separator()
+}
 
 /*------------------------------------------------------------------------------
 /**
@@ -64,7 +66,7 @@ package plaidio.filesystem;
 /*static*/ method immutable Character separatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.separatorChar; };
-} // method immutable Character separatorChar()
+}
 
 /*------------------------------------------------------------------------------
 /**
@@ -73,5 +75,5 @@ package plaidio.filesystem;
 **/
 method unique Path makePath(immutable String path)
 {
-	/*return*/ new Path { file = java.io.File.new(path); };
+	/*return*/ new Path { jFile = java.io.File.new(path); };
 }

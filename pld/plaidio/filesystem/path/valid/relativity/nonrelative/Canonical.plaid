@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.1.2.2.1.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
+	FILE:	Canonical.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.relativity.nonrelative;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.1.2.2.1.2
+	DESC:	"Canonical" typestate which contains a canonical valid path.
 **/
-state Invalid case of Path
+state Canonical case of NonRelative
 {
 }

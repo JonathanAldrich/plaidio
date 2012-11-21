@@ -17,11 +17,12 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Basic statespace for SR-11 features
+	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
+			Basic typestate for SR-11 features.
 	FILE:	Path.plaid
 **/
 package plaidio.filesystem;
@@ -29,46 +30,49 @@ package plaidio.filesystem;
 import plaidio.filesystem.path.Valid;
 import plaidio.filesystem.path.Invalid;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
 	CID:	TS-1.1
 	DESC:	Basic typestate for SR-11 features
 **/
 state Path
 {
-	/*private*/ val /*java.io.File*/ file;
+	/*private*/ val /*unique java.io.File*/ jFile;
 	
-	/*-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1.1.1
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
 	/*public*/ method immutable String getPathName()
 	{
-		/*return*/ file.getName();
-	} // method immutable String getPathName()
+		/*return*/ jFile.getName();
+	}
+	///*public*/ method immutable String getPathName()
 
-	/*-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1.1.2
 		DESC:	Converts this abstract pathname into a pathname string.
 	**/
 	/*public*/ method immutable String getPathString()
 	{
-		/*return*/ file.getPath();
-	} // method immutable String getPathString()
-	
-	/*-----------------------------------------------------------------------------
+		/*return*/ jFile.getPath();
+	}
+	///*public*/ method immutable String getPathString()
+
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1.1.3
 		DESC:	Returns the pathname string of this abstract pathname.
 	**/
 	/*public*/ method immutable String toString()
 	{
-		/*return*/ file.toString();
-	} // method immutable String toString()
+		/*return*/ jFile.toString();
+	}
+	///*public*/ method immutable String toString()
 
-	/*-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1.1.4
 		DESC:	Checks whether the path is valid or not, and
@@ -79,7 +83,7 @@ state Path
 		/*
 		try
 		{
-			file.getCanonicalPath();
+			jFile.getCanonicalPath();
 			this <- Valid;
 		}
 		catch (exception e)
@@ -89,7 +93,7 @@ state Path
 		*/
 		// This method should try to check validity by using either regex or exception handling.
 		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
-		ifElse (com.akefirad.auxiliary.Helper.isValidPath(file))
+		ifElse (com.akefirad.auxiliary.PlaidHelper.isValidPath(jFile))
 		{
 			this <- Valid;
 		}
@@ -97,5 +101,6 @@ state Path
 		{
 			this <- Invalid;
 		}
-	} // method /*void*/ checkValidity()
+	}
+	///*public*/ method /*void*/ checkValidity() /*[unique Path >> unique Valid | unique Invalid this]*/
 }

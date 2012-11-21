@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.1.2.1.1.1.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Type" subtypes of "Type" typestate.
+	FILE:	Leaf.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.1.2.1.1.1.1.1
+	DESC:	"Leaf" typestate which contains an existent leaf path.
 **/
-state Invalid case of Path
+state Leaf case of PathTypeDimension
 {
 }

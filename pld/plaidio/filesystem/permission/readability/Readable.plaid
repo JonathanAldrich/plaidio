@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-1.2.2.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	Readable.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.permission.readability;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.permission.ReadabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1.2.2.2
+	DESC:	"Readable" typestate which represent a readable permission state.
 **/
-state Invalid case of Path
+state Readable case of ReadabilityDimension
 {
 }
