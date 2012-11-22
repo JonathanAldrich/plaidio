@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package of plaid.io.filesystem.path statespace.
 	FILE:	package.plaid
@@ -32,8 +32,8 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.1.1.0
-	DESC:	constructor for TS-1.1.1
+	CID: 	ST-1110
+	DESC:	constructor for TS-111
 **/
 method unique Invalid makeInvalidPath(immutable String path)
 {
@@ -46,8 +46,8 @@ method unique Invalid makeInvalidPath(immutable String path)
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.1.2.0
-	DESC:	constructor for TS-1.2.1
+	CID: 	ST-1120
+	DESC:	constructor for TS-121
 **/
 method unique Valid makeValidPath(immutable String path)
 {

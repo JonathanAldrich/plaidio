@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.2.3.0
+	CID:	SR-1231
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
 	FILE:	NonWritable.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.permission.WritabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2.3.1
+	CID:	TS-1231
 	DESC:	"NonWritable" typestate which represent a non-writable permission state.
 **/
 state NonWritable case of WritabilityDimension

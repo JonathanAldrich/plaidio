@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.2.2.0
+	CID:	SR-1221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
 	FILE:	Readable.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.permission.ReadabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2.2.2
+	CID:	TS-1222
 	DESC:	"Readable" typestate which represent a readable permission state.
 **/
 state Readable case of ReadabilityDimension

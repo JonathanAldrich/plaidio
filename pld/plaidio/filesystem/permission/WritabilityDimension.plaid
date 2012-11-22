@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.2.1
+	CID:	SR-121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Writability" state region of "Permission" typestate.
 	FILE:	WritabilityDimension.plaid
@@ -33,14 +33,14 @@ import plaidio.filesystem.permission.writability.NonWritable;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2.3
+	CID:	TS-123
 	DESC:	"WritabilityDimension" typestate which is one dimension of Permission typestate.
 **/
 state WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1.2.2.1
+		CID:	ST-1231
 		DESC:	Checks whether the path is writable or not, and
 				changes the state of "this" into either "Writable" or "NonWritable".				
 	**/

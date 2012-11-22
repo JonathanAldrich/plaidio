@@ -19,20 +19,19 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121111
+	CID:	SR-1221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Type" subtypes of "Type" typestate.
-	FILE:	Root.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype;
+package plaidio.filesystem.permission.readability;
 
-import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
-
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-1121112
-	DESC:	"Root" typestate which contains an existent root path.
+	CID:	TS-SR-1221
+	DESC:	Tester of plaidio.filesystem package
 **/
-state Root case of PathTypeDimension
+immutable state _Tester
 {
+	
 }

@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.1.1.1.0
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Type" subtypes of "Type" typestate.
 	FILE:	Leaf.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.1.1.1.1.1
+	CID:	TS-1121111
 	DESC:	"Leaf" typestate which contains an existent leaf path.
 **/
 state Leaf case of PathTypeDimension

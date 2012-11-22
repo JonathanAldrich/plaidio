@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.2.1.0
+	CID:	SR-112211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
 	FILE:	Canonical.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.path.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.2.1.2
+	CID:	TS-112212
 	DESC:	"Canonical" typestate which contains a canonical valid path.
 **/
 state Canonical case of NonRelative

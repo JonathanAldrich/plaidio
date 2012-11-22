@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.2.3.0
+	CID:	SR-1231
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
 	FILE:	Writable.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.permission.WritabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2.3.2
+	CID:	TS-1232
 	DESC:	"Writable" typestate which represent a writable permission state.
 **/
 state Writable case of WritabilityDimension

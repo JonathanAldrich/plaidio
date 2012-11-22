@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Validity" subtypes of "Path" typestate.
 	FILE:	Invalid.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.Path;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1
+	CID:	TS-111
 	DESC:	"Invalid" typestate which contains n invalid path.
 **/
 state Invalid case of Path

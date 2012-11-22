@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.1.1.1.1.1.0
+	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Leaf" subtypes of "Leaf" typestate.
 	FILE:	Folder.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.1.1.1.1.1.2
+	CID:	TS-11211112
 	DESC:	"Folder" typestate which contains an existent folder path.
 **/
 state Folder case of Leaf

@@ -30,7 +30,7 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.1
+	CID: 	ST-11
 	DESC:	The system-dependent path-separator character.
 **/
 /*static*/ method immutable String pathSeparator()
@@ -40,7 +40,7 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.2
+	CID: 	ST-12
 	DESC:	The system-dependent path-separator character.
 **/
 /*static*/ method immutable Character pathSeparatorChar()
@@ -50,7 +50,7 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.3
+	CID: 	ST-13
 	DESC:	The system-dependent default name-separator character.
 **/
 /*static*/ method immutable String separator()
@@ -60,7 +60,7 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.4
+	CID: 	ST-14
 	DESC:	The system-dependent default name-separator character.
 **/
 /*static*/ method immutable Character separatorChar()
@@ -70,8 +70,8 @@ import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-1.1.0
-	DESC:	constructor for TS-1.1
+	CID: 	ST-110
+	DESC:	constructor for TS-11
 **/
 method unique Path makePath(immutable String path)
 {

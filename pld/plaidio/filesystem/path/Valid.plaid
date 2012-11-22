@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.0
+	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Validity" subtypes of "Path" typestate.
 	FILE:	Valid.plaid
@@ -32,7 +32,7 @@ import plaidio.filesystem.path.valid.ExistencyDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2
+	CID:	TS-112
 	DESC:	"Valid" typestate which contains a valid path.
 **/
 state Valid case of Path = ExistencyDimension with RelativityDimension with

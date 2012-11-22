@@ -33,14 +33,14 @@ import plaidio.filesystem.permission.WritabilityDimension;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2
+	CID:	TS-12
 	DESC:	permission typestate for SR-11 features
 **/
 state PermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1.2.1
+		CID:	ST-121
 		DESC:	Specifies the permission state of the path.				
 	**/
 	/*public*/ method /*void*/ checkPermission() /*[shared Valid >> shared Valid this]*/

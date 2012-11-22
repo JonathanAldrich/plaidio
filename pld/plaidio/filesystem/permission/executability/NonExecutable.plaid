@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.2.1.0
+	CID:	SR-1211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
 	FILE:	NonExecutable.plaid
@@ -30,7 +30,7 @@ import plaidio.filesystem.permission.ExecutabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.2.1.2
+	CID:	TS-1212
 	DESC:	"Executable" typestate which represent a non-executable permission state.
 **/
 state NonExecutable case of ExecutabilityDimension

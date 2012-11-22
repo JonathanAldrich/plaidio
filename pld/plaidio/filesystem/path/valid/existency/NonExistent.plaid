@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.1.0
+	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
 	FILE:	NonExistent.plaid
@@ -31,7 +31,7 @@ import plaidio.filesystem.path.valid.ExistencyDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.1.2
+	CID:	TS-11212
 	DESC:	"NonExistent" typestate which contains a nonexistent valid path.
 **/
 state NonExistent case of ExistencyDimension = PermissionDimension with

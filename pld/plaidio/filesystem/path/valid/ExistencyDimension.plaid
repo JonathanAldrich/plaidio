@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.1
+	CID:	SR-1121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Existency" state region of "Valid" typestate.
 	FILE:	ExistencyDimension.plaid
@@ -31,14 +31,14 @@ import plaidio.filesystem.path.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.1
+	CID:	TS-1121
 	DESC:	"ExistencyDimension" typestate which is one dimension of Valid typestate.
 **/
 state ExistencyDimension
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1.1.2.1.1
+		CID:	ST-11211
 		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
 				changes the state of "this" into either "Existent" or "NonExistent".
 	**/

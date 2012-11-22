@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.1.1.1
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Type" state region of "Existent" typestate.
 	FILE:	PathTypeDimension.plaid
@@ -28,7 +28,7 @@ package plaidio.filesystem.path.valid.existency.existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.1.1.1.1
+	CID:	TS-112111
 	DESC:	"PathTypeDimension" typestate which is one dimension of Existent typestate.
 **/
 state PathTypeDimension

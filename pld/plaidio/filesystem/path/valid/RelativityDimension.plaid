@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.2.2
+	CID:	SR-1121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Relativity" state region of "Valid" typestate.
 	FILE:	RelativityDimension.plaid
@@ -31,14 +31,14 @@ import plaidio.filesystem.path.valid.relativity.Relative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.2.2
+	CID:	TS-1122
 	DESC:	"RelativityDimension" typestate which is one dimension of Valid typestate.
 **/
 state RelativityDimension
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1.1.2.2.1
+		CID:	ST-11221
 		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
 				changes the state of "this" into either "NonRelative" or "Relative".
 	**/

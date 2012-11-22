@@ -19,20 +19,19 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121111
+	CID:	SR-112211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Type" subtypes of "Type" typestate.
-	FILE:	Root.plaid
+	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
+	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype;
+package plaidio.filesystem.path.valid.relativity.nonrelative;
 
-import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
-
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-1121112
-	DESC:	"Root" typestate which contains an existent root path.
+	CID:	TS-SR-112211
+	DESC:	Tester of plaidio.filesystem.path.valid package
 **/
-state Root case of PathTypeDimension
+immutable state _Tester
 {
+	
 }

@@ -22,17 +22,16 @@
 	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Type" subtypes of "Type" typestate.
-	FILE:	Root.plaid
+	FILE:	_Tester.plaid
 **/
 package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
-import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
-
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-1121112
-	DESC:	"Root" typestate which contains an existent root path.
+	CID:	TS-SR-1121111
+	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype package
 **/
-state Root case of PathTypeDimension
+immutable state _Tester
 {
+	
 }
