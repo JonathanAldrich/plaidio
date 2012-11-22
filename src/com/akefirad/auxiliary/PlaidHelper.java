@@ -3,7 +3,7 @@ package com.akefirad.auxiliary;
 import java.io.File;
 import java.io.IOException;
 
-public class Helper
+public class PlaidHelper
 {
 	public static boolean isValidPath(File file)
 	{

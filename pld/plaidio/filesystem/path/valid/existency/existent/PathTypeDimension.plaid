@@ -19,20 +19,18 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Type" state region of "Existent" typestate.
+	FILE:	PathTypeDimension.plaid
 **/
-package plaidio.filesystem.path;
-
-import plaidio.filesystem.Path;
+package plaidio.filesystem.path.valid.existency.existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-112111
+	DESC:	"PathTypeDimension" typestate which is one dimension of Existent typestate.
 **/
-state Invalid case of Path
+state PathTypeDimension
 {
 }

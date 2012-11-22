@@ -19,20 +19,47 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SS-0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	Main package of I/O API.
+	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio;
 
-import plaidio.filesystem.Path;
+import plaid.lang.testing.TestFactory;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-SS-0
+	DESC:	Tester of plaidio package
 **/
-state Invalid case of Path
+immutable state _Tester case of TestFactory
 {
+	method unique List<unique Test> createTests() {
+		val tests = makeEmptyList();
+		val test = fn(name, body) => { tests.add(mktest(name, body)); };
+		val identity = fn(x) => x;
+
+		test("First Test Case", fn(ctx) => {
+			printLine("This is first test case.");
+			ctx.pass = true;
+		});
+
+		test("Second Test Case", fn(ctx) => {
+			printLine("This is second test case.");
+			ctx.pass = true;
+		});
+
+		test("Third Test Case", fn(ctx) => {
+			printLine("This is third test case.");
+			ctx.pass = true;
+		});
+
+		test("Forth Test Case", fn(ctx) => {
+			printLine("This is forth test case.");
+			ctx.pass = false;
+		});
+
+		tests
+	}
 }

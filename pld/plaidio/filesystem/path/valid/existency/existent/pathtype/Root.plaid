@@ -19,21 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.1.1
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Existency" state region of "Valid" typestate.
-	FILE:	NonExistent.plaid
+	DESC:	"Type" subtypes of "Type" typestate.
+	FILE:	Root.plaid
 **/
-package plaidio.filesystem.path.valid;
+package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
-import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1.1.2
-	DESC:	"NonExistent" typestate which contains an nonexistent valid path.
-			The constructor of this typestate should be private.
+	CID:	TS-1121112
+	DESC:	"Root" typestate which contains an existent root path.
 **/
-state NonExistent case of Valid
+state Root case of PathTypeDimension
 {
 }

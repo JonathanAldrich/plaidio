@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Leaf" subtypes of "Leaf" typestate.
+	FILE:	File.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency.existent.pathtype.leaf;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-11211111
+	DESC:	"File" typestate which contains an existent file path.
 **/
-state Invalid case of Path
+state File case of Leaf
 {
 }

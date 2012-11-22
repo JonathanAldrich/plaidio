@@ -19,20 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-1211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
+	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.permission.executability;
 
-import plaidio.filesystem.Path;
+import plaid.lang.testing.TestFactory;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-SR-1211
+	DESC:	Tester of plaidio.filesystem package
 **/
-state Invalid case of Path
+immutable state _Tester case of TestFactory
 {
+	
 }

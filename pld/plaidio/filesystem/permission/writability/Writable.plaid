@@ -19,20 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-1231
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
+	FILE:	Writable.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.permission.writability;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.permission.WritabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1232
+	DESC:	"Writable" typestate which represent a writable permission state.
 **/
-state Invalid case of Path
+state Writable case of WritabilityDimension
 {
 }

@@ -19,21 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1.1.1.1
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Existency" state region of "Valid" typestate.
-	FILE:	Existent.plaid
+	DESC:	"Type" subtypes of "Type" typestate.
+	FILE:	Leaf.plaid
 **/
-package plaidio.filesystem.path.valid;
+package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
-import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1.1.1.1.1
-	DESC:	"Existent" typestate which contains an existent valid path.
-			The constructor of this typestate should be private.
+	CID:	TS-1121111
+	DESC:	"Leaf" typestate which contains an existent leaf path.
 **/
-state Existent case of Valid
+state Leaf case of PathTypeDimension
 {
 }

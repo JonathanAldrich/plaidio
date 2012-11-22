@@ -19,20 +19,39 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-1121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Existency" state region of "Valid" typestate.
+	FILE:	ExistencyDimension.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.path.valid.existency.Existent;
+import plaidio.filesystem.path.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-1121
+	DESC:	"ExistencyDimension" typestate which is one dimension of Valid typestate.
 **/
-state Invalid case of Path
+state ExistencyDimension
 {
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211
+		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
+				changes the state of "this" into either "Existent" or "NonExistent".
+	**/
+	/*public*/ method /*void*/ checkExistency() /*[unique ExistencyDimension >> unique Existent | unique NonExistent this]*/
+	{
+		ifElse (jFile.exists())
+		{
+			this <- Existent;
+		}
+		//else
+		{
+			this <- NonExistent;
+		}
+	}
+	///*public*/ method /*void*/ checkExistency() /*[unique ExistencyDimension >> unique Existent | unique NonExistent this]*/
 }

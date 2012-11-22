@@ -21,18 +21,39 @@
 /**
 	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	Package of plaid.io.filesystem.path statespace.
+	FILE:	package.plaid
 **/
 package plaidio.filesystem.path;
 
-import plaidio.filesystem.Path;
+import plaidio.filesystem.*;
+import plaidio.filesystem.path.Invalid;
+import plaidio.filesystem.path.Valid;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID: 	ST-1110
+	DESC:	constructor for TS-111
 **/
-state Invalid case of Path
+method unique Invalid makeInvalidPath(immutable String path)
 {
+	val unique Path p = makePath(path);
+	p.checkValidity();
+	match (p) { case Invalid {} };
+	/*return*/ p;
 }
+//method unique Invalid makeInvalidPath(immutable String path)
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-1120
+	DESC:	constructor for TS-121
+**/
+method unique Valid makeValidPath(immutable String path)
+{
+	val unique Path p = makePath(path);
+	p.checkValidity();
+	match (p) { case Valid {} };
+	/*return*/ p;
+}
+//method unique Valid makeValidPath(immutable String path)
