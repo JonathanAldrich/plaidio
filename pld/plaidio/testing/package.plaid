@@ -1,0 +1,81 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SS-0.0
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Main package of plaidio.testing package.
+	FILE:	package.plaid
+**/
+package plaidio.testing;
+
+import plaidio.filesystem.Path;
+import plaidio.filesystem.PermissionDimension;
+import plaidio.filesystem.path.Invalid;
+import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.path.valid.ExistencyDimension;
+import plaidio.filesystem.path.valid.RelativityDimension;
+import plaidio.filesystem.path.valid.existency.Existent;
+import plaidio.filesystem.path.valid.existency.NonExistent;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Root;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaf.File;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaf.Folder;
+import plaidio.filesystem.path.valid.relativity.NonRelative;
+import plaidio.filesystem.path.valid.relativity.Relative;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Canonical;
+import plaidio.filesystem.permission.ExecutabilityDimension;
+import plaidio.filesystem.permission.ReadabilityDimension;
+import plaidio.filesystem.permission.WritabilityDimension;
+import plaidio.filesystem.permission.executability.Executable;
+import plaidio.filesystem.permission.executability.NonExecutable;
+import plaidio.filesystem.permission.readability.NonReadable;
+import plaidio.filesystem.permission.readability.Readable;
+import plaidio.filesystem.permission.writability.NonWritable;
+import plaidio.filesystem.permission.writability.Writable;
+
+method immutable Boolean isinAbsolute(v) { match (v) { case Absolute { true; } default { false; } }; }
+method immutable Boolean isinCanonical(v) { match (v) { case Canonical { true; } default { false; } }; }
+method immutable Boolean isinExecutabilityDimension(v) { match (v) { case ExecutabilityDimension { true; } default { false; } }; }
+method immutable Boolean isinExecutable(v) { match (v) { case Executable { true; } default { false; } }; }
+method immutable Boolean isinExistencyDimension(v) { match (v) { case ExistencyDimension { true; } default { false; } }; }
+method immutable Boolean isinExistent(v) { match (v) { case Existent { true; } default { false; } }; }
+method immutable Boolean isinFile(v) { match (v) { case File { true; } default { false; } }; }
+method immutable Boolean isinFolder(v) { match (v) { case Folder { true; } default { false; } }; }
+method immutable Boolean isinInvalid(v) { match (v) { case Invalid { true; } default { false; } }; }
+method immutable Boolean isinLeaf(v) { match (v) { case Leaf { true; } default { false; } }; }
+method immutable Boolean isinNonExecutable(v) { match (v) { case NonExecutable { true; } default { false; } }; }
+method immutable Boolean isinNonExistent(v) { match (v) { case NonExistent { true; } default { false; } }; }
+method immutable Boolean isinNonReadable(v) { match (v) { case NonReadable { true; } default { false; } }; }
+method immutable Boolean isinNonRelative(v) { match (v) { case NonRelative { true; } default { false; } }; }
+method immutable Boolean isinNonWritable(v) { match (v) { case NonWritable { true; } default { false; } }; }
+method immutable Boolean isinPath(v) { match (v) { case Path { true; } default { false; } }; }
+method immutable Boolean isinPathTypeDimension(v) { match (v) { case PathTypeDimension { true; } default { false; } }; }
+method immutable Boolean isinPermissionDimension(v) { match (v) { case PermissionDimension { true; } default { false; } }; }
+method immutable Boolean isinReadabilityDimension(v) { match (v) { case ReadabilityDimension { true; } default { false; } }; }
+method immutable Boolean isinReadable(v) { match (v) { case Readable { true; } default { false; } }; }
+method immutable Boolean isinRelative(v) { match (v) { case Relative { true; } default { false; } }; }
+method immutable Boolean isinRelativityDimension(v) { match (v) { case RelativityDimension { true; } default { false; } }; }
+method immutable Boolean isinRoot(v) { match (v) { case Root { true; } default { false; } }; }
+method immutable Boolean isinValid(v) { match (v) { case Valid { true; } default { false; } }; }
+method immutable Boolean isinWritabilityDimension(v) { match (v) { case WritabilityDimension { true; } default { false; } }; }
+method immutable Boolean isinWritable(v) { match (v) { case Writable { true; } default { false; } }; }

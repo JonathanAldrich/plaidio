@@ -26,12 +26,14 @@
 **/
 package plaidio.filesystem.path;
 
+import plaid.lang.testing.TestFactory;
+
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-SR-111
 	DESC:	Tester of plaidio.filesystem.path package
 **/
-immutable state _Tester
+immutable state _Tester case of TestFactory
 {
 	
 }

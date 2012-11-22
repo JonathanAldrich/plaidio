@@ -26,12 +26,14 @@
 **/
 package plaidio.filesystem;
 
+import plaid.lang.testing.TestFactory;
+
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-SS-1
 	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester
+immutable state _Tester case of TestFactory
 {
-	
+	//method 
 }

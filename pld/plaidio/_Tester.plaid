@@ -26,12 +26,40 @@
 **/
 package plaidio;
 
+import plaid.lang.testing.TestFactory;
+
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-SS-0
 	DESC:	Tester of plaidio package
 **/
-immutable state _Tester
+immutable state _Tester case of TestFactory
 {
-	
+	method unique List<unique Test> createTests() {
+		val tests = makeEmptyList();
+		val test = fn(name, body) => { tests.add(mktest(name, body)); };
+		val identity = fn(x) => x;
+
+		test("First Test Case", fn(ctx) => {
+			printLine("This is first test case.");
+			ctx.pass = true;
+		});
+
+		test("Second Test Case", fn(ctx) => {
+			printLine("This is second test case.");
+			ctx.pass = true;
+		});
+
+		test("Third Test Case", fn(ctx) => {
+			printLine("This is third test case.");
+			ctx.pass = true;
+		});
+
+		test("Forth Test Case", fn(ctx) => {
+			printLine("This is forth test case.");
+			ctx.pass = false;
+		});
+
+		tests
+	}
 }
