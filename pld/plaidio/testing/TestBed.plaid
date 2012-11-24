@@ -19,47 +19,50 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-0
+	CID:	SS-9
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of I/O API.
-	FILE:	_Tester.plaid
+	DESC:	Testing package of I/O API.
+	FILE:	TestBed.plaid
 **/
-package plaidio;
+package plaidio.testing;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.*;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SS-0
-	DESC:	Tester of plaidio package
+	CID:	TS-92
+	DESC:	Test bed for plaidio package's test cases (created based on TestFactory)
 **/
-immutable state _Tester case of TestFactory
+immutable state TestBed
 {
-	method unique List<unique Test> createTests() {
-		val tests = makeEmptyList();
-		val test = fn(name, body) => { tests.add(mktest(name, body)); };
-		val identity = fn(x) => x;
+	val immutable String p_Name;
+	val unique List<immutable TestCase> p_TestCases;
+	
+	method void addTestCase(immutable TestCase testcase)
+	{
+		p_TestCases.add(testcase);
+	}
 
-		test("First Test Case", fn(ctx) => {
-			printLine("This is first test case.");
-			ctx.pass = true;
-		});
-
-		test("Second Test Case", fn(ctx) => {
-			printLine("This is second test case.");
-			ctx.pass = true;
-		});
-
-		test("Third Test Case", fn(ctx) => {
-			printLine("This is third test case.");
-			ctx.pass = true;
-		});
-
-		test("Forth Test Case", fn(ctx) => {
-			printLine("This is forth test case.");
-			ctx.pass = false;
-		});
-
-		tests
+	method void runTestCases()
+	{
+		ifElse (p_TestCases.isEmpty())
+		{
+			printLine("There is no test case to run!");
+		}
+		//else
+		{
+			var i = 0;
+			var testcase = new Unit;
+			while
+			{
+				testcase = p_TestCases.get(i);
+				isNil(testcase) == false;
+			}
+			//do
+			{
+				testcase.run(false);
+				i = i + 1;
+			};
+		}
 	}
 }

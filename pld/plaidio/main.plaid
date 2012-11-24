@@ -36,29 +36,31 @@ import plaidio.filesystem.Path;
 **/
 method main()
 {
-	var tester = new Unit;
-	var tests = new Unit;
-	var test = new Unit;
-	tester = new plaidio._Tester;
-	tests = tester.createTests();
-	var i = 0;
-	while
-	{
-		test = tests.get(i);
-		match (test)
-		{
-			case Nil { false; }
-			default { true; }
-		}
-	}
-	{
-		test.run(false);
-		i = i + 1;
-	};
+	var testcase = new Unit;
+	val testbed = makeTestBed();
+
+	testcase = makeTestCase("First Test Case", fn(tc) => {
+		printLine("This is first test case.");
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("Second Test Case", fn(tc) => {
+		printLine("This is first test case.");
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("Third Test Case", fn(tc) => {
+		printLine("This is first test case.");
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("Forth Test Case", fn(tc) => {
+		printLine("This is first test case.");
+		tc.fail();
+	});
+	testbed.addTestCase(testcase);
 	
-	val p = new Path;
-	printLine(isinPath(p));
-	//tester = new plaidio.filesystem._Tester;
+	testbed.runTestCases();
 //	TC_ST_1_1();
 //	TC_ST_1_2();
 //	TC_ST_1_3();
