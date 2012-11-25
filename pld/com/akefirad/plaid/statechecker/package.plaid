@@ -1,3 +1,3 @@
-package com.akefirad.plaid;
+package com.akefirad.plaid.statechecker;
 
 method immutable Boolean isNil(v) { match (v) { case Nil { true; } default { false; } }; }

@@ -21,15 +21,15 @@
 /**
 	CID:	SS-9
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Testing package of I/O API.
+	DESC:	Testing package of plaid programming language.
 	FILE:	TestCase.plaid
 **/
-package plaidio.testing;
+package com.akefirad.plaid.testing;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-91
-	DESC:	Test Case interface for plaidio package's testing (created based on Test)
+	DESC:	Test Case for plaidio package's testing (created based on Test)
 **/
 immutable state TestCase
 {
@@ -43,12 +43,20 @@ immutable state TestCase
 		DESC:	Runs the test case and return the test result.
 				It should be implemented when a tset case is creating.
 	**/
-    method immutable Boolean run()
+    method immutable Boolean run(immutable Boolean verbose)
     {
-		printLine(">>> " + p_Name + " BEGIN -----------------------------------");
-		p_Body(this);
-		printLine("RESULT: " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
-		printLine("<<< " + p_Name + " END -------------------------------------");
+		ifElse (verbose)
+		{
+			printLine(">>> " + p_Name + " BEGIN -----------------------------------");
+			p_Body(this);
+			printLine("RESULT: " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
+			printLine("<<< " + p_Name + " END -------------------------------------");
+		}
+		//Else
+		{
+			p_Body(this);
+			printLine("TESTCASE " + p_Name + " " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
+		}
     }
 
 	//-----------------------------------------------------------------------------
@@ -68,7 +76,7 @@ immutable state TestCase
 	**/
 	method void assertTrue(immutable Boolean assertion)
 	{
-		p_Result = p_Result && assertion;
+		assert(fn() => { assertion; });
 	}
 
 	//-----------------------------------------------------------------------------
@@ -78,7 +86,7 @@ immutable state TestCase
 	**/
 	method void assertFalse(immutable Boolean assertion)
 	{
-		p_Result = p_Result && (!assertion);
+		assert(fn() => { !assertion; });
 	}
 
 	//-----------------------------------------------------------------------------

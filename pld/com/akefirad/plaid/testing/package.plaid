@@ -21,10 +21,10 @@
 /**
 	CID:	SS-0.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of plaidio.testing package.
+	DESC:	Main package of plaid programming language testing platform.
 	FILE:	package.plaid
 **/
-package plaidio.testing;
+package com.akefirad.plaid.testing;
 
 method immutable TestCase makeTestCase(immutable String name, body)
 {

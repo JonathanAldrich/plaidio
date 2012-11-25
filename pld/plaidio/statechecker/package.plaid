@@ -1,0 +1,55 @@
+package plaidio.statechecker;
+
+import plaidio.filesystem.Path;
+import plaidio.filesystem.PermissionDimension;
+import plaidio.filesystem.path.Invalid;
+import plaidio.filesystem.path.Valid;
+import plaidio.filesystem.path.valid.ExistencyDimension;
+import plaidio.filesystem.path.valid.RelativityDimension;
+import plaidio.filesystem.path.valid.existency.Existent;
+import plaidio.filesystem.path.valid.existency.NonExistent;
+import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Root;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaf.File;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaf.Folder;
+import plaidio.filesystem.path.valid.relativity.NonRelative;
+import plaidio.filesystem.path.valid.relativity.Relative;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Canonical;
+import plaidio.filesystem.permission.ExecutabilityDimension;
+import plaidio.filesystem.permission.ReadabilityDimension;
+import plaidio.filesystem.permission.WritabilityDimension;
+import plaidio.filesystem.permission.executability.Executable;
+import plaidio.filesystem.permission.executability.NonExecutable;
+import plaidio.filesystem.permission.readability.NonReadable;
+import plaidio.filesystem.permission.readability.Readable;
+import plaidio.filesystem.permission.writability.NonWritable;
+import plaidio.filesystem.permission.writability.Writable;
+
+method immutable Boolean isAbsolute(v) { match (v) { case Absolute { true; } default { false; } }; }
+method immutable Boolean isCanonical(v) { match (v) { case Canonical { true; } default { false; } }; }
+method immutable Boolean isExecutabilityDimension(v) { match (v) { case ExecutabilityDimension { true; } default { false; } }; }
+method immutable Boolean isExecutable(v) { match (v) { case Executable { true; } default { false; } }; }
+method immutable Boolean isExistencyDimension(v) { match (v) { case ExistencyDimension { true; } default { false; } }; }
+method immutable Boolean isExistent(v) { match (v) { case Existent { true; } default { false; } }; }
+method immutable Boolean isFile(v) { match (v) { case File { true; } default { false; } }; }
+method immutable Boolean isFolder(v) { match (v) { case Folder { true; } default { false; } }; }
+method immutable Boolean isInvalid(v) { match (v) { case Invalid { true; } default { false; } }; }
+method immutable Boolean isLeaf(v) { match (v) { case Leaf { true; } default { false; } }; }
+method immutable Boolean isNonExecutable(v) { match (v) { case NonExecutable { true; } default { false; } }; }
+method immutable Boolean isNonExistent(v) { match (v) { case NonExistent { true; } default { false; } }; }
+method immutable Boolean isNonReadable(v) { match (v) { case NonReadable { true; } default { false; } }; }
+method immutable Boolean isNonRelative(v) { match (v) { case NonRelative { true; } default { false; } }; }
+method immutable Boolean isNonWritable(v) { match (v) { case NonWritable { true; } default { false; } }; }
+method immutable Boolean isPath(v) { match (v) { case Path { true; } default { false; } }; }
+method immutable Boolean isPathTypeDimension(v) { match (v) { case PathTypeDimension { true; } default { false; } }; }
+method immutable Boolean isPermissionDimension(v) { match (v) { case PermissionDimension { true; } default { false; } }; }
+method immutable Boolean isReadabilityDimension(v) { match (v) { case ReadabilityDimension { true; } default { false; } }; }
+method immutable Boolean isReadable(v) { match (v) { case Readable { true; } default { false; } }; }
+method immutable Boolean isRelative(v) { match (v) { case Relative { true; } default { false; } }; }
+method immutable Boolean isRelativityDimension(v) { match (v) { case RelativityDimension { true; } default { false; } }; }
+method immutable Boolean isRoot(v) { match (v) { case Root { true; } default { false; } }; }
+method immutable Boolean isValid(v) { match (v) { case Valid { true; } default { false; } }; }
+method immutable Boolean isWritabilityDimension(v) { match (v) { case WritabilityDimension { true; } default { false; } }; }
+method immutable Boolean isWritable(v) { match (v) { case Writable { true; } default { false; } }; }

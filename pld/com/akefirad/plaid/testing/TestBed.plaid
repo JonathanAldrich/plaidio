@@ -21,17 +21,17 @@
 /**
 	CID:	SS-9
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Testing package of I/O API.
+	DESC:	Testing package of plaid programming language.
 	FILE:	TestBed.plaid
 **/
-package plaidio.testing;
+package com.akefirad.plaid.testing;
 
-import com.akefirad.plaid.*;
+import com.akefirad.plaid.statechecker.*;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-92
-	DESC:	Test bed for plaidio package's test cases (created based on TestFactory)
+	DESC:	Test bed for plaid programs' test cases (created based on TestFactory)
 **/
 immutable state TestBed
 {
@@ -43,7 +43,7 @@ immutable state TestBed
 		p_TestCases.add(testcase);
 	}
 
-	method void runTestCases()
+	method void runTestCases(immutable Boolean verbose)
 	{
 		ifElse (p_TestCases.isEmpty())
 		{
@@ -60,7 +60,7 @@ immutable state TestBed
 			}
 			//do
 			{
-				testcase.run(false);
+				testcase.run(verbose);
 				i = i + 1;
 			};
 		}
