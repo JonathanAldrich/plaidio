@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211111
+	CID:	SR-1221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Leaf" subtypes of "Leaf" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	_readability.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype.leaf;
+package plaidio.filesystem.permission.readability;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-11211111
-	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype.leaf package
+	CID:	TS-SR-1221
+	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester case of TestFactory
+immutable state _readability case of TestBed
 {
 	
 }

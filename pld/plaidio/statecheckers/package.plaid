@@ -1,4 +1,4 @@
-package plaidio.statechecker;
+package plaidio.statecheckers;
 
 import plaidio.filesystem.Path;
 import plaidio.filesystem.PermissionDimension;

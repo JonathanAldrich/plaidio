@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Existency" state region of "Valid" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Type" subtypes of "Type" typestate.
+	FILE:	_pathtype.plaid
 **/
-package plaidio.filesystem.path.valid;
+package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-1121
-	DESC:	Tester of plaidio.filesystem.path.valid package
+	CID:	TS-SR-1121111
+	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype package
 **/
-immutable state _Tester case of TestFactory
+immutable state _pathtype case of TestBed
 {
 	
 }

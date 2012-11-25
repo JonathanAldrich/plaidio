@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1231
+	CID:	SR-112211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
+	FILE:	_nonrelative.plaid
 **/
-package plaidio.filesystem.permission.writability;
+package plaidio.filesystem.path.valid.relativity.nonrelative;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-1231
-	DESC:	Tester of plaidio.filesystem package
+	CID:	TS-SR-112211
+	DESC:	Tester of plaidio.filesystem.path.valid package
 **/
-immutable state _Tester case of TestFactory
+immutable state _nonrelative case of TestBed
 {
 	
 }

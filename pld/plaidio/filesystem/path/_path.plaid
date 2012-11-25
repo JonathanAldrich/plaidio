@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211
+	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
-	FILE:	_Tester.plaid
+	DESC:	Package of plaid.io.filesystem.path statespace.
+	FILE:	_path.plaid
 **/
-package plaidio.filesystem.path.valid.existency;
+package plaidio.filesystem.path;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-11211
-	DESC:	Tester of plaidio.filesystem.path.valid.existency package
+	CID:	TS-SR-111
+	DESC:	Tester of plaidio.filesystem.path package
 **/
-immutable state _Tester case of TestFactory
+immutable state _path case of TestBed
 {
 	
 }

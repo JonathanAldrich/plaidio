@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121111
+	CID:	SR-1231
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Type" subtypes of "Type" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
+	FILE:	_writability.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype;
+package plaidio.filesystem.permission.writability;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-1121111
-	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype package
+	CID:	TS-SR-1231
+	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester case of TestFactory
+immutable state _writability case of TestBed
 {
 	
 }

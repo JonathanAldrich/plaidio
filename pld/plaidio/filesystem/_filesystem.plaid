@@ -19,21 +19,20 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1221
+	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	DESC:	Package of plaid.io.filesystem statespace.
 	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.permission.readability;
+package plaidio.filesystem;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-1221
+	CID:	TS-SS-1
 	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester case of TestFactory
+immutable state _filesystem case of TestBed
 {
-	
 }

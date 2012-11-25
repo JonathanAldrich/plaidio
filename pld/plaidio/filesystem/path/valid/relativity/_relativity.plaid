@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112111
+	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Type" state region of "Existent" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	FILE:	_relativity.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent;
+package plaidio.filesystem.path.valid.relativity;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-112111
-	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent package
+	CID:	TS-SR-11221
+	DESC:	Tester of plaidio.filesystem.path.valid package
 **/
-immutable state _Tester case of TestFactory
+immutable state _relativity case of TestBed
 {
 	
 }

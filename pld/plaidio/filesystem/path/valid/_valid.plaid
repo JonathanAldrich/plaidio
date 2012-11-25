@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112211
+	CID:	SR-1121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Existency" state region of "Valid" typestate.
+	FILE:	_valid.plaid
 **/
-package plaidio.filesystem.path.valid.relativity.nonrelative;
+package plaidio.filesystem.path.valid;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-112211
+	CID:	TS-SR-1121
 	DESC:	Tester of plaidio.filesystem.path.valid package
 **/
-immutable state _Tester case of TestFactory
+immutable state _valid case of TestBed
 {
 	
 }

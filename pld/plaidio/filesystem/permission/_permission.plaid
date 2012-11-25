@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11221
+	CID:	SR-121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	DESC:	"Executability" state region of "Permission" typestate.
 	FILE:	_Tester.plaid
 **/
-package plaidio.filesystem.path.valid.relativity;
+package plaidio.filesystem.permission;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-11221
-	DESC:	Tester of plaidio.filesystem.path.valid package
+	CID:	TS-SR-121
+	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester case of TestFactory
+immutable state _permission case of TestBed
 {
 	
 }

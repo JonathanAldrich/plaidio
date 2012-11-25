@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1211
+	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Leaf" subtypes of "Leaf" typestate.
+	FILE:	_leaf.plaid
 **/
-package plaidio.filesystem.permission.executability;
+package plaidio.filesystem.path.valid.existency.existent.pathtype.leaf;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-1211
-	DESC:	Tester of plaidio.filesystem package
+	CID:	TS-SR-11211111
+	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype.leaf package
 **/
-immutable state _Tester case of TestFactory
+immutable state _leaf case of TestBed
 {
 	
 }

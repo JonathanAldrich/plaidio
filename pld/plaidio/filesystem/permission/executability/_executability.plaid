@@ -19,21 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-121
+	CID:	SR-1211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" state region of "Permission" typestate.
-	FILE:	_Tester.plaid
+	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
+	FILE:	_executability.plaid
 **/
-package plaidio.filesystem.permission;
+package plaidio.filesystem.permission.executability;
 
-import plaid.lang.testing.TestFactory;
+import com.akefirad.plaid.testing.TestBed;
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-121
+	CID:	TS-SR-1211
 	DESC:	Tester of plaidio.filesystem package
 **/
-immutable state _Tester case of TestFactory
+immutable state _executability case of TestBed
 {
 	
 }
