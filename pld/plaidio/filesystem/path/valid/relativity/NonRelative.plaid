@@ -45,7 +45,7 @@ state NonRelative case of RelativityDimension
 	**/
 	/*public*/ method /*void*/ checkNonRelativity() /*[unique NonRelative >> unique Absolute | unique Canonical this]*/
 	{
-		ifElse (jFile.getAbsolutePath() != jFile.getCanonicalPath())
+		ifElse (j_File.getAbsolutePath() != j_File.getCanonicalPath())
 		{
 			this <- Absolute;
 		}

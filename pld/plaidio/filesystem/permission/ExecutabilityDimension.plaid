@@ -50,7 +50,7 @@ state ExecutabilityDimension
 		{
 			case Existent
 			{
-				ifElse (jFile.canExecute())
+				ifElse (j_File.canExecute())
 				{ this <- Executable; }
 				//else
 				{ this <- NonExecutable; }

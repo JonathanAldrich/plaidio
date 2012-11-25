@@ -44,7 +44,7 @@ state RelativityDimension
 	**/
 	/*public*/ method /*void*/ checkRelativity() /*[unique RelativityDimension >> unique NonRelative | unique Relative this]*/
 	{
-		ifElse (jFile.isAbsolute())
+		ifElse (j_File.isAbsolute())
 		{
 			this <- NonRelative;
 		}

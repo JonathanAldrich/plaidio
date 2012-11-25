@@ -50,7 +50,7 @@ state ReadabilityDimension
 		{
 			case Existent
 			{
-				ifElse (jFile.canRead())
+				ifElse (j_File.canRead())
 				{ this <- Readable; }
 				//else
 				{ this <- NonReadable; }

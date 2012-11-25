@@ -37,7 +37,7 @@ import plaidio.filesystem.path.Invalid;
 **/
 state Path
 {
-	/*private*/ val /*unique java.io.File*/ jFile;
+	/*private*/ val /*unique java.io.File*/ j_File;
 	
 	//-----------------------------------------------------------------------------
 	/**
@@ -46,7 +46,7 @@ state Path
 	**/
 	/*public*/ method immutable String getPathName()
 	{
-		/*return*/ jFile.getName();
+		/*return*/ j_File.getName();
 	}
 	///*public*/ method immutable String getPathName()
 
@@ -57,7 +57,7 @@ state Path
 	**/
 	/*public*/ method immutable String getPathString()
 	{
-		/*return*/ jFile.getPath();
+		/*return*/ j_File.getPath();
 	}
 	///*public*/ method immutable String getPathString()
 
@@ -68,7 +68,7 @@ state Path
 	**/
 	/*public*/ method immutable String toString()
 	{
-		/*return*/ jFile.toString();
+		/*return*/ j_File.toString();
 	}
 	///*public*/ method immutable String toString()
 
@@ -83,7 +83,7 @@ state Path
 		/*
 		try
 		{
-			jFile.getCanonicalPath();
+			j_File.getCanonicalPath();
 			this <- Valid;
 		}
 		catch (exception e)
@@ -93,7 +93,7 @@ state Path
 		*/
 		// This method should try to check validity by using either regex or exception handling.
 		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
-		ifElse (com.akefirad.plaid.PlaidHelper.isValidPath(jFile))
+		ifElse (com.akefirad.plaid.PlaidHelper.isValidPath(j_File))
 		{
 			this <- Valid;
 		}

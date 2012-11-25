@@ -50,7 +50,7 @@ state WritabilityDimension
 		{
 			case Existent
 			{
-				ifElse (jFile.canWrite())
+				ifElse (j_File.canWrite())
 				{ this <- Writable; }
 				//else
 				{ this <- NonWritable; }

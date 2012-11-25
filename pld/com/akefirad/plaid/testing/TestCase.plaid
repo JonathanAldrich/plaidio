@@ -47,10 +47,11 @@ immutable state TestCase
     {
 		ifElse (verbose)
 		{
-			printLine(">>> " + p_Name + " BEGIN -----------------------------------");
+			printLine(">>> BEGIN ------------------------------------");
+			printLine("--- NAME: " + p_Name);
 			p_Body(this);
-			printLine("RESULT: " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
-			printLine("<<< " + p_Name + " END -------------------------------------");
+			printLine("--- RESULT: " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
+			printLine(">>> END --------------------------------------");
 		}
 		//Else
 		{

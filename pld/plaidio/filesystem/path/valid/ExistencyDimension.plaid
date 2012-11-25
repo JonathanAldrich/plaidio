@@ -44,7 +44,7 @@ state ExistencyDimension
 	**/
 	/*public*/ method /*void*/ checkExistency() /*[unique ExistencyDimension >> unique Existent | unique NonExistent this]*/
 	{
-		ifElse (jFile.exists())
+		ifElse (j_File.exists())
 		{
 			this <- Existent;
 		}

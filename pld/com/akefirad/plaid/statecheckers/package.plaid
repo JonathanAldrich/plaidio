@@ -1,17 +1,15 @@
 package com.akefirad.plaid.statecheckers;
 
+method immutable Boolean isString(v) { match (v) { case String { true; } default { false; } }; }
+
 // plaid.collection 2762:b17367e99a32@default
 method immutable Boolean isAANode(v) { match (v) { case AANode { true; } default { false; } }; }
-method immutable Boolean isAANodeTest(v) { match (v) { case AANodeTest { true; } default { false; } }; }
 method immutable Boolean isAATree(v) { match (v) { case AATree { true; } default { false; } }; }
-method immutable Boolean isAATreeTest(v) { match (v) { case AATreeTest { true; } default { false; } }; }
 method immutable Boolean isArray(v) { match (v) { case Array { true; } default { false; } }; }
-method immutable Boolean isArrayTest(v) { match (v) { case ArrayTest { true; } default { false; } }; }
 method immutable Boolean isCollection(v) { match (v) { case Collection { true; } default { false; } }; }
 method immutable Boolean isEndOfListNode(v) { match (v) { case EndOfListNode { true; } default { false; } }; }
 method immutable Boolean isHashProvider(v) { match (v) { case HashProvider { true; } default { false; } }; }
 method immutable Boolean isLinkedList(v) { match (v) { case LinkedList { true; } default { false; } }; }
-method immutable Boolean isLinkedListTest(v) { match (v) { case LinkedListTest { true; } default { false; } }; }
 method immutable Boolean isListNode(v) { match (v) { case ListNode { true; } default { false; } }; }
 method immutable Boolean isListValueNode(v) { match (v) { case ListValueNode { true; } default { false; } }; }
 method immutable Boolean isMap(v) { match (v) { case Map { true; } default { false; } }; }
@@ -24,9 +22,7 @@ method immutable Boolean isTreeSet(v) { match (v) { case TreeSet { true; } defau
 
 // plaid.lang 2762:b17367e99a32@default
 method immutable Boolean isBoolean(v) { match (v) { case Boolean { true; } default { false; } }; }
-method immutable Boolean isBooleanTest(v) { match (v) { case BooleanTest { true; } default { false; } }; }
 method immutable Boolean isCharacter(v) { match (v) { case Character { true; } default { false; } }; }
-method immutable Boolean isCharacterTest(v) { match (v) { case CharacterTest { true; } default { false; } }; }
 method immutable Boolean isComparable(v) { match (v) { case Comparable { true; } default { false; } }; }
 method immutable Boolean isCons(v) { match (v) { case Cons { true; } default { false; } }; }
 method immutable Boolean isDecimal(v) { match (v) { case Decimal { true; } default { false; } }; }
@@ -35,16 +31,10 @@ method immutable Boolean isFloat32(v) { match (v) { case Float32 { true; } defau
 method immutable Boolean isFloat64(v) { match (v) { case Float64 { true; } default { false; } }; }
 method immutable Boolean isHashable(v) { match (v) { case Hashable { true; } default { false; } }; }
 method immutable Boolean isInt16(v) { match (v) { case Int16 { true; } default { false; } }; }
-method immutable Boolean isInt16Test(v) { match (v) { case Int16Test { true; } default { false; } }; }
 method immutable Boolean isInt32(v) { match (v) { case Int32 { true; } default { false; } }; }
-method immutable Boolean isInt32Test(v) { match (v) { case Int32Test { true; } default { false; } }; }
 method immutable Boolean isInt64(v) { match (v) { case Int64 { true; } default { false; } }; }
-method immutable Boolean isInt64Test(v) { match (v) { case Int64Test { true; } default { false; } }; }
 method immutable Boolean isInt8(v) { match (v) { case Int8 { true; } default { false; } }; }
-method immutable Boolean isInt8Test(v) { match (v) { case Int8Test { true; } default { false; } }; }
 method immutable Boolean isInteger(v) { match (v) { case Integer { true; } default { false; } }; }
-method immutable Boolean isIntegerTest(v) { match (v) { case IntegerTest { true; } default { false; } }; }
-method immutable Boolean isJavaInteropTest(v) { match (v) { case JavaInteropTest { true; } default { false; } }; }
 method immutable Boolean isList(v) { match (v) { case List { true; } default { false; } }; }
 method immutable Boolean isListCell(v) { match (v) { case ListCell { true; } default { false; } }; }
 method immutable Boolean isNativeNumber(v) { match (v) { case NativeNumber { true; } default { false; } }; }
@@ -52,7 +42,6 @@ method immutable Boolean isNil(v) { match (v) { case Nil { true; } default { fal
 method immutable Boolean isNone(v) { match (v) { case None { true; } default { false; } }; }
 method immutable Boolean isNumber(v) { match (v) { case Number { true; } default { false; } }; }
 method immutable Boolean isOption(v) { match (v) { case Option { true; } default { false; } }; }
-method immutable Boolean isOptionTest(v) { match (v) { case OptionTest { true; } default { false; } }; }
 method immutable Boolean isOrdEqual(v) { match (v) { case OrdEqual { true; } default { false; } }; }
 method immutable Boolean isOrderable(v) { match (v) { case Orderable { true; } default { false; } }; }
 method immutable Boolean isOrdering(v) { match (v) { case Ordering { true; } default { false; } }; }

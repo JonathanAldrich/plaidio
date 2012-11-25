@@ -26,7 +26,12 @@
 **/
 package plaidio.filesystem;
 
+import plaidio.filesystem.path.Invalid;
 import plaidio.filesystem.path.Valid;
+
+import plaidio.statecheckers.*;
+import com.akefirad.plaid.testing.*;
+import com.akefirad.plaid.statecheckers.*;
 
 /*------------------------------------------------------------------------------
 /**
@@ -75,5 +80,72 @@ import plaidio.filesystem.path.Valid;
 **/
 method unique Path makePath(immutable String path)
 {
-	/*return*/ new Path { jFile = java.io.File.new(path); };
+	/*return*/ new Path { j_File = java.io.File.new(path); };
+}
+
+/*------------------------------------------------------------------------------
+/**
+	DESC:	Test plaidio.filesystem.path package's features
+**/
+method void test_package(immutable Boolean verbose)
+{
+	val testbed = makeTestBed();
+	var testcase = new Unit;
+	
+	testcase = makeTestCase("TC-ST-11 pathSeparator()", fn(tc) => {
+		val immutable String v = pathSeparator();
+		printLine("'" + v + "'");
+		ifElse (isString(v)) { printLine("The object is String!"); } { printLine("The object is not String!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
+		val immutable Character v = pathSeparatorChar();
+		printLine("'" + v + "'");
+		ifElse (isCharacter(v)) { printLine("The object is Character!"); } { printLine("The object is not Character!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+	
+	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
+		val immutable String v = separator();
+		printLine("'" + v + "'");
+		ifElse (isString(v)) { printLine("The object is String!"); } { printLine("The object is not String!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+	
+	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
+		val immutable Character v = separatorChar();
+		printLine("'" + v + "'");
+		ifElse (isCharacter(v)) { printLine("The object is Character!"); } { printLine("The object is not Character!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+	
+	testcase = makeTestCase("TC-ST-110 separatorChar()", fn(tc) => {
+		val unique Path v = makePath("foo");
+		printLine("'" + v + "'");
+		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+	
+
+	testcase = makeTestCase("TC-ST-1110 makeInvalidPath()", fn(tc) => {
+		val unique Invalid v = makePath("con");
+		printLine("'" + v + "'");
+		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); } { printLine("The object is not Invalid!"); tc.fail(); };
+		ifElse (isValid(v)) { printLine("The object is Valid!"); tc.fail(); } { printLine("The object is not Valid!"); };
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("TC-ST-1120 makeValidPath()", fn(tc) => {
+		val unique Valid v = makePath("foo");
+		printLine("'" + v + "'");
+		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); tc.fail(); } { printLine("The object is not Invalid!"); };
+		ifElse (isValid(v)) { printLine("The object is Valid!"); } { printLine("The object is not Valid!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+
+
+	testbed.runTestCases(verbose);
 }

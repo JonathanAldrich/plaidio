@@ -26,8 +26,8 @@
 **/
 package plaidio;
 
-import com.akefirad.plaid.testing.makeTestBed;
-import com.akefirad.plaid.testing.makeTestCase;
+//import plaidio.filesystem.test_filesystem;
+//import plaidio.filesystem.path.test_filesystem;
 
 /*------------------------------------------------------------------------------
 /**
@@ -36,29 +36,6 @@ import com.akefirad.plaid.testing.makeTestCase;
 **/
 method main()
 {
-//	var testcase = new Unit;
-//	val testbed = makeTestBed();
-//
-//	testcase = makeTestCase("First Test Case", fn(tc) => {
-//		printLine("This is first test case.");
-//	});
-//	testbed.addTestCase(testcase);
-//
-//	testcase = makeTestCase("Second Test Case", fn(tc) => {
-//		printLine("This is first test case.");
-//	});
-//	testbed.addTestCase(testcase);
-//
-//	testcase = makeTestCase("Third Test Case", fn(tc) => {
-//		printLine("This is first test case.");
-//	});
-//	testbed.addTestCase(testcase);
-//
-//	testcase = makeTestCase("Forth Test Case", fn(tc) => {
-//		printLine("This is first test case.");
-//		tc.fail();
-//	});
-//	testbed.addTestCase(testcase);
-//	
-//	testbed.runTestCases(false);
+	plaidio.filesystem.test_package(true);
+	//plaidio.filesystem.path.test_package(true);
 }
