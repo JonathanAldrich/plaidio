@@ -26,8 +26,8 @@
 **/
 package plaidio;
 
-//import plaidio.filesystem.test_filesystem;
-//import plaidio.filesystem.path.test_filesystem;
+import plaidio.filesystem.test_filesystem;
+import plaidio.filesystem.path.test_path;
 
 /*------------------------------------------------------------------------------
 /**
@@ -36,6 +36,6 @@ package plaidio;
 **/
 method main()
 {
-	plaidio.filesystem.test_package(true);
-	//plaidio.filesystem.path.test_package(true);
+	test_filesystem(true);
+	test_path(true);
 }

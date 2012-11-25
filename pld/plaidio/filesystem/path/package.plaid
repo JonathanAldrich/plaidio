@@ -30,9 +30,11 @@ import plaidio.filesystem.makePath;
 import plaidio.filesystem.path.Invalid;
 import plaidio.filesystem.path.Valid;
 
-import plaidio.statecheckers.*;
-import com.akefirad.plaid.testing.*;
-import com.akefirad.plaid.statecheckers.*;
+import plaidio.statecheckers.isPath;
+import plaidio.statecheckers.isInvalid;
+import plaidio.statecheckers.isValid;
+import com.akefirad.plaid.testing.makeTestBed;
+import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
@@ -64,13 +66,13 @@ method unique Valid makeValidPath(immutable String path)
 /**
 	DESC:	Test plaidio.filesystem.path package's features
 **/
-method void test_package(immutable Boolean verbose)
+method void test_path(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
 	testcase = makeTestCase("TC-ST-1110 makeInvalidPath()", fn(tc) => {
-		val unique Invalid v = makePath("con");
+		val unique Invalid v = makeInvalidPath("con");
 		printLine("'" + v + "'");
 		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
 		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); } { printLine("The object is not Invalid!"); tc.fail(); };
@@ -79,7 +81,7 @@ method void test_package(immutable Boolean verbose)
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-ST-1120 makeValidPath()", fn(tc) => {
-		val unique Valid v = makePath("foo");
+		val unique Valid v = makeValidPath("foo");
 		printLine("'" + v + "'");
 		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
 		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); tc.fail(); } { printLine("The object is not Invalid!"); };

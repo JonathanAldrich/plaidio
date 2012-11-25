@@ -29,9 +29,11 @@ package plaidio.filesystem;
 import plaidio.filesystem.path.Invalid;
 import plaidio.filesystem.path.Valid;
 
-import plaidio.statecheckers.*;
-import com.akefirad.plaid.testing.*;
-import com.akefirad.plaid.statecheckers.*;
+import plaidio.statecheckers.isPath;
+import com.akefirad.plaid.statecheckers.isString;
+import com.akefirad.plaid.statecheckers.isCharacter;
+import com.akefirad.plaid.testing.makeTestBed;
+import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
@@ -87,7 +89,7 @@ method unique Path makePath(immutable String path)
 /**
 	DESC:	Test plaidio.filesystem.path package's features
 **/
-method void test_package(immutable Boolean verbose)
+method void test_filesystem(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
@@ -127,25 +129,5 @@ method void test_package(immutable Boolean verbose)
 	});
 	testbed.addTestCase(testcase);
 	
-
-	testcase = makeTestCase("TC-ST-1110 makeInvalidPath()", fn(tc) => {
-		val unique Invalid v = makePath("con");
-		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); } { printLine("The object is not Invalid!"); tc.fail(); };
-		ifElse (isValid(v)) { printLine("The object is Valid!"); tc.fail(); } { printLine("The object is not Valid!"); };
-	});
-	testbed.addTestCase(testcase);
-
-	testcase = makeTestCase("TC-ST-1120 makeValidPath()", fn(tc) => {
-		val unique Valid v = makePath("foo");
-		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); tc.fail(); } { printLine("The object is not Invalid!"); };
-		ifElse (isValid(v)) { printLine("The object is Valid!"); } { printLine("The object is not Valid!"); tc.fail(); };
-	});
-	testbed.addTestCase(testcase);
-
-
 	testbed.runTestCases(verbose);
 }
