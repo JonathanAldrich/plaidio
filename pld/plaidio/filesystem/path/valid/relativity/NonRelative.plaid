@@ -56,15 +56,15 @@ state NonRelative case of RelativityDimension
 	**/
 	method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
 	{
-		ifElse (j_File.getAbsolutePath() != j_File.getCanonicalPath())
-		{
-			this <- Absolute;
-			stabilizeAbsolute();
-		}
-		//else
+		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
 		{
 			this <- Canonical;
 			stabilizeCanonical();
+		}
+		//else
+		{
+			this <- Absolute;
+			stabilizeAbsolute();
 		}
 	}
 	//method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/

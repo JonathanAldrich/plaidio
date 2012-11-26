@@ -35,3 +35,13 @@ method immutable TestBed makeTestBed()
 {
 	/*return*/ new TestBed { p_TestCases = makeEmptyList(); };
 }
+
+method void debug(object)
+{
+	printLine(object);
+}
+
+method trycatch(tryBlock, catchBlock, immutable String exception)
+{
+	com.akefirad.plaid.PlaidHelper.runMethodInTryBlock(tryBlock, catchBlock, exception);
+}

@@ -34,20 +34,20 @@ import plaidio.filesystem.permission.WritabilityDimension;
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-12
-	DESC:	permission typestate for SR-11 features
+	DESC:	"ExistentPermissionDimension" state region of "Existent" typestate.
 **/
-state PermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
+state ExistentPermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-121
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizePermissionDimension() /*[shared PermissionDimension >> shared PermissionDimension this]*/
+	method void stabilizeExistentPermissionDimension() /*[shared ExistentPermissionDimension >> shared ExistentPermissionDimension this]*/
 	{
 		stabilizeExecutabilityDimension();
 		stabilizeReadabilityDimension();
 		stabilizeWritabilityDimension();
 	}
-	//method void stabilizePermissionDimension() /*[shared PermissionDimension >> shared PermissionDimension this]*/
+	//method void stabilizeExistentPermissionDimension() /*[shared ExistentPermissionDimension >> shared ExistentPermissionDimension this]*/
 }

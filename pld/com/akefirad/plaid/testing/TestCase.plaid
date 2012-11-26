@@ -56,7 +56,7 @@ immutable state TestCase
 		//Else
 		{
 			p_Body(this);
-			printLine("TESTCASE " + p_Name + " " + ifElse (p_Result) { "PASSED"; } { "FAILED"; });
+			printLine("TESTCASE " + ifElse (p_Result) { "PASSED"; } { "FAILED"; } + " " + p_Name);
 		}
     }
 

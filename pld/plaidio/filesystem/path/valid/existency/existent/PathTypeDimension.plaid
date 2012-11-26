@@ -26,6 +26,9 @@
 **/
 package plaidio.filesystem.path.valid.existency.existent;
 
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Root;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-112111

@@ -26,12 +26,12 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.path.Invalid;
-import plaidio.filesystem.path.Valid;
-
 import plaidio.statecheckers.isPath;
+import plaidio.statecheckers.isValid;
+import plaidio.statecheckers.isInvalid;
 import com.akefirad.plaid.statecheckers.isString;
 import com.akefirad.plaid.statecheckers.isCharacter;
+import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
 
@@ -83,7 +83,7 @@ method immutable Character separatorChar()
 method unique Path makePath(immutable String path)
 {
 	val unique Path p = new Path { j_File = java.io.File.new(path); };
-	p.checkValidity();
+	p.stabilizePath();
 	/*return*/ p;
 }
 
@@ -98,38 +98,56 @@ method void test_filesystem(immutable Boolean verbose)
 	
 	testcase = makeTestCase("TC-ST-11 pathSeparator()", fn(tc) => {
 		val immutable String v = pathSeparator();
-		printLine("'" + v + "'");
-		ifElse (isString(v)) { printLine("The object is String!"); } /*else*/ { printLine("The object is NOT String!"); tc.fail(); };
+		debug("'" + v + "'");
+		ifElse (isString(v)) { debug("The object is String!"); } /*else*/ { debug("The object is NOT String!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
 		val immutable Character v = pathSeparatorChar();
-		printLine("'" + v + "'");
-		ifElse (isCharacter(v)) { printLine("The object is Character!"); } /*else*/ { printLine("The object is NOT Character!"); tc.fail(); };
+		debug("'" + v + "'");
+		ifElse (isCharacter(v)) { debug("The object is Character!"); } /*else*/ { debug("The object is NOT Character!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
 	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
 		val immutable String v = separator();
-		printLine("'" + v + "'");
-		ifElse (isString(v)) { printLine("The object is String!"); } /*else*/ { printLine("The object is NOT String!"); tc.fail(); };
+		debug("'" + v + "'");
+		ifElse (isString(v)) { debug("The object is String!"); } /*else*/ { debug("The object is NOT String!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
 	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
 		val immutable Character v = separatorChar();
-		printLine("'" + v + "'");
-		ifElse (isCharacter(v)) { printLine("The object is Character!"); } /*else*/ { printLine("The object is NOT Character!"); tc.fail(); };
+		debug("'" + v + "'");
+		ifElse (isCharacter(v)) { debug("The object is Character!"); } /*else*/ { debug("The object is NOT Character!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
-	testcase = makeTestCase("TC-ST-110 make a path", fn(tc) => {
+	testcase = makeTestCase("TC-TS-11 make a path", fn(tc) => {
 		val unique Path v = makePath("foo");
-		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } /*else*/ { printLine("The object is NOT Path!"); tc.fail(); };
+		debug("'" + v + "'");
+		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
+	testcase = makeTestCase("TC-TS-111 make an invalid path", fn(tc) => {
+		val unique Path v = makePath("con");
+		debug("'" + v + "'");
+		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { debug("The object is Invalid!"); } /*else*/ { debug("The object is NOT Invalid!"); tc.fail(); };
+		ifElse (isValid(v)) { debug("The object is Valid!"); tc.fail(); } /*else*/ { debug("The object is NOT Valid!"); };
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("TC-TS-112 make a valid path", fn(tc) => {
+		val unique Path v = makePath("foo");
+		debug("'" + v + "'");
+		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { debug("The object is Invalid!"); tc.fail(); } /*else*/ { debug("The object is not Invalid!"); };
+		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+
 	testbed.runTestCases(verbose);
 }

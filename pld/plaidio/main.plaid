@@ -28,7 +28,12 @@ package plaidio;
 
 import plaidio.filesystem.test_filesystem;
 import plaidio.filesystem.path.test_path;
-
+import plaidio.filesystem.path.valid.test_valid;
+import plaidio.filesystem.path.valid.existency.test_existency;
+import plaidio.filesystem.path.valid.existency.existent.test_existent;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.test_pathtype;
+import plaidio.filesystem.path.valid.relativity.test_relativity;
+import plaidio.filesystem.path.valid.relativity.nonrelative.test_nonrelative;
 /*------------------------------------------------------------------------------
 /**
 	CID: 	ST-00
@@ -36,6 +41,13 @@ import plaidio.filesystem.path.test_path;
 **/
 method main()
 {
-	test_filesystem(true);
-	test_path(true);
+	val verbose = true;
+	test_filesystem(verbose);
+//	test_path(verbose);
+//	test_valid(verbose);
+//	test_existency(verbose);
+//	test_existent(verbose);
+//	test_pathtype(verbose);
+//	test_relativity(verbose);
+//	test_nonrelative(verbose);
 }

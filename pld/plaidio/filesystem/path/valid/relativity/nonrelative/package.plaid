@@ -19,21 +19,26 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11221
+	CID:	SR-112211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
-	FILE:	_relativity.plaid
+	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
+	FILE:	_nonrelative.plaid
 **/
-package plaidio.filesystem.path.valid.relativity;
+package plaidio.filesystem.path.valid.relativity.nonrelative;
 
-import com.akefirad.plaid.testing.TestBed;
+import plaidio.filesystem.separator;
+import plaidio.filesystem.makePath;
+import plaidio.statecheckers.isPath;
+import plaidio.statecheckers.isValid;
+import plaidio.statecheckers.isRelativityDimension;
+import plaidio.statecheckers.isNonRelative;
+import com.akefirad.plaid.testing.makeTestBed;
+import com.akefirad.plaid.testing.makeTestCase;
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-11221
-	DESC:	Tester of plaidio.filesystem.path.valid package
+	DESC:	Test plaidio.filesystem.path.valid.relativity.nonrelative package's features
 **/
-immutable state _relativity case of TestBed
+method void test_nonrelative(immutable Boolean verbose)
 {
-	
 }

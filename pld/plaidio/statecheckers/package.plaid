@@ -13,6 +13,7 @@ import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
 import plaidio.filesystem.path.valid.existency.existent.pathtype.Root;
 import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.File;
 import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.Folder;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.UnknownLeaf;
 import plaidio.filesystem.path.valid.relativity.NonRelative;
 import plaidio.filesystem.path.valid.relativity.Relative;
 import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
@@ -35,6 +36,7 @@ method immutable Boolean isExistencyDimension(v) { match (v) { case ExistencyDim
 method immutable Boolean isExistent(v) { match (v) { case Existent { true; } default { false; } }; }
 method immutable Boolean isFile(v) { match (v) { case File { true; } default { false; } }; }
 method immutable Boolean isFolder(v) { match (v) { case Folder { true; } default { false; } }; }
+method immutable Boolean isUnknownLeaf(v) { match (v) { case UnknownLeaf { true; } default { false; } }; }
 method immutable Boolean isInvalid(v) { match (v) { case Invalid { true; } default { false; } }; }
 method immutable Boolean isLeaf(v) { match (v) { case Leaf { true; } default { false; } }; }
 method immutable Boolean isNonExecutable(v) { match (v) { case NonExecutable { true; } default { false; } }; }

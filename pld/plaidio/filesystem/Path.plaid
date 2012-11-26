@@ -29,6 +29,7 @@ package plaidio.filesystem;
 
 import plaidio.filesystem.path.Valid;
 import plaidio.filesystem.path.Invalid;
+import com.akefirad.plaid.testing.trycatch;
 
 //------------------------------------------------------------------------------
 /**
@@ -91,29 +92,17 @@ state Path
 	**/
 	method void checkValidity() /*[shared Path >> shared Path this]*/
 	{
-		/*
-		try
+		// This method should try to check validity by using either regex or exception handling.
+		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
+		trycatch(
 		{
 			j_File.getCanonicalPath();
 			this <- Valid;
-		}
-		catch (exception e)
+		},
+		/*catch*/
 		{
 			this <- Invalid;
-		}
-		*/
-		// This method should try to check validity by using either regex or exception handling.
-		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
-		ifElse (com.akefirad.plaid.PlaidHelper.isValidPath(j_File))
-		{
-			this <- Valid;
-			stabilizeValid();
-		}
-		/*else*/
-		{
-			this <- Invalid;
-			stabilizeInvalid();
-		}
+		}, "");
 	}
 	//method void checkValidity() /*[shared Path >> shared Path this]*/
 }

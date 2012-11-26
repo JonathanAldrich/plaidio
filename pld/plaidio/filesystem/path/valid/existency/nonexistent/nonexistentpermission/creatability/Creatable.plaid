@@ -19,21 +19,29 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112211
+	CID:	SR-1211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
-	FILE:	_nonrelative.plaid
+	DESC:	"Creatable" subtypes of "CreatableDimension" typestate.
+	FILE:	Creatable.plaid
 **/
-package plaidio.filesystem.path.valid.relativity.nonrelative;
+package plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.creatability;
 
-import com.akefirad.plaid.testing.TestBed;
+import plaidio.filesystem.path.valid.existency.nonexistent.CreatableDimension;
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-112211
-	DESC:	Tester of plaidio.filesystem.path.valid package
+	CID:	TS-1211
+	DESC:	"Creatable" typestate which represent a creatable permission state.
 **/
-immutable state _nonrelative case of TestBed
+state Creatable case of CreatableDimension
 {
-	
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-12111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	{
+	}
+	//method void stabilizeCreatable() /*[shared Creatable >> shared Creatable this]*/
 }

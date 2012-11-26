@@ -19,49 +19,56 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package of plaid.io.filesystem.path statespace.
+	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency;
 
+import plaidio.filesystem.separator;
 import plaidio.filesystem.makePath;
 import plaidio.statecheckers.isPath;
-import plaidio.statecheckers.isInvalid;
 import plaidio.statecheckers.isValid;
 import plaidio.statecheckers.isExistencyDimension;
-import plaidio.statecheckers.isRelativityDimension;
+import plaidio.statecheckers.isExistent;
+import plaidio.statecheckers.isNonExistent;
+import plaidio.statecheckers.isPathTypeDimension;
+import plaidio.statecheckers.isPermissionDimension;
 import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	DESC:	Test plaidio.filesystem.path package's features
+	DESC:	Test plaidio.filesystem.path.valid.existency package's features
 **/
-method void test_path(immutable Boolean verbose)
+method void test_existency(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
-	testcase = makeTestCase("TC-TS-111 make an invalid path which has no existency and relativity dimensions", fn(tc) => {
-		val unique Path v = makePath("con");
+	testcase = makeTestCase("TC-TS-11211 make an existent path which has pathtype and permission dimensions", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");
 		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { debug("The object is Invalid!"); } /*else*/ { debug("The object is NOT Invalid!"); tc.fail(); };
-		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); tc.fail(); } /*else*/ { debug("The object has NO ExistencyDimension!"); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); tc.fail(); } /*else*/ { debug("The object has NO RelativityDimension!"); };
+		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
+		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
+		ifElse (isExistent(v)) { debug("The object is Existent!"); } /*else*/ { debug("The object is NOT Existent!"); tc.fail(); };
+		ifElse (isPathTypeDimension(v)) { debug("The object has PathTypeDimension!"); } /*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(); };
+		ifElse (isPermissionDimension(v)) { debug("The object has PermissionDimension!"); } /*else*/ { debug("The object has NO PermissionDimension!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 
-	testcase = makeTestCase("TC-TS-112 make a valid path which has existency and relativity dimensions", fn(tc) => {
-		val unique Path v = makePath("foo");
+	testcase = makeTestCase("TC-TS-11212 make a non-existent path which has permission dimension", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator()+ "foo");
 		debug("'" + v + "'");
 		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
 		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
 		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
+		ifElse (isNonExistent(v)) { debug("The object is NonExistent!"); } /*else*/ { debug("The object is NOT NonExistent!"); tc.fail(); };
+		ifElse (isPathTypeDimension(v)) { debug("The object has PathTypeDimension!"); tc.fail(); } /*else*/ { debug("The object has NO PathTypeDimension!"); };
+		ifElse (isPermissionDimension(v)) { debug("The object has PermissionDimension!"); } /*else*/ { debug("The object has NO PermissionDimension!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 

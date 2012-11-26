@@ -19,49 +19,57 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package of plaid.io.filesystem.path statespace.
+	DESC:	"Type" state region of "Existent" typestate.
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency.existent;
 
 import plaidio.filesystem.makePath;
 import plaidio.statecheckers.isPath;
-import plaidio.statecheckers.isInvalid;
 import plaidio.statecheckers.isValid;
 import plaidio.statecheckers.isExistencyDimension;
-import plaidio.statecheckers.isRelativityDimension;
+import plaidio.statecheckers.isExistent;
+import plaidio.statecheckers.isPathTypeDimension;
+import plaidio.statecheckers.isLeaf;
+import plaidio.statecheckers.isRoot;
 import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	DESC:	Test plaidio.filesystem.path package's features
+	DESC:	Test plaidio.filesystem.path.valid.existency.existent package's features
 **/
-method void test_path(immutable Boolean verbose)
+method void test_existent(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
-	testcase = makeTestCase("TC-TS-111 make an invalid path which has no existency and relativity dimensions", fn(tc) => {
-		val unique Path v = makePath("con");
+	testcase = makeTestCase("TC-TS-11211 make a leaf path", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");
 		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { debug("The object is Invalid!"); } /*else*/ { debug("The object is NOT Invalid!"); tc.fail(); };
-		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); tc.fail(); } /*else*/ { debug("The object has NO ExistencyDimension!"); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); tc.fail(); } /*else*/ { debug("The object has NO RelativityDimension!"); };
+		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
+		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
+		ifElse (isExistent(v)) { debug("The object is Existent!"); } /*else*/ { debug("The object is NOT Existent!"); tc.fail(); };
+		ifElse (isPathTypeDimension(v)) { debug("The object has PathTypeDimension!"); } /*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(); };
+		ifElse (isLeaf(v)) { debug("The object is Leaf!"); } /*else*/ { debug("The object is NOT Leaf!"); tc.fail(); };
+		ifElse (isRoot(v)) { debug("The object is Root!"); tc.fail(); } /*else*/ { debug("The object is NOT Root!"); };
 	});
 	testbed.addTestCase(testcase);
 
-	testcase = makeTestCase("TC-TS-112 make a valid path which has existency and relativity dimensions", fn(tc) => {
-		val unique Path v = makePath("foo");
+	testcase = makeTestCase("TC-TS-11212 make a root path", fn(tc) => {
+		val unique Path v = makePath(com.akefirad.plaid.PlaidHelper.getRootPath());
 		debug("'" + v + "'");
 		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
 		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
 		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
+		ifElse (isExistent(v)) { debug("The object is Existent!"); } /*else*/ { debug("The object is NOT Existent!"); tc.fail(); };
+		ifElse (isPathTypeDimension(v)) { debug("The object has PathTypeDimension!"); } /*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(); };
+		ifElse (isLeaf(v)) { debug("The object is Leaf!"); tc.fail(); } /*else*/ { debug("The object is NOT Leaf!"); };
+		ifElse (isRoot(v)) { debug("The object is Root!"); } /*else*/ { debug("The object is NOT Root!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 

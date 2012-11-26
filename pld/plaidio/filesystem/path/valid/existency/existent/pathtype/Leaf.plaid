@@ -27,6 +27,9 @@
 package plaidio.filesystem.path.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.File;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.Folder;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.UnknownLeaf;
 
 /*------------------------------------------------------------------------------
 /**

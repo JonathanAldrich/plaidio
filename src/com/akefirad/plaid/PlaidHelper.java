@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import plaid.runtime.PlaidException;
+import plaid.runtime.PlaidMethod;
+import plaid.runtime.Util;
 
 public class PlaidHelper {
 	public static boolean isValidPath(File file) {
@@ -19,19 +21,40 @@ public class PlaidHelper {
 		}
 	}
 
+	public static String getRootPath() {
+		return File.listRoots()[0].getAbsolutePath();
+	}
+
 	public static boolean isRootPath(File file) {
 		return (file.getAbsoluteFile().getParentFile() == null) ? true : false;
 	}
 
-	public static void debug(Object object) {
-		System.out.println(object.toString());
+	public static boolean isCanonicalPath(File file) throws IOException {
+		return (file.getAbsolutePath().equals(file.getCanonicalPath())) ? true : false;
 	}
 
 	public static void throwException(String message) throws Exception {
 		throw new PlaidException(message);
 	}
 
-    public static void buildStateCheckers(String packagePath) throws IOException {
+	public static Object runMethodInTryBlock(PlaidMethod tryBlock, PlaidMethod catchBlock, String exception) throws Exception
+	{
+		Object result = null;
+		try
+		{
+			result = tryBlock.invoke(Util.unit());
+		}
+		catch (Exception ex)
+		{
+			if (exception.length() == 0 || ex.getClass().getName().equals(exception))
+				result = catchBlock.invoke(Util.unit());
+			else
+				throw ex;
+		}
+		return result;
+	}
+
+	public static void buildStateCheckers(String packagePath) throws IOException {
         File packageFolder = new File(packagePath);
         if (packageFolder.exists() && packageFolder.isDirectory()) {
             File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "statecheckers");

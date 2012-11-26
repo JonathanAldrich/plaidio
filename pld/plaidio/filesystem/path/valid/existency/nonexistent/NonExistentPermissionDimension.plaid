@@ -17,35 +17,33 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Valid.plaid
+	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
+			Basic typestate for SR-11 features.
+	FILE:	NonExistentPermissionDimension.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency.nonexistent;
 
-import plaidio.filesystem.Path;
-import plaidio.filesystem.path.valid.RelativityDimension;
-import plaidio.filesystem.path.valid.ExistencyDimension;
+import plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.CreatabilityDimension;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-112
-	DESC:	"Valid" typestate which contains a valid path.
+	CID:	TS-12
+	DESC:	"ExistentPermissionDimension" state region of "Existent" typestate.
 **/
-state Valid case of Path = ExistencyDimension with RelativityDimension with
+state NonExistentPermissionDimension = CreatabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121
+		CID:	ST-121
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeValid() /*[shared Valid >> shared Valid this]*/
+	method void stabilizeNonExistentPermissionDimension() /*[shared NonExistentPermissionDimension >> shared NonExistentPermissionDimension this]*/
 	{
-		stabilizeExistencyDimension();
-		stabilizeRelativityDimension();
+		stabilizeCreatabilityDimension();
 	}
-	//method void stabilizeValid() /*[shared Valid >> shared Valid this]*/
+	//method void stabilizeNonExistentPermissionDimension() /*[shared NonExistentPermissionDimension >> shared NonExistentPermissionDimension this]*/
 }
