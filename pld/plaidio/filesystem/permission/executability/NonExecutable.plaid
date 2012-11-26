@@ -35,4 +35,13 @@ import plaidio.filesystem.permission.ExecutabilityDimension;
 **/
 state NonExecutable case of ExecutabilityDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-12121
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
+	{
+	}
+	//method void stabilizeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
 }

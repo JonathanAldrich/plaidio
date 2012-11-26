@@ -35,4 +35,13 @@ import plaidio.filesystem.permission.ExecutabilityDimension;
 **/
 state Executable case of ExecutabilityDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-12111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeExecutable() /*[shared Executable >> shared Executable this]*/
+	{
+	}
+	//method void stabilizeExecutable() /*[shared Executable >> shared Executable this]*/
 }

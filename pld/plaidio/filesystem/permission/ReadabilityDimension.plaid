@@ -41,19 +41,32 @@ state ReadabilityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1221
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	{
+		checkReadability();
+	}
+	//method void stabilizeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1222
 		DESC:	Checks whether the path is readable or not, and
 				changes the state of "this" into either "Readable" or "NonReadable".				
 	**/
-	method void checkReadability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 	{
-		ifElse (isExistent(this))
+		ifElse (j_File.canRead())
 		{
-			ifElse (j_File.canRead()) { this <- Readable; } /*else*/ { this <- NonReadable; }
+			this <- Readable;
+			stabilizeReadable();
 		}
 		/*else*/
 		{
-			com.akefirad.plaid.throwException("This object is not Existent, so it can not have ExecutabilityDimension!");
-		};
+			this <- NonReadable;
+			stabilizeNonReadable();
+		}
 	}
-	//method void checkReadability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	//method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 }

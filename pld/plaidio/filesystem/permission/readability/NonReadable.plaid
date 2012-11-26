@@ -35,4 +35,13 @@ import plaidio.filesystem.permission.ReadabilityDimension;
 **/
 state NonReadable case of ReadabilityDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-12211
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
+	{
+	}
+	//method void stabilizeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 }

@@ -41,19 +41,32 @@ state WritabilityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1231
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	{
+		checkReadability();
+	}
+	//method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1232
 		DESC:	Checks whether the path is writable or not, and
 				changes the state of "this" into either "Writable" or "NonWritable".				
 	**/
-	method void checkWritability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
-		ifElse (isExistent(this))
+		ifElse (j_File.canWrite())
 		{
-			ifElse (j_File.canWrite()) { this <- Writable; } /*else*/ { this <- NonWritable; }
+			this <- Writable;
+			stabilizeWritable();
 		}
 		/*else*/
 		{
-			com.akefirad.plaid.throwException("This object is not Existent, so it can not have ExecutabilityDimension!");
-		};
+			this <- NonWritable;
+			stabilizeNonWritable();
+		}
 	}
-	//method void checkWritability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 }

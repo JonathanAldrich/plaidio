@@ -35,4 +35,13 @@ import plaidio.filesystem.permission.WritabilityDimension;
 **/
 state Writable case of WritabilityDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-12321
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeWritable() /*[shared Writable >> shared Writable this]*/
+	{
+	}
+	//method void stabilizeWritable() /*[shared Writable >> shared Writable this]*/
 }

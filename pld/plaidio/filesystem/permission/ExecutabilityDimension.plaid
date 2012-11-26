@@ -41,19 +41,32 @@ state ExecutabilityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1211
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	{
+		checkExecutability();
+	}
+	//method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1212
 		DESC:	Checks whether the path is executable or not, and
 				changes the state of "this" into either "Executable" or "NonExecutable".				
 	**/
 	method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
-		ifElse (isExistent(this))
+		ifElse (j_File.canExecute())
 		{
-			ifElse (j_File.canExecute()) { this <- Executable; } /*else*/ { this <- NonExecutable; }
+			this <- Executable;
+			stabilizeExecutable();
 		}
 		/*else*/
 		{
-			com.akefirad.plaid.throwException("This object is not Existent, so it can not have ExecutabilityDimension!");
-		};
+			this <- NonExecutable;
+			stabilizeNonExecutable();
+		}
 	}
 	//method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 }
