@@ -21,52 +21,50 @@
 /**
 	CID:	SR-121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Readability" state region of "Permission" typestate.
-	FILE:	ReadabilityDimension.plaid
+	DESC:	"Executability" state region of "Permission" typestate.
+	FILE:	ExecutabilityDimension.plaid
 **/
-package plaidio.filesystem.permission;
+package plaidio.filesystem.path.valid.existency.existent.expermission;
 
-import plaidio.filesystem.path.valid.existency.Existent;
-import plaidio.filesystem.path.valid.existency.NonExistent;
-import plaidio.filesystem.permission.readability.Readable;
-import plaidio.filesystem.permission.readability.NonReadable;
+import plaidio.filesystem.path.valid.existency.existent.expermission.executability.Executable;
+import plaidio.filesystem.path.valid.existency.existent.expermission.executability.NonExecutable;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-122
-	DESC:	"ReadabilityDimension" typestate which is one dimension of Permission typestate.
+	CID:	TS-121
+	DESC:	"ExecutabilityDimension" typestate which is one dimension of Permission typestate.
 **/
-state ReadabilityDimension
+state ExecutabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1221
+		CID:	ST-1211
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
-		checkReadability();
+		checkExecutability();
 	}
-	//method void stabilizeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	//method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1222
-		DESC:	Checks whether the path is readable or not, and
-				changes the state of "this" into either "Readable" or "NonReadable".				
+		CID:	ST-1212
+		DESC:	Checks whether the path is executable or not, and
+				changes the state of "this" into either "Executable" or "NonExecutable".				
 	**/
-	method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
-		ifElse (j_File.canRead())
+		ifElse (j_File.canExecute())
 		{
-			this <- Readable;
-			stabilizeReadable();
+			this <- Executable;
+			stabilizeExecutable();
 		}
 		/*else*/
 		{
-			this <- NonReadable;
-			stabilizeNonReadable();
+			this <- NonExecutable;
+			stabilizeNonExecutable();
 		}
 	}
-	//method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	//method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 }

@@ -21,50 +21,50 @@
 /**
 	CID:	SR-121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" state region of "Permission" typestate.
-	FILE:	ExecutabilityDimension.plaid
+	DESC:	"Writability" state region of "Permission" typestate.
+	FILE:	WritabilityDimension.plaid
 **/
-package plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission;
+package plaidio.filesystem.path.valid.existency.existent.expermission;
 
-import plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.creatability.Creatable;
-import plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.creatability.NonCreatable;
+import plaidio.filesystem.path.valid.existency.existent.expermission.writability.Writable;
+import plaidio.filesystem.path.valid.existency.existent.expermission.writability.NonWritable;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-121
-	DESC:	"CreatabilityDimension" typestate which is one dimension of NonExistentPermission typestate.
+	CID:	TS-123
+	DESC:	"WritabilityDimension" typestate which is one dimension of Permission typestate.
 **/
-state CreatabilityDimension
+state WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1211
+		CID:	ST-1231
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
-		checkExecutability();
+		checkReadability();
 	}
-	//method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	//method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1212
-		DESC:	Checks whether the path is creatable or not, and
-				changes the state of "this" into either "Creatable" or "NonCreatable".				
+		CID:	ST-1232
+		DESC:	Checks whether the path is writable or not, and
+				changes the state of "this" into either "Writable" or "NonWritable".				
 	**/
-	method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
-		ifElse ()
+		ifElse (j_File.canWrite())
 		{
-			this <- Executable;
-			stabilizeExecutable();
+			this <- Writable;
+			stabilizeWritable();
 		}
 		/*else*/
 		{
-			this <- NonExecutable;
-			stabilizeNonExecutable();
+			this <- NonWritable;
+			stabilizeNonWritable();
 		}
 	}
-	//method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 }

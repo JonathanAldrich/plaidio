@@ -23,31 +23,31 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
 			Basic typestate for SR-11 features.
-	FILE:	PermissionDimension.plaid
+	FILE:	ExPermissionDimension.plaid
 **/
-package plaidio.filesystem;
+package plaidio.filesystem.path.valid.existency.existent;
 
-import plaidio.filesystem.permission.ExecutabilityDimension;
-import plaidio.filesystem.permission.ReadabilityDimension;
-import plaidio.filesystem.permission.WritabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.ExecutabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.ReadabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.WritabilityDimension;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-12
-	DESC:	"ExistentPermissionDimension" state region of "Existent" typestate.
+	DESC:	"ExPermissionDimension" state region of "Existent" typestate.
 **/
-state ExistentPermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
+state ExPermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-121
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeExistentPermissionDimension() /*[shared ExistentPermissionDimension >> shared ExistentPermissionDimension this]*/
+	method void stabilizeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 	{
 		stabilizeExecutabilityDimension();
 		stabilizeReadabilityDimension();
 		stabilizeWritabilityDimension();
 	}
-	//method void stabilizeExistentPermissionDimension() /*[shared ExistentPermissionDimension >> shared ExistentPermissionDimension this]*/
+	//method void stabilizeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 }

@@ -19,29 +19,29 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1211
+	CID:	SR-1221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"NonCreatable" subtypes of "CreatableDimension" typestate.
-	FILE:	NonCreatable.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	Readable.plaid
 **/
-package plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.creatability;
+package plaidio.filesystem.path.valid.existency.existent.expermission.readability;
 
-import plaidio.filesystem.path.valid.existency.nonexistent.CreatableDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.ReadabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1212
-	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
+	CID:	TS-1222
+	DESC:	"Readable" typestate which represent a readable permission state.
 **/
-state NonCreatable case of CreatableDimension
+state Readable case of ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12121
+		CID:	ST-12221
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	method void stabilizeReadable() /*[shared Readable >> shared Readable this]*/
 	{
 	}
-	//method void stabilizeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	//method void stabilizeReadable() /*[shared Readable >> shared Readable this]*/
 }

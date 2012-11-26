@@ -31,6 +31,10 @@ import plaidio.statecheckers.isPath;
 import plaidio.statecheckers.isValid;
 import plaidio.statecheckers.isExistencyDimension;
 import plaidio.statecheckers.isExistent;
+import plaidio.statecheckers.isExPermissionDimension;
+import plaidio.statecheckers.isExecutabilityDimension;
+import plaidio.statecheckers.isReadabilityDimension;
+import plaidio.statecheckers.isWritabilityDimension;
 import plaidio.statecheckers.isPathTypeDimension;
 import plaidio.statecheckers.isLeaf;
 import plaidio.statecheckers.isRoot;
@@ -47,6 +51,20 @@ method void test_existent(immutable Boolean verbose)
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
+	testcase = makeTestCase("TC-TS-11211 make an exitent path which has executability, readability, and writability dimensions", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+		debug("'" + v + "'");
+		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
+		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
+		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
+		ifElse (isExistent(v)) { debug("The object is Existent!"); } /*else*/ { debug("The object is NOT Existent!"); tc.fail(); };
+		ifElse (isExPermissionDimension(v)) { debug("The object has ExPermissionDimension!"); } /*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(); };
+		ifElse (isExecutabilityDimension(v)) { debug("The object has ExecutabilityDimension!"); } /*else*/ { debug("The object has NO ExecutabilityDimension!"); tc.fail(); };
+		ifElse (isReadabilityDimension(v)) { debug("The object has ReadabilityDimension!"); } /*else*/ { debug("The object has NO ReadabilityDimension!"); tc.fail(); };
+		ifElse (isWritabilityDimension(v)) { debug("The object has WritabilityDimension!"); } /*else*/ { debug("The object has NO WritabilityDimension!"); tc.fail(); };
+	});
+	testbed.addTestCase(testcase);
+
 	testcase = makeTestCase("TC-TS-11211 make a leaf path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");

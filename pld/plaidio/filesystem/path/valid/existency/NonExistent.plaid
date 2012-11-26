@@ -26,15 +26,15 @@
 **/
 package plaidio.filesystem.path.valid.existency;
 
-import plaidio.filesystem.PermissionDimension;
 import plaidio.filesystem.path.valid.ExistencyDimension;
+import plaidio.filesystem.path.valid.existency.nonexistent.NxPermissionDimension;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-11212
 	DESC:	"NonExistent" typestate which contains a nonexistent valid path.
 **/
-state NonExistent case of ExistencyDimension = NonExistentPermissionDimension with
+state NonExistent case of ExistencyDimension = NxPermissionDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -43,7 +43,7 @@ state NonExistent case of ExistencyDimension = NonExistentPermissionDimension wi
 	**/
 	method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 	{
-		stabilizeNonExistentPermissionDimension();
+		stabilizeNxPermissionDimension();
 	}
 	//method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 }

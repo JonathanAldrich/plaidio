@@ -17,33 +17,31 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	SS-1
+	CID:	SR-1211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
-			Basic typestate for SR-11 features.
-	FILE:	NonExistentPermissionDimension.plaid
+	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
+	FILE:	Executable.plaid
 **/
-package plaidio.filesystem.path.valid.existency.nonexistent;
+package plaidio.filesystem.path.valid.existency.existent.expermission.executability;
 
-import plaidio.filesystem.path.valid.existency.nonexistent.nonexistentpermission.CreatabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.ExecutabilityDimension;
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-12
-	DESC:	"ExistentPermissionDimension" state region of "Existent" typestate.
+	CID:	TS-1211
+	DESC:	"Executable" typestate which represent an executable permission state.
 **/
-state NonExistentPermissionDimension = CreatabilityDimension with
+state Executable case of ExecutabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-121
+		CID:	ST-12111
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeNonExistentPermissionDimension() /*[shared NonExistentPermissionDimension >> shared NonExistentPermissionDimension this]*/
+	method void stabilizeExecutable() /*[shared Executable >> shared Executable this]*/
 	{
-		stabilizeCreatabilityDimension();
 	}
-	//method void stabilizeNonExistentPermissionDimension() /*[shared NonExistentPermissionDimension >> shared NonExistentPermissionDimension this]*/
+	//method void stabilizeExecutable() /*[shared Executable >> shared Executable this]*/
 }

@@ -38,7 +38,7 @@ method immutable TestBed makeTestBed()
 
 method void debug(object)
 {
-	printLine(object);
+	//printLine(object);
 }
 
 method trycatch(tryBlock, catchBlock, immutable String exception)

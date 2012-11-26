@@ -22,51 +22,49 @@
 	CID:	SR-121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Executability" state region of "Permission" typestate.
-	FILE:	ExecutabilityDimension.plaid
+	FILE:	CreatabilityDimension.plaid
 **/
-package plaidio.filesystem.permission;
+package plaidio.filesystem.path.valid.existency.nonexistent.nxpermission;
 
-import plaidio.filesystem.path.valid.existency.Existent;
-import plaidio.filesystem.path.valid.existency.NonExistent;
-import plaidio.filesystem.permission.executability.Executable;
-import plaidio.filesystem.permission.executability.NonExecutable;
+import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.Creatable;
+import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.NonCreatable;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-121
-	DESC:	"ExecutabilityDimension" typestate which is one dimension of Permission typestate.
+	DESC:	"CreatabilityDimension" typestate which is one dimension of NonExistentPermission typestate.
 **/
-state ExecutabilityDimension
+state CreatabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1211
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
-		checkExecutability();
+		checkCreatability();
 	}
-	//method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	//method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1212
-		DESC:	Checks whether the path is executable or not, and
-				changes the state of "this" into either "Executable" or "NonExecutable".				
+		DESC:	Checks whether the path is creatable or not, and
+				changes the state of "this" into either "Creatable" or "NonCreatable".				
 	**/
-	method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
-		ifElse (j_File.canExecute())
+		ifElse (true)
 		{
-			this <- Executable;
-			stabilizeExecutable();
+			this <- Creatable;
+			stabilizeCreatable();
 		}
 		/*else*/
 		{
-			this <- NonExecutable;
-			stabilizeNonExecutable();
+			this <- NonCreatable;
+			stabilizeNonCreatable();
 		}
 	}
-	//method void checkExecutability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	//method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 }

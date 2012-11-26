@@ -17,31 +17,33 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	SR-1221
+	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
-	FILE:	Readable.plaid
+	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
+			Basic typestate for SR-11 features.
+	FILE:	NxPermissionDimension.plaid
 **/
-package plaidio.filesystem.permission.readability;
+package plaidio.filesystem.path.valid.existency.nonexistent;
 
-import plaidio.filesystem.permission.ReadabilityDimension;
+import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-1222
-	DESC:	"Readable" typestate which represent a readable permission state.
+	CID:	TS-12
+	DESC:	"NxPermissionDimension" state region of "Existent" typestate.
 **/
-state Readable case of ReadabilityDimension
+state NxPermissionDimension = CreatabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12221
+		CID:	ST-121
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeReadable() /*[shared Readable >> shared Readable this]*/
+	method void stabilizeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
 	{
+		stabilizeCreatabilityDimension();
 	}
-	//method void stabilizeReadable() /*[shared Readable >> shared Readable this]*/
+	//method void stabilizeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
 }

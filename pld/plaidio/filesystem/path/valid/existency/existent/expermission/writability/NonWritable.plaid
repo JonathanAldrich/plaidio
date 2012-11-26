@@ -19,29 +19,29 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1211
+	CID:	SR-1231
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" subtypes of "ExecutabilityDimension" typestate.
-	FILE:	NonExecutable.plaid
+	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
+	FILE:	NonWritable.plaid
 **/
-package plaidio.filesystem.permission.executability;
+package plaidio.filesystem.path.valid.existency.existent.expermission.writability;
 
-import plaidio.filesystem.permission.ExecutabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.WritabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1212
-	DESC:	"Executable" typestate which represent a non-executable permission state.
+	CID:	TS-1231
+	DESC:	"NonWritable" typestate which represent a non-writable permission state.
 **/
-state NonExecutable case of ExecutabilityDimension
+state NonWritable case of WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12121
+		CID:	ST-12111
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
+	method void stabilizeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
 	{
 	}
-	//method void stabilizeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
+	//method void stabilizeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
 }

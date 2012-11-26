@@ -26,17 +26,16 @@
 **/
 package plaidio.filesystem.path.valid.existency;
 
-import plaidio.filesystem.PermissionDimension;
 import plaidio.filesystem.path.valid.ExistencyDimension;
 import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
-import plaidio.filesystem.path.valid.existency.existent.ExistentPermissionDimension;
+import plaidio.filesystem.path.valid.existency.existent.ExPermissionDimension;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-11211
 	DESC:	"Existent" typestate which contains an existent valid path.
 **/
-state Existent case of ExistencyDimension = ExistentPermissionDimension with PathTypeDimension with
+state Existent case of ExistencyDimension = ExPermissionDimension with PathTypeDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -45,7 +44,7 @@ state Existent case of ExistencyDimension = ExistentPermissionDimension with Pat
 	**/
 	method void stabilizeExistent() /*[shared Existent >> shared Existent this]*/
 	{
-		stabilizeExistentPermissionDimension();
+		stabilizeExPermissionDimension();
 		stabilizePathTypeDimension();
 	}
 	//method void stabilizeExistent() /*[shared Existent >> shared Existent this]*/

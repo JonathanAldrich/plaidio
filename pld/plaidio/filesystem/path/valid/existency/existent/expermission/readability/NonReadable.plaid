@@ -19,29 +19,29 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1231
+	CID:	SR-1221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
-	FILE:	Writable.plaid
+	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
+	FILE:	NonReadable.plaid
 **/
-package plaidio.filesystem.permission.writability;
+package plaidio.filesystem.path.valid.existency.existent.expermission.readability;
 
-import plaidio.filesystem.permission.WritabilityDimension;
+import plaidio.filesystem.path.valid.existency.existent.expermission.ReadabilityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1232
-	DESC:	"Writable" typestate which represent a writable permission state.
+	CID:	TS-1221
+	DESC:	"NonReadable" typestate which represent a non-readable permission state.
 **/
-state Writable case of WritabilityDimension
+state NonReadable case of ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12321
+		CID:	ST-12211
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizeWritable() /*[shared Writable >> shared Writable this]*/
+	method void stabilizeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 	{
 	}
-	//method void stabilizeWritable() /*[shared Writable >> shared Writable this]*/
+	//method void stabilizeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 }

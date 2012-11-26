@@ -98,10 +98,12 @@ state Path
 		{
 			j_File.getCanonicalPath();
 			this <- Valid;
+			stabilizeValid();
 		},
 		/*catch*/
 		{
 			this <- Invalid;
+			stabilizeInvalid();
 		}, "");
 	}
 	//method void checkValidity() /*[shared Path >> shared Path this]*/
