@@ -35,4 +35,13 @@ import plaidio.filesystem.path.valid.RelativityDimension;
 **/
 state Relative case of RelativityDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112221
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeRelative() /*[shared Relative >> shared Relative this]*/
+	{
+	}
+	//method void stabilizeRelative() /*[shared Relative >> shared Relative this]*/
 }

@@ -37,4 +37,36 @@ import plaidio.filesystem.path.valid.ExistencyDimension;
 **/
 state Valid case of Path = ExistencyDimension with RelativityDimension with
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1121
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeValid() /*[shared Valid >> shared Valid this]*/
+	{
+		stabilizeExistencyDimension();
+		stabilizeRelativityDimension();
+	}
+	//method void stabilizeValid() /*[shared Valid >> shared Valid this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1123
+		DESC:	Checks whether the path is relative or not, and
+				changes the state of "this" into either "Relative" or "NonRelative".				
+	**/
+	method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
+	{
+		ifElse (j_File.isabisAbsolute())
+		{
+			this <- NonRelative;
+			stabilizeNonRelative();
+		}
+		/*else*/
+		{
+			this <- Relative;
+			stabilizeRelative();
+		}
+	}
+	//method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 }

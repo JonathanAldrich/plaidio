@@ -40,7 +40,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 	CID: 	ST-11
 	DESC:	The system-dependent path-separator character.
 **/
-/*static*/ method immutable String pathSeparator()
+method immutable String pathSeparator()
 {
 	/*return*/ ("" + pathSeparatorChar());
 }
@@ -50,7 +50,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 	CID: 	ST-12
 	DESC:	The system-dependent path-separator character.
 **/
-/*static*/ method immutable Character pathSeparatorChar()
+method immutable Character pathSeparatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.pathSeparatorChar; };
 }
@@ -60,7 +60,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 	CID: 	ST-13
 	DESC:	The system-dependent default name-separator character.
 **/
-/*static*/ method immutable String separator()
+method immutable String separator()
 {
 	/*return*/ ("" + separatorChar());
 }
@@ -70,7 +70,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 	CID: 	ST-14
 	DESC:	The system-dependent default name-separator character.
 **/
-/*static*/ method immutable Character separatorChar()
+method immutable Character separatorChar()
 {
 	/*return*/ new Character { nativeVal = java.io.File.separatorChar; };
 }
@@ -82,7 +82,9 @@ import com.akefirad.plaid.testing.makeTestCase;
 **/
 method unique Path makePath(immutable String path)
 {
-	/*return*/ new Path { j_File = java.io.File.new(path); };
+	val unique Path p = new Path { j_File = java.io.File.new(path); };
+	p.checkValidity();
+	/*return*/ p;
 }
 
 /*------------------------------------------------------------------------------
@@ -97,35 +99,35 @@ method void test_filesystem(immutable Boolean verbose)
 	testcase = makeTestCase("TC-ST-11 pathSeparator()", fn(tc) => {
 		val immutable String v = pathSeparator();
 		printLine("'" + v + "'");
-		ifElse (isString(v)) { printLine("The object is String!"); } { printLine("The object is not String!"); tc.fail(); };
+		ifElse (isString(v)) { printLine("The object is String!"); } /*else*/ { printLine("The object is NOT String!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
 		val immutable Character v = pathSeparatorChar();
 		printLine("'" + v + "'");
-		ifElse (isCharacter(v)) { printLine("The object is Character!"); } { printLine("The object is not Character!"); tc.fail(); };
+		ifElse (isCharacter(v)) { printLine("The object is Character!"); } /*else*/ { printLine("The object is NOT Character!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
 	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
 		val immutable String v = separator();
 		printLine("'" + v + "'");
-		ifElse (isString(v)) { printLine("The object is String!"); } { printLine("The object is not String!"); tc.fail(); };
+		ifElse (isString(v)) { printLine("The object is String!"); } /*else*/ { printLine("The object is NOT String!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
 	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
 		val immutable Character v = separatorChar();
 		printLine("'" + v + "'");
-		ifElse (isCharacter(v)) { printLine("The object is Character!"); } { printLine("The object is not Character!"); tc.fail(); };
+		ifElse (isCharacter(v)) { printLine("The object is Character!"); } /*else*/ { printLine("The object is NOT Character!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	
-	testcase = makeTestCase("TC-ST-110 separatorChar()", fn(tc) => {
+	testcase = makeTestCase("TC-ST-110 make a path", fn(tc) => {
 		val unique Path v = makePath("foo");
 		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
+		ifElse (isPath(v)) { printLine("The object is Path!"); } /*else*/ { printLine("The object is NOT Path!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 	

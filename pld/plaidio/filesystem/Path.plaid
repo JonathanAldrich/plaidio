@@ -37,48 +37,59 @@ import plaidio.filesystem.path.Invalid;
 **/
 state Path
 {
-	/*private*/ val /*unique java.io.File*/ j_File;
+	val /*unique java.io.File*/ j_File;
 	
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
-	/*public*/ method immutable String getPathName()
+	method immutable String getPathName()
 	{
 		/*return*/ j_File.getName();
 	}
-	///*public*/ method immutable String getPathName()
+	//method immutable String getPathName()
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-112
 		DESC:	Converts this abstract pathname into a pathname string.
 	**/
-	/*public*/ method immutable String getPathString()
+	method immutable String getPathString()
 	{
 		/*return*/ j_File.getPath();
 	}
-	///*public*/ method immutable String getPathString()
+	//method immutable String getPathString()
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-113
 		DESC:	Returns the pathname string of this abstract pathname.
 	**/
-	/*public*/ method immutable String toString()
+	method immutable String toString()
 	{
 		/*return*/ j_File.toString();
 	}
-	///*public*/ method immutable String toString()
+	//method immutable String toString()
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-114
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizePath() /*[shared Path >> shared Path this]*/
+	{
+		checkValidity();
+	}
+	//method void stabilizePath() /*[shared Path >> shared Path this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-115
 		DESC:	Checks whether the path is valid or not, and
 				changes the state of "this" into either "Valid" or "Invalid".				
 	**/
-	/*public*/ method /*void*/ checkValidity() /*[unique Path >> unique Valid | unique Invalid this]*/
+	method void checkValidity() /*[shared Path >> shared Path this]*/
 	{
 		/*
 		try
@@ -96,11 +107,13 @@ state Path
 		ifElse (com.akefirad.plaid.PlaidHelper.isValidPath(j_File))
 		{
 			this <- Valid;
+			stabilizeValid();
 		}
-		//else
+		/*else*/
 		{
 			this <- Invalid;
+			stabilizeInvalid();
 		}
 	}
-	///*public*/ method /*void*/ checkValidity() /*[unique Path >> unique Valid | unique Invalid this]*/
+	//method void checkValidity() /*[shared Path >> shared Path this]*/
 }

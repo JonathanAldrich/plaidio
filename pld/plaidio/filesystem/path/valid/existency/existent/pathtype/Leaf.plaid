@@ -35,4 +35,43 @@ import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 **/
 state Leaf case of PathTypeDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeLeaf() /*[shared Leaf >> shared Leaf this]*/
+	{
+		checkLeafType();
+	}
+	//method void stabilizeLeaf() /*[shared Leaf >> shared Leaf this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211112
+		DESC:	Checks whether the existent path is a root or not, and
+				changes the state of "this" into either "Root" or "Leaf".				
+	**/
+	method void checkLeafType() /*[shared Leaf >> shared Leaf this]*/
+	{
+		ifElse (j_File.isFile())
+		{
+			this <- File;
+			stabilizeFile();
+		}
+		/*else*/
+		{
+			ifElse (j_File.isDirectory())
+			{
+				this <- Folder;
+				stabilizeFolder();
+			}
+			/*else*/
+			{
+				this <- UnknownLeaf;
+				stabilizeUnknownLeaf();
+			}
+		}
+	}
+	//method void checkLeafType() /*[shared Leaf >> shared Leaf this]*/
 }

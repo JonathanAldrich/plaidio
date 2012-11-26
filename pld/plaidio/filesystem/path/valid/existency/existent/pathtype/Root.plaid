@@ -35,4 +35,13 @@ import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 **/
 state Root case of PathTypeDimension
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211121
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeRoot() /*[shared Root >> shared Root this]*/
+	{
+	}
+	//method void stabilizeRoot() /*[shared Root >> shared Root this]*/
 }

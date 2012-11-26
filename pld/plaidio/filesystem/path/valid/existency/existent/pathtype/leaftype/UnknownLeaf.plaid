@@ -19,20 +19,29 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211111
+	CID:	SR-11211113
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Leaf" subtypes of "Leaf" typestate.
-	FILE:	Folder.plaid
+	FILE:	UnknownLeaf.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype.leaf;
+package plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype;
 
 import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11211112
-	DESC:	"Folder" typestate which contains an existent folder path.
+	CID:	TS-11211111
+	DESC:	"UnknownLeaf" typestate which contains an existent file path.
 **/
-state Folder case of Leaf
+state UnknownLeaf case of Leaf
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
+	{
+	}
+	//method void stabilizeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
 }

@@ -19,6 +19,10 @@ public class PlaidHelper {
 		}
 	}
 
+	public static boolean isRootPath(File file) {
+		return (file.getAbsoluteFile().getParentFile() == null) ? true : false;
+	}
+
 	public static void debug(Object object) {
 		System.out.println(object.toString());
 	}

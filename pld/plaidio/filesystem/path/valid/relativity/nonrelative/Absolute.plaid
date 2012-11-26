@@ -35,4 +35,13 @@ import plaidio.filesystem.path.valid.relativity.NonRelative;
 **/
 state Absolute case of NonRelative
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1122111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeAbsolute() /*[shared Absolute >> shared Absolute this]*/
+	{
+	}
+	//method void stabilizeAbsolute() /*[shared Absolute >> shared Absolute this]*/
 }

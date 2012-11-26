@@ -44,18 +44,16 @@ state ReadabilityDimension
 		DESC:	Checks whether the path is readable or not, and
 				changes the state of "this" into either "Readable" or "NonReadable".				
 	**/
-	/*public*/ method /*void*/ checkReadability() /*[shared Valid >> shared Valid this]*/
+	method void checkReadability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
-		match (this)
+		ifElse (isExistent(this))
 		{
-			case Existent
-			{
-				ifElse (j_File.canRead())
-				{ this <- Readable; }
-				//else
-				{ this <- NonReadable; }
-			}
+			ifElse (j_File.canRead()) { this <- Readable; } /*else*/ { this <- NonReadable; }
+		}
+		/*else*/
+		{
+			com.akefirad.plaid.throwException("This object is not Existent, so it can not have ExecutabilityDimension!");
 		};
 	}
-	///*public*/ method /*void*/ checkReadability() /*[shared Valid >> shared Valid this]*/
+	//method void checkReadability() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 }

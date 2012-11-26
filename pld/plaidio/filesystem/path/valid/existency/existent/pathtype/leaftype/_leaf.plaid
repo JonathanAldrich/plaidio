@@ -19,29 +19,21 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Invalid.plaid
+	DESC:	"Leaf" subtypes of "Leaf" typestate.
+	FILE:	_leaf.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype;
 
-import plaidio.filesystem.Path;
+import com.akefirad.plaid.testing.TestBed;
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	CID:	TS-SR-11211111
+	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype package
 **/
-state Invalid case of Path
+immutable state _leaf case of TestBed
 {
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-1111
-		DESC:	Checks all dimensions of the object.				
-	**/
-	method void stabilizeInvalid() /*[shared Invalid >> shared Invalid this]*/
-	{
-	}
-	//method void stabilizeInvalid() /*[shared Invalid >> shared Invalid this]*/
+	
 }

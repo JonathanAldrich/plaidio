@@ -33,34 +33,10 @@ import plaidio.filesystem.path.Valid;
 import plaidio.statecheckers.isPath;
 import plaidio.statecheckers.isInvalid;
 import plaidio.statecheckers.isValid;
+import plaidio.statecheckers.isExistencyDimension;
+import plaidio.statecheckers.isRelativityDimension;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
-
-/*------------------------------------------------------------------------------
-/**
-	CID: 	ST-1110
-	DESC:	constructor for TS-111
-**/
-method unique Invalid makeInvalidPath(immutable String path)
-{
-	val unique Path p = makePath(path);
-	p.checkValidity();
-	match (p) { case Invalid {} };
-	/*return*/ p;
-}
-
-/*------------------------------------------------------------------------------
-/**
-	CID: 	ST-1120
-	DESC:	constructor for TS-121
-**/
-method unique Valid makeValidPath(immutable String path)
-{
-	val unique Path p = makePath(path);
-	p.checkValidity();
-	match (p) { case Valid {} };
-	/*return*/ p;
-}
 
 /*------------------------------------------------------------------------------
 /**
@@ -71,21 +47,25 @@ method void test_path(immutable Boolean verbose)
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
-	testcase = makeTestCase("TC-ST-1110 makeInvalidPath()", fn(tc) => {
-		val unique Invalid v = makeInvalidPath("con");
+	testcase = makeTestCase("TC-ST-114-a make an invalid path", fn(tc) => {
+		val unique Path v = makePath("con");
 		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); } { printLine("The object is not Invalid!"); tc.fail(); };
-		ifElse (isValid(v)) { printLine("The object is Valid!"); tc.fail(); } { printLine("The object is not Valid!"); };
+		ifElse (isPath(v)) { printLine("The object is Path!"); } /*else*/ { printLine("The object is NOT Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); } /*else*/ { printLine("The object is NOT Invalid!"); tc.fail(); };
+		ifElse (isValid(v)) { printLine("The object is Valid!"); tc.fail(); } /*else*/ { printLine("The object is NOT Valid!"); };
+		ifElse (isExistencyDimension(v)) { printLine("The object has ExistencyDimension!"); tc.fail(); } /*else*/ { printLine("The object has NO ExistencyDimension!"); };
+		ifElse (isRelativityDimension(v)) { printLine("The object has RelativityDimension!"); tc.fail(); } /*else*/ { printLine("The object has NO RelativityDimension!"); };
 	});
 	testbed.addTestCase(testcase);
 
-	testcase = makeTestCase("TC-ST-1120 makeValidPath()", fn(tc) => {
-		val unique Valid v = makeValidPath("foo");
+	testcase = makeTestCase("TC-ST-114-b make a valid path", fn(tc) => {
+		val unique Path v = makePath("foo");
 		printLine("'" + v + "'");
-		ifElse (isPath(v)) { printLine("The object is Path!"); } { printLine("The object is not Path!"); tc.fail(); };
-		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); tc.fail(); } { printLine("The object is not Invalid!"); };
-		ifElse (isValid(v)) { printLine("The object is Valid!"); } { printLine("The object is not Valid!"); tc.fail(); };
+		ifElse (isPath(v)) { printLine("The object is Path!"); } /*else*/ { printLine("The object is not Path!"); tc.fail(); };
+		ifElse (isInvalid(v)) { printLine("The object is Invalid!"); tc.fail(); } /*else*/ { printLine("The object is not Invalid!"); };
+		ifElse (isValid(v)) { printLine("The object is Valid!"); } /*else*/ { printLine("The object is not Valid!"); tc.fail(); };
+		ifElse (isExistencyDimension(v)) { printLine("The object has ExistencyDimension!"); } /*else*/ { printLine("The object has NO ExistencyDimension!"); tc.fail(); };
+		ifElse (isRelativityDimension(v)) { printLine("The object has RelativityDimension!"); } /*else*/ { printLine("The object has NO RelativityDimension!"); tc.fail(); };
 	});
 	testbed.addTestCase(testcase);
 

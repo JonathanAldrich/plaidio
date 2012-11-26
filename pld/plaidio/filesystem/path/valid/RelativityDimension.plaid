@@ -36,22 +36,35 @@ import plaidio.filesystem.path.valid.relativity.Relative;
 **/
 state RelativityDimension
 {
-	/*-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-11221
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	{
+		checkRelativity();
+	}
+	//method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11222
 		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
 				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
-	/*public*/ method /*void*/ checkRelativity() /*[unique RelativityDimension >> unique NonRelative | unique Relative this]*/
+	method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 	{
 		ifElse (j_File.isAbsolute())
 		{
 			this <- NonRelative;
+			stabilizeNonRelative();
 		}
 		//else
 		{
 			this <- Relative;
+			stabilizeRelative();
 		}
 	}
-	///*public*/ method /*void*/ checkRelativity() /*[unique RelativityDimension >> unique NonRelative | unique Relative this]*/
+	//method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 }

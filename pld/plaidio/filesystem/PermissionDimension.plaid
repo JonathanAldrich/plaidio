@@ -43,11 +43,11 @@ state PermissionDimension = ExecutabilityDimension with ReadabilityDimension wit
 		CID:	ST-121
 		DESC:	Specifies the permission state of the path.				
 	**/
-	/*public*/ method /*void*/ checkPermission() /*[shared Valid >> shared Valid this]*/
+	method void stabilizePermissionDimension() /*[shared PermissionDimension >> shared PermissionDimension this]*/
 	{
 		checkExecutability();
 		checkReadability();
 		checkWritability();
 	}
-	///*public*/ method /*void*/ checkPermission() /*[shared Valid >> shared Valid this]*/
+	//method void stabilizePermissionDimension() /*[shared PermissionDimension >> shared PermissionDimension this]*/
 }

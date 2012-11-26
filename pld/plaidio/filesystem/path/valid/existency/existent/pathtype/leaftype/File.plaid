@@ -22,18 +22,26 @@
 	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Leaf" subtypes of "Leaf" typestate.
-	FILE:	_leaf.plaid
+	FILE:	File.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.pathtype.leaf;
+package plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype;
 
-import com.akefirad.plaid.testing.TestBed;
+import plaidio.filesystem.path.valid.existency.existent.pathtype.Leaf;
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-SR-11211111
-	DESC:	Tester of plaidio.filesystem.path.valid.existency.existent.pathtype.leaf package
+	CID:	TS-11211111
+	DESC:	"File" typestate which contains an existent file path.
 **/
-immutable state _leaf case of TestBed
+state File case of Leaf
 {
-	
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112111111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeFile() /*[shared File >> shared File this]*/
+	{
+	}
+	//method void stabilizeFile() /*[shared File >> shared File this]*/
 }

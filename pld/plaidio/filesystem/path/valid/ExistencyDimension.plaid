@@ -36,22 +36,35 @@ import plaidio.filesystem.path.valid.existency.NonExistent;
 **/
 state ExistencyDimension
 {
-	/*-----------------------------------------------------------------------------
+	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-11211
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	{
+		checkExistency();
+	}
+	//method void stabilizeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11212
 		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
 				changes the state of "this" into either "Existent" or "NonExistent".
 	**/
-	/*public*/ method /*void*/ checkExistency() /*[unique ExistencyDimension >> unique Existent | unique NonExistent this]*/
+	method void checkExistency() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
 		ifElse (j_File.exists())
 		{
 			this <- Existent;
+			stabilizeExistent();
 		}
 		//else
 		{
 			this <- NonExistent;
+			stabilizeNonExistent();
 		}
 	}
-	///*public*/ method /*void*/ checkExistency() /*[unique ExistencyDimension >> unique Existent | unique NonExistent this]*/
+	//method void checkExistency() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 }

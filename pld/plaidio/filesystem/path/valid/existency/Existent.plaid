@@ -37,4 +37,15 @@ import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 **/
 state Existent case of ExistencyDimension = PermissionDimension with PathTypeDimension with
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeExistent() /*[shared Existent >> shared Existent this]*/
+	{
+		stabilizePermissionDimension();
+		stabilizePathTypeDimension();
+	}
+	//method void stabilizeExistent() /*[shared Existent >> shared Existent this]*/
 }

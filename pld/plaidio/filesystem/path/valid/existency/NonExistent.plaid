@@ -36,4 +36,14 @@ import plaidio.filesystem.path.valid.ExistencyDimension;
 **/
 state NonExistent case of ExistencyDimension = PermissionDimension with
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112121
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
+	{
+		stabilizePermissionDimension();
+	}
+	//method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 }

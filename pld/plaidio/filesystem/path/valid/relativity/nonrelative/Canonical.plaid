@@ -35,4 +35,13 @@ import plaidio.filesystem.path.valid.relativity.NonRelative;
 **/
 state Canonical case of NonRelative
 {
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1122111
+		DESC:	Checks all dimensions of the object.				
+	**/
+	method void stabilizeCanonical() /*[shared Canonical >> shared Canonical this]*/
+	{
+	}
+	//method void stabilizeCanonical() /*[shared Canonical >> shared Canonical this]*/
 }
