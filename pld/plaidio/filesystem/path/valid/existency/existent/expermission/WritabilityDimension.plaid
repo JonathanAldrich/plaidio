@@ -57,13 +57,11 @@ state WritabilityDimension
 	{
 		ifElse (j_File.canWrite())
 		{
-			printLine("writable");
 			this <- Writable;
 			stabilizeWritable();
 		}
 		/*else*/
 		{
-			printLine("nonwritable");
 			this <- NonWritable;
 			stabilizeNonWritable();
 		}
