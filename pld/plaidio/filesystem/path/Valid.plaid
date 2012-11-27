@@ -33,14 +33,14 @@ import plaidio.filesystem.path.valid.ExistencyDimension;
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-112
-	DESC:	"Valid" typestate which contains a valid path.
+	DESC:	"Valid" typestate which represents a valid path.
 **/
 state Valid case of Path = ExistencyDimension with RelativityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1121
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeValid() /*[shared Valid >> shared Valid this]*/
 	{

@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-121
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" state region of "Permission" typestate.
+	DESC:	"ExPermission" state region of "Existent" typestate.
 	FILE:	ExecutabilityDimension.plaid
 **/
 package plaidio.filesystem.path.valid.existency.existent.expermission;
@@ -31,15 +31,15 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.executabili
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-121
-	DESC:	"ExecutabilityDimension" typestate which is one dimension of Permission typestate.
+	CID:	TS-1121111
+	DESC:	"ExecutabilityDimension" typestate which is one dimension of ExPermission typestate.
 **/
 state ExecutabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1211
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11211111
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
@@ -49,7 +49,7 @@ state ExecutabilityDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1212
+		CID:	ST-11211112
 		DESC:	Checks whether the path is executable or not, and
 				changes the state of "this" into either "Executable" or "NonExecutable".				
 	**/

@@ -40,6 +40,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
+	CID:	TC-SR-11221
 	DESC:	Test plaidio.filesystem.path.valid.relativity package's features
 **/
 method void test_relativity(immutable Boolean verbose)
@@ -50,24 +51,24 @@ method void test_relativity(immutable Boolean verbose)
 	testcase = makeTestCase("TC-TS-112211 make an absolute path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator() + "..");
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
-		ifElse (isNonRelative(v)) { debug("The object is NonRelative!"); } /*else*/ { debug("The object is NOT NonRelative!"); tc.fail(); };
-		ifElse (isAbsolute(v)) { debug("The object is Absolute!"); } /*else*/ { debug("The object is NOT Absolute!"); tc.fail(); };
-		ifElse (isCanonical(v)) { debug("The object is Canonical!"); tc.fail(); } /*else*/ { debug("The object is NOT Canonical!"); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }							/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }							/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has RelativityDimension!"); }			/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); tc.fail(verbose); };
+		ifElse (isAbsolute(v))				{ debug("The object is Absolute!"); }						/*else*/ { debug("The object is NOT Absolute!"); tc.fail(verbose); };
+		ifElse (isCanonical(v))				{ debug("The object is Canonical!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Canonical!"); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-TS-112212 make a canonical path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
-		ifElse (isNonRelative(v)) { debug("The object is NonRelative!"); } /*else*/ { debug("The object is NOT NonRelative!"); tc.fail(); };
-		ifElse (isAbsolute(v)) { debug("The object is Absolute!"); tc.fail(); } /*else*/ { debug("The object is NOT Absolute!"); };
-		ifElse (isCanonical(v)) { debug("The object is Canonical!"); } /*else*/ { debug("The object is NOT Canonical!"); tc.fail(); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has RelativityDimension!"); }		/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); }				/*else*/ { debug("The object is NOT NonRelative!"); tc.fail(verbose); };
+		ifElse (isAbsolute(v))				{ debug("The object is Absolute!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Absolute!"); };
+		ifElse (isCanonical(v))				{ debug("The object is Canonical!"); }					/*else*/ { debug("The object is NOT Canonical!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
 

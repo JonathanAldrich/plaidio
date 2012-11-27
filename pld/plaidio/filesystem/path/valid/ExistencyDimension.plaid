@@ -39,7 +39,7 @@ state ExistencyDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-11211
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{

@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121111
+	CID:	SR-1121121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Type" subtypes of "Type" typestate.
 	FILE:	Root.plaid
@@ -30,15 +30,15 @@ import plaidio.filesystem.path.valid.existency.existent.PathTypeDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121112
+	CID:	TS-1121122
 	DESC:	"Root" typestate which contains an existent root path.
 **/
 state Root case of PathTypeDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211121
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11211221
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeRoot() /*[shared Root >> shared Root this]*/
 	{

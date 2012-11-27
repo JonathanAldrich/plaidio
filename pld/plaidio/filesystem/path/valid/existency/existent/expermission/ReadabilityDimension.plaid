@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-121
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Readability" state region of "Permission" typestate.
+	DESC:	"ExPermission" state region of "Existent" typestate.
 	FILE:	ReadabilityDimension.plaid
 **/
 package plaidio.filesystem.path.valid.existency.existent.expermission;
@@ -31,15 +31,15 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.readability
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-122
-	DESC:	"ReadabilityDimension" typestate which is one dimension of Permission typestate.
+	CID:	TS-1121112
+	DESC:	"ReadabilityDimension" typestate which is one dimension of ExPermission typestate.
 **/
 state ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1221
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11211121
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 	{
@@ -49,7 +49,7 @@ state ReadabilityDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1222
+		CID:	ST-11211122
 		DESC:	Checks whether the path is readable or not, and
 				changes the state of "this" into either "Readable" or "NonReadable".				
 	**/

@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112111
+	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Type" state region of "Existent" typestate.
+	DESC:	"NonExistent" state region of "Existency" typestate.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.path.valid.existency.nonexistent;
@@ -40,22 +40,23 @@ import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	DESC:	Test plaidio.filesystem.path.valid.existency.existent package's features
+	CID:	TC-SR-112121
+	DESC:	Test plaidio.filesystem.path.valid.existency.nonexistent package's features
 **/
 method void test_nonexistent(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
-	testcase = makeTestCase("TC-TS-11211 make a non-exitent path which has creatability dimensions", fn(tc) => {
+	testcase = makeTestCase("TC-TS-1121211 make a non-exitent path which has creatability dimension", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator()+ "foo");
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
-		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
-		ifElse (isNonExistent(v)) { debug("The object is NonExistent!"); } /*else*/ { debug("The object is NOT NonExistent!"); tc.fail(); };
-		ifElse (isNxPermissionDimension(v)) { debug("The object has NxPermissionDimension!"); } /*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(); };
-		ifElse (isCreatabilityDimension(v)) { debug("The object has CreatabilityDimension!"); } /*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))	{ debug("The object has ExistencyDimension!"); }	/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
+		ifElse (isNonExistent(v))			{ debug("The object is NonExistent!"); }			/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
+		ifElse (isNxPermissionDimension(v))	{ debug("The object has NxPermissionDimension!"); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
+		ifElse (isCreatabilityDimension(v))	{ debug("The object has CreatabilityDimension!"); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
 

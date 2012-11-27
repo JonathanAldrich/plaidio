@@ -38,7 +38,7 @@ method immutable TestBed makeTestBed()
 
 method void debug(object)
 {
-	//printLine(object);
+	com.akefirad.plaid.PlaidHelper.debug(object);
 }
 
 method trycatch(tryBlock, catchBlock, immutable String exception)

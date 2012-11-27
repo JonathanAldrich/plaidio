@@ -40,7 +40,7 @@ state NonRelative case of RelativityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-112211
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 	{

@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121111
+	CID:	SR-1121121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Type" subtypes of "Type" typestate.
 	FILE:	Leaf.plaid
@@ -33,15 +33,15 @@ import plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype.Unknow
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121111
+	CID:	TS-1121121
 	DESC:	"Leaf" typestate which contains an existent leaf path.
 **/
 state Leaf case of PathTypeDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211111
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11211211
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeLeaf() /*[shared Leaf >> shared Leaf this]*/
 	{
@@ -51,7 +51,7 @@ state Leaf case of PathTypeDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211112
+		CID:	ST-11211212
 		DESC:	Checks whether the existent path is a root or not, and
 				changes the state of "this" into either "Root" or "Leaf".				
 	**/

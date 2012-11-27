@@ -95,8 +95,9 @@ immutable state TestCase
 		CID:	ST-914
 		DESC:	Makes the test case failed.
 	**/
-	method void fail()
+	method void fail(immutable Boolean verbose)
 	{
 		p_Result = false;
+		if (verbose) { printLine("FAILED..."); };
 	}
 }

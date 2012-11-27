@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1231
+	CID:	SR-11211131
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Writability" subtypes of "WritabilityDimension" typestate.
 	FILE:	NonWritable.plaid
@@ -30,15 +30,15 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.Writability
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1231
+	CID:	TS-11211131
 	DESC:	"NonWritable" typestate which represent a non-writable permission state.
 **/
 state NonWritable case of WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12111
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-112111311
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
 	{

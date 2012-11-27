@@ -33,6 +33,10 @@ public class PlaidHelper {
 		return (file.getAbsolutePath().equals(file.getCanonicalPath())) ? true : false;
 	}
 
+	public static void debug(Object object) {
+		System.out.println(object.toString());
+	}
+
 	public static void throwException(String message) throws Exception {
 		throw new PlaidException(message);
 	}

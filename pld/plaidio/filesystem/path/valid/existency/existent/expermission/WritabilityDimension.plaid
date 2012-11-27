@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-121
+	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Writability" state region of "Permission" typestate.
+	DESC:	"ExPermission" state region of "Existent" typestate.
 	FILE:	WritabilityDimension.plaid
 **/
 package plaidio.filesystem.path.valid.existency.existent.expermission;
@@ -31,25 +31,25 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.writability
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-123
-	DESC:	"WritabilityDimension" typestate which is one dimension of Permission typestate.
+	CID:	TS-1121113
+	DESC:	"WritabilityDimension" typestate which is one dimension of ExPermission typestate.
 **/
 state WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1231
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11211131
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
-		checkReadability();
+		checkWritability();
 	}
 	//method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1232
+		CID:	ST-11211132
 		DESC:	Checks whether the path is writable or not, and
 				changes the state of "this" into either "Writable" or "NonWritable".				
 	**/
@@ -57,11 +57,13 @@ state WritabilityDimension
 	{
 		ifElse (j_File.canWrite())
 		{
+			printLine("writable");
 			this <- Writable;
 			stabilizeWritable();
 		}
 		/*else*/
 		{
+			printLine("nonwritable");
 			this <- NonWritable;
 			stabilizeNonWritable();
 		}

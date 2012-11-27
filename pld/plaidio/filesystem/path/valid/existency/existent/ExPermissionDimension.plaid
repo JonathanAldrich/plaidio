@@ -19,7 +19,7 @@
 
 //------------------------------------------------------------------------------
 /**
-	CID:	SS-1
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
 			Basic typestate for SR-11 features.
@@ -33,15 +33,15 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.Writability
 
 //------------------------------------------------------------------------------
 /**
-	CID:	TS-12
+	CID:	TS-112111
 	DESC:	"ExPermissionDimension" state region of "Existent" typestate.
 **/
 state ExPermissionDimension = ExecutabilityDimension with ReadabilityDimension with WritabilityDimension with
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-121
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-1121111
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 	{

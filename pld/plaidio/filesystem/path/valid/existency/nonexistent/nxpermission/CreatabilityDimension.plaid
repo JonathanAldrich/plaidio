@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-121
+	CID:	SR-1121211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Executability" state region of "Permission" typestate.
+	DESC:	"Creatability" state region of "NxPermission" typestate.
 	FILE:	CreatabilityDimension.plaid
 **/
 package plaidio.filesystem.path.valid.existency.nonexistent.nxpermission;
@@ -31,15 +31,15 @@ import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatabi
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-121
+	CID:	TS-1121211
 	DESC:	"CreatabilityDimension" typestate which is one dimension of NonExistentPermission typestate.
 **/
 state CreatabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1211
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-11212111
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
@@ -49,7 +49,7 @@ state CreatabilityDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1212
+		CID:	ST-11212112
 		DESC:	Checks whether the path is creatable or not, and
 				changes the state of "this" into either "Creatable" or "NonCreatable".				
 	**/

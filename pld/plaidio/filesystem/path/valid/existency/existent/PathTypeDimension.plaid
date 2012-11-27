@@ -31,15 +31,15 @@ import plaidio.filesystem.path.valid.existency.existent.pathtype.Root;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112111
+	CID:	TS-112112
 	DESC:	"PathTypeDimension" typestate which is one dimension of Existent typestate.
 **/
 state PathTypeDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121111
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-1121121
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
 	{
@@ -49,7 +49,7 @@ state PathTypeDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121112
+		CID:	ST-1121122
 		DESC:	Checks whether the existent path is a root or not, and
 				changes the state of "this" into either "Root" or "Leaf".				
 	**/

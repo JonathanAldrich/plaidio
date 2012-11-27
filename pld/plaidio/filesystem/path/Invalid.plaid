@@ -31,14 +31,14 @@ import plaidio.filesystem.Path;
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-111
-	DESC:	"Invalid" typestate which contains n invalid path.
+	DESC:	"Invalid" typestate which  represents an invalid path.
 **/
 state Invalid case of Path
 {
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-1111
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeInvalid() /*[shared Invalid >> shared Invalid this]*/
 	{

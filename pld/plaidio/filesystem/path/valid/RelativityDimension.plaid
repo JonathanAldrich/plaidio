@@ -39,7 +39,7 @@ state RelativityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-11221
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{

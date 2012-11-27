@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1221
+	CID:	SR-11211121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
 	FILE:	NonReadable.plaid
@@ -30,15 +30,15 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.Readability
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1221
+	CID:	TS-11211121
 	DESC:	"NonReadable" typestate which represent a non-readable permission state.
 **/
 state NonReadable case of ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12211
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-112111211
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 	{

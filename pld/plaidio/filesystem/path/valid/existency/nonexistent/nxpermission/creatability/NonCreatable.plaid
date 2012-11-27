@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1211
+	CID:	SR-11212111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"NonCreatable" subtypes of "CreatabilityDimension" typestate.
+	DESC:	"Creatability" subtypes of "CreatabilityDimension" typestate.
 	FILE:	NonCreatable.plaid
 **/
 package plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability;
@@ -30,15 +30,15 @@ import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.Creatabi
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1212
+	CID:	TS-11212112
 	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
 **/
 state NonCreatable case of CreatabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-12121
-		DESC:	Checks all dimensions of the object.				
+		CID:	ST-112121121
+		DESC:	Checks all dimensions of the object.
 	**/
 	method void stabilizeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
 	{

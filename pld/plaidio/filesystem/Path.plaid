@@ -22,7 +22,6 @@
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
-			Basic typestate for SR-11 features.
 	FILE:	Path.plaid
 **/
 package plaidio.filesystem;
@@ -43,39 +42,6 @@ state Path
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111
-		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
-	**/
-	method immutable String getPathName()
-	{
-		/*return*/ j_File.getName();
-	}
-	//method immutable String getPathName()
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-112
-		DESC:	Converts this abstract pathname into a pathname string.
-	**/
-	method immutable String getPathString()
-	{
-		/*return*/ j_File.getPath();
-	}
-	//method immutable String getPathString()
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-113
-		DESC:	Returns the pathname string of this abstract pathname.
-	**/
-	method immutable String toString()
-	{
-		/*return*/ j_File.toString();
-	}
-	//method immutable String toString()
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-114
 		DESC:	Checks all dimensions of the object.				
 	**/
 	method void stabilizePath() /*[shared Path >> shared Path this]*/
@@ -86,7 +52,7 @@ state Path
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-115
+		CID:	ST-112
 		DESC:	Checks whether the path is valid or not, and
 				changes the state of "this" into either "Valid" or "Invalid".				
 	**/
@@ -107,4 +73,15 @@ state Path
 		}, "");
 	}
 	//method void checkValidity() /*[shared Path >> shared Path this]*/
+	
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-113
+		DESC:	
+	**/
+	method immutable String toString() /*[shared Path >> shared Path this]*/
+	{
+		j_File.toString();
+	}
+	//method void stabilizePath() /*[shared Path >> shared Path this]*/
 }

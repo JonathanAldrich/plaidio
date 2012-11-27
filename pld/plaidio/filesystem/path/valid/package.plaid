@@ -43,6 +43,7 @@ import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
+	CID:	TC-SR-1121
 	DESC:	Test plaidio.filesystem.path.valid package's features
 **/
 method void test_valid(immutable Boolean verbose)
@@ -53,44 +54,44 @@ method void test_valid(immutable Boolean verbose)
 	testcase = makeTestCase("TC-TS-11211 make an existent path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
-		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
-		ifElse (isExistent(v)) { debug("The object is Existent!"); } /*else*/ { debug("The object is NOT Existent!"); tc.fail(); };
-		ifElse (isNonExistent(v)) { debug("The object is NonExistent!"); tc.fail(); } /*else*/ { debug("The object is NOT NonExistent!"); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))	{ debug("The object has ExistencyDimension!"); }			/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
+		ifElse (isExistent(v))				{ debug("The object is Existent!"); }						/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
+		ifElse (isNonExistent(v))			{ debug("The object is NonExistent!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonExistent!"); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-TS-11212 make a non-existent path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator()+ "foo");
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
-		ifElse (isExistencyDimension(v)) { debug("The object has ExistencyDimension!"); } /*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(); };
-		ifElse (isExistent(v)) { debug("The object is Existent!"); tc.fail(); } /*else*/ { debug("The object is NOT Existent!"); };
-		ifElse (isNonExistent(v)) { debug("The object is NonExistent!"); } /*else*/ { debug("The object is NOT NonExistent!"); tc.fail(); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }						/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }						/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))	{ debug("The object has ExistencyDimension!"); }		/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
+		ifElse (isExistent(v))				{ debug("The object is Existent!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Existent!"); };
+		ifElse (isNonExistent(v))			{ debug("The object is NonExistent!"); }				/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-TS-11221 make a non-relative path", fn(tc) => {
 		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is not Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is not Valid!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
-		ifElse (isRelative(v)) { debug("The object is Relative!"); tc.fail(); } /*else*/ { debug("The object is NOT Relative!"); };
-		ifElse (isNonRelative(v)) { debug("The object is NonRelative!"); } /*else*/ { debug("The object is NOT NonRelative!"); tc.fail(); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }						/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }						/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has RelativityDimension!"); }		/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isRelative(v))				{ debug("The object is Relative!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Relative!"); };
+		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); }				/*else*/ { debug("The object is NOT NonRelative!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
 
 	testcase = makeTestCase("TC-TS-11222 make an relative path", fn(tc) => {
 		val unique Path v = makePath("foo");
 		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(); };
-		ifElse (isValid(v)) { debug("The object is Valid!"); } /*else*/ { debug("The object is NOT Valid!"); tc.fail(); };
-		ifElse (isRelativityDimension(v)) { debug("The object has RelativityDimension!"); } /*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(); };
-		ifElse (isRelative(v)) { debug("The object is Relative!"); } /*else*/ { debug("The object is NOT Relative!"); tc.fail(); };
-		ifElse (isNonRelative(v)) { debug("The object is NonRelative!"); tc.fail(); } /*else*/ { debug("The object is NOT NonRelative!"); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has RelativityDimension!"); }			/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isRelative(v))				{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); tc.fail(verbose); };
+		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonRelative!"); };
 	});
 	testbed.addTestCase(testcase);
 
