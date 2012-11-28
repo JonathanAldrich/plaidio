@@ -132,12 +132,19 @@ method void test_filesystem(immutable Boolean verbose)
 	});
 	testbed.addTestCase(testcase);
 	
-	testcase = makeTestCase("TC-TS-111 make an invalid path", fn(tc) => {
-		val unique Path v = makePath("con");
-		debug("'" + v + "'");
-		ifElse (isPath(v))		{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isInvalid(v))	{ debug("The object is Invalid!"); }					/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
-		ifElse (isValid(v))		{ debug("The object is Valid!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Valid!"); };
+	testcase = makeTestCase("TC-TS-111 make an invalid path (WINDOWS)", fn(tc) => {
+		ifElse(java.lang.System.getProperty("os.name") == "Windows")
+		{
+			val unique Path v = makePath("\0");
+			debug("'" + v + "'");
+			ifElse (isPath(v))		{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+			ifElse (isInvalid(v))	{ debug("The object is Invalid!"); }					/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
+			ifElse (isValid(v))		{ debug("The object is Valid!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Valid!"); };
+		}
+		/*else*/
+		{
+			debug("Warning: this test case is not applicable for non-windows OSs.");
+		}
 	});
 	testbed.addTestCase(testcase);
 
