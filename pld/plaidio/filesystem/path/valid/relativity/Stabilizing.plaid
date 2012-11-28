@@ -22,50 +22,38 @@
 	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
-	FILE:	NonRelative.plaid
+	FILE:	Stabilizing.plaid
 **/
 package plaidio.filesystem.path.valid.relativity;
 
 import plaidio.filesystem.path.valid.RelativityDimension;
-import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
-import plaidio.filesystem.path.valid.relativity.nonrelative.Canonical;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11221
-	DESC:	"NonRelative" typestate which contains a non-relative valid path.
+	CID:	TS-11223
+	DESC:	"Stabilizing" typestate which is created to stabilize RelativityDimension state.
+			This state should not be public.
 **/
-state NonRelative case of RelativityDimension
+state Stabilizing case of RelativityDimension
 {
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-112211
-		DESC:	Checks all dimensions of the object.
-	**/
-	method void stabilizeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
-	{
-		checkNonRelativity();
-	}
-	//method void stabilizeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
-
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112212
-		DESC:	Checks whether the path is either absolute or canonical, and
-				changes the state of "this" into either "Absolute" or "Canonical".
+		CID:	ST-112231
+		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
+				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
-	method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
+	method void stabilize() /*[shared Stabilizing >> shared RelativityDimension this]*/
 	{
-		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
+		ifElse (j_File.isAbsolute())
 		{
-			this <- Canonical;
-			stabilizeCanonical();
+			this <- NonRelative;
+			stabilizeNonRelative();
 		}
 		//else
 		{
-			this <- Absolute;
-			stabilizeAbsolute();
+			this <- Relative;
+			stabilizeRelative();
 		}
 	}
-	//method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
+	//method void stabilize() /*[shared Stabilizing >> shared RelativityDimension this]*/
 }

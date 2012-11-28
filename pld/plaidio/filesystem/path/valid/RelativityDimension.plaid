@@ -26,8 +26,7 @@
 **/
 package plaidio.filesystem.path.valid;
 
-import plaidio.filesystem.path.valid.relativity.NonRelative;
-import plaidio.filesystem.path.valid.relativity.Relative;
+import plaidio.filesystem.path.valid.relativity.Stabilizing;
 
 /*------------------------------------------------------------------------------
 /**
@@ -43,29 +42,8 @@ state RelativityDimension
 	**/
 	method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
-		checkRelativity();
+		this <- Stabilizing;
+		stabilize();
 	}
 	//method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
-
-	/*-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11222
-		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
-				changes the state of "this" into either "NonRelative" or "Relative".
-	**/
-	method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
-	{
-		printLine("START checkRelativity");
-		ifElse (j_File.isAbsolute())
-		{
-			this <- NonRelative;
-			stabilizeNonRelative();
-		}
-		//else
-		{
-			this <- Relative;
-			stabilizeRelative();
-		}
-	}
-	//method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 }

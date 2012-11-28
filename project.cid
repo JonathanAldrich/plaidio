@@ -8,7 +8,9 @@ SS-1	plaidio.filesystem
 	TS-11		Path
 		ST-110		makePath()
 		ST-111		stabilizePath()
-		ST-112		checkValidity()
+		ST-112		getName()
+		ST-113		getAddress()
+		ST-114		toString()
 		SR-111		plaidio.filesystem.path
 		TS-111		Invalid
 			ST-1111		stabilizeInvalid()
@@ -71,11 +73,12 @@ SS-1	plaidio.filesystem
 							SR-11212111	plaidio.filesystem.path.valid.existency.existent.nxpermission.creatability
 							TS-11212111	Creatable
 								ST-112121111	stabilizeCreatable()
+								ST-112121112	createAsFile()
+								ST-112121112	createAsFolder()
 							TS-11212112	NonCreatable
 								ST-112121121	stabilizeNonCreatable()
 			TS-1122		RelativityDimension
 				ST-11221	stabilizeRelativityDimension()
-				ST-11222	checkRelativity()
 				SR-11221	plaidio.filesystem.path.valid.relativity
 				TS-11221	NonRelative
 					ST-112211	stabilizeNonRelative()
@@ -87,3 +90,7 @@ SS-1	plaidio.filesystem
 						ST-1122121	stabilizeCanonical()
 				TS-11222	Relative
 					ST-112221	stabilizeRelative()
+				TS-11223	Stabilizing
+					ST-112231	stabilize()
+		TS-113		Stabilizing
+			ST-1131		stabilize()
