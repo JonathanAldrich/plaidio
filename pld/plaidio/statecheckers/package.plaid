@@ -31,7 +31,7 @@ import plaidio.filesystem.path.valid.relativity.NonRelative;
 import plaidio.filesystem.path.valid.relativity.Relative;
 import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
 import plaidio.filesystem.path.valid.relativity.nonrelative.Canonical;
-import plaidio.filesystem.path.valid.relativity.nonrelative.PureNonRelative;
+import plaidio.filesystem.path.valid.relativity.Stabilizing;
 
 method immutable Boolean isPath(v) { match (v) { case Path { true; } default { false; } }; }
 method immutable Boolean isInvalid(v) { match (v) { case Invalid { true; } default { false; } }; }
@@ -98,5 +98,5 @@ method void match_state(v)
 	if (true) { match (v) { case Relative { printLine("The object is Relative"); } default { printLine("The object is NOT Relative"); } }; };
 	if (true) { match (v) { case Absolute { printLine("The object is Absolute"); } default { printLine("The object is NOT Absolute"); } }; };
 	if (true) { match (v) { case Canonical { printLine("The object is Canonical"); } default { printLine("The object is NOT Canonical"); } }; };
-	if (true) { match (v) { case PureNonRelative { printLine("The object is PureNonRelative"); } default { printLine("The object is NOT PureNonRelative"); } }; };
+	if (true) { match (v) { case Stabilizing { printLine("The object is Stabilizing"); } default { printLine("The object is NOT Stabilizing"); } }; };
 }

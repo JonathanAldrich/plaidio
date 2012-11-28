@@ -44,6 +44,7 @@ import plaidio.statecheckers.isWritabilityDimension;
 import plaidio.statecheckers.isPathTypeDimension;
 import plaidio.statecheckers.isLeaf;
 import plaidio.statecheckers.isFile;
+import plaidio.statecheckers.isFolder;
 import plaidio.statecheckers.isRelativityDimension;
 import plaidio.statecheckers.isRelative;
 import plaidio.statecheckers.isNonRelative;
@@ -62,8 +63,9 @@ method void test_creatability(immutable Boolean verbose)
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
+	//------------------------------------------------------------------------------------------------------
 	testcase = makeTestCase("TC-ST-112121112 make a non-existent path and create it as a file.", fn(tc) => {
-		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator() + "foo");
+		val unique Path v = makePath("foo.file");
 		debug("'" + v + "'");
 		ifElse (isPath(v))						{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
 		ifElse (isValid(v))						{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
@@ -80,18 +82,16 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
 
 		debug("The path is going to be created as a file!");
-		val result = v.createAsFile();
-		debug("The result of creation is: " + v);
+		v.createAsFile();
 
-		debug("'" + v + "'");
 		ifElse (isPath(v))						{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
 		ifElse (isValid(v))						{ debug("The object is Valid!"); }										/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
 		ifElse (isExistencyDimension(v))		{ debug("The object has ExistencyDimension!"); }						/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
 		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
 		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
-		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
-		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
-		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
+		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); };
+		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); };
+		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
 		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
 		ifElse (isExecutabilityDimension(v))	{ debug("The object has ExecutabilityDimension!"); }					/*else*/ { debug("The object has NO ExecutabilityDimension!"); tc.fail(verbose); };
@@ -100,6 +100,50 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isPathTypeDimension(v))			{ debug("The object has PathTypeDimension!"); }							/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
 		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
 		ifElse (isFile(v))						{ debug("The object is File!"); }										/*else*/ { debug("The object is NOT File!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has RelativityDimension!"); }						/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
+		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
+	});
+	testbed.addTestCase(testcase);
+
+	//------------------------------------------------------------------------------------------------------
+	testcase = makeTestCase("TC-ST-112121113 make a non-existent path and create it as a folder.", fn(tc) => {
+		val unique Path v = makePath("foo.folder\\bar.folder");
+		debug("'" + v + "'");
+		ifElse (isPath(v))						{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))						{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))		{ debug("The object has ExistencyDimension!"); }			/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
+		ifElse (isExistent(v))					{ debug("The object is Existent!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Existent!"); };
+		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); }					/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
+		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); }			/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
+		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
+		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
+		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has RelativityDimension!"); }			/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
+		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
+		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
+
+		debug("The path is going to be created as a folder!");
+		v.createAsFolder();
+
+		ifElse (isPath(v))						{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))						{ debug("The object is Valid!"); }										/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))		{ debug("The object has ExistencyDimension!"); }						/*else*/ { debug("The object has NO ExistencyDimension!"); tc.fail(verbose); };
+		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
+		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
+		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); };
+		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); };
+		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
+		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
+		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
+		ifElse (isExecutabilityDimension(v))	{ debug("The object has ExecutabilityDimension!"); }					/*else*/ { debug("The object has NO ExecutabilityDimension!"); tc.fail(verbose); };
+		ifElse (isReadabilityDimension(v))		{ debug("The object has ReadabilityDimension!"); }						/*else*/ { debug("The object has NO ReadabilityDimension!"); tc.fail(verbose); };
+		ifElse (isWritabilityDimension(v))		{ debug("The object has WritabilityDimension!"); }						/*else*/ { debug("The object has NO WritabilityDimension!"); tc.fail(verbose); };
+		ifElse (isPathTypeDimension(v))			{ debug("The object has PathTypeDimension!"); }							/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
+		ifElse (isFile(v))						{ debug("The object is File!"); tc.fail(verbose); }						/*else*/ { debug("The object is NOT File!"); };
+		ifElse (isFolder(v))					{ debug("The object is Folder!"); }										/*else*/ { debug("The object is NOT Folder!"); tc.fail(verbose); };
 		ifElse (isRelativityDimension(v))		{ debug("The object has RelativityDimension!"); }						/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
 		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };

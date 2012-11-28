@@ -27,7 +27,8 @@
 package plaidio.filesystem.path.valid.relativity;
 
 import plaidio.filesystem.path.valid.RelativityDimension;
-import plaidio.filesystem.path.valid.relativity.nonrelative.PureNonRelative;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Absolute;
+import plaidio.filesystem.path.valid.relativity.nonrelative.Canonical;
 
 /*------------------------------------------------------------------------------
 /**
@@ -43,12 +44,28 @@ state NonRelative case of RelativityDimension
 	**/
 	method void stabilizeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 	{
-		printLine("START transition to PureNonRelative");
-		plaidio.statecheckers.match_state(this);
-		this <- PureNonRelative;
-		printLine("END transition to PureNonRelative");
-		plaidio.statecheckers.match_state(this);
-		stabilizePureNonRelative();
+		checkNonRelativity();
 	}
 	//method void stabilizeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112212
+		DESC:	Checks whether the path is either absolute or canonical, and
+				changes the state of "this" into either "Absolute" or "Canonical".
+	**/
+	method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
+	{
+		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
+		{
+			this <- Canonical;
+			stabilizeCanonical();
+		}
+		//else
+		{
+			this <- Absolute;
+			stabilizeAbsolute();
+		}
+	}
+	//method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
 }

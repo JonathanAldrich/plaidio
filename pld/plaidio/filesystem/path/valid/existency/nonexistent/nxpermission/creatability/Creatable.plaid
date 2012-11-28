@@ -49,14 +49,34 @@ state Creatable case of CreatabilityDimension
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-112121112
-		DESC:	Atomically creates a new, empty file named by this abstract pathname
+		DESC:	Automically creates a new, empty file named by this abstract pathname
 				if and only if a file with this name does not yet exist.
 	**/
-	method void createAsFile() /*[unique Creatable >> unique Valid this]*/
+	method createAsFile() /*[unique Creatable >> unique Valid this]*/
 	{
 		stabilizePath();
-		if (isCreatable(this)) { j_File.createNewFile(); };
-		stabilizePath();
+		if (isCreatable(this))
+		{
+			j_File.createNewFile();
+			stabilizePath();
+		};
 	}
 	//method void createAsFile() /*[unique Creatable >> unique Valid this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112121113
+		DESC:	Creates the directory named by this abstract pathname, including any necessary but nonexistent parent directories.
+				Note that if this operation fails it may have succeeded in creating some of the necessary parent directories.
+	**/
+	method createAsFolder() /*[unique Creatable >> unique Valid this]*/
+	{
+		stabilizePath();
+		if (isCreatable(this))
+		{
+			j_File.mkdirs();
+			stabilizePath();
+		};
+	}
+	//method void createAsFolder() /*[unique Creatable >> unique Valid this]*/
 }

@@ -1,1 +1,764 @@
-<?xml version="1.0" encoding="UTF-8"?><UModel version="8"><Settings><ProjectStyles gridsize="5" showregionnames="1"/><ElementStyles><State headergradientend="white"/></ElementStyles></Settings><OpenDiagrams activeDiagram="dcb9604a-c462-4d19-b155-3f293ed35827"><OpenDiagramEntry>5561f1e6-1eab-48e3-a904-117c5d5b3cf8</OpenDiagramEntry><OpenDiagramEntry>dcb9604a-c462-4d19-b155-3f293ed35827</OpenDiagramEntry><OpenDiagramEntry>db274fb6-7e42-4309-8e98-026ce9193c23</OpenDiagramEntry></OpenDiagrams><Model><Package uuid="00000001-7510-11d9-86f2-000476a22f44" name="Root" visibility="public"><packagedElement><Package uuid="00000003-7510-11d9-86f2-000476a22f44" name="Component View" visibility="public"/><Package uuid="c0a032a0-211c-485c-90c6-21b8a3274e36" name="plaid.io" visibility="public"><packagedElement><Class uuid="0b9c9d8b-2dc3-45c8-8688-93178757a257" name="Paths" visibility="public"><ownedOperation><Operation uuid="349da3ff-59c3-4b20-9c00-ac774e862468" name="getPath" visibility="public"><appliedStereotype><StereotypeApplication uuid="72470059-a796-451d-8aa9-691f39b9aac9" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/></appliedStereotype><ownedParameter><Parameter uuid="b307a5e5-fa45-4f9c-8585-4fb3652502c7" name="path"/></ownedParameter></Operation></ownedOperation></Class><StateMachine uuid="3a8074c2-9366-42cd-8d3c-fd71dae6c25a" name="FILESYSTEM" visibility="public"><region><Region uuid="998de0d6-eef8-46ce-b2e8-bd66ad007eaa" name="default"><subvertex><State uuid="acc8311a-dbc5-4b0e-82eb-76c3b09ac9c0" name="Paths"/><State uuid="e441aa22-790f-47c8-9f5a-24bc8c4c01a6" name="Path"><region><Region uuid="cde48eb0-31a5-4f63-8756-48c9840b2ae9" name="path"><subvertex><State uuid="088aa604-63d5-42d9-a5e9-3082441633f2" name="Valid"><region><Region uuid="e203b0fb-76a8-4c15-8171-f67d3f39c8a5" name="existency"><subvertex><State uuid="2df66a67-9d13-401e-a0b4-64229a7bdaf6" name="Existent"><region><Region uuid="24f38868-5f04-445d-b698-1dc3e3657e4c" name="pathtype"><subvertex><State uuid="92f8d774-f009-4df8-b114-ad6dcc24be5d" name="Root"/><State uuid="81d64bfa-67ca-4deb-855a-3582fdeab734" name="Leaf"><region><Region uuid="8e818645-301a-4707-9f9a-298bbb785bc5" name="leaftype"><subvertex><State uuid="dfa297ac-9071-499b-ae32-475e271fddbd" name="Folder"/><State uuid="13ccc14a-89e6-45d1-b30c-40796cbb1f62" name="File"/></subvertex></Region></region></State></subvertex></Region><Region uuid="eade9110-796f-43c8-b385-aad6af0cc4a5" name="permission"><subvertex><State uuid="cabb55c1-e078-4562-a195-af76c9ad640b" name="ExPermissionDimension"><region><Region uuid="b4efde68-cfe4-42c6-a78a-c612080f1016" name="readability"><subvertex><State uuid="a969aa0d-e440-422b-9873-4082202434eb" name="Readable"/><State uuid="f58963e9-72e6-4bf3-af36-ae2cf35f64c6" name="NonReadable"/></subvertex></Region><Region uuid="5e24ddfe-5f99-43e5-9144-124c1d9b9ef3" name="writability"><subvertex><State uuid="d09af826-2f9a-4629-83ff-d0dd0d3f7856" name="Writable"/><State uuid="1012eb5b-7659-42c1-b668-80bd29b45960" name="NonWritable"/></subvertex></Region><Region uuid="dda59911-4847-41b8-ae49-2e46fc58fb5d" name="executability"><subvertex><State uuid="b56f81d3-6284-4756-adfa-e97cc1fc2bfb" name="Executable"/><State uuid="7eccf2ae-4273-46df-9c0e-04b0183b4fcb" name="NonExecutable"/></subvertex></Region></region></State></subvertex></Region></region></State><State uuid="4bfe3ff6-a620-447e-af4a-eb7ef54480ca" name="NonExistent"><region><Region uuid="f92ef255-469f-46a7-863f-ae3c1f3b3c6b" name="permission"><subvertex><State uuid="4a749cd1-cd4a-461e-aa4d-76b6cb6b3ce0" name="NxPermissionDimension"><region><Region uuid="441d157a-a252-43c8-8e3f-a2a55aa958cb" name="creatability"><subvertex><State uuid="bb540cc1-e281-44d2-acac-0c603c2d6518" name="Creatable"/><State uuid="6f865acd-3943-4464-882f-797966d165fe" name="NonCreatable"/></subvertex></Region></region></State></subvertex></Region></region></State></subvertex></Region><Region uuid="369148b3-4d98-46c9-802d-889dc9e85618" name="relativity"><subvertex><State uuid="fcabb3fc-ee90-4d44-8161-00bd30ea28ce" name="NonRelative"><region><Region uuid="3123db2b-2ab4-4280-9e60-f6fcc347916f" name="nonrelative"><subvertex><State uuid="68e5d1eb-4999-4b3c-a6be-73f10cee0489" name="Absolute"/><State uuid="f095f466-9e55-4521-b3b8-12910a5fa92d" name="Canonical"/><State uuid="966ba46b-7d04-4aa1-9694-3c3c230d33eb" name="Nothing"/></subvertex></Region></region></State><State uuid="bd00583a-655f-4473-a6ff-46b609be5692" name="Relative"/></subvertex></Region></region></State><State uuid="1752d4c1-6341-471b-8184-1647a6794153" name="Invalid"/></subvertex></Region></region></State></subvertex></Region></region></StateMachine><Class uuid="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9" name="Path" visibility="public"><ownedAttribute><Property uuid="284baf7a-9b78-496c-9ccf-873a9b534140" name="path" visibility="public" type="543b0f4f-be14-4ac8-b456-4c00fd3124c1"/></ownedAttribute><ownedOperation><Operation uuid="f61e9eaa-0a97-4c13-8cab-5348888b22fd" name="checkValidity" visibility="public"/></ownedOperation></Class><Class uuid="39ef12ee-2ec5-4139-b7e3-e08646bfd10f" name="ValidPath" visibility="public"><generalization><Generalization uuid="6f72d50f-6b4b-4412-ae40-c67033275c81" general="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9"/></generalization><ownedOperation><Operation uuid="c44622ff-3f3a-46e9-aa32-0359412c2134" name="endsWith" visibility="public"><appliedStereotype><StereotypeApplication uuid="01da843d-a48e-47cd-a58f-1a43f4113d4d" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/></appliedStereotype><ownedParameter><Parameter uuid="5dde93e9-913e-44d1-ad8d-c80a709dd0e3" name="other" type="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/></ownedParameter></Operation><Operation uuid="4c1ab0e9-9c9e-4c11-8200-1bdec312b6fb" name="endsWith" visibility="public"><appliedStereotype><StereotypeApplication uuid="7b489ec3-4f5a-4a39-9b56-6304d9d49b85" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/></appliedStereotype><ownedParameter><Parameter uuid="64a942fe-c017-41a6-9db3-b6341d35d0cf" name="other" type="67d59eba-19dc-42bd-adc0-05ec5295ba00"/></ownedParameter></Operation></ownedOperation></Class><Class uuid="38edf997-45a0-4329-be27-2b6b54db2c3b" name="InvalidPath" visibility="public"><generalization><Generalization uuid="b1e70cf2-3e3f-46ef-a7ea-be6f1af9c603" general="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9"/></generalization></Class><Class uuid="bba3d4e2-4d9c-4121-ba69-bc33aa615c76" name="ExistentPath" visibility="public"><generalization><Generalization uuid="09b04900-6fce-465f-ac71-b1d82c4793b5" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/></generalization></Class><Class uuid="37b30a77-85a2-458d-8899-ed03f827b341" name="NonExistentPath" visibility="public"><generalization><Generalization uuid="17d091ab-fdeb-4c23-b5cf-2fc0bdd06583" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/></generalization></Class><Class uuid="7b281c9c-7b62-47ba-be22-7111b1597751" name="RelativePath" visibility="public"><generalization><Generalization uuid="78c00a0a-82bc-4a86-b69a-ff2141c7fb1f" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/></generalization><ownedOperation><Operation uuid="d7730971-e3ae-4829-b8f0-451c4da6cc88" name="compareTo" visibility="public"><appliedStereotype><StereotypeApplication uuid="a96899b0-ec9d-4346-901b-480d2f9ffb0d" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/></appliedStereotype><ownedParameter><Parameter uuid="d40f6895-da29-41da-8487-cc0b3a10c9d0" name="other" type="7b281c9c-7b62-47ba-be22-7111b1597751"/></ownedParameter></Operation></ownedOperation></Class><Class uuid="5b4df828-1a8b-420b-b36b-ef6192befa19" name="AbsolutePath" visibility="public"><generalization><Generalization uuid="d24ad543-2955-4464-b3e8-43259a0b25bb" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/></generalization><ownedOperation><Operation uuid="f19e90cb-7947-4ac5-8e23-d538b798cd76" name="compareTo" visibility="public"><appliedStereotype><StereotypeApplication uuid="811d441d-6722-44f4-b750-ea95b43c6113" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/></appliedStereotype><ownedParameter><Parameter uuid="e909b747-39ce-489e-bed1-4cdae43920e0" name="other" type="5b4df828-1a8b-420b-b36b-ef6192befa19"/></ownedParameter></Operation></ownedOperation></Class><Class uuid="de8ac44c-adc5-4eb5-b795-65a3b592d696" name="PathPermission" visibility="public"/><Class uuid="a6e2dbc8-c4b8-47f6-94e2-37bb5ee4454b" name="Readable" visibility="public"><generalization><Generalization uuid="4c91699c-d8ce-4385-b331-fa3b7c5a6fd3" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/></generalization></Class><Class uuid="adb346b8-ec6a-4f85-aefc-d965f5b0e2cc" name="NonReadable" visibility="public"><generalization><Generalization uuid="2ac8c92f-db8d-413d-9160-56988fb067d0" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/></generalization></Class><Class uuid="0a6b269a-19b9-458c-b698-c99a48ada747" name="Writable" visibility="public"><generalization><Generalization uuid="2d4db424-eda7-424a-bfd9-a201720d482d" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/></generalization></Class><Class uuid="b4719b40-9197-4070-8301-8ea2f9431dd3" name="NonWritable" visibility="public"><generalization><Generalization uuid="4f942b11-a089-4067-a844-30f29eb1a7c8" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/></generalization></Class><Class uuid="cf4670e6-c8f8-4ace-a0d2-138b0693bd6d" name="RootPath" visibility="public"><generalization><Generalization uuid="ee8897c0-85d3-42a9-8cc4-f73f677552da" general="bba3d4e2-4d9c-4121-ba69-bc33aa615c76"/></generalization></Class><Class uuid="958cdded-347d-4e59-9e2f-44d5ca75a1ad" name="LeafPath" visibility="public"><generalization><Generalization uuid="c2192482-bd06-47a1-8de3-c958d9bdad6c" general="bba3d4e2-4d9c-4121-ba69-bc33aa615c76"/></generalization></Class><Class uuid="bfb16587-20a4-43e4-8ec4-66379c01814f" name="DirectoryPath" visibility="public"><generalization><Generalization uuid="c125c1b2-74d8-48cd-b38a-3531c9b50e7d" general="958cdded-347d-4e59-9e2f-44d5ca75a1ad"/></generalization></Class><Class uuid="a8d8c898-90dd-40f6-b99e-8b865b16bf8e" name="FilePath" visibility="public"><generalization><Generalization uuid="791ca313-3077-48c3-92e0-c9e29943da64" general="958cdded-347d-4e59-9e2f-44d5ca75a1ad"/></generalization></Class></packagedElement></Package><Profile uuid="1631e765-4fae-4bdd-bc5d-320b7521e1a8" name="plaid" visibility="public"><packagedElement><Stereotype uuid="7131f3ba-337b-443d-a5ae-a9f38bd098c8" name="unique" visibility="public" baseClass="Parameter"/><Stereotype uuid="fbabd741-628a-4f33-bcef-64939d4dc9f5" name="full" visibility="public" baseClass="Parameter"/><Stereotype uuid="98da05fd-65d6-4bc9-8778-dbead509620c" name="immutable" visibility="public" baseClass="Parameter"/><Stereotype uuid="d3d0de20-a5df-47d6-a5ae-67adc0727b0e" name="shared" visibility="public" baseClass="Parameter"/><Stereotype uuid="855ef3a4-e0ee-4603-a200-e0d28a18afe6" name="pure" visibility="public" baseClass="Parameter"/><Stereotype uuid="9c1098c0-19de-48c8-a47c-bedeff17056e" name="val" visibility="public" baseClass="Property"/><Stereotype uuid="4fbd94ff-2922-4d0f-ac14-0ccb4e0bd76f" name="var" visibility="public" baseClass="Property"/><Stereotype uuid="e8ce9385-df2e-49f8-a6a7-1502a6c0334b" name="stateval" visibility="public" baseClass="Property"/><Stereotype uuid="fbdf26f1-af9f-4ac2-952a-16fe4feaf120" name="neutral" visibility="public" baseClass="Operation"/></packagedElement></Profile><Package uuid="e782d17c-cc59-4e3f-b2e9-ca85297812aa" name="java.nio.file" visibility="public"><packagedElement><Class uuid="543b0f4f-be14-4ac8-b456-4c00fd3124c1" name="java.nio.file.Path" visibility="public"/></packagedElement></Package><Package uuid="a8c83300-52b8-4417-99aa-2ec21678f6b2" name="plaid.lang" visibility="public"><packagedElement><Class uuid="67d59eba-19dc-42bd-adc0-05ec5295ba00" name="String" visibility="public"/><Class uuid="05dedb99-79cd-4384-b462-afc5293deb22" name="Boolean" visibility="public"/><Class uuid="914a4b04-b69c-44a5-90f6-46728b4e5c16" name="Integer" visibility="public"/></packagedElement></Package></packagedElement><profileApplication><ProfileApplication uuid="94752d98-b3a8-4c0f-9683-ddfde930d4a1" appliedProfile="1631e765-4fae-4bdd-bc5d-320b7521e1a8"/></profileApplication></Package></Model><Diagrams><RootElement uuid="00000002-7510-11d9-86f2-000476a22f44"><guiRootGuiDiagram><ClassDiagram uuid="5561f1e6-1eab-48e3-a904-117c5d5b3cf8" name="cd.plaid.io.file" guiDiagramLinkedOwner="c0a032a0-211c-485c-90c6-21b8a3274e36"><guiDiagramGuiLink><Note uuid="7e54ab64-b5d6-4402-8c9a-5e832a77002b" noteText="I&apos;m almost sure that this diagram is not completely correct, specially the generalization and composition relations. Also I need to complete it by adding properties and operations for each typestate. I would try to correct and complete it if I have your comments."><style autosize="0"/><nodeRect Left="20" Top="110" Right="300" Bottom="195"/></Note><NodeLink uuid="8a40d928-10b0-4a76-a7c7-503278151674" guiLink_Element="0b9c9d8b-2dc3-45c8-8688-93178757a257"><nodeRect Left="15" Top="30" Right="176" Bottom="92"/></NodeLink><NodeLink uuid="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4" guiLink_Element="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9"><nodeRect Left="460" Top="20" Right="599" Bottom="101"/></NodeLink><NodeLink uuid="2361656c-8616-4957-a87c-a390115fea12" guiLink_Element="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"><nodeRect Left="420" Top="120" Right="641" Bottom="201"/></NodeLink><NodeLink uuid="d907b4ae-a51f-435e-9bc9-b6e5c6b4f846" guiLink_Element="38edf997-45a0-4329-be27-2b6b54db2c3b"><nodeRect Left="330" Top="140" Right="400" Bottom="182"/></NodeLink><NodeLink uuid="93f9a81e-22ca-4b53-9e80-91d657a2b762" guiLink_Element="bba3d4e2-4d9c-4121-ba69-bc33aa615c76"><nodeRect Left="675" Top="230" Right="754" Bottom="272"/></NodeLink><NodeLink uuid="5a0d83ff-04e1-489d-8423-7dabb0c3246e" guiLink_Element="37b30a77-85a2-458d-8899-ed03f827b341"><nodeRect Left="20" Top="230" Right="120" Bottom="272"/></NodeLink><LineLink uuid="ba8cfa1c-e898-4a07-b3e9-6bba4924e2cf" guiLink_Element="b1e70cf2-3e3f-46ef-a7ea-be6f1af9c603" guiLineLink_LineBegin="d907b4ae-a51f-435e-9bc9-b6e5c6b4f846" guiLineLink_LineEnd="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="746947f4-5438-47b1-b72b-f58d8a5ac0fc"><pos X="430" Y="121"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="0b9aa10c-64b3-4e2d-a131-36e62a38b5d4" alignment="2"><pos X="399" Y="140"/></EndWaypoint><EndWaypoint uuid="fb5b1dd9-b190-4701-a4c6-76a5a309b80c" alignment="3"><pos X="462" Y="101"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="99b8e36c-6b7d-4181-8a32-701f082b2b51" guiLink_Element="6f72d50f-6b4b-4412-ae40-c67033275c81" guiLineLink_LineBegin="2361656c-8616-4957-a87c-a390115fea12" guiLineLink_LineEnd="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="b1ee89cd-438e-4443-9df7-f707d3b49ec6"><pos X="530" Y="111"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="3cf2d47b-f459-4964-8a9d-1c3b5ff77efc" alignment="4"><pos X="530" Y="120"/></EndWaypoint><EndWaypoint uuid="23e99bdf-75fa-498e-8066-b2985e3a853b" alignment="1"><pos X="530" Y="101"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="cd71b383-3a0f-481c-8f0d-fc4cd0495cab" guiLink_Element="09b04900-6fce-465f-ac71-b1d82c4793b5" guiLineLink_LineBegin="93f9a81e-22ca-4b53-9e80-91d657a2b762" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="a0dfc4a0-025f-4dd8-83cc-0a84cb494a21"><pos X="645" Y="217"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="fdf05b61-b22a-4021-a00e-a7b5a3ae5ead" alignment="1"><pos X="675" Y="232"/></EndWaypoint><EndWaypoint uuid="6969fb31-972f-4bd4-948a-f1289de95d72" alignment="4"><pos X="613" Y="201"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="50da90e6-603e-4ef9-b24d-923533273db9" guiLink_Element="17d091ab-fdeb-4c23-b5cf-2fc0bdd06583" guiLineLink_LineBegin="5a0d83ff-04e1-489d-8423-7dabb0c3246e" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="c9cd55d4-8ee7-45c4-9b97-1f4b0510051f"><pos X="269" Y="212"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="3f276efc-b4ca-4609-8ca9-540a806329b3" alignment="2"><pos X="120" Y="241"/></EndWaypoint><EndWaypoint uuid="987a1523-2940-41ec-a481-2faa8429b6e6" alignment="3"><pos X="420" Y="182"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="ee6b69dd-5604-4ba9-b7ec-2dbfe7c6b9f2" guiLink_Element="7b281c9c-7b62-47ba-be22-7111b1597751"><nodeRect Left="410" Top="220" Right="654" Bottom="282"/></NodeLink><NodeLink uuid="27830815-a35c-4959-8ecd-ced983037275" guiLink_Element="5b4df828-1a8b-420b-b36b-ef6192befa19"><nodeRect Left="140" Top="220" Right="389" Bottom="282"/></NodeLink><LineLink uuid="1106c321-2129-43ef-bfe0-512a9a155fe6" guiLink_Element="d24ad543-2955-4464-b3e8-43259a0b25bb" guiLineLink_LineBegin="27830815-a35c-4959-8ecd-ced983037275" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="a3a29fed-4a0c-4618-9edf-a6d09b2da643"><pos X="387" Y="209"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="e2a973d0-8797-4aac-8f53-af73f5772360" alignment="1"><pos X="355" Y="220"/></EndWaypoint><EndWaypoint uuid="92e8788c-3023-437c-908a-6e31a0955470" alignment="4"><pos X="420" Y="198"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="d37610f3-0cc6-43e1-a32c-5208792c4700" guiLink_Element="78c00a0a-82bc-4a86-b69a-ff2141c7fb1f" guiLineLink_LineBegin="ee6b69dd-5604-4ba9-b7ec-2dbfe7c6b9f2" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="a56c8027-0d88-4234-a180-5de907987ed4"><pos X="531" Y="211"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="fb30c103-e086-4441-90d6-d5ca5239f14e" alignment="1"><pos X="531" Y="220"/></EndWaypoint><EndWaypoint uuid="0b83aa2d-07cc-455c-93e7-5ccf4f415572" alignment="4"><pos X="531" Y="201"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="bf90ada7-ea63-4402-80a9-6da97c9da50e" guiLink_Element="de8ac44c-adc5-4eb5-b795-65a3b592d696"><nodeRect Left="210" Top="310" Right="309" Bottom="352"/></NodeLink><NodeLink uuid="9de7f021-6ceb-4f9f-88d6-326e7d430b42" guiLink_Element="a6e2dbc8-c4b8-47f6-94e2-37bb5ee4454b"><nodeRect Left="25" Top="375" Right="86" Bottom="417"/></NodeLink><LineLink uuid="fb72248e-e3b6-4458-a16e-3d7ee68a9f3f" guiLink_Element="4c91699c-d8ce-4385-b331-fa3b7c5a6fd3" guiLineLink_LineBegin="9de7f021-6ceb-4f9f-88d6-326e7d430b42" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="fd1768ef-c2e9-4694-ac28-05da5feea225"><pos X="147" Y="367"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="b47fc519-f347-4c8d-8a67-d1d4cd793107" alignment="2"><pos X="86" Y="386"/></EndWaypoint><EndWaypoint uuid="d4b82151-2850-46ba-bc87-59999510de13" alignment="3"><pos X="210" Y="347"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="64106ca7-1cb6-4799-824d-4f297f86008c" guiLink_Element="adb346b8-ec6a-4f85-aefc-d965f5b0e2cc"><nodeRect Left="105" Top="375" Right="187" Bottom="417"/></NodeLink><LineLink uuid="49ee7067-e151-4182-89d1-e85b95f87bbc" guiLink_Element="2ac8c92f-db8d-413d-9160-56988fb067d0" guiLineLink_LineBegin="64106ca7-1cb6-4799-824d-4f297f86008c" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="659a65f2-9799-4c6f-a7df-668aa691aa85"><pos X="203" Y="364"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="cc9cca70-65d5-4214-a183-745c626722a8" alignment="2"><pos X="183" Y="375"/></EndWaypoint><EndWaypoint uuid="1954bb39-d679-4d72-a463-4c80abb4e1e6" alignment="3"><pos X="223" Y="352"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="a9b3c60d-5dca-44f6-90ea-982673f64f63" guiLink_Element="0a6b269a-19b9-458c-b698-c99a48ada747"><nodeRect Left="325" Top="375" Right="381" Bottom="417"/></NodeLink><NodeLink uuid="cba5fac1-cad5-4331-ab8d-908787bf7e34" guiLink_Element="b4719b40-9197-4070-8301-8ea2f9431dd3"><nodeRect Left="220" Top="375" Right="297" Bottom="417"/></NodeLink><LineLink uuid="d0188fd9-babf-4c64-8572-2acef3cef532" guiLink_Element="4f942b11-a089-4067-a844-30f29eb1a7c8" guiLineLink_LineBegin="cba5fac1-cad5-4331-ab8d-908787bf7e34" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e"><style linestyle="1"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="2c7ba69e-90e5-449f-832c-ab2a34e53256"><pos X="257" Y="364"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="d4e3aec7-0153-4b6d-8d44-acfc35e71043" alignment="2"><pos X="257" Y="375"/></EndWaypoint><EndWaypoint uuid="87292516-e1f1-4cf4-861b-2e73b51f8497" alignment="3"><pos X="257" Y="352"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="fdd33e3a-03b7-428a-bc5e-6aaab2665efb" guiLink_Element="2d4db424-eda7-424a-bfd9-a201720d482d" guiLineLink_LineBegin="a9b3c60d-5dca-44f6-90ea-982673f64f63" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="3390c216-9484-4e30-b940-58b6a59c6ea7"><pos X="308" Y="365"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="eb2e8b28-e262-4186-9e52-4589fd634766" alignment="2"><pos X="325" Y="377"/></EndWaypoint><EndWaypoint uuid="d8fc0ad7-6286-49a0-86bc-7e396a5e9290" alignment="3"><pos X="289" Y="352"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="4f3ef8c5-882d-4919-8d8a-9c01aaaa129b" guiLink_Element="cf4670e6-c8f8-4ace-a0d2-138b0693bd6d"><nodeRect Left="605" Top="300" Right="665" Bottom="342"/></NodeLink><LineLink uuid="e0e40661-872b-4b51-a887-3804c81ef63a" guiLink_Element="ee8897c0-85d3-42a9-8cc4-f73f677552da" guiLineLink_LineBegin="4f3ef8c5-882d-4919-8d8a-9c01aaaa129b" guiLineLink_LineEnd="93f9a81e-22ca-4b53-9e80-91d657a2b762"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="e1c38732-b181-4bc2-8593-bda5348c0330"><pos X="674" Y="287"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="9a1414a5-e1ea-4ee7-bc91-db236b35a13a" alignment="2"><pos X="659" Y="300"/></EndWaypoint><EndWaypoint uuid="ce97a07e-edf3-4395-a7bd-1168d5869f27" alignment="3"><pos X="690" Y="272"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="e275f206-49c6-42e8-b74e-7970a305fe3a" guiLink_Element="958cdded-347d-4e59-9e2f-44d5ca75a1ad"><nodeRect Left="685" Top="300" Right="744" Bottom="342"/></NodeLink><LineLink uuid="f5308186-3e6d-4cb5-b875-b0fb57045808" guiLink_Element="c2192482-bd06-47a1-8de3-c958d9bdad6c" guiLineLink_LineBegin="e275f206-49c6-42e8-b74e-7970a305fe3a" guiLineLink_LineEnd="93f9a81e-22ca-4b53-9e80-91d657a2b762"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="cade7577-fe17-4320-93e9-34fbb0622b90"><pos X="714" Y="286"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="05282866-e620-47d3-bec9-5822f448f067" alignment="1"><pos X="714" Y="300"/></EndWaypoint><EndWaypoint uuid="9a86343f-ca29-4f6f-9cab-38306168f459" alignment="4"><pos X="714" Y="272"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="eaab7c68-1326-4736-b9a2-9545d4bcec5a" guiLink_Element="bfb16587-20a4-43e4-8ec4-66379c01814f"><nodeRect Left="675" Top="365" Right="760" Bottom="407"/></NodeLink><NodeLink uuid="eebade12-0dd3-461a-80c3-50a7e9af503c" guiLink_Element="a8d8c898-90dd-40f6-b99e-8b865b16bf8e"><nodeRect Left="600" Top="365" Right="654" Bottom="407"/></NodeLink><LineLink uuid="be3e59cf-d0da-414a-ba84-043361a5e3b4" guiLink_Element="791ca313-3077-48c3-92e0-c9e29943da64" guiLineLink_LineBegin="eebade12-0dd3-461a-80c3-50a7e9af503c" guiLineLink_LineEnd="e275f206-49c6-42e8-b74e-7970a305fe3a"><style linestyle="2"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="9929a530-ed7b-413c-a692-31baf00508bb"><pos X="670" Y="354"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="01ba8428-c8cd-4864-8251-7b2fd74fd608" alignment="2"><pos X="654" Y="366"/></EndWaypoint><EndWaypoint uuid="57996e2a-688c-453f-8651-6e951487a4e1" alignment="3"><pos X="686" Y="342"/></EndWaypoint></guiLineLinkWaypoint></LineLink><LineLink uuid="28438ac1-db0e-47e0-9d79-e0a660a33911" guiLink_Element="c125c1b2-74d8-48cd-b38a-3531c9b50e7d" guiLineLink_LineBegin="eaab7c68-1326-4736-b9a2-9545d4bcec5a" guiLineLink_LineEnd="e275f206-49c6-42e8-b74e-7970a305fe3a"><style linestyle="1"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="4a3dc029-6e31-4d8e-b37b-3dae21e0e776"><pos X="715" Y="354"/></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="9169e33a-e5a7-40a4-96e6-6ee4671797cd" alignment="4"><pos X="715" Y="365"/></EndWaypoint><EndWaypoint uuid="685acf81-6850-40e7-9697-3e1a6437a336" alignment="1"><pos X="715" Y="342"/></EndWaypoint></guiLineLinkWaypoint></LineLink></guiDiagramGuiLink><guiDiagramLayer><DiagramLayer uuid="aeac5ef8-e128-42e0-b4c1-b66a0b263166" name="Default"/></guiDiagramLayer></ClassDiagram><ProfileDiagram uuid="db274fb6-7e42-4309-8e98-026ce9193c23" name="pd.plaid" guiDiagramLinkedOwner="00000001-7510-11d9-86f2-000476a22f44"><guiDiagramGuiLink><NodeLink uuid="d0603515-1ff7-4588-acb6-33842d479b30" guiLink_Element="00000001-7510-11d9-86f2-000476a22f44"><nodeRect Right="71" Bottom="34"/></NodeLink><NodeLink uuid="91f76b5e-3f4f-4fb3-ae09-8cbfb9b2a3e0" guiLink_Element="1631e765-4fae-4bdd-bc5d-320b7521e1a8"><nodeRect Left="110" Right="181" Bottom="52"/></NodeLink><LineLink uuid="804b0172-571b-4bef-bd33-886b068dee16" guiLink_Element="94752d98-b3a8-4c0f-9683-ddfde930d4a1" guiLineLink_LineBegin="d0603515-1ff7-4588-acb6-33842d479b30" guiLineLink_LineEnd="91f76b5e-3f4f-4fb3-ae09-8cbfb9b2a3e0"><style linestyle="0"/><guiLineLink_LineMiddleWaypoint><MiddleWaypoint uuid="d116a149-53f0-4bbc-983a-414a2e4b15e6"><pos X="90" Y="23"/><guiTextLabelWaypoint_TextLabel><TextLabel uuid="6e245cec-9979-44c2-8390-d730733647c9" textLabel="14" guiTextLabel_Element="94752d98-b3a8-4c0f-9683-ddfde930d4a1"><pos X="-19" Y="-20"/></TextLabel></guiTextLabelWaypoint_TextLabel></MiddleWaypoint></guiLineLink_LineMiddleWaypoint><guiLineLinkWaypoint><EndWaypoint uuid="0e7b4f5e-b0ec-4790-8ecb-504e806fdfbd" alignment="1"><pos X="71" Y="21"/></EndWaypoint><EndWaypoint uuid="d70fdb8e-92d9-43aa-a771-0463d07913b8" alignment="4"><pos X="110" Y="26"/></EndWaypoint></guiLineLinkWaypoint></LineLink><NodeLink uuid="d8e5b033-254d-477e-850e-9e79bf15af76" guiLink_Element="c0a032a0-211c-485c-90c6-21b8a3274e36"><nodeRect Left="315" Top="5" Right="386" Bottom="39"/></NodeLink><NodeLink uuid="956097f1-4ffd-4128-9d9e-32cedac50602" guiLink_Element="e782d17c-cc59-4e3f-b2e9-ca85297812aa"><nodeRect Left="200" Right="273" Bottom="34"/></NodeLink><NodeLink uuid="990e04de-72e2-4abf-913d-6e88f638747f" guiLink_Element="7131f3ba-337b-443d-a5ae-a9f38bd098c8"><nodeRect Top="80" Right="75" Bottom="134"/></NodeLink><NodeLink uuid="097fb479-9029-4cd6-a813-6df029684725" guiLink_Element="fbabd741-628a-4f33-bcef-64939d4dc9f5"><nodeRect Left="105" Top="80" Right="180" Bottom="134"/></NodeLink><NodeLink uuid="cff6dac9-5db1-4abc-8472-d837ea2ba6a7" guiLink_Element="98da05fd-65d6-4bc9-8778-dbead509620c"><nodeRect Left="210" Top="80" Right="285" Bottom="134"/></NodeLink><NodeLink uuid="6a6727ee-9b57-4229-8ae6-bc06c858c058" guiLink_Element="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"><nodeRect Left="315" Top="80" Right="390" Bottom="134"/></NodeLink><NodeLink uuid="01675f00-c65b-48da-8eca-68a14a8d8e6a" guiLink_Element="855ef3a4-e0ee-4603-a200-e0d28a18afe6"><nodeRect Top="165" Right="75" Bottom="219"/></NodeLink><NodeLink uuid="d7b73e4c-55ee-4168-a235-d05d2c2aa664" guiLink_Element="d3d0de20-a5df-47d6-a5ae-67adc0727b0e"><nodeRect Left="105" Top="165" Right="180" Bottom="219"/></NodeLink><NodeLink uuid="95678937-83e7-462f-be37-91ee0294c850" guiLink_Element="e8ce9385-df2e-49f8-a6a7-1502a6c0334b"><nodeRect Left="210" Top="165" Right="285" Bottom="219"/></NodeLink><NodeLink uuid="1ecff6f5-a435-42f8-ab22-53b1e4991e1c" guiLink_Element="9c1098c0-19de-48c8-a47c-bedeff17056e"><nodeRect Top="250" Right="75" Bottom="304"/></NodeLink><NodeLink uuid="0a54c740-5f5f-4e1c-929e-d15d4faf5bf6" guiLink_Element="4fbd94ff-2922-4d0f-ac14-0ccb4e0bd76f"><nodeRect Left="105" Top="250" Right="180" Bottom="304"/></NodeLink></guiDiagramGuiLink><guiDiagramLayer><DiagramLayer uuid="a4978764-e826-4a8e-b16b-f9969677acbd" name="Default"/></guiDiagramLayer></ProfileDiagram><StateMachineDiagram uuid="dcb9604a-c462-4d19-b155-3f293ed35827" name="sd.FILESYSTEM" zoomFactor="200" guiDiagramLinkedOwner="3a8074c2-9366-42cd-8d3c-fd71dae6c25a"><guiDiagramGuiLink><SeparatedNodeLink uuid="771a74b4-86cc-4101-a1c0-eef2e6a382e5" guiLink_Element="e441aa22-790f-47c8-9f5a-24bc8c4c01a6"><style autosize="0"/><nodeRect Left="20" Top="20" Right="349" Bottom="828"/><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="1a90ebd9-e8dc-465e-abfd-f0a9e9211cb4" guiLink_Element="088aa604-63d5-42d9-a5e9-3082441633f2"><style autosize="0"/><nodeRect Left="30" Top="60" Right="334" Bottom="768"/><Separators><separator position="563"/><separator position="148"/></Separators><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="bf2596a9-d01b-4077-9b4b-0f0ae04b5d08" guiLink_Element="2df66a67-9d13-401e-a0b4-64229a7bdaf6"><style autosize="0"/><nodeRect Left="40" Top="245" Right="301" Bottom="613"/><Separators><separator position="126"/></Separators><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="fa82a475-1849-4449-a6db-4ffc61765c07" guiLink_Element="92f8d774-f009-4df8-b114-ad6dcc24be5d"><nodeRect Left="50" Top="285" Right="101" Bottom="318"/></SeparatedNodeLink><SeparatedNodeLink uuid="0b070736-af68-4557-90c9-c5c9ebf5021d" guiLink_Element="81d64bfa-67ca-4deb-855a-3582fdeab734"><style autosize="0"/><nodeRect Left="120" Top="280" Right="281" Bottom="358"/><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="0f88e0d6-43cb-4e2e-98df-e2bc2aaff66c" guiLink_Element="dfa297ac-9071-499b-ae32-475e271fddbd"><nodeRect Left="130" Top="315" Right="192" Bottom="348"/></SeparatedNodeLink><SeparatedNodeLink uuid="3ee49c7c-0469-4abc-8dc9-357f01d4fbc9" guiLink_Element="13ccc14a-89e6-45d1-b30c-40796cbb1f62"><nodeRect Left="220" Top="315" Right="271" Bottom="348"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink><SeparatedNodeLink uuid="1cfa49a2-6a19-41c2-b48f-7a0a836a2477" guiLink_Element="cabb55c1-e078-4562-a195-af76c9ad640b"><style autosize="0"/><nodeRect Left="55" Top="395" Right="282" Bottom="593"/><Separators><separator position="72"/><separator position="135"/></Separators><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="05f33e91-38ff-47cf-9972-509a1760db9e" guiLink_Element="a969aa0d-e440-422b-9873-4082202434eb"><nodeRect Left="65" Top="430" Right="141" Bottom="463"/></SeparatedNodeLink><SeparatedNodeLink uuid="3cc33443-95a3-42d9-9f13-a454e9f1e584" guiLink_Element="f58963e9-72e6-4bf3-af36-ae2cf35f64c6"><nodeRect Left="155" Top="430" Right="252" Bottom="463"/></SeparatedNodeLink><SeparatedNodeLink uuid="8e59545b-6c63-4c73-9562-227e2190a92d" guiLink_Element="d09af826-2f9a-4629-83ff-d0dd0d3f7856"><nodeRect Left="65" Top="490" Right="136" Bottom="523"/></SeparatedNodeLink><SeparatedNodeLink uuid="8dfbc548-6705-4b36-a2c1-0d788abe54b8" guiLink_Element="1012eb5b-7659-42c1-b668-80bd29b45960"><nodeRect Left="160" Top="490" Right="252" Bottom="523"/></SeparatedNodeLink><SeparatedNodeLink uuid="ebb3914c-2cca-43ac-ab63-dcf7e9d57da4" guiLink_Element="b56f81d3-6284-4756-adfa-e97cc1fc2bfb"><nodeRect Left="70" Top="550" Right="155" Bottom="583"/></SeparatedNodeLink><SeparatedNodeLink uuid="003bc2f8-91d1-417c-96e3-c710d28a53ab" guiLink_Element="7eccf2ae-4273-46df-9c0e-04b0183b4fcb"><nodeRect Left="160" Top="550" Right="266" Bottom="583"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink><SeparatedNodeLink uuid="dd3162f6-943c-444f-ba12-2e7360b9801e" guiLink_Element="4bfe3ff6-a620-447e-af4a-eb7ef54480ca"><style autosize="0"/><nodeRect Left="40" Top="100" Right="270" Bottom="228"/><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="397b11de-b0e6-4b1f-bcf7-2332e1b8697a" guiLink_Element="4a749cd1-cd4a-461e-aa4d-76b6cb6b3ce0"><style autosize="0"/><nodeRect Left="50" Top="140" Right="260" Bottom="218"/><Separators><separator position="72"/><separator position="135"/></Separators><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="a3328461-ee3c-449c-b9b0-7b9d21e7e1a7" guiLink_Element="bb540cc1-e281-44d2-acac-0c603c2d6518"><nodeRect Left="60" Top="175" Right="139" Bottom="208"/></SeparatedNodeLink><SeparatedNodeLink uuid="7d6a87ef-c143-4cda-8c93-6b4ab6ea7423" guiLink_Element="6f865acd-3943-4464-882f-797966d165fe"><nodeRect Left="150" Top="175" Right="250" Bottom="208"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink><SeparatedNodeLink uuid="c47d62f5-e2d3-46c4-9914-5e890a68e988" guiLink_Element="fcabb3fc-ee90-4d44-8161-00bd30ea28ce"><style autosize="0"/><nodeRect Left="130" Top="630" Right="324" Bottom="753"/><guiNodeLinkGuiNodeLink><SeparatedNodeLink uuid="1f93c753-0909-4b70-a09b-40d4f6558380" guiLink_Element="68e5d1eb-4999-4b3c-a6be-73f10cee0489"><nodeRect Left="145" Top="665" Right="221" Bottom="698"/></SeparatedNodeLink><SeparatedNodeLink uuid="aa0068ce-0542-41b9-a3b4-63321e3da05c" guiLink_Element="f095f466-9e55-4521-b3b8-12910a5fa92d"><nodeRect Left="235" Top="665" Right="314" Bottom="698"/></SeparatedNodeLink><SeparatedNodeLink uuid="b4593d73-fc82-4a60-9261-f1660b9ecf9f" guiLink_Element="966ba46b-7d04-4aa1-9694-3c3c230d33eb"><nodeRect Left="195" Top="710" Right="263" Bottom="743"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink><SeparatedNodeLink uuid="e9cef48f-9b70-4b62-ba1b-cd55b92b2784" guiLink_Element="bd00583a-655f-4473-a6ff-46b609be5692"><nodeRect Left="45" Top="645" Right="114" Bottom="678"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink><SeparatedNodeLink uuid="105deb2b-942a-44df-8713-01b2c3e9aecb" guiLink_Element="1752d4c1-6341-471b-8184-1647a6794153"><nodeRect Left="45" Top="785" Right="106" Bottom="818"/></SeparatedNodeLink></guiNodeLinkGuiNodeLink></SeparatedNodeLink></guiDiagramGuiLink><guiDiagramLayer><DiagramLayer uuid="accd49a1-c398-4e49-a393-e4cbb47c2a7e" name="Default"/></guiDiagramLayer></StateMachineDiagram></guiRootGuiDiagram></RootElement></Diagrams></UModel>
+<?xml version="1.0" encoding="UTF-8"?>
+<UModel version="8">
+  <Settings>
+    <ProjectStyles gridsize="5" showregionnames="1"/>
+    <ElementStyles>
+      <State headergradientend="white"/>
+    </ElementStyles>
+  </Settings>
+  <OpenDiagrams activeDiagram="dcb9604a-c462-4d19-b155-3f293ed35827">
+    <OpenDiagramEntry>5561f1e6-1eab-48e3-a904-117c5d5b3cf8</OpenDiagramEntry>
+    <OpenDiagramEntry>dcb9604a-c462-4d19-b155-3f293ed35827</OpenDiagramEntry>
+    <OpenDiagramEntry>db274fb6-7e42-4309-8e98-026ce9193c23</OpenDiagramEntry>
+  </OpenDiagrams>
+  <Model>
+    <Package uuid="00000001-7510-11d9-86f2-000476a22f44" name="Root" visibility="public">
+      <packagedElement>
+        <Package uuid="00000003-7510-11d9-86f2-000476a22f44" name="Component View" visibility="public"/>
+        <Package uuid="c0a032a0-211c-485c-90c6-21b8a3274e36" name="plaid.io" visibility="public">
+          <packagedElement>
+            <Class uuid="0b9c9d8b-2dc3-45c8-8688-93178757a257" name="Paths" visibility="public">
+              <ownedOperation>
+                <Operation uuid="349da3ff-59c3-4b20-9c00-ac774e862468" name="getPath" visibility="public">
+                  <appliedStereotype>
+                    <StereotypeApplication uuid="72470059-a796-451d-8aa9-691f39b9aac9" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/>
+                  </appliedStereotype>
+                  <ownedParameter>
+                    <Parameter uuid="b307a5e5-fa45-4f9c-8585-4fb3652502c7" name="path"/>
+                  </ownedParameter>
+                </Operation>
+              </ownedOperation>
+            </Class>
+            <StateMachine uuid="3a8074c2-9366-42cd-8d3c-fd71dae6c25a" name="FILESYSTEM" visibility="public">
+              <region>
+                <Region uuid="998de0d6-eef8-46ce-b2e8-bd66ad007eaa" name="default">
+                  <subvertex>
+                    <State uuid="acc8311a-dbc5-4b0e-82eb-76c3b09ac9c0" name="Paths"/>
+                    <State uuid="e441aa22-790f-47c8-9f5a-24bc8c4c01a6" name="Path">
+                      <region>
+                        <Region uuid="cde48eb0-31a5-4f63-8756-48c9840b2ae9" name="path">
+                          <subvertex>
+                            <State uuid="088aa604-63d5-42d9-a5e9-3082441633f2" name="Valid">
+                              <region>
+                                <Region uuid="e203b0fb-76a8-4c15-8171-f67d3f39c8a5" name="existency">
+                                  <subvertex>
+                                    <State uuid="2df66a67-9d13-401e-a0b4-64229a7bdaf6" name="Existent">
+                                      <region>
+                                        <Region uuid="24f38868-5f04-445d-b698-1dc3e3657e4c" name="pathtype">
+                                          <subvertex>
+                                            <State uuid="92f8d774-f009-4df8-b114-ad6dcc24be5d" name="Root"/>
+                                            <State uuid="81d64bfa-67ca-4deb-855a-3582fdeab734" name="Leaf">
+                                              <region>
+                                                <Region uuid="8e818645-301a-4707-9f9a-298bbb785bc5" name="leaftype">
+                                                  <subvertex>
+                                                    <State uuid="dfa297ac-9071-499b-ae32-475e271fddbd" name="Folder"/>
+                                                    <State uuid="13ccc14a-89e6-45d1-b30c-40796cbb1f62" name="File"/>
+                                                  </subvertex>
+                                                </Region>
+                                              </region>
+                                            </State>
+                                          </subvertex>
+                                        </Region>
+                                        <Region uuid="eade9110-796f-43c8-b385-aad6af0cc4a5" name="permission">
+                                          <subvertex>
+                                            <State uuid="cabb55c1-e078-4562-a195-af76c9ad640b" name="ExPermissionDimension">
+                                              <region>
+                                                <Region uuid="b4efde68-cfe4-42c6-a78a-c612080f1016" name="readability">
+                                                  <subvertex>
+                                                    <State uuid="a969aa0d-e440-422b-9873-4082202434eb" name="Readable"/>
+                                                    <State uuid="f58963e9-72e6-4bf3-af36-ae2cf35f64c6" name="NonReadable"/>
+                                                  </subvertex>
+                                                </Region>
+                                                <Region uuid="5e24ddfe-5f99-43e5-9144-124c1d9b9ef3" name="writability">
+                                                  <subvertex>
+                                                    <State uuid="d09af826-2f9a-4629-83ff-d0dd0d3f7856" name="Writable"/>
+                                                    <State uuid="1012eb5b-7659-42c1-b668-80bd29b45960" name="NonWritable"/>
+                                                  </subvertex>
+                                                </Region>
+                                                <Region uuid="dda59911-4847-41b8-ae49-2e46fc58fb5d" name="executability">
+                                                  <subvertex>
+                                                    <State uuid="b56f81d3-6284-4756-adfa-e97cc1fc2bfb" name="Executable"/>
+                                                    <State uuid="7eccf2ae-4273-46df-9c0e-04b0183b4fcb" name="NonExecutable"/>
+                                                  </subvertex>
+                                                </Region>
+                                              </region>
+                                            </State>
+                                          </subvertex>
+                                        </Region>
+                                      </region>
+                                    </State>
+                                    <State uuid="4bfe3ff6-a620-447e-af4a-eb7ef54480ca" name="NonExistent">
+                                      <region>
+                                        <Region uuid="f92ef255-469f-46a7-863f-ae3c1f3b3c6b" name="permission">
+                                          <subvertex>
+                                            <State uuid="4a749cd1-cd4a-461e-aa4d-76b6cb6b3ce0" name="NxPermissionDimension">
+                                              <region>
+                                                <Region uuid="441d157a-a252-43c8-8e3f-a2a55aa958cb" name="creatability">
+                                                  <subvertex>
+                                                    <State uuid="bb540cc1-e281-44d2-acac-0c603c2d6518" name="Creatable"/>
+                                                    <State uuid="6f865acd-3943-4464-882f-797966d165fe" name="NonCreatable"/>
+                                                  </subvertex>
+                                                </Region>
+                                              </region>
+                                            </State>
+                                          </subvertex>
+                                        </Region>
+                                      </region>
+                                    </State>
+                                  </subvertex>
+                                </Region>
+                                <Region uuid="369148b3-4d98-46c9-802d-889dc9e85618" name="relativity">
+                                  <subvertex>
+                                    <State uuid="fcabb3fc-ee90-4d44-8161-00bd30ea28ce" name="NonRelative">
+                                      <region>
+                                        <Region uuid="3123db2b-2ab4-4280-9e60-f6fcc347916f" name="nonrelative">
+                                          <subvertex>
+                                            <State uuid="68e5d1eb-4999-4b3c-a6be-73f10cee0489" name="Absolute"/>
+                                            <State uuid="f095f466-9e55-4521-b3b8-12910a5fa92d" name="Canonical"/>
+                                          </subvertex>
+                                        </Region>
+                                      </region>
+                                    </State>
+                                    <State uuid="bd00583a-655f-4473-a6ff-46b609be5692" name="Relative"/>
+                                    <State uuid="cb832cfa-abf4-4e4a-87ea-e66c0e048057" name="Stabilizing"/>
+                                  </subvertex>
+                                </Region>
+                              </region>
+                            </State>
+                            <State uuid="1752d4c1-6341-471b-8184-1647a6794153" name="Invalid"/>
+                          </subvertex>
+                        </Region>
+                      </region>
+                    </State>
+                  </subvertex>
+                </Region>
+              </region>
+            </StateMachine>
+            <Class uuid="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9" name="Path" visibility="public">
+              <ownedAttribute>
+                <Property uuid="284baf7a-9b78-496c-9ccf-873a9b534140" name="path" visibility="public" type="543b0f4f-be14-4ac8-b456-4c00fd3124c1"/>
+              </ownedAttribute>
+              <ownedOperation>
+                <Operation uuid="f61e9eaa-0a97-4c13-8cab-5348888b22fd" name="checkValidity" visibility="public"/>
+              </ownedOperation>
+            </Class>
+            <Class uuid="39ef12ee-2ec5-4139-b7e3-e08646bfd10f" name="ValidPath" visibility="public">
+              <generalization>
+                <Generalization uuid="6f72d50f-6b4b-4412-ae40-c67033275c81" general="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9"/>
+              </generalization>
+              <ownedOperation>
+                <Operation uuid="c44622ff-3f3a-46e9-aa32-0359412c2134" name="endsWith" visibility="public">
+                  <appliedStereotype>
+                    <StereotypeApplication uuid="01da843d-a48e-47cd-a58f-1a43f4113d4d" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/>
+                  </appliedStereotype>
+                  <ownedParameter>
+                    <Parameter uuid="5dde93e9-913e-44d1-ad8d-c80a709dd0e3" name="other" type="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/>
+                  </ownedParameter>
+                </Operation>
+                <Operation uuid="4c1ab0e9-9c9e-4c11-8200-1bdec312b6fb" name="endsWith" visibility="public">
+                  <appliedStereotype>
+                    <StereotypeApplication uuid="7b489ec3-4f5a-4a39-9b56-6304d9d49b85" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/>
+                  </appliedStereotype>
+                  <ownedParameter>
+                    <Parameter uuid="64a942fe-c017-41a6-9db3-b6341d35d0cf" name="other" type="67d59eba-19dc-42bd-adc0-05ec5295ba00"/>
+                  </ownedParameter>
+                </Operation>
+              </ownedOperation>
+            </Class>
+            <Class uuid="38edf997-45a0-4329-be27-2b6b54db2c3b" name="InvalidPath" visibility="public">
+              <generalization>
+                <Generalization uuid="b1e70cf2-3e3f-46ef-a7ea-be6f1af9c603" general="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9"/>
+              </generalization>
+            </Class>
+            <Class uuid="bba3d4e2-4d9c-4121-ba69-bc33aa615c76" name="ExistentPath" visibility="public">
+              <generalization>
+                <Generalization uuid="09b04900-6fce-465f-ac71-b1d82c4793b5" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/>
+              </generalization>
+            </Class>
+            <Class uuid="37b30a77-85a2-458d-8899-ed03f827b341" name="NonExistentPath" visibility="public">
+              <generalization>
+                <Generalization uuid="17d091ab-fdeb-4c23-b5cf-2fc0bdd06583" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/>
+              </generalization>
+            </Class>
+            <Class uuid="7b281c9c-7b62-47ba-be22-7111b1597751" name="RelativePath" visibility="public">
+              <generalization>
+                <Generalization uuid="78c00a0a-82bc-4a86-b69a-ff2141c7fb1f" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/>
+              </generalization>
+              <ownedOperation>
+                <Operation uuid="d7730971-e3ae-4829-b8f0-451c4da6cc88" name="compareTo" visibility="public">
+                  <appliedStereotype>
+                    <StereotypeApplication uuid="a96899b0-ec9d-4346-901b-480d2f9ffb0d" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/>
+                  </appliedStereotype>
+                  <ownedParameter>
+                    <Parameter uuid="d40f6895-da29-41da-8487-cc0b3a10c9d0" name="other" type="7b281c9c-7b62-47ba-be22-7111b1597751"/>
+                  </ownedParameter>
+                </Operation>
+              </ownedOperation>
+            </Class>
+            <Class uuid="5b4df828-1a8b-420b-b36b-ef6192befa19" name="AbsolutePath" visibility="public">
+              <generalization>
+                <Generalization uuid="d24ad543-2955-4464-b3e8-43259a0b25bb" general="39ef12ee-2ec5-4139-b7e3-e08646bfd10f"/>
+              </generalization>
+              <ownedOperation>
+                <Operation uuid="f19e90cb-7947-4ac5-8e23-d538b798cd76" name="compareTo" visibility="public">
+                  <appliedStereotype>
+                    <StereotypeApplication uuid="811d441d-6722-44f4-b750-ea95b43c6113" classifier="fbdf26f1-af9f-4ac2-952a-16fe4feaf120"/>
+                  </appliedStereotype>
+                  <ownedParameter>
+                    <Parameter uuid="e909b747-39ce-489e-bed1-4cdae43920e0" name="other" type="5b4df828-1a8b-420b-b36b-ef6192befa19"/>
+                  </ownedParameter>
+                </Operation>
+              </ownedOperation>
+            </Class>
+            <Class uuid="de8ac44c-adc5-4eb5-b795-65a3b592d696" name="PathPermission" visibility="public"/>
+            <Class uuid="a6e2dbc8-c4b8-47f6-94e2-37bb5ee4454b" name="Readable" visibility="public">
+              <generalization>
+                <Generalization uuid="4c91699c-d8ce-4385-b331-fa3b7c5a6fd3" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/>
+              </generalization>
+            </Class>
+            <Class uuid="adb346b8-ec6a-4f85-aefc-d965f5b0e2cc" name="NonReadable" visibility="public">
+              <generalization>
+                <Generalization uuid="2ac8c92f-db8d-413d-9160-56988fb067d0" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/>
+              </generalization>
+            </Class>
+            <Class uuid="0a6b269a-19b9-458c-b698-c99a48ada747" name="Writable" visibility="public">
+              <generalization>
+                <Generalization uuid="2d4db424-eda7-424a-bfd9-a201720d482d" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/>
+              </generalization>
+            </Class>
+            <Class uuid="b4719b40-9197-4070-8301-8ea2f9431dd3" name="NonWritable" visibility="public">
+              <generalization>
+                <Generalization uuid="4f942b11-a089-4067-a844-30f29eb1a7c8" general="de8ac44c-adc5-4eb5-b795-65a3b592d696"/>
+              </generalization>
+            </Class>
+            <Class uuid="cf4670e6-c8f8-4ace-a0d2-138b0693bd6d" name="RootPath" visibility="public">
+              <generalization>
+                <Generalization uuid="ee8897c0-85d3-42a9-8cc4-f73f677552da" general="bba3d4e2-4d9c-4121-ba69-bc33aa615c76"/>
+              </generalization>
+            </Class>
+            <Class uuid="958cdded-347d-4e59-9e2f-44d5ca75a1ad" name="LeafPath" visibility="public">
+              <generalization>
+                <Generalization uuid="c2192482-bd06-47a1-8de3-c958d9bdad6c" general="bba3d4e2-4d9c-4121-ba69-bc33aa615c76"/>
+              </generalization>
+            </Class>
+            <Class uuid="bfb16587-20a4-43e4-8ec4-66379c01814f" name="DirectoryPath" visibility="public">
+              <generalization>
+                <Generalization uuid="c125c1b2-74d8-48cd-b38a-3531c9b50e7d" general="958cdded-347d-4e59-9e2f-44d5ca75a1ad"/>
+              </generalization>
+            </Class>
+            <Class uuid="a8d8c898-90dd-40f6-b99e-8b865b16bf8e" name="FilePath" visibility="public">
+              <generalization>
+                <Generalization uuid="791ca313-3077-48c3-92e0-c9e29943da64" general="958cdded-347d-4e59-9e2f-44d5ca75a1ad"/>
+              </generalization>
+            </Class>
+          </packagedElement>
+        </Package>
+        <Profile uuid="1631e765-4fae-4bdd-bc5d-320b7521e1a8" name="plaid" visibility="public">
+          <packagedElement>
+            <Stereotype uuid="7131f3ba-337b-443d-a5ae-a9f38bd098c8" name="unique" visibility="public" baseClass="Parameter"/>
+            <Stereotype uuid="fbabd741-628a-4f33-bcef-64939d4dc9f5" name="full" visibility="public" baseClass="Parameter"/>
+            <Stereotype uuid="98da05fd-65d6-4bc9-8778-dbead509620c" name="immutable" visibility="public" baseClass="Parameter"/>
+            <Stereotype uuid="d3d0de20-a5df-47d6-a5ae-67adc0727b0e" name="shared" visibility="public" baseClass="Parameter"/>
+            <Stereotype uuid="855ef3a4-e0ee-4603-a200-e0d28a18afe6" name="pure" visibility="public" baseClass="Parameter"/>
+            <Stereotype uuid="9c1098c0-19de-48c8-a47c-bedeff17056e" name="val" visibility="public" baseClass="Property"/>
+            <Stereotype uuid="4fbd94ff-2922-4d0f-ac14-0ccb4e0bd76f" name="var" visibility="public" baseClass="Property"/>
+            <Stereotype uuid="e8ce9385-df2e-49f8-a6a7-1502a6c0334b" name="stateval" visibility="public" baseClass="Property"/>
+            <Stereotype uuid="fbdf26f1-af9f-4ac2-952a-16fe4feaf120" name="neutral" visibility="public" baseClass="Operation"/>
+          </packagedElement>
+        </Profile>
+        <Package uuid="e782d17c-cc59-4e3f-b2e9-ca85297812aa" name="java.nio.file" visibility="public">
+          <packagedElement>
+            <Class uuid="543b0f4f-be14-4ac8-b456-4c00fd3124c1" name="java.nio.file.Path" visibility="public"/>
+          </packagedElement>
+        </Package>
+        <Package uuid="a8c83300-52b8-4417-99aa-2ec21678f6b2" name="plaid.lang" visibility="public">
+          <packagedElement>
+            <Class uuid="67d59eba-19dc-42bd-adc0-05ec5295ba00" name="String" visibility="public"/>
+            <Class uuid="05dedb99-79cd-4384-b462-afc5293deb22" name="Boolean" visibility="public"/>
+            <Class uuid="914a4b04-b69c-44a5-90f6-46728b4e5c16" name="Integer" visibility="public"/>
+          </packagedElement>
+        </Package>
+      </packagedElement>
+      <profileApplication>
+        <ProfileApplication uuid="94752d98-b3a8-4c0f-9683-ddfde930d4a1" appliedProfile="1631e765-4fae-4bdd-bc5d-320b7521e1a8"/>
+      </profileApplication>
+    </Package>
+  </Model>
+  <Diagrams>
+    <RootElement uuid="00000002-7510-11d9-86f2-000476a22f44">
+      <guiRootGuiDiagram>
+        <ClassDiagram uuid="5561f1e6-1eab-48e3-a904-117c5d5b3cf8" name="cd.plaid.io.file" guiDiagramLinkedOwner="c0a032a0-211c-485c-90c6-21b8a3274e36">
+          <guiDiagramGuiLink>
+            <Note uuid="7e54ab64-b5d6-4402-8c9a-5e832a77002b" noteText="I&apos;m almost sure that this diagram is not completely correct, specially the generalization and composition relations. Also I need to complete it by adding properties and operations for each typestate. I would try to correct and complete it if I have your comments.">
+              <style autosize="0"/>
+              <nodeRect Left="20" Top="110" Right="300" Bottom="195"/>
+            </Note>
+            <NodeLink uuid="8a40d928-10b0-4a76-a7c7-503278151674" guiLink_Element="0b9c9d8b-2dc3-45c8-8688-93178757a257">
+              <nodeRect Left="15" Top="30" Right="176" Bottom="92"/>
+            </NodeLink>
+            <NodeLink uuid="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4" guiLink_Element="a17e25fd-5757-48e5-90f6-bd4aa1ddb4f9">
+              <nodeRect Left="460" Top="20" Right="599" Bottom="101"/>
+            </NodeLink>
+            <NodeLink uuid="2361656c-8616-4957-a87c-a390115fea12" guiLink_Element="39ef12ee-2ec5-4139-b7e3-e08646bfd10f">
+              <nodeRect Left="420" Top="120" Right="641" Bottom="201"/>
+            </NodeLink>
+            <NodeLink uuid="d907b4ae-a51f-435e-9bc9-b6e5c6b4f846" guiLink_Element="38edf997-45a0-4329-be27-2b6b54db2c3b">
+              <nodeRect Left="330" Top="140" Right="400" Bottom="182"/>
+            </NodeLink>
+            <NodeLink uuid="93f9a81e-22ca-4b53-9e80-91d657a2b762" guiLink_Element="bba3d4e2-4d9c-4121-ba69-bc33aa615c76">
+              <nodeRect Left="675" Top="230" Right="754" Bottom="272"/>
+            </NodeLink>
+            <NodeLink uuid="5a0d83ff-04e1-489d-8423-7dabb0c3246e" guiLink_Element="37b30a77-85a2-458d-8899-ed03f827b341">
+              <nodeRect Left="20" Top="230" Right="120" Bottom="272"/>
+            </NodeLink>
+            <LineLink uuid="ba8cfa1c-e898-4a07-b3e9-6bba4924e2cf" guiLink_Element="b1e70cf2-3e3f-46ef-a7ea-be6f1af9c603" guiLineLink_LineBegin="d907b4ae-a51f-435e-9bc9-b6e5c6b4f846" guiLineLink_LineEnd="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="746947f4-5438-47b1-b72b-f58d8a5ac0fc">
+                  <pos X="430" Y="121"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="0b9aa10c-64b3-4e2d-a131-36e62a38b5d4" alignment="2">
+                  <pos X="399" Y="140"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="fb5b1dd9-b190-4701-a4c6-76a5a309b80c" alignment="3">
+                  <pos X="462" Y="101"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="99b8e36c-6b7d-4181-8a32-701f082b2b51" guiLink_Element="6f72d50f-6b4b-4412-ae40-c67033275c81" guiLineLink_LineBegin="2361656c-8616-4957-a87c-a390115fea12" guiLineLink_LineEnd="29b50e0a-4d60-43b2-9af9-a1ef2f6679d4">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="b1ee89cd-438e-4443-9df7-f707d3b49ec6">
+                  <pos X="530" Y="111"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="3cf2d47b-f459-4964-8a9d-1c3b5ff77efc" alignment="4">
+                  <pos X="530" Y="120"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="23e99bdf-75fa-498e-8066-b2985e3a853b" alignment="1">
+                  <pos X="530" Y="101"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="cd71b383-3a0f-481c-8f0d-fc4cd0495cab" guiLink_Element="09b04900-6fce-465f-ac71-b1d82c4793b5" guiLineLink_LineBegin="93f9a81e-22ca-4b53-9e80-91d657a2b762" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="a0dfc4a0-025f-4dd8-83cc-0a84cb494a21">
+                  <pos X="645" Y="217"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="fdf05b61-b22a-4021-a00e-a7b5a3ae5ead" alignment="1">
+                  <pos X="675" Y="232"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="6969fb31-972f-4bd4-948a-f1289de95d72" alignment="4">
+                  <pos X="613" Y="201"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="50da90e6-603e-4ef9-b24d-923533273db9" guiLink_Element="17d091ab-fdeb-4c23-b5cf-2fc0bdd06583" guiLineLink_LineBegin="5a0d83ff-04e1-489d-8423-7dabb0c3246e" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="c9cd55d4-8ee7-45c4-9b97-1f4b0510051f">
+                  <pos X="269" Y="212"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="3f276efc-b4ca-4609-8ca9-540a806329b3" alignment="2">
+                  <pos X="120" Y="241"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="987a1523-2940-41ec-a481-2faa8429b6e6" alignment="3">
+                  <pos X="420" Y="182"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="ee6b69dd-5604-4ba9-b7ec-2dbfe7c6b9f2" guiLink_Element="7b281c9c-7b62-47ba-be22-7111b1597751">
+              <nodeRect Left="410" Top="220" Right="654" Bottom="282"/>
+            </NodeLink>
+            <NodeLink uuid="27830815-a35c-4959-8ecd-ced983037275" guiLink_Element="5b4df828-1a8b-420b-b36b-ef6192befa19">
+              <nodeRect Left="140" Top="220" Right="389" Bottom="282"/>
+            </NodeLink>
+            <LineLink uuid="1106c321-2129-43ef-bfe0-512a9a155fe6" guiLink_Element="d24ad543-2955-4464-b3e8-43259a0b25bb" guiLineLink_LineBegin="27830815-a35c-4959-8ecd-ced983037275" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="a3a29fed-4a0c-4618-9edf-a6d09b2da643">
+                  <pos X="387" Y="209"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="e2a973d0-8797-4aac-8f53-af73f5772360" alignment="1">
+                  <pos X="355" Y="220"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="92e8788c-3023-437c-908a-6e31a0955470" alignment="4">
+                  <pos X="420" Y="198"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="d37610f3-0cc6-43e1-a32c-5208792c4700" guiLink_Element="78c00a0a-82bc-4a86-b69a-ff2141c7fb1f" guiLineLink_LineBegin="ee6b69dd-5604-4ba9-b7ec-2dbfe7c6b9f2" guiLineLink_LineEnd="2361656c-8616-4957-a87c-a390115fea12">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="a56c8027-0d88-4234-a180-5de907987ed4">
+                  <pos X="531" Y="211"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="fb30c103-e086-4441-90d6-d5ca5239f14e" alignment="1">
+                  <pos X="531" Y="220"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="0b83aa2d-07cc-455c-93e7-5ccf4f415572" alignment="4">
+                  <pos X="531" Y="201"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="bf90ada7-ea63-4402-80a9-6da97c9da50e" guiLink_Element="de8ac44c-adc5-4eb5-b795-65a3b592d696">
+              <nodeRect Left="210" Top="310" Right="309" Bottom="352"/>
+            </NodeLink>
+            <NodeLink uuid="9de7f021-6ceb-4f9f-88d6-326e7d430b42" guiLink_Element="a6e2dbc8-c4b8-47f6-94e2-37bb5ee4454b">
+              <nodeRect Left="25" Top="375" Right="86" Bottom="417"/>
+            </NodeLink>
+            <LineLink uuid="fb72248e-e3b6-4458-a16e-3d7ee68a9f3f" guiLink_Element="4c91699c-d8ce-4385-b331-fa3b7c5a6fd3" guiLineLink_LineBegin="9de7f021-6ceb-4f9f-88d6-326e7d430b42" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="fd1768ef-c2e9-4694-ac28-05da5feea225">
+                  <pos X="147" Y="367"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="b47fc519-f347-4c8d-8a67-d1d4cd793107" alignment="2">
+                  <pos X="86" Y="386"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="d4b82151-2850-46ba-bc87-59999510de13" alignment="3">
+                  <pos X="210" Y="347"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="64106ca7-1cb6-4799-824d-4f297f86008c" guiLink_Element="adb346b8-ec6a-4f85-aefc-d965f5b0e2cc">
+              <nodeRect Left="105" Top="375" Right="187" Bottom="417"/>
+            </NodeLink>
+            <LineLink uuid="49ee7067-e151-4182-89d1-e85b95f87bbc" guiLink_Element="2ac8c92f-db8d-413d-9160-56988fb067d0" guiLineLink_LineBegin="64106ca7-1cb6-4799-824d-4f297f86008c" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="659a65f2-9799-4c6f-a7df-668aa691aa85">
+                  <pos X="203" Y="364"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="cc9cca70-65d5-4214-a183-745c626722a8" alignment="2">
+                  <pos X="183" Y="375"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="1954bb39-d679-4d72-a463-4c80abb4e1e6" alignment="3">
+                  <pos X="223" Y="352"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="a9b3c60d-5dca-44f6-90ea-982673f64f63" guiLink_Element="0a6b269a-19b9-458c-b698-c99a48ada747">
+              <nodeRect Left="325" Top="375" Right="381" Bottom="417"/>
+            </NodeLink>
+            <NodeLink uuid="cba5fac1-cad5-4331-ab8d-908787bf7e34" guiLink_Element="b4719b40-9197-4070-8301-8ea2f9431dd3">
+              <nodeRect Left="220" Top="375" Right="297" Bottom="417"/>
+            </NodeLink>
+            <LineLink uuid="d0188fd9-babf-4c64-8572-2acef3cef532" guiLink_Element="4f942b11-a089-4067-a844-30f29eb1a7c8" guiLineLink_LineBegin="cba5fac1-cad5-4331-ab8d-908787bf7e34" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e">
+              <style linestyle="1"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="2c7ba69e-90e5-449f-832c-ab2a34e53256">
+                  <pos X="257" Y="364"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="d4e3aec7-0153-4b6d-8d44-acfc35e71043" alignment="2">
+                  <pos X="257" Y="375"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="87292516-e1f1-4cf4-861b-2e73b51f8497" alignment="3">
+                  <pos X="257" Y="352"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="fdd33e3a-03b7-428a-bc5e-6aaab2665efb" guiLink_Element="2d4db424-eda7-424a-bfd9-a201720d482d" guiLineLink_LineBegin="a9b3c60d-5dca-44f6-90ea-982673f64f63" guiLineLink_LineEnd="bf90ada7-ea63-4402-80a9-6da97c9da50e">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="3390c216-9484-4e30-b940-58b6a59c6ea7">
+                  <pos X="308" Y="365"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="eb2e8b28-e262-4186-9e52-4589fd634766" alignment="2">
+                  <pos X="325" Y="377"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="d8fc0ad7-6286-49a0-86bc-7e396a5e9290" alignment="3">
+                  <pos X="289" Y="352"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="4f3ef8c5-882d-4919-8d8a-9c01aaaa129b" guiLink_Element="cf4670e6-c8f8-4ace-a0d2-138b0693bd6d">
+              <nodeRect Left="605" Top="300" Right="665" Bottom="342"/>
+            </NodeLink>
+            <LineLink uuid="e0e40661-872b-4b51-a887-3804c81ef63a" guiLink_Element="ee8897c0-85d3-42a9-8cc4-f73f677552da" guiLineLink_LineBegin="4f3ef8c5-882d-4919-8d8a-9c01aaaa129b" guiLineLink_LineEnd="93f9a81e-22ca-4b53-9e80-91d657a2b762">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="e1c38732-b181-4bc2-8593-bda5348c0330">
+                  <pos X="674" Y="287"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="9a1414a5-e1ea-4ee7-bc91-db236b35a13a" alignment="2">
+                  <pos X="659" Y="300"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="ce97a07e-edf3-4395-a7bd-1168d5869f27" alignment="3">
+                  <pos X="690" Y="272"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="e275f206-49c6-42e8-b74e-7970a305fe3a" guiLink_Element="958cdded-347d-4e59-9e2f-44d5ca75a1ad">
+              <nodeRect Left="685" Top="300" Right="744" Bottom="342"/>
+            </NodeLink>
+            <LineLink uuid="f5308186-3e6d-4cb5-b875-b0fb57045808" guiLink_Element="c2192482-bd06-47a1-8de3-c958d9bdad6c" guiLineLink_LineBegin="e275f206-49c6-42e8-b74e-7970a305fe3a" guiLineLink_LineEnd="93f9a81e-22ca-4b53-9e80-91d657a2b762">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="cade7577-fe17-4320-93e9-34fbb0622b90">
+                  <pos X="714" Y="286"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="05282866-e620-47d3-bec9-5822f448f067" alignment="1">
+                  <pos X="714" Y="300"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="9a86343f-ca29-4f6f-9cab-38306168f459" alignment="4">
+                  <pos X="714" Y="272"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="eaab7c68-1326-4736-b9a2-9545d4bcec5a" guiLink_Element="bfb16587-20a4-43e4-8ec4-66379c01814f">
+              <nodeRect Left="675" Top="365" Right="760" Bottom="407"/>
+            </NodeLink>
+            <NodeLink uuid="eebade12-0dd3-461a-80c3-50a7e9af503c" guiLink_Element="a8d8c898-90dd-40f6-b99e-8b865b16bf8e">
+              <nodeRect Left="600" Top="365" Right="654" Bottom="407"/>
+            </NodeLink>
+            <LineLink uuid="be3e59cf-d0da-414a-ba84-043361a5e3b4" guiLink_Element="791ca313-3077-48c3-92e0-c9e29943da64" guiLineLink_LineBegin="eebade12-0dd3-461a-80c3-50a7e9af503c" guiLineLink_LineEnd="e275f206-49c6-42e8-b74e-7970a305fe3a">
+              <style linestyle="2"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="9929a530-ed7b-413c-a692-31baf00508bb">
+                  <pos X="670" Y="354"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="01ba8428-c8cd-4864-8251-7b2fd74fd608" alignment="2">
+                  <pos X="654" Y="366"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="57996e2a-688c-453f-8651-6e951487a4e1" alignment="3">
+                  <pos X="686" Y="342"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <LineLink uuid="28438ac1-db0e-47e0-9d79-e0a660a33911" guiLink_Element="c125c1b2-74d8-48cd-b38a-3531c9b50e7d" guiLineLink_LineBegin="eaab7c68-1326-4736-b9a2-9545d4bcec5a" guiLineLink_LineEnd="e275f206-49c6-42e8-b74e-7970a305fe3a">
+              <style linestyle="1"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="4a3dc029-6e31-4d8e-b37b-3dae21e0e776">
+                  <pos X="715" Y="354"/>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="9169e33a-e5a7-40a4-96e6-6ee4671797cd" alignment="4">
+                  <pos X="715" Y="365"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="685acf81-6850-40e7-9697-3e1a6437a336" alignment="1">
+                  <pos X="715" Y="342"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+          </guiDiagramGuiLink>
+          <guiDiagramLayer>
+            <DiagramLayer uuid="aeac5ef8-e128-42e0-b4c1-b66a0b263166" name="Default"/>
+          </guiDiagramLayer>
+        </ClassDiagram>
+        <ProfileDiagram uuid="db274fb6-7e42-4309-8e98-026ce9193c23" name="pd.plaid" guiDiagramLinkedOwner="00000001-7510-11d9-86f2-000476a22f44">
+          <guiDiagramGuiLink>
+            <NodeLink uuid="d0603515-1ff7-4588-acb6-33842d479b30" guiLink_Element="00000001-7510-11d9-86f2-000476a22f44">
+              <nodeRect Right="71" Bottom="34"/>
+            </NodeLink>
+            <NodeLink uuid="91f76b5e-3f4f-4fb3-ae09-8cbfb9b2a3e0" guiLink_Element="1631e765-4fae-4bdd-bc5d-320b7521e1a8">
+              <nodeRect Left="110" Right="181" Bottom="52"/>
+            </NodeLink>
+            <LineLink uuid="804b0172-571b-4bef-bd33-886b068dee16" guiLink_Element="94752d98-b3a8-4c0f-9683-ddfde930d4a1" guiLineLink_LineBegin="d0603515-1ff7-4588-acb6-33842d479b30" guiLineLink_LineEnd="91f76b5e-3f4f-4fb3-ae09-8cbfb9b2a3e0">
+              <style linestyle="0"/>
+              <guiLineLink_LineMiddleWaypoint>
+                <MiddleWaypoint uuid="d116a149-53f0-4bbc-983a-414a2e4b15e6">
+                  <pos X="90" Y="23"/>
+                  <guiTextLabelWaypoint_TextLabel>
+                    <TextLabel uuid="6e245cec-9979-44c2-8390-d730733647c9" textLabel="14" guiTextLabel_Element="94752d98-b3a8-4c0f-9683-ddfde930d4a1">
+                      <pos X="-19" Y="-20"/>
+                    </TextLabel>
+                  </guiTextLabelWaypoint_TextLabel>
+                </MiddleWaypoint>
+              </guiLineLink_LineMiddleWaypoint>
+              <guiLineLinkWaypoint>
+                <EndWaypoint uuid="0e7b4f5e-b0ec-4790-8ecb-504e806fdfbd" alignment="1">
+                  <pos X="71" Y="21"/>
+                </EndWaypoint>
+                <EndWaypoint uuid="d70fdb8e-92d9-43aa-a771-0463d07913b8" alignment="4">
+                  <pos X="110" Y="26"/>
+                </EndWaypoint>
+              </guiLineLinkWaypoint>
+            </LineLink>
+            <NodeLink uuid="d8e5b033-254d-477e-850e-9e79bf15af76" guiLink_Element="c0a032a0-211c-485c-90c6-21b8a3274e36">
+              <nodeRect Left="315" Top="5" Right="386" Bottom="39"/>
+            </NodeLink>
+            <NodeLink uuid="956097f1-4ffd-4128-9d9e-32cedac50602" guiLink_Element="e782d17c-cc59-4e3f-b2e9-ca85297812aa">
+              <nodeRect Left="200" Right="273" Bottom="34"/>
+            </NodeLink>
+            <NodeLink uuid="990e04de-72e2-4abf-913d-6e88f638747f" guiLink_Element="7131f3ba-337b-443d-a5ae-a9f38bd098c8">
+              <nodeRect Top="80" Right="75" Bottom="134"/>
+            </NodeLink>
+            <NodeLink uuid="097fb479-9029-4cd6-a813-6df029684725" guiLink_Element="fbabd741-628a-4f33-bcef-64939d4dc9f5">
+              <nodeRect Left="105" Top="80" Right="180" Bottom="134"/>
+            </NodeLink>
+            <NodeLink uuid="cff6dac9-5db1-4abc-8472-d837ea2ba6a7" guiLink_Element="98da05fd-65d6-4bc9-8778-dbead509620c">
+              <nodeRect Left="210" Top="80" Right="285" Bottom="134"/>
+            </NodeLink>
+            <NodeLink uuid="6a6727ee-9b57-4229-8ae6-bc06c858c058" guiLink_Element="fbdf26f1-af9f-4ac2-952a-16fe4feaf120">
+              <nodeRect Left="315" Top="80" Right="390" Bottom="134"/>
+            </NodeLink>
+            <NodeLink uuid="01675f00-c65b-48da-8eca-68a14a8d8e6a" guiLink_Element="855ef3a4-e0ee-4603-a200-e0d28a18afe6">
+              <nodeRect Top="165" Right="75" Bottom="219"/>
+            </NodeLink>
+            <NodeLink uuid="d7b73e4c-55ee-4168-a235-d05d2c2aa664" guiLink_Element="d3d0de20-a5df-47d6-a5ae-67adc0727b0e">
+              <nodeRect Left="105" Top="165" Right="180" Bottom="219"/>
+            </NodeLink>
+            <NodeLink uuid="95678937-83e7-462f-be37-91ee0294c850" guiLink_Element="e8ce9385-df2e-49f8-a6a7-1502a6c0334b">
+              <nodeRect Left="210" Top="165" Right="285" Bottom="219"/>
+            </NodeLink>
+            <NodeLink uuid="1ecff6f5-a435-42f8-ab22-53b1e4991e1c" guiLink_Element="9c1098c0-19de-48c8-a47c-bedeff17056e">
+              <nodeRect Top="250" Right="75" Bottom="304"/>
+            </NodeLink>
+            <NodeLink uuid="0a54c740-5f5f-4e1c-929e-d15d4faf5bf6" guiLink_Element="4fbd94ff-2922-4d0f-ac14-0ccb4e0bd76f">
+              <nodeRect Left="105" Top="250" Right="180" Bottom="304"/>
+            </NodeLink>
+          </guiDiagramGuiLink>
+          <guiDiagramLayer>
+            <DiagramLayer uuid="a4978764-e826-4a8e-b16b-f9969677acbd" name="Default"/>
+          </guiDiagramLayer>
+        </ProfileDiagram>
+        <StateMachineDiagram uuid="dcb9604a-c462-4d19-b155-3f293ed35827" name="sd.FILESYSTEM" zoomFactor="200" guiDiagramLinkedOwner="3a8074c2-9366-42cd-8d3c-fd71dae6c25a">
+          <guiDiagramGuiLink>
+            <SeparatedNodeLink uuid="771a74b4-86cc-4101-a1c0-eef2e6a382e5" guiLink_Element="e441aa22-790f-47c8-9f5a-24bc8c4c01a6">
+              <style autosize="0"/>
+              <nodeRect Left="20" Top="20" Right="349" Bottom="828"/>
+              <guiNodeLinkGuiNodeLink>
+                <SeparatedNodeLink uuid="1a90ebd9-e8dc-465e-abfd-f0a9e9211cb4" guiLink_Element="088aa604-63d5-42d9-a5e9-3082441633f2">
+                  <style autosize="0"/>
+                  <nodeRect Left="30" Top="60" Right="334" Bottom="768"/>
+                  <Separators>
+                    <separator position="563"/>
+                    <separator position="148"/>
+                  </Separators>
+                  <guiNodeLinkGuiNodeLink>
+                    <SeparatedNodeLink uuid="bf2596a9-d01b-4077-9b4b-0f0ae04b5d08" guiLink_Element="2df66a67-9d13-401e-a0b4-64229a7bdaf6">
+                      <style autosize="0"/>
+                      <nodeRect Left="40" Top="245" Right="301" Bottom="613"/>
+                      <Separators>
+                        <separator position="126"/>
+                      </Separators>
+                      <guiNodeLinkGuiNodeLink>
+                        <SeparatedNodeLink uuid="fa82a475-1849-4449-a6db-4ffc61765c07" guiLink_Element="92f8d774-f009-4df8-b114-ad6dcc24be5d">
+                          <nodeRect Left="50" Top="285" Right="101" Bottom="318"/>
+                        </SeparatedNodeLink>
+                        <SeparatedNodeLink uuid="0b070736-af68-4557-90c9-c5c9ebf5021d" guiLink_Element="81d64bfa-67ca-4deb-855a-3582fdeab734">
+                          <style autosize="0"/>
+                          <nodeRect Left="120" Top="280" Right="281" Bottom="358"/>
+                          <guiNodeLinkGuiNodeLink>
+                            <SeparatedNodeLink uuid="0f88e0d6-43cb-4e2e-98df-e2bc2aaff66c" guiLink_Element="dfa297ac-9071-499b-ae32-475e271fddbd">
+                              <nodeRect Left="130" Top="315" Right="192" Bottom="348"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="3ee49c7c-0469-4abc-8dc9-357f01d4fbc9" guiLink_Element="13ccc14a-89e6-45d1-b30c-40796cbb1f62">
+                              <nodeRect Left="220" Top="315" Right="271" Bottom="348"/>
+                            </SeparatedNodeLink>
+                          </guiNodeLinkGuiNodeLink>
+                        </SeparatedNodeLink>
+                        <SeparatedNodeLink uuid="1cfa49a2-6a19-41c2-b48f-7a0a836a2477" guiLink_Element="cabb55c1-e078-4562-a195-af76c9ad640b">
+                          <style autosize="0"/>
+                          <nodeRect Left="55" Top="395" Right="282" Bottom="593"/>
+                          <Separators>
+                            <separator position="72"/>
+                            <separator position="135"/>
+                          </Separators>
+                          <guiNodeLinkGuiNodeLink>
+                            <SeparatedNodeLink uuid="05f33e91-38ff-47cf-9972-509a1760db9e" guiLink_Element="a969aa0d-e440-422b-9873-4082202434eb">
+                              <nodeRect Left="65" Top="430" Right="141" Bottom="463"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="3cc33443-95a3-42d9-9f13-a454e9f1e584" guiLink_Element="f58963e9-72e6-4bf3-af36-ae2cf35f64c6">
+                              <nodeRect Left="155" Top="430" Right="252" Bottom="463"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="8e59545b-6c63-4c73-9562-227e2190a92d" guiLink_Element="d09af826-2f9a-4629-83ff-d0dd0d3f7856">
+                              <nodeRect Left="65" Top="490" Right="136" Bottom="523"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="8dfbc548-6705-4b36-a2c1-0d788abe54b8" guiLink_Element="1012eb5b-7659-42c1-b668-80bd29b45960">
+                              <nodeRect Left="160" Top="490" Right="252" Bottom="523"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="ebb3914c-2cca-43ac-ab63-dcf7e9d57da4" guiLink_Element="b56f81d3-6284-4756-adfa-e97cc1fc2bfb">
+                              <nodeRect Left="70" Top="550" Right="155" Bottom="583"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="003bc2f8-91d1-417c-96e3-c710d28a53ab" guiLink_Element="7eccf2ae-4273-46df-9c0e-04b0183b4fcb">
+                              <nodeRect Left="160" Top="550" Right="266" Bottom="583"/>
+                            </SeparatedNodeLink>
+                          </guiNodeLinkGuiNodeLink>
+                        </SeparatedNodeLink>
+                      </guiNodeLinkGuiNodeLink>
+                    </SeparatedNodeLink>
+                    <SeparatedNodeLink uuid="dd3162f6-943c-444f-ba12-2e7360b9801e" guiLink_Element="4bfe3ff6-a620-447e-af4a-eb7ef54480ca">
+                      <style autosize="0"/>
+                      <nodeRect Left="40" Top="100" Right="270" Bottom="228"/>
+                      <guiNodeLinkGuiNodeLink>
+                        <SeparatedNodeLink uuid="397b11de-b0e6-4b1f-bcf7-2332e1b8697a" guiLink_Element="4a749cd1-cd4a-461e-aa4d-76b6cb6b3ce0">
+                          <style autosize="0"/>
+                          <nodeRect Left="50" Top="140" Right="260" Bottom="218"/>
+                          <Separators>
+                            <separator position="72"/>
+                            <separator position="135"/>
+                          </Separators>
+                          <guiNodeLinkGuiNodeLink>
+                            <SeparatedNodeLink uuid="a3328461-ee3c-449c-b9b0-7b9d21e7e1a7" guiLink_Element="bb540cc1-e281-44d2-acac-0c603c2d6518">
+                              <nodeRect Left="60" Top="175" Right="139" Bottom="208"/>
+                            </SeparatedNodeLink>
+                            <SeparatedNodeLink uuid="7d6a87ef-c143-4cda-8c93-6b4ab6ea7423" guiLink_Element="6f865acd-3943-4464-882f-797966d165fe">
+                              <nodeRect Left="150" Top="175" Right="250" Bottom="208"/>
+                            </SeparatedNodeLink>
+                          </guiNodeLinkGuiNodeLink>
+                        </SeparatedNodeLink>
+                      </guiNodeLinkGuiNodeLink>
+                    </SeparatedNodeLink>
+                    <SeparatedNodeLink uuid="c47d62f5-e2d3-46c4-9914-5e890a68e988" guiLink_Element="fcabb3fc-ee90-4d44-8161-00bd30ea28ce">
+                      <style autosize="0"/>
+                      <nodeRect Left="130" Top="675" Right="324" Bottom="753"/>
+                      <guiNodeLinkGuiNodeLink>
+                        <SeparatedNodeLink uuid="1f93c753-0909-4b70-a09b-40d4f6558380" guiLink_Element="68e5d1eb-4999-4b3c-a6be-73f10cee0489">
+                          <nodeRect Left="145" Top="710" Right="221" Bottom="743"/>
+                        </SeparatedNodeLink>
+                        <SeparatedNodeLink uuid="aa0068ce-0542-41b9-a3b4-63321e3da05c" guiLink_Element="f095f466-9e55-4521-b3b8-12910a5fa92d">
+                          <nodeRect Left="235" Top="710" Right="314" Bottom="743"/>
+                        </SeparatedNodeLink>
+                      </guiNodeLinkGuiNodeLink>
+                    </SeparatedNodeLink>
+                    <SeparatedNodeLink uuid="e9cef48f-9b70-4b62-ba1b-cd55b92b2784" guiLink_Element="bd00583a-655f-4473-a6ff-46b609be5692">
+                      <nodeRect Left="45" Top="700" Right="114" Bottom="733"/>
+                    </SeparatedNodeLink>
+                    <SeparatedNodeLink uuid="92704840-4601-401f-8893-b6287a8916af" guiLink_Element="cb832cfa-abf4-4e4a-87ea-e66c0e048057">
+                      <nodeRect Left="45" Top="645" Right="127" Bottom="678"/>
+                    </SeparatedNodeLink>
+                  </guiNodeLinkGuiNodeLink>
+                </SeparatedNodeLink>
+                <SeparatedNodeLink uuid="105deb2b-942a-44df-8713-01b2c3e9aecb" guiLink_Element="1752d4c1-6341-471b-8184-1647a6794153">
+                  <nodeRect Left="45" Top="785" Right="106" Bottom="818"/>
+                </SeparatedNodeLink>
+              </guiNodeLinkGuiNodeLink>
+            </SeparatedNodeLink>
+          </guiDiagramGuiLink>
+          <guiDiagramLayer>
+            <DiagramLayer uuid="accd49a1-c398-4e49-a393-e4cbb47c2a7e" name="Default"/>
+          </guiDiagramLayer>
+        </StateMachineDiagram>
+      </guiRootGuiDiagram>
+    </RootElement>
+  </Diagrams>
+</UModel>

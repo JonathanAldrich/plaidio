@@ -55,7 +55,6 @@ state CreatabilityDimension
 	**/
 	method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
-		printLine("START checkCreatability");
 		ifElse (true)
 		{
 			this <- Creatable;
