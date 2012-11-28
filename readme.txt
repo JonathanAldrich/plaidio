@@ -77,3 +77,62 @@ method main()
 // Q: How can specify conditional transition?
 // For example the following transition goes into either Valid or Invalid states.
 method validate() [unique Path >> unique Valid | unique Invalid this]
+
+
+//Question #rad.8
+// The result of executing this commit is:
+//>>> BEGIN ------------------------------------
+//--- NAME: TC-ST-112121112 make a non-existent path and create it as a file.
+//START checkValidity
+//START checkExistency
+//START checkCreatability
+//START checkRelativity
+//START checkNonRelativity
+//START transition to Canonical
+//END transition to Canonical
+//'D:\Plaid\Workspace\plaid-lang\plaidio\foo'
+//The object is Path!
+//The object is Valid!
+//The object has ExistencyDimension!
+//The object is NOT Existent!
+//The object is NonExistent!
+//The object has NxPermissionDimension!
+//The object has CreatabilityDimension!
+//The object is Creatable!
+//The object is NOT NonCreatable!
+//The path is going to be created as a file!
+//START checkValidity
+//START checkExistency
+//START checkCreatability
+//START checkRelativity
+//START checkNonRelativity
+//START transition to Canonical
+//plaid.runtime.PlaidRuntimeException: <UNKNOWN>@-1:-1 => Member "stabilizeNonRelative" already defined.
+//	at plaid.runtime.models.map.PlaidObjectMap.addMember(PlaidObjectMap.java:167)
+//	at plaid.runtime.models.map.PlaidObjectMap.restrictedUpdate(PlaidObjectMap.java:460)
+//	at plaid.runtime.models.map.PlaidObjectMap.changeState(PlaidObjectMap.java:349)
+//	at plaidio.filesystem.path.valid.relativity.NonRelative$2$1.invoke(NonRelative.java:191)
+//	at plaid.runtime.models.map.PlaidFunctionMap.invoke(PlaidFunctionMap.java:46)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:68)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.Creatable$2.invoke(Creatable.java:137)
+//	at plaid.runtime.models.map.PlaidMethodMap.invoke(PlaidMethodMap.java:44)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:63)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.test_creatability$1$2$1$1.invoke(test_creatability.java:856)
+//	at plaid.runtime.models.map.PlaidFunctionMap.invoke(PlaidFunctionMap.java:46)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:63)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at com.akefirad.plaid.testing.TestCase$2$1.invoke(TestCase.java:179)
+//	at plaid.runtime.models.map.PlaidFunctionMap.invoke(PlaidFunctionMap.java:46)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:68)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at com.akefirad.plaid.testing.TestBed$2$2$2.invoke(TestBed.java:319)
+//	at plaid.runtime.models.map.PlaidFunctionMap.invoke(PlaidFunctionMap.java:46)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:63)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at plaid.lang.While$1.invoke(While.java:140)
+//	at plaid.runtime.models.map.PlaidMethodMap.invoke(PlaidMethodMap.java:44)
+//	at plaid.runtime.models.map.PlaidRuntimeMap.call(PlaidRuntimeMap.java:68)
+//	at plaid.runtime.Util.call(Util.java:199)
+//	at plaidio.main.main(main.java:92)
