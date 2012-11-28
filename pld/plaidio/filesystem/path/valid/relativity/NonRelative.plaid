@@ -56,9 +56,12 @@ state NonRelative case of RelativityDimension
 	**/
 	method void checkNonRelativity() /*[shared NonRelative >> shared NonRelative this]*/
 	{
+		printLine("START checkNonRelativity");
 		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
 		{
+		printLine("START transition to Canonical");
 			this <- Canonical;
+		printLine("END transition to Canonical");
 			stabilizeCanonical();
 		}
 		//else

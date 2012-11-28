@@ -27,6 +27,7 @@
 package plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability;
 
 import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
+import plaidio.statecheckers.isCreatable;
 
 /*------------------------------------------------------------------------------
 /**
@@ -44,4 +45,18 @@ state Creatable case of CreatabilityDimension
 	{
 	}
 	//method void stabilizeCreatable() /*[shared Creatable >> shared Creatable this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112121112
+		DESC:	Atomically creates a new, empty file named by this abstract pathname
+				if and only if a file with this name does not yet exist.
+	**/
+	method void createAsFile() /*[unique Creatable >> unique Valid this]*/
+	{
+		stabilizePath();
+		if (isCreatable(this)) { j_File.createNewFile(); };
+		stabilizePath();
+	}
+	//method void createAsFile() /*[unique Creatable >> unique Valid this]*/
 }

@@ -55,6 +55,7 @@ state ExistencyDimension
 	**/
 	method void checkExistency() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
+		printLine("START checkExistency");
 		ifElse (j_File.exists())
 		{
 			this <- Existent;

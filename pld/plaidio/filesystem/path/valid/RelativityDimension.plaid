@@ -55,6 +55,7 @@ state RelativityDimension
 	**/
 	method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 	{
+		printLine("START checkRelativity");
 		ifElse (j_File.isAbsolute())
 		{
 			this <- NonRelative;

@@ -36,6 +36,8 @@ import plaidio.filesystem.path.valid.existency.existent.expermission.test_experm
 import plaidio.filesystem.path.valid.existency.existent.pathtype.test_pathtype;
 import plaidio.filesystem.path.valid.existency.nonexistent.test_nonexistent;
 import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.test_nxpermission;
+import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.test_creatability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID: 	ST-00
@@ -44,14 +46,16 @@ import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.test_nxp
 method main()
 {
 	val verbose = true;
-	test_filesystem(verbose);
-	test_path(verbose);
-	test_valid(verbose);
-	test_existency(verbose);
-	test_relativity(verbose);
-	test_existent(verbose);
-	test_expermission(verbose);
-	test_pathtype(verbose);
-	test_nonexistent(verbose);
-	test_nxpermission(verbose);
+//	test_filesystem(verbose);
+//	test_path(verbose);
+//	test_valid(verbose);
+//	test_existency(verbose);
+//	test_relativity(verbose);
+//	test_existent(verbose);
+//	test_expermission(verbose);
+//	test_pathtype(verbose);
+//	test_nonexistent(verbose);
+//	test_nxpermission(verbose);
+	test_creatability(verbose);
+
 }

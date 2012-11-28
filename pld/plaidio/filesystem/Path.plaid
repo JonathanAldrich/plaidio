@@ -58,6 +58,7 @@ state Path
 	**/
 	method void checkValidity() /*[shared Path >> shared Path this]*/
 	{
+		printLine("START checkValidity");
 		// This method should try to check validity by using either regex or exception handling.
 		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
 		trycatch(
