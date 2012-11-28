@@ -26,9 +26,7 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.path.Valid;
-import plaidio.filesystem.path.Invalid;
-import com.akefirad.plaid.testing.trycatch;
+import plaidio.filesystem.path.Stabilizing;
 
 //------------------------------------------------------------------------------
 /**
@@ -46,42 +44,41 @@ state Path
 	**/
 	method void stabilizePath() /*[shared Path >> shared Path this]*/
 	{
-		checkValidity();
+		this <- Stabilizing;
+		stabilize();
 	}
 	//method void stabilizePath() /*[shared Path >> shared Path this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-112
-		DESC:	Checks whether the path is valid or not, and
-				changes the state of "this" into either "Valid" or "Invalid".				
+		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
-	method void checkValidity() /*[shared Path >> shared Path this]*/
+	method immutable String getName() /*[Pure Path >> Pure Path this]*/
 	{
-		// This method should try to check validity by using either regex or exception handling.
-		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
-		trycatch(
-		{
-			j_File.getCanonicalPath();
-			this <- Valid;
-			stabilizeValid();
-		},
-		/*catch*/
-		{
-			this <- Invalid;
-			stabilizeInvalid();
-		}, "");
+		/*return*/ j_File.getName();
 	}
-	//method void checkValidity() /*[shared Path >> shared Path this]*/
-	
+	//method immutable String getName() /*[Pure Path >> Pure Path this]*/
+
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-113
-		DESC:	
+		DESC:	Converts this abstract pathname into a pathname string.
 	**/
-	method immutable String toString() /*[shared Path >> shared Path this]*/
+	method immutable String getAddress() /*[Pure Path >> Pure Path this]*/
 	{
-		j_File.toString();
+		/*return*/ j_File.getPath();
 	}
-	//method void stabilizePath() /*[shared Path >> shared Path this]*/
+	//method immutable String getAddress() /*[Pure Path >> Pure Path this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-114
+		DESC:	Convert this abstract pathname into string.
+	**/
+	method immutable String toString() /*[Pure Path >> Pure Path this]*/
+	{
+		/*return*/ j_File.toString();
+	}
+	//method immutable String toString() /*[Pure Path >> Pure Path this]*/
 }

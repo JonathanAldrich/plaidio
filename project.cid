@@ -8,7 +8,9 @@ SS-1	plaidio.filesystem
 	TS-11		Path
 		ST-110		makePath()
 		ST-111		stabilizePath()
-		ST-112		checkValidity()
+		ST-112		getName()
+		ST-113		getAddress()
+		ST-114		toString()
 		SR-111		plaidio.filesystem.path
 		TS-111		Invalid
 			ST-1111		stabilizeInvalid()
@@ -90,3 +92,5 @@ SS-1	plaidio.filesystem
 					ST-112221	stabilizeRelative()
 				TS-11223	Stabilizing
 					ST-112231	stabilize()
+		TS-113		Stabilizing
+			ST-1131		stabilize()
