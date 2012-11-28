@@ -1,0 +1,61 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-112211
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	"NonRelative" subtypes of "NonRelative" typestate.
+	FILE:	PureNonRelative.plaid
+**/
+package plaidio.filesystem.path.valid.relativity.nonrelative;
+
+import plaidio.filesystem.path.valid.relativity.NonRelative;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-112213
+	DESC:	"PureNonRelative" typestate which is created to stabilize NonRelative state.
+**/
+state PureNonRelative case of NonRelative
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1122131
+		DESC:	Checks whether the path is either absolute or canonical, and
+				changes the state of "this" into either "Absolute" or "Canonical".
+	**/
+	method void stabilizePureNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+	{
+		printLine("START stabilizePureNonRelative");
+		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
+		{
+		printLine("START transition to Canonical");
+			this <- Canonical;
+		printLine("END transition to Canonical");
+			stabilizeCanonical();
+		}
+		//else
+		{
+			this <- Absolute;
+			stabilizeAbsolute();
+		}
+	}
+	//method void stabilizePureNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+}

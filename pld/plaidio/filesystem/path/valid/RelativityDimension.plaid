@@ -56,9 +56,14 @@ state RelativityDimension
 	method void checkRelativity() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 	{
 		printLine("START checkRelativity");
+		plaidio.statecheckers.match_state(this);
 		ifElse (j_File.isAbsolute())
 		{
+		printLine("START transitio to NonRelative");
+		plaidio.statecheckers.match_state(this);
 			this <- NonRelative;
+		printLine("END transitio to NonRelative");
+		plaidio.statecheckers.match_state(this);
 			stabilizeNonRelative();
 		}
 		//else

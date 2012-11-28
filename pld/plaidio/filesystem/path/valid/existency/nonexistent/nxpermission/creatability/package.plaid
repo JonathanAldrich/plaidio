@@ -44,6 +44,10 @@ import plaidio.statecheckers.isWritabilityDimension;
 import plaidio.statecheckers.isPathTypeDimension;
 import plaidio.statecheckers.isLeaf;
 import plaidio.statecheckers.isFile;
+import plaidio.statecheckers.isRelativityDimension;
+import plaidio.statecheckers.isRelative;
+import plaidio.statecheckers.isNonRelative;
+import plaidio.statecheckers.isCanonical;
 import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
@@ -70,6 +74,10 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has RelativityDimension!"); }			/*else*/ { debug("The object has NO RelativityDimension!"); tc.fail(verbose); };
+		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
+		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
+		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
 
 		debug("The path is going to be created as a file!");
 		val result = v.createAsFile();

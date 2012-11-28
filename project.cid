@@ -79,11 +79,12 @@ SS-1	plaidio.filesystem
 				SR-11221	plaidio.filesystem.path.valid.relativity
 				TS-11221	NonRelative
 					ST-112211	stabilizeNonRelative()
-					ST-112212	checkNonRelativity()
 					SR-112211	plaidio.filesystem.path.valid.relativity.nonrelative
 					TS-112211	Absolute
 						ST-1122111	stabilizeAbsolute()
 					TS-112212	Canonical
 						ST-1122121	stabilizeCanonical()
+					TS-112213	PureNonRelative
+						ST-1122131	stabilizePureNonRelative()
 				TS-11222	Relative
 					ST-112221	stabilizeRelative()

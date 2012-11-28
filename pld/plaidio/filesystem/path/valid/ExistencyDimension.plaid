@@ -56,6 +56,7 @@ state ExistencyDimension
 	method void checkExistency() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
 		printLine("START checkExistency");
+		plaidio.statecheckers.match_state(this);
 		ifElse (j_File.exists())
 		{
 			this <- Existent;
