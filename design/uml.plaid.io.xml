@@ -126,6 +126,7 @@
                               </region>
                             </State>
                             <State uuid="1752d4c1-6341-471b-8184-1647a6794153" name="Invalid"/>
+                            <State uuid="2ea300f0-24c1-4612-9f78-b13734539804" name="Stabilizing"/>
                           </subvertex>
                         </Region>
                       </region>
@@ -644,7 +645,7 @@
           <guiDiagramGuiLink>
             <SeparatedNodeLink uuid="771a74b4-86cc-4101-a1c0-eef2e6a382e5" guiLink_Element="e441aa22-790f-47c8-9f5a-24bc8c4c01a6">
               <style autosize="0"/>
-              <nodeRect Left="20" Top="20" Right="349" Bottom="828"/>
+              <nodeRect Left="20" Top="20" Right="349" Bottom="843"/>
               <guiNodeLinkGuiNodeLink>
                 <SeparatedNodeLink uuid="1a90ebd9-e8dc-465e-abfd-f0a9e9211cb4" guiLink_Element="088aa604-63d5-42d9-a5e9-3082441633f2">
                   <style autosize="0"/>
@@ -750,6 +751,9 @@
                 </SeparatedNodeLink>
                 <SeparatedNodeLink uuid="105deb2b-942a-44df-8713-01b2c3e9aecb" guiLink_Element="1752d4c1-6341-471b-8184-1647a6794153">
                   <nodeRect Left="45" Top="785" Right="106" Bottom="818"/>
+                </SeparatedNodeLink>
+                <SeparatedNodeLink uuid="71b47519-a090-40ff-9717-eb5bd896d806" guiLink_Element="2ea300f0-24c1-4612-9f78-b13734539804">
+                  <nodeRect Left="150" Top="790" Right="232" Bottom="823"/>
                 </SeparatedNodeLink>
               </guiNodeLinkGuiNodeLink>
             </SeparatedNodeLink>
