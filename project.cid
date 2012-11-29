@@ -5,19 +5,21 @@ SS-1	plaidio.filesystem
 	ST-12		pathSeparatorChar()
 	ST-13		separator()
 	ST-14		separatorChar()
+	ST-11		makePath()
 	TS-11		Path
-		ST-110		makePath()
-		ST-111		p_InitializePath()
-		ST-112		getName()
-		ST-113		getAddress()
-		ST-114		toString()
+		ST-110		p_InitializePath()
+		ST-111		getName()
+		ST-112		getAddress()
+		ST-113		toString()
 		SR-111		plaidio.filesystem.validity
 		TS-110		i_Validity
-			ST-1101		p_Finalize()
+			ST-1100		p_Finalize()
+			ST-1101		p_MakeInvalid()
+			ST-1102		p_MakeValid()
 		TS-111		Invalid
-			ST-1111		initializeInvalid()
+			ST-1110		p_InitializeInvalid()
 		TS-112		Valid
-			ST-1121		initializeValid()
+			ST-1120		p_InitializeValid()
 			SR-1121		plaidio.filesystem.validity.valid
 			TS-1121		ExistencyDimension
 				ST-11211	initializeExistencyDimension()

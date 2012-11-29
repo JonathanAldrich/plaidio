@@ -78,13 +78,13 @@ method immutable Character separatorChar()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-110
+	CID: 	ST-11
 	DESC:	constructor for TS-11
 **/
 method unique Path makePath(immutable String path)
 {
 	val unique Path p = new Path { j_File = java.io.File.new(path); };
-	p.initializePath();
+	p.p_InitializePath();
 	/*return*/ p;
 }
 
@@ -134,9 +134,9 @@ method void test_filesystem(immutable Boolean verbose)
 	testbed.addTestCase(testcase);
 	
 	testcase = makeTestCase("TC-TS-111 make an invalid path (WINDOWS)", fn(tc) => {
-		ifElse(java.lang.System.getProperty("os.name") == "Windows")
+		ifElse(java.lang.System.getProperty("os.name").contains("Windows"))
 		{
-			val unique Path v = makePath("\0");
+			val unique Path v = makePath("con");
 			debug("'" + v + "'");
 			ifElse (isPath(v))		{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
 			ifElse (isInvalid(v))	{ debug("The object is Invalid!"); }					/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };

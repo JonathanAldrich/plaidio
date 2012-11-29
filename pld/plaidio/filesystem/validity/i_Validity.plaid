@@ -38,7 +38,7 @@ state i_Validity case of Path
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1101
+		CID:	ST-1100
 		DESC:	Checks whether the path is valid or not, and within Path,
 				changes the state of "this" into either "Invalid" or "Valid".
 	**/
@@ -49,14 +49,36 @@ state i_Validity case of Path
 		trycatch(
 		{
 			j_File.getCanonicalPath();
-			this <- Valid;
-			stabilizeValid();
+			p_MakeValid();
 		},
 		/*catch*/
 		{
-			this <- Invalid;
-			stabilizeInvalid();
+			p_MakeInvalid();
 		}, "");
 	}
 	//method void p_Finalize() /*[shared i_Validity >> shared Path this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1101
+		DESC:	Makes the object Invalid.
+	**/
+	method void p_MakeInvalid() /*[shared i_Validity >> shared Invalid this]*/
+	{
+		this <- Invalid;
+		p_InitializeInvalid();
+	}
+	//method void p_MakeInvalid() /*[shared i_Validity >> shared Invalid this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1102
+		DESC:	Makes the object Valid.
+	**/
+	method void p_MakeValid() /*[shared i_Validity >> shared Valid this]*/
+	{
+		this <- Valid;
+		p_InitializeValid();
+	}
+	//method void p_MakeValid() /*[shared i_Validity >> shared Valid this]*/
 }

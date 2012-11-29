@@ -41,17 +41,17 @@ import com.akefirad.plaid.testing.makeTestCase;
 	CID:	TC-SR-111
 	DESC:	Test plaidio.filesystem.validity package's features
 **/
-method void test_path(immutable Boolean verbose)
+method void test_validity(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
 	
-	testcase = makeTestCase("TC-TS-111 make an invalid path which has no existency and relativity dimensions", fn(tc) => {
+	testcase = makeTestCase("TC-TS-111 make an invalid path which has no dimensions", fn(tc) => {
 		val unique Path v = makePath("con");
 		debug("'" + v + "'");
-		ifElse (isPath(v))			{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isInvalid(v))		{ debug("The object is Invalid!"); }									/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
-		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); tc.fail(verbose); }		/*else*/ { debug("The object has NO Existency dimension!"); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isInvalid(v))				{ debug("The object is Invalid!"); }									/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); tc.fail(verbose); }		/*else*/ { debug("The object has NO Existency dimension!"); };
 		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO Relativity dimension!"); };
 	});
 	testbed.addTestCase(testcase);
@@ -59,8 +59,8 @@ method void test_path(immutable Boolean verbose)
 	testcase = makeTestCase("TC-TS-1121 make a valid path which has existency dimension", fn(tc) => {
 		val unique Path v = makePath("foo");
 		debug("'" + v + "'");
-		ifElse (isPath(v))		{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))		{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
 		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); }	/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
@@ -68,8 +68,8 @@ method void test_path(immutable Boolean verbose)
 	testcase = makeTestCase("TC-TS-1122 make a valid path which has relativity dimensions", fn(tc) => {
 		val unique Path v = makePath("foo");
 		debug("'" + v + "'");
-		ifElse (isPath(v))			{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))			{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
 		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); }	/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);

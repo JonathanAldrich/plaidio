@@ -36,11 +36,12 @@ state Invalid case of Path
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1111
-		DESC:	Checks all dimensions of the object.
+		CID:	ST-1110
+		DESC:	Initialize the object and check	all its dimensions and substates.
+				This method should not be public.
 	**/
-	method void initializeInvalid() /*[shared Invalid >> shared Invalid this]*/
+	method void p_InitializeInvalid() /*[shared Invalid >> shared Invalid this]*/
 	{
 	}
-	//method void initializeInvalid() /*[shared Invalid >> shared Invalid this]*/
+	//method void p_InitializeInvalid() /*[shared Invalid >> shared Invalid this]*/
 }
