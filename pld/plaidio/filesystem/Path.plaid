@@ -21,12 +21,11 @@
 /**
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"plaidio.filesystem" is the basic statespace for SR-11 features
 	FILE:	Path.plaid
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.path.PathInitializing;
+import plaidio.filesystem.validity._validity;
 
 //------------------------------------------------------------------------------
 /**
@@ -44,8 +43,8 @@ state Path
 	**/
 	method void initializePath() /*[shared Path >> shared Path this]*/
 	{
-		this <- PathInitializing;
-		finalize();
+		this <- _validity;
+		p_Finalize();
 	}
 	//method void initializePath() /*[shared Path >> shared Path this]*/
 

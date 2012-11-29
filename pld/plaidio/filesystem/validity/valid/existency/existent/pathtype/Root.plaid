@@ -1,0 +1,46 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1121121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	Root.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+
+import plaidio.filesystem.validity.valid.existency.existent.PathTypeDimension;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1121122
+	DESC:	"Root" typestate which contains an existent root path.
+**/
+state Root case of PathTypeDimension
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211221
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void initializeRoot() /*[shared Root >> shared Root this]*/
+	{
+	}
+	//method void initializeRoot() /*[shared Root >> shared Root this]*/
+}

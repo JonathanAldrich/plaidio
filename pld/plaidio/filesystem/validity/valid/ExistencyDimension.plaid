@@ -1,0 +1,48 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	ExistencyDimension.plaid
+**/
+package plaidio.filesystem.validity.valid;
+
+import plaidio.filesystem.validity.valid.existency._existency;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1121
+	DESC:	"ExistencyDimension" typestate which is one dimension of Valid typestate.
+**/
+state ExistencyDimension
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void initializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	{
+		this <- _existency;
+		p_Finalize();
+	}
+	//method void initializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+}

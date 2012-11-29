@@ -1,0 +1,46 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-11212111
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	NonCreatable.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability;
+
+import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-11212112
+	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
+**/
+state NonCreatable case of CreatabilityDimension
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112121121
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void initializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	{
+	}
+	//method void initializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+}

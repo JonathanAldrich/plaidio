@@ -1,0 +1,69 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1121111
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	WritabilityDimension.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.expermission;
+
+import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.Writable;
+import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.NonWritable;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1121113
+	DESC:	"WritabilityDimension" typestate which is one dimension of ExPermission typestate.
+**/
+state WritabilityDimension
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211131
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	{
+		checkWritability();
+	}
+	//method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211132
+		DESC:	Checks whether the path is writable or not, and
+				changes the state of "this" into either "Writable" or "NonWritable".				
+	**/
+	method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	{
+		ifElse (j_File.canWrite())
+		{
+			this <- Writable;
+			initializeWritable();
+		}
+		/*else*/
+		{
+			this <- NonWritable;
+			initializeNonWritable();
+		}
+	}
+	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+}

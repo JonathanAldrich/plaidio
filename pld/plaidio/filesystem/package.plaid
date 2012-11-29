@@ -21,7 +21,6 @@
 /**
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package of plaid.io.filesystem statespace.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem;
@@ -91,7 +90,7 @@ method unique Path makePath(immutable String path)
 /*------------------------------------------------------------------------------
 /**
 	CID:	TC-SS-1
-	DESC:	Test cases of plaidio.filesystem.path package's features
+	DESC:	Test cases of plaidio.filesystem.validity package's features
 **/
 method void test_filesystem(immutable Boolean verbose)
 {

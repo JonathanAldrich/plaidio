@@ -27,16 +27,16 @@
 package plaidio;
 
 import plaidio.filesystem.test_filesystem;
-import plaidio.filesystem.path.test_path;
-import plaidio.filesystem.path.valid.test_valid;
-import plaidio.filesystem.path.valid.existency.test_existency;
-import plaidio.filesystem.path.valid.relativity.test_relativity;
-import plaidio.filesystem.path.valid.existency.existent.test_existent;
-import plaidio.filesystem.path.valid.existency.existent.expermission.test_expermission;
-import plaidio.filesystem.path.valid.existency.existent.pathtype.test_pathtype;
-import plaidio.filesystem.path.valid.existency.nonexistent.test_nonexistent;
-import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.test_nxpermission;
-import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatability.test_creatability;
+import plaidio.filesystem.validity.test_path;
+import plaidio.filesystem.validity.valid.test_valid;
+import plaidio.filesystem.validity.valid.existency.test_existency;
+import plaidio.filesystem.validity.valid.relativity.test_relativity;
+import plaidio.filesystem.validity.valid.existency.existent.test_existent;
+import plaidio.filesystem.validity.valid.existency.existent.expermission.test_expermission;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
+import plaidio.filesystem.validity.valid.existency.nonexistent.test_nonexistent;
+import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.test_nxpermission;
+import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability.test_creatability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -46,16 +46,16 @@ import plaidio.filesystem.path.valid.existency.nonexistent.nxpermission.creatabi
 method main()
 {
 	val verbose = true;
-//	test_filesystem(verbose);
-//	test_path(verbose);
-//	test_valid(verbose);
-//	test_existency(verbose);
-//	test_relativity(verbose);
-//	test_existent(verbose);
-//	test_expermission(verbose);
-//	test_pathtype(verbose);
-//	test_nonexistent(verbose);
-//	test_nxpermission(verbose);
-	test_creatability(verbose);
+	test_filesystem(verbose);
+	test_path(verbose);
+	test_valid(verbose);
+	test_existency(verbose);
+	test_relativity(verbose);
+	test_existent(verbose);
+	test_expermission(verbose);
+	test_pathtype(verbose);
+	test_nonexistent(verbose);
+	test_nxpermission(verbose);
+	//test_creatability(verbose);
 
 }

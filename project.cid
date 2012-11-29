@@ -11,12 +11,14 @@ SS-1	plaidio.filesystem
 		ST-112		getName()
 		ST-113		getAddress()
 		ST-114		toString()
-		SR-111		plaidio.filesystem.path
+		SR-111		plaidio.filesystem.validity
+		TS-110		_validity
+			ST-1101		p_Finalize()
 		TS-111		Invalid
 			ST-1111		initializeInvalid()
 		TS-112		Valid
 			ST-1121		initializeValid()
-			SR-1121		plaidio.filesystem.path.valid
+			SR-1121		plaidio.filesystem.validity.valid
 			TS-1121		ExistencyDimension
 				ST-11211	initializeExistencyDimension()
 				SR-11211	plaidio.filesystem.path.valid.existency
@@ -27,7 +29,7 @@ SS-1	plaidio.filesystem
 						ST-1121111	initializeExPermissionDimension()
 						SR-1121111	plaidio.filesystem.path.valid.existency.existent.expermission
 						TS-1121111	ExecutabilityDimension
-							ST-11211111	initializeExecutabilityDimension()
+							ST-11211111	initializeD_Executability()
 							ST-11211112	checkExecutability()
 							SR-11211111	plaidio.filesystem.path.valid.existency.existent.expermission.executability
 							TS-11211111	Executable
@@ -81,6 +83,8 @@ SS-1	plaidio.filesystem
 			TS-1122		RelativityDimension
 				ST-11221	initializeRelativityDimension()
 				SR-11221	plaidio.filesystem.path.valid.relativity
+				TS-11220	_relativity
+					ST-112231	p_finalize()
 				TS-11221	NonRelative
 					ST-112211	initializeNonRelative()
 					ST-112212	checkNonRelativity()
@@ -91,7 +95,3 @@ SS-1	plaidio.filesystem
 						ST-1122121	initializeCanonical()
 				TS-11222	Relative
 					ST-112221	initializeRelative()
-				TS-11223	Initializing
-					ST-112231	finalize()
-		TS-113		PathInitializing
-			ST-1131		finalize()

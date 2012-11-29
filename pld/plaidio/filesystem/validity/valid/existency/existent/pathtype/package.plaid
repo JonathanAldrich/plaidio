@@ -1,0 +1,93 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1121121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	package.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+
+import plaidio.filesystem.separator;
+import plaidio.filesystem.makePath;
+import plaidio.statecheckers.isPath;
+import plaidio.statecheckers.isValid;
+import plaidio.statecheckers.isExistencyDimension;
+import plaidio.statecheckers.isExistent;
+import plaidio.statecheckers.isPathTypeDimension;
+import plaidio.statecheckers.isLeaf;
+import plaidio.statecheckers.isFile;
+import plaidio.statecheckers.isFolder;
+import plaidio.statecheckers.isUnknownLeaf;
+import com.akefirad.plaid.testing.debug;
+import com.akefirad.plaid.testing.makeTestBed;
+import com.akefirad.plaid.testing.makeTestCase;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SR-1121121
+	DESC:	Test plaidio.filesystem.validity.valid.existency.existent.pathtype package's features
+**/
+method void test_pathtype(immutable Boolean verbose)
+{
+	val testbed = makeTestBed();
+	var testcase = new Unit;
+	
+	testcase = makeTestCase("TC-TS-11211211 make a file path", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator() + "build.xml");
+		debug("'" + v + "'");
+		ifElse (isPath(v))				{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))				{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }				/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }							/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
+		ifElse (isFile(v))				{ debug("The object is File!"); }							/*else*/ { debug("The object is NOT File!"); tc.fail(verbose); };
+		ifElse (isFolder(v))			{ debug("The object is Folder!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Folder!"); };
+		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT UnknownLeaf!"); };
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("TC-TS-11211212 make a folder path", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+		debug("'" + v + "'");
+		ifElse (isPath(v))				{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))				{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }				/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }							/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
+		ifElse (isFile(v))				{ debug("The object is File!"); tc.fail(verbose); }			/*else*/ { debug("The object is NOT File!"); };
+		ifElse (isFolder(v))			{ debug("The object is Folder!"); }							/*else*/ { debug("The object is NOT Folder!"); tc.fail(verbose); };
+		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT UnknownLeaf!"); };
+	});
+	testbed.addTestCase(testcase);
+
+	testcase = makeTestCase("TC-TS-11211213 make an unknown leaf path", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+		debug("'" + v + "'");
+		ifElse (isPath(v))				{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))				{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }			/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }						/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
+		ifElse (isFile(v))				{ debug("The object is File!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT File!"); };
+		ifElse (isFolder(v))			{ debug("The object is Folder!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Folder!"); };
+		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); }				/*else*/ { debug("The object is NOT UnknownLeaf!"); tc.fail(verbose); };
+	});
+	testbed.addTestCase(testcase);
+
+	testbed.runTestCases(verbose);
+}

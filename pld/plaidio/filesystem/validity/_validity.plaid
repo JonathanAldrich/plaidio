@@ -1,0 +1,62 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-111
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	_validity.plaid
+**/
+package plaidio.filesystem.validity;
+
+import plaidio.filesystem.Path;
+import com.akefirad.plaid.testing.trycatch;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-110
+	DESC:	"_validity" typestate which is created to initialize validity state region.
+			This state should not be public.
+**/
+state _validity case of Path
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1101
+		DESC:	Checks whether the path is valid or not, and within Path,
+				changes the state of "this" into either "Invalid" or "Valid".
+	**/
+	method void p_Finalize() /*[shared _validity >> shared Path this]*/
+	{
+		// This method should try to check validity by using either regex or exception handling.
+		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
+		trycatch(
+		{
+			j_File.getCanonicalPath();
+			this <- Valid;
+			initializeValid();
+		},
+		/*catch*/
+		{
+			this <- Invalid;
+			initializeInvalid();
+		}, "");
+	}
+	//method void p_Finalize() /*[shared _validity >> shared Path this]*/
+}

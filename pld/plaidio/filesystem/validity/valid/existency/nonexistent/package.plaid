@@ -1,0 +1,63 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-112121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	package.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.nonexistent;
+
+import plaidio.filesystem.separator;
+import plaidio.filesystem.makePath;
+import plaidio.statecheckers.isPath;
+import plaidio.statecheckers.isValid;
+import plaidio.statecheckers.isExistencyDimension;
+import plaidio.statecheckers.isNonExistent;
+import plaidio.statecheckers.isNxPermissionDimension;
+import plaidio.statecheckers.isCreatabilityDimension;
+import com.akefirad.plaid.testing.debug;
+import com.akefirad.plaid.testing.makeTestBed;
+import com.akefirad.plaid.testing.makeTestCase;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SR-112121
+	DESC:	Test plaidio.filesystem.validity.valid.existency.nonexistent package's features
+**/
+method void test_nonexistent(immutable Boolean verbose)
+{
+	val testbed = makeTestBed();
+	var testcase = new Unit;
+	
+	testcase = makeTestCase("TC-TS-1121211 make a non-exitent path which has creatability dimension", fn(tc) => {
+		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator()+ "foo");
+		debug("'" + v + "'");
+		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); }	/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
+		ifElse (isNonExistent(v))			{ debug("The object is NonExistent!"); }			/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
+		ifElse (isNxPermissionDimension(v))	{ debug("The object has NxPermissionDimension!"); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
+		ifElse (isCreatabilityDimension(v))	{ debug("The object has CreatabilityDimension!"); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
+	});
+	testbed.addTestCase(testcase);
+
+	testbed.runTestCases(verbose);
+}
