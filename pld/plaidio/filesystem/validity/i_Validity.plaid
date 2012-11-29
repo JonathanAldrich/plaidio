@@ -21,7 +21,7 @@
 /**
 	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	_validity.plaid
+	FILE:	i_Validity.plaid
 **/
 package plaidio.filesystem.validity;
 
@@ -31,10 +31,10 @@ import com.akefirad.plaid.testing.trycatch;
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-110
-	DESC:	"_validity" typestate which is created to initialize validity state region.
+	DESC:	"i_Validity" typestate which is created to initialize validity state region.
 			This state should not be public.
 **/
-state _validity case of Path
+state i_Validity case of Path
 {
 	/*-----------------------------------------------------------------------------
 	/**
@@ -42,7 +42,7 @@ state _validity case of Path
 		DESC:	Checks whether the path is valid or not, and within Path,
 				changes the state of "this" into either "Invalid" or "Valid".
 	**/
-	method void p_Finalize() /*[shared _validity >> shared Path this]*/
+	method void p_Finalize() /*[shared i_Validity >> shared Path this]*/
 	{
 		// This method should try to check validity by using either regex or exception handling.
 		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
@@ -50,13 +50,13 @@ state _validity case of Path
 		{
 			j_File.getCanonicalPath();
 			this <- Valid;
-			initializeValid();
+			stabilizeValid();
 		},
 		/*catch*/
 		{
 			this <- Invalid;
-			initializeInvalid();
+			stabilizeInvalid();
 		}, "");
 	}
-	//method void p_Finalize() /*[shared _validity >> shared Path this]*/
+	//method void p_Finalize() /*[shared i_Validity >> shared Path this]*/
 }

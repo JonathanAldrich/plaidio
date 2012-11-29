@@ -7,12 +7,12 @@ SS-1	plaidio.filesystem
 	ST-14		separatorChar()
 	TS-11		Path
 		ST-110		makePath()
-		ST-111		initializePath()
+		ST-111		p_InitializePath()
 		ST-112		getName()
 		ST-113		getAddress()
 		ST-114		toString()
 		SR-111		plaidio.filesystem.validity
-		TS-110		_validity
+		TS-110		i_Validity
 			ST-1101		p_Finalize()
 		TS-111		Invalid
 			ST-1111		initializeInvalid()

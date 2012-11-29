@@ -21,6 +21,7 @@
 /**
 	CID:	SS-1
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem is basic statespace for SR-11 features
 	FILE:	package.plaid
 **/
 package plaidio.filesystem;

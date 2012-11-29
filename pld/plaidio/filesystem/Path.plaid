@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.validity._validity;
+import plaidio.filesystem.validity.i_Validity;
 
 //------------------------------------------------------------------------------
 /**
@@ -39,14 +39,15 @@ state Path
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111
-		DESC:	Checks all dimensions of the object.				
+		DESC:	Initialize the object and check	all its dimensions and substates.
+				This method should not be public.
 	**/
-	method void initializePath() /*[shared Path >> shared Path this]*/
+	method void p_InitializePath() /*[shared Path >> shared Path this]*/
 	{
-		this <- _validity;
+		this <- i_Validity;
 		p_Finalize();
 	}
-	//method void initializePath() /*[shared Path >> shared Path this]*/
+	//method void p_InitializePath() /*[shared Path >> shared Path this]*/
 
 	//-----------------------------------------------------------------------------
 	/**

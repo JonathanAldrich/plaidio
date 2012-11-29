@@ -21,6 +21,7 @@
 /**
 	CID:	SR-111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package of plaid.io.filesystem.validity statespace.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity;
