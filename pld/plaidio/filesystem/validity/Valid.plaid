@@ -44,8 +44,8 @@ state Valid case of Path = ExistencyDimension with RelativityDimension with
 	**/
 	method void p_InitializeValid() /*[shared Valid >> shared Valid this]*/
 	{
-		initializeExistencyDimension();
-		initializeRelativityDimension();
+		p_InitializeExistencyDimension();
+		p_InitializeRelativityDimension();
 	}
 	//method void p_InitializeValid() /*[shared Valid >> shared Valid this]*/
 }

@@ -48,9 +48,9 @@ method main()
 	val verbose = true;
 	test_filesystem(verbose);
 	test_validity(verbose);
-//	test_valid(verbose);
-//	test_existency(verbose);
-//	test_relativity(verbose);
+	test_valid(verbose);
+	test_existency(verbose);
+	test_relativity(verbose);
 //	test_existent(verbose);
 //	test_expermission(verbose);
 //	test_pathtype(verbose);

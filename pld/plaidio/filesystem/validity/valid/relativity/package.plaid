@@ -21,7 +21,8 @@
 /**
 	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	DESC:	Package plaidio.filesystem.validity.valid.relativity
+			for subtypes of "RelativityDimension" typestate.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.relativity;
@@ -30,7 +31,7 @@ import plaidio.filesystem.separator;
 import plaidio.filesystem.makePath;
 import plaidio.statecheckers.isPath;
 import plaidio.statecheckers.isValid;
-import plaidio.statecheckers.isRelativity;
+import plaidio.statecheckers.isRelativityDimension;
 import plaidio.statecheckers.isNonRelative;
 import plaidio.statecheckers.isAbsolute;
 import plaidio.statecheckers.isCanonical;
@@ -53,7 +54,7 @@ method void test_relativity(immutable Boolean verbose)
 		debug("'" + v + "'");
 		ifElse (isPath(v))					{ debug("The object is Path!"); }							/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
 		ifElse (isValid(v))					{ debug("The object is Valid!"); }							/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
-		ifElse (isRelativity(v))	{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); tc.fail(verbose); };
 		ifElse (isAbsolute(v))				{ debug("The object is Absolute!"); }						/*else*/ { debug("The object is NOT Absolute!"); tc.fail(verbose); };
 		ifElse (isCanonical(v))				{ debug("The object is Canonical!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Canonical!"); };
@@ -65,7 +66,7 @@ method void test_relativity(immutable Boolean verbose)
 		debug("'" + v + "'");
 		ifElse (isPath(v))					{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
 		ifElse (isValid(v))					{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-		ifElse (isRelativity(v))	{ debug("The object has Relativity dimension!"); }		/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); }		/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isNonRelative(v))			{ debug("The object is NonRelative!"); }				/*else*/ { debug("The object is NOT NonRelative!"); tc.fail(verbose); };
 		ifElse (isAbsolute(v))				{ debug("The object is Absolute!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Absolute!"); };
 		ifElse (isCanonical(v))				{ debug("The object is Canonical!"); }					/*else*/ { debug("The object is NOT Canonical!"); tc.fail(verbose); };

@@ -40,11 +40,11 @@ state ExecutabilityDimension
 		CID:	ST-11211111
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeExistencyDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	method void initializeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 	{
 		checkExecutability();
 	}
-	//method void initializeExistencyDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
+	//method void initializeExecutabilityDimension() /*[shared ExecutabilityDimension >> shared ExecutabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**

@@ -21,7 +21,7 @@
 /**
 	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	_existency.plaid
+	FILE:	i_Existency.plaid
 **/
 package plaidio.filesystem.validity.valid.existency;
 
@@ -30,29 +30,51 @@ import plaidio.filesystem.validity.valid.ExistencyDimension;
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-11210
-	DESC:	"_existency" typestate which is created to intialize ExistencyDimension state.
+	DESC:	"i_Existency" typestate which is created to intialize ExistencyDimension state.
 			This state should not be public.
 **/
-state _existency case of ExistencyDimension
+state i_Existency case of ExistencyDimension
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112101
+		CID:	ST-112100
 		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
 				changes the state of "this" into either "Existent" or "NonExistent".
 	**/
-	method void p_Finalize() /*[shared _existency >> shared ExistencyDimension this]*/
+	method void p_Finalize() /*[shared i_Existency >> shared ExistencyDimension this]*/
 	{
 		ifElse (j_File.exists())
 		{
-			this <- Existent;
-			initializeExistent();
+			p_MakeExistent();
 		}
-		//else
+		/*else*/
 		{
-			this <- NonExistent;
-			initializeNonExistent();
+			p_MakeNonExistent();
 		}
 	}
-	//method void p_Finalize() /*[shared _existency >> shared ExistencyDimension this]*/
+	//method void p_Finalize() /*[shared i_Existency >> shared ExistencyDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112101
+		DESC:	Makes the object Existent.
+	**/
+	method void p_MakeExistent() /*[shared i_Existency >> shared Existent this]*/
+	{
+		this <- Existent;
+		p_InitializeExistent();
+	}
+	//method void p_MakeExistent() /*[shared i_Existency >> shared Existent this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112102
+		DESC:	Makes the object NonExistent.
+	**/
+	method void p_MakeNonExistent() /*[shared i_Existency >> shared NonExistent this]*/
+	{
+		this <- NonExistent;
+		p_InitializeNonExistent();
+	}
+	//method void p_MakeNonExistent() /*[shared i_Existency >> shared NonExistent this]*/
 }

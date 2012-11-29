@@ -22,8 +22,12 @@ SS-1	plaidio.filesystem
 			ST-1120		p_InitializeValid()
 			SR-1121		plaidio.filesystem.validity.valid
 			TS-1121		ExistencyDimension
-				ST-11211	initializeExistencyDimension()
+				ST-11210	p_InitializeExistencyDimension()
 				SR-11211	plaidio.filesystem.path.valid.existency
+				TS-11210	i_Existency
+					ST-112100	p_finalize()
+					ST-112101	p_MakeExistent()
+					ST-112102	p_MakeNonExistent()
 				TS-11211	Existent
 					ST-112111	initializeExistent()
 					SR-112111	plaidio.filesystem.path.valid.existency.existent
@@ -80,13 +84,13 @@ SS-1	plaidio.filesystem
 								ST-112121112	createAsFolder()
 							TS-11212112	NonCreatable
 								ST-112121121	initializeNonCreatable()
-				TS-11212	Initializing
-					ST-112121	finalize()
 			TS-1122		RelativityDimension
-				ST-11221	initializeRelativityDimension()
+				ST-11220	p_InitializeRelativityDimension()
 				SR-11221	plaidio.filesystem.path.valid.relativity
-				TS-11220	_relativity
-					ST-112231	p_finalize()
+				TS-11220	i_Relativity
+					ST-112200	p_finalize()
+					ST-112201	p_MakeNonRelative()
+					ST-112202	p_MakeRelative()
 				TS-11221	NonRelative
 					ST-112211	initializeNonRelative()
 					ST-112212	checkNonRelativity()

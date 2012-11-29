@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid;
 
-import plaidio.filesystem.validity.valid.existency._existency;
+import plaidio.filesystem.validity.valid.existency.i_Existency;
 
 /*------------------------------------------------------------------------------
 /**
@@ -36,13 +36,13 @@ state ExistencyDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211
+		CID:	ST-11210
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	method void p_InitializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
-		this <- _existency;
+		this <- i_Existency;
 		p_Finalize();
 	}
-	//method void initializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	//method void p_InitializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 }

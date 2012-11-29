@@ -44,7 +44,7 @@ import plaidio.statecheckers.isPathTypeDimension;
 import plaidio.statecheckers.isLeaf;
 import plaidio.statecheckers.isFile;
 import plaidio.statecheckers.isFolder;
-import plaidio.statecheckers.isRelativity;
+import plaidio.statecheckers.isRelativityDimension;
 import plaidio.statecheckers.isRelative;
 import plaidio.statecheckers.isNonRelative;
 import plaidio.statecheckers.isCanonical;
@@ -75,7 +75,7 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
-		ifElse (isRelativity(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
 		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
@@ -99,7 +99,7 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isPathTypeDimension(v))			{ debug("The object has PathTypeDimension!"); }							/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
 		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
 		ifElse (isFile(v))						{ debug("The object is File!"); }										/*else*/ { debug("The object is NOT File!"); tc.fail(verbose); };
-		ifElse (isRelativity(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
 	});
@@ -118,7 +118,7 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
-		ifElse (isRelativity(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
 		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
@@ -143,7 +143,7 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
 		ifElse (isFile(v))						{ debug("The object is File!"); tc.fail(verbose); }						/*else*/ { debug("The object is NOT File!"); };
 		ifElse (isFolder(v))					{ debug("The object is Folder!"); }										/*else*/ { debug("The object is NOT Folder!"); tc.fail(verbose); };
-		ifElse (isRelativity(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
 		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
 	});

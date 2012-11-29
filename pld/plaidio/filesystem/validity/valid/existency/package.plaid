@@ -21,6 +21,8 @@
 /**
 	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency
+			for subtypes of "ExistencyDimension" state region.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency;

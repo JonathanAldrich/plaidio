@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid;
 
-import plaidio.filesystem.validity.valid.relativity._relativity;
+import plaidio.filesystem.validity.valid.relativity.i_Relativity;
 
 /*------------------------------------------------------------------------------
 /**
@@ -36,13 +36,13 @@ state RelativityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11221
+		CID:	ST-11220
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
+	method void p_InitializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 	{
-		this <- _relativity;
+		this <- i_Relativity;
 		p_Finalize();
 	}
-	//method void initializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
+	//method void p_InitializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 }
