@@ -43,11 +43,11 @@ state ExPermissionDimension = ExecutabilityDimension with ReadabilityDimension w
 		CID:	ST-1121111
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
+	method void initializeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 	{
-		stabilizeExecutabilityDimension();
-		stabilizeReadabilityDimension();
-		stabilizeWritabilityDimension();
+		initializeExecutabilityDimension();
+		initializeReadabilityDimension();
+		initializeWritabilityDimension();
 	}
-	//method void stabilizeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
+	//method void initializeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 }

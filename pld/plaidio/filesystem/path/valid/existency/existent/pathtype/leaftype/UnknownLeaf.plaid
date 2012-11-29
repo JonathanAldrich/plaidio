@@ -40,8 +40,8 @@ state UnknownLeaf case of Leaf
 		CID:	ST-112112131
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
+	method void initializeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
 	{
 	}
-	//method void stabilizeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
+	//method void initializeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
 }

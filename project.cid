@@ -7,90 +7,91 @@ SS-1	plaidio.filesystem
 	ST-14		separatorChar()
 	TS-11		Path
 		ST-110		makePath()
-		ST-111		stabilizePath()
+		ST-111		initializePath()
 		ST-112		getName()
 		ST-113		getAddress()
 		ST-114		toString()
 		SR-111		plaidio.filesystem.path
 		TS-111		Invalid
-			ST-1111		stabilizeInvalid()
+			ST-1111		initializeInvalid()
 		TS-112		Valid
-			ST-1121		stabilizeValid()
+			ST-1121		initializeValid()
 			SR-1121		plaidio.filesystem.path.valid
 			TS-1121		ExistencyDimension
-				ST-11211	stabilizeExistencyDimension()
-				ST-11212	checkExistency()
+				ST-11211	initializeExistencyDimension()
 				SR-11211	plaidio.filesystem.path.valid.existency
 				TS-11211	Existent
-					ST-112111	stabilizeExistent()
+					ST-112111	initializeExistent()
 					SR-112111	plaidio.filesystem.path.valid.existency.existent
 					TS-112111	ExPermissionDimension
-						ST-1121111	stabilizeExPermissionDimension()
+						ST-1121111	initializeExPermissionDimension()
 						SR-1121111	plaidio.filesystem.path.valid.existency.existent.expermission
 						TS-1121111	ExecutabilityDimension
-							ST-11211111	stabilizeExecutabilityDimension()
+							ST-11211111	initializeExecutabilityDimension()
 							ST-11211112	checkExecutability()
 							SR-11211111	plaidio.filesystem.path.valid.existency.existent.expermission.executability
 							TS-11211111	Executable
 							TS-11211112	NonExecutable
 						TS-1121112	ReadabilityDimension
-							ST-11211121	stabilizeReadabilityDimension()
+							ST-11211121	initializeReadabilityDimension()
 							ST-11211122	checkReadability()
 							SR-11211121	plaidio.filesystem.path.valid.existency.existent.expermission.readability
 							TS-11211121	NonReadable
 							TS-11211122	Readable
 						TS-1121113	WritabilityDimension
-							ST-11211131	stabilizeWritabilityDimension()
+							ST-11211131	initializeWritabilityDimension()
 							ST-11211132	checkReadability()
 							SR-11211131	plaidio.filesystem.path.valid.existency.existent.expermission.writability
 							TS-11211131	NonWritable
 							TS-11211132	Writable
 					TS-112112	PathTypeDimension
-						ST-1121121	stabilizePathTypeDimension()
+						ST-1121121	initializePathTypeDimension()
 						ST-1121122	checkPathType()
 						SR-1121121	plaidio.filesystem.path.valid.existency.existent.pathtype
 						TS-1121121	Leaf
-							ST-11211211	stabilizeLeaf()
+							ST-11211211	initializeLeaf()
 							ST-11211212	checkLeafType()
 							SR-11211211	plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype
 							TS-11211211	File
-								ST-112112111	stabilizeFile()
+								ST-112112111	initializeFile()
 							TS-11211212	Folder
-								ST-112112121	stabilizeFolder()
+								ST-112112121	initializeFolder()
 							TS-11211213	UnknownLeaf
-								ST-112112131	stabilizeUnknownLeaf()
+								ST-112112131	initializeUnknownLeaf()
 						TS-1121122	Root
-							ST-11211221	stabilizeRoot()
+							ST-11211221	initializeRoot()
 				TS-11212	NonExistent
-					ST-112121	stabilizeNonExistent()
+					ST-112121	initializeNonExistent()
 					SR-112121	plaidio.filesystem.path.valid.existency.nonexistent
 					TS-112121	NxPermissionDimension
-						ST-1121211	stabilizeNxPermissionDimension()
+						ST-1121211	initializeNxPermissionDimension()
 						SR-1121211	plaidio.filesystem.path.valid.existency.nonexistent.nxpermission
 						TS-1121211	CreatabilityDimension
-							ST-11212111	stabilizeCreatabilityDimension()
+							ST-11212111	initializeCreatabilityDimension()
 							ST-11212112	checkCreatability()
 							SR-11212111	plaidio.filesystem.path.valid.existency.existent.nxpermission.creatability
 							TS-11212111	Creatable
-								ST-112121111	stabilizeCreatable()
+								ST-112121111	initializeCreatable()
 								ST-112121112	createAsFile()
 								ST-112121112	createAsFolder()
 							TS-11212112	NonCreatable
-								ST-112121121	stabilizeNonCreatable()
+								ST-112121121	initializeNonCreatable()
+				TS-11212	Initializing
+					ST-112121	finalize()
 			TS-1122		RelativityDimension
-				ST-11221	stabilizeRelativityDimension()
+				ST-11221	initializeRelativityDimension()
 				SR-11221	plaidio.filesystem.path.valid.relativity
 				TS-11221	NonRelative
-					ST-112211	stabilizeNonRelative()
+					ST-112211	initializeNonRelative()
 					ST-112212	checkNonRelativity()
 					SR-112211	plaidio.filesystem.path.valid.relativity.nonrelative
 					TS-112211	Absolute
-						ST-1122111	stabilizeAbsolute()
+						ST-1122111	initializeAbsolute()
 					TS-112212	Canonical
-						ST-1122121	stabilizeCanonical()
+						ST-1122121	initializeCanonical()
 				TS-11222	Relative
-					ST-112221	stabilizeRelative()
-				TS-11223	Stabilizing
-					ST-112231	stabilize()
-		TS-113		Stabilizing
-			ST-1131		stabilize()
+					ST-112221	initializeRelative()
+				TS-11223	Initializing
+					ST-112231	finalize()
+		TS-113		PathInitializing
+			ST-1131		finalize()

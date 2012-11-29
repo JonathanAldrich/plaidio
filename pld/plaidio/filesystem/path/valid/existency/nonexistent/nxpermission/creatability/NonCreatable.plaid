@@ -40,8 +40,8 @@ state NonCreatable case of CreatabilityDimension
 		CID:	ST-112121121
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	method void initializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
 	{
 	}
-	//method void stabilizeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	//method void initializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
 }

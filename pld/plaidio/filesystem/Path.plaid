@@ -26,7 +26,7 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.path.Stabilizing;
+import plaidio.filesystem.path.PathInitializing;
 
 //------------------------------------------------------------------------------
 /**
@@ -42,12 +42,12 @@ state Path
 		CID:	ST-111
 		DESC:	Checks all dimensions of the object.				
 	**/
-	method void stabilizePath() /*[shared Path >> shared Path this]*/
+	method void initializePath() /*[shared Path >> shared Path this]*/
 	{
-		this <- Stabilizing;
-		stabilize();
+		this <- PathInitializing;
+		finalize();
 	}
-	//method void stabilizePath() /*[shared Path >> shared Path this]*/
+	//method void initializePath() /*[shared Path >> shared Path this]*/
 
 	//-----------------------------------------------------------------------------
 	/**

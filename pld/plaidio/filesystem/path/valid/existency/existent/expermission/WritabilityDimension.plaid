@@ -41,11 +41,11 @@ state WritabilityDimension
 		CID:	ST-11211131
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
 		checkWritability();
 	}
-	//method void stabilizeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	//method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -58,12 +58,12 @@ state WritabilityDimension
 		ifElse (j_File.canWrite())
 		{
 			this <- Writable;
-			stabilizeWritable();
+			initializeWritable();
 		}
 		/*else*/
 		{
 			this <- NonWritable;
-			stabilizeNonWritable();
+			initializeNonWritable();
 		}
 	}
 	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/

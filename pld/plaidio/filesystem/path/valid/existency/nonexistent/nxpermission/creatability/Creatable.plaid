@@ -41,10 +41,10 @@ state Creatable case of CreatabilityDimension
 		CID:	ST-112121111
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	method void initializeCreatable() /*[shared Creatable >> shared Creatable this]*/
 	{
 	}
-	//method void stabilizeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	//method void initializeCreatable() /*[shared Creatable >> shared Creatable this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -54,11 +54,11 @@ state Creatable case of CreatabilityDimension
 	**/
 	method createAsFile() /*[unique Creatable >> unique Valid this]*/
 	{
-		stabilizePath();
+		initializePath();
 		if (isCreatable(this))
 		{
 			j_File.createNewFile();
-			stabilizePath();
+			initializePath();
 		};
 	}
 	//method void createAsFile() /*[unique Creatable >> unique Valid this]*/
@@ -71,11 +71,11 @@ state Creatable case of CreatabilityDimension
 	**/
 	method createAsFolder() /*[unique Creatable >> unique Valid this]*/
 	{
-		stabilizePath();
+		initializePath();
 		if (isCreatable(this))
 		{
 			j_File.mkdirs();
-			stabilizePath();
+			initializePath();
 		};
 	}
 	//method void createAsFolder() /*[unique Creatable >> unique Valid this]*/

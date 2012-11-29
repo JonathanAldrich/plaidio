@@ -41,11 +41,11 @@ state CreatabilityDimension
 		CID:	ST-11212111
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	method void initializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
 		checkCreatability();
 	}
-	//method void stabilizeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	//method void initializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -58,12 +58,12 @@ state CreatabilityDimension
 		ifElse (true)
 		{
 			this <- Creatable;
-			stabilizeCreatable();
+			initializeCreatable();
 		}
 		/*else*/
 		{
 			this <- NonCreatable;
-			stabilizeNonCreatable();
+			initializeNonCreatable();
 		}
 	}
 	//method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/

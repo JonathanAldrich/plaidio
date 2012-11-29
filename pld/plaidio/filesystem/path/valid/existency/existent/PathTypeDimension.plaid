@@ -41,11 +41,11 @@ state PathTypeDimension
 		CID:	ST-1121121
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
+	method void initializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
 	{
 		checkPathType();
 	}
-	//method void stabilizePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
+	//method void initializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -58,12 +58,12 @@ state PathTypeDimension
 		ifElse (com.akefirad.plaid.PlaidHelper.isRootPath(j_File))
 		{
 			this <- Root;
-			stabilizeRoot();
+			initializeRoot();
 		}
 		/*else*/
 		{
 			this <- Leaf;
-			stabilizeLeaf();
+			initializeLeaf();
 		}
 	}
 	//method void checkPathType() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/

@@ -40,8 +40,8 @@ state Folder case of Leaf
 		CID:	ST-112112121
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeFolder() /*[shared Folder >> shared Folder this]*/
+	method void initializeFolder() /*[shared Folder >> shared Folder this]*/
 	{
 	}
-	//method void stabilizeFolder() /*[shared Folder >> shared Folder this]*/
+	//method void initializeFolder() /*[shared Folder >> shared Folder this]*/
 }

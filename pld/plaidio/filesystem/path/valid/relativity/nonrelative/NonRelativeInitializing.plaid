@@ -19,41 +19,41 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11221
+	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
-	FILE:	Stabilizing.plaid
+	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
+	FILE:	package.plaid
 **/
-package plaidio.filesystem.path.valid.relativity;
+package plaidio.filesystem.path.valid.relativity.nonrelative;
 
-import plaidio.filesystem.path.valid.RelativityDimension;
+import plaidio.filesystem.path.valid.relativty.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11223
-	DESC:	"Stabilizing" typestate which is created to stabilize RelativityDimension state.
+	CID:	TS-11213
+	DESC:	"NonRelativeInitializing" typestate which is created to intialize NonRelative state.
 			This state should not be public.
 **/
-state Stabilizing case of RelativityDimension
+state NonRelativeInitializing case of NonRelative
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112231
-		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
-				changes the state of "this" into either "NonRelative" or "Relative".
+		CID:	ST-112131
+		DESC:	Checks whether the path exists or not, and within NonRelative,
+				changes the state of "this" into either "Absolute" or "Canonical".
 	**/
-	method void stabilize() /*[shared Stabilizing >> shared RelativityDimension this]*/
+	method void finalize() /*[shared NonRelativeInitializing >> shared NonRelative this]*/
 	{
-		ifElse (j_File.isAbsolute())
+		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
 		{
-			this <- NonRelative;
-			stabilizeNonRelative();
+			this <- Canonical;
+			initializeCanonical();
 		}
 		//else
 		{
-			this <- Relative;
-			stabilizeRelative();
+			this <- Absolute;
+			initializeAbsolute();
 		}
 	}
-	//method void stabilize() /*[shared Stabilizing >> shared RelativityDimension this]*/
+	//method void finalize() /*[shared NonRelativeInitializing >> shared NonRelative this]*/
 }

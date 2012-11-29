@@ -26,7 +26,7 @@
 **/
 package plaidio.filesystem.path.valid;
 
-import plaidio.filesystem.path.valid.relativity.Stabilizing;
+import plaidio.filesystem.path.valid.relativity.RelativityInitializing;
 
 /*------------------------------------------------------------------------------
 /**
@@ -40,10 +40,10 @@ state RelativityDimension
 		CID:	ST-11221
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	method void initializeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 	{
-		this <- Stabilizing;
-		stabilize();
+		this <- RelativityInitializing;
+		finalize();
 	}
-	//method void stabilizeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
+	//method void initializeRelativityDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
 }

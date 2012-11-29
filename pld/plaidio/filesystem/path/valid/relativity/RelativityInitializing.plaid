@@ -19,47 +19,41 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Validity" subtypes of "Path" typestate.
-	FILE:	Stabilizing.plaid
+	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	FILE:	RelativityInitializing.plaid
 **/
-package plaidio.filesystem.path;
+package plaidio.filesystem.path.valid.relativity;
 
-import plaidio.filesystem.Path;
-import plaidio.filesystem.path.Valid;
-import plaidio.filesystem.path.Invalid;
-import com.akefirad.plaid.testing.trycatch;
+import plaidio.filesystem.path.valid.RelativityDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-113
-	DESC:	"Stabilizing" typestate which is created to stabilize validity state region.
+	CID:	TS-11223
+	DESC:	"Initializing" typestate which is created to intialize RelativityDimension state.
 			This state should not be public.
 **/
-state Stabilizing case of Path
+state RelativityInitializing case of RelativityDimension
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1131
-		DESC:	Checks whether the path is valid or not, and within Path,
-				changes the state of "this" into either "Invalid" or "Valid".
+		CID:	ST-112231
+		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
+				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
-	method void stabilize() /*[shared Stabilizing >> shared Path this]*/
+	method void finalize() /*[shared RelativityInitializing >> shared RelativityDimension this]*/
 	{
-		// This method should try to check validity by using either regex or exception handling.
-		// Since Plaid has no try & catch feature (not yet), it has to be done by using Java code.
-		trycatch(
+		ifElse (j_File.isAbsolute())
 		{
-			j_File.getCanonicalPath();
-			this <- Valid;
-			stabilizeValid();
-		},
-		/*catch*/
+			this <- NonRelative;
+			initializeNonRelative();
+		}
+		//else
 		{
-			this <- Invalid;
-			stabilizeInvalid();
-		}, "");
+			this <- Relative;
+			initializeRelative();
+		}
 	}
-	//method void stabilize() /*[shared Stabilizing >> shared Path this]*/
+	//method void finalize() /*[shared RelativityInitializing >> shared RelativityDimension this]*/
 }

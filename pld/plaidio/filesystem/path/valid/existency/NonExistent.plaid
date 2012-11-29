@@ -41,9 +41,9 @@ state NonExistent case of ExistencyDimension = NxPermissionDimension with
 		CID:	ST-112121
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
+	method void initializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 	{
-		stabilizeNxPermissionDimension();
+		initializeNxPermissionDimension();
 	}
-	//method void stabilizeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
+	//method void initializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 }

@@ -19,29 +19,41 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211121
+	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Readability" subtypes of "ReadabilityDimension" typestate.
-	FILE:	Readable.plaid
+	DESC:	"Existency" subtypes of "ExistencyDimension" typestate.
+	FILE:	package.plaid
 **/
-package plaidio.filesystem.path.valid.existency.existent.expermission.readability;
+package plaidio.filesystem.path.valid.existency;
 
-import plaidio.filesystem.path.valid.existency.existent.expermission.ReadabilityDimension;
+import plaidio.filesystem.path.valid.ExistencyDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11211122
-	DESC:	"Readable" typestate which represent a readable permission state.
+	CID:	TS-11213
+	DESC:	"ExistencyInitializing" typestate which is created to intialize ExistencyDimension state.
+			This state should not be public.
 **/
-state Readable case of ReadabilityDimension
+state ExistencyInitializing case of ExistencyDimension
 {
-	//-----------------------------------------------------------------------------
+	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111221
-		DESC:	Checks all dimensions of the object.
+		CID:	ST-112131
+		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
+				changes the state of "this" into either "Existent" or "NonExistent".
 	**/
-	method void initializeReadable() /*[shared Readable >> shared Readable this]*/
+	method void finalize() /*[shared ExistencyInitializing >> shared ExistencyDimension this]*/
 	{
+		ifElse (j_File.exists())
+		{
+			this <- Existent;
+			initializeExistent();
+		}
+		//else
+		{
+			this <- NonExistent;
+			initializeNonExistent();
+		}
 	}
-	//method void initializeReadable() /*[shared Readable >> shared Readable this]*/
+	//method void finalize() /*[shared ExistencyInitializing >> shared ExistencyDimension this]*/
 }

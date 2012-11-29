@@ -43,11 +43,11 @@ state Leaf case of PathTypeDimension
 		CID:	ST-11211211
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void stabilizeLeaf() /*[shared Leaf >> shared Leaf this]*/
+	method void initializeLeaf() /*[shared Leaf >> shared Leaf this]*/
 	{
 		checkLeafType();
 	}
-	//method void stabilizeLeaf() /*[shared Leaf >> shared Leaf this]*/
+	//method void initializeLeaf() /*[shared Leaf >> shared Leaf this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -60,19 +60,19 @@ state Leaf case of PathTypeDimension
 		ifElse (j_File.isFile())
 		{
 			this <- File;
-			stabilizeFile();
+			initializeFile();
 		}
 		/*else*/
 		{
 			ifElse (j_File.isDirectory())
 			{
 				this <- Folder;
-				stabilizeFolder();
+				initializeFolder();
 			}
 			/*else*/
 			{
 				this <- UnknownLeaf;
-				stabilizeUnknownLeaf();
+				initializeUnknownLeaf();
 			}
 		}
 	}
