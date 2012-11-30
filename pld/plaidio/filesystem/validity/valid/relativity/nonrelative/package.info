@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211121
+	CID:	SR-11211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission.readability
-			for subtypes of "ReadabilityDimension" typestate.
-	FILE:	_package.txt
+	DESC:	Package plaidio.filesystem.validity.valid.relativity
+			contains sub-typestates of "NonRelative" typestate.
+	FILE:	_package.info
 **/

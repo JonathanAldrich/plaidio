@@ -37,33 +37,13 @@ state CreatabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11212111
+		CID:	ST-11212110
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	method void p_InitializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 	{
-		checkCreatability();
+		this <- i_Creatability;
+		p_Finalize();
 	}
-	//method void initializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11212112
-		DESC:	Checks whether the path is creatable or not, and
-				changes the state of "this" into either "Creatable" or "NonCreatable".				
-	**/
-	method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
-	{
-		ifElse (true)
-		{
-			this <- Creatable;
-			initializeCreatable();
-		}
-		/*else*/
-		{
-			this <- NonCreatable;
-			initializeNonCreatable();
-		}
-	}
-	//method void checkCreatability() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
+	//method void p_InitializeCreatabilityDimension() /*[shared CreatabilityDimension >> shared CreatabilityDimension this]*/
 }

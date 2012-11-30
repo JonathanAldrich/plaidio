@@ -22,6 +22,6 @@
 	CID:	SR-11211111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission.executability
-			for subtypes of "ExecutabilityDimension" typestate.
+			contains sub-typestate of "ExecutabilityDimension" typestate.
 	FILE:	_package.txt
 **/

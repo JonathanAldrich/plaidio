@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211131
+	CID:	SR-11211211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission.writability
-			for subtypes of "WritabilityDimension" typestate.
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype
+			contains sub-typestate of "LeafType" typestate.
 	FILE:	_package.txt
 **/

@@ -36,11 +36,11 @@ state Writable case of WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111321
+		CID:	ST-112111320
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeWritable() /*[shared Writable >> shared Writable this]*/
+	method void p_InitializeWritable() /*[shared Writable >> shared Writable this]*/
 	{
 	}
-	//method void initializeWritable() /*[shared Writable >> shared Writable this]*/
+	//method void p_InitializeWritable() /*[shared Writable >> shared Writable this]*/
 }

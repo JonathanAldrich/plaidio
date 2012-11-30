@@ -21,6 +21,8 @@
 /**
 	CID:	SR-1121211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission
+			contains all dimensions of NxPermissionDimension typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission;

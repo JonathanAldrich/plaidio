@@ -38,7 +38,7 @@ state Existent case of ExistencyDimension = ExPermissionDimension with PathTypeD
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111
+		CID:	ST-112110
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeExistent() /*[shared Existent >> shared Existent this]*/

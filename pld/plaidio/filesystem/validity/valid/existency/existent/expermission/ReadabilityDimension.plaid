@@ -37,14 +37,14 @@ state ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211121
+		CID:	ST-11211120
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	method void p_InitializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 	{
 		checkReadability();
 	}
-	//method void initializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
+	//method void p_InitializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -57,12 +57,12 @@ state ReadabilityDimension
 		ifElse (j_File.canRead())
 		{
 			this <- Readable;
-			initializeReadable();
+			p_InitializeReadable();
 		}
 		/*else*/
 		{
 			this <- NonReadable;
-			initializeNonReadable();
+			p_InitializeNonReadable();
 		}
 	}
 	//method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/

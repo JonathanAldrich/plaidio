@@ -37,14 +37,14 @@ state WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211131
+		CID:	ST-11211130
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	method void p_InitializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
 		checkWritability();
 	}
-	//method void initializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
+	//method void p_InitializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -57,12 +57,12 @@ state WritabilityDimension
 		ifElse (j_File.canWrite())
 		{
 			this <- Writable;
-			initializeWritable();
+			p_InitializeWritable();
 		}
 		/*else*/
 		{
 			this <- NonWritable;
-			initializeNonWritable();
+			p_InitializeNonWritable();
 		}
 	}
 	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/

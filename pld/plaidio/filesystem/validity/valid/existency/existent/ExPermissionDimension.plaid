@@ -38,14 +38,14 @@ state ExPermissionDimension = ExecutabilityDimension with ReadabilityDimension w
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121111
+		CID:	ST-1121110
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 	{
-		initializeExecutabilityDimension();
-		initializeReadabilityDimension();
-		initializeWritabilityDimension();
+		p_InitializeExecutabilityDimension();
+		p_InitializeReadabilityDimension();
+		p_InitializeWritabilityDimension();
 	}
 	//method void p_InitializeExPermissionDimension() /*[shared ExPermissionDimension >> shared ExPermissionDimension this]*/
 }

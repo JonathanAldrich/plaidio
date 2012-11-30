@@ -36,11 +36,11 @@ state Folder case of Leaf
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112112121
+		CID:	ST-112112120
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeFolder() /*[shared Folder >> shared Folder this]*/
+	method void p_InitializeFolder() /*[shared Folder >> shared Folder this]*/
 	{
 	}
-	//method void initializeFolder() /*[shared Folder >> shared Folder this]*/
+	//method void p_InitializeFolder() /*[shared Folder >> shared Folder this]*/
 }

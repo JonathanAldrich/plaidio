@@ -36,11 +36,11 @@ state NonWritable case of WritabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111311
+		CID:	ST-112111310
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
+	method void p_InitializeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
 	{
 	}
-	//method void initializeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
+	//method void p_InitializeNonWritable() /*[shared NonWritable >> shared NonWritable this]*/
 }

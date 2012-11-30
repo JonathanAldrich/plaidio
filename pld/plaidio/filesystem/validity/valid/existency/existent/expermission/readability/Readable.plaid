@@ -36,11 +36,11 @@ state Readable case of ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111221
+		CID:	ST-112111220
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeReadable() /*[shared Readable >> shared Readable this]*/
+	method void p_InitializeReadable() /*[shared Readable >> shared Readable this]*/
 	{
 	}
-	//method void initializeReadable() /*[shared Readable >> shared Readable this]*/
+	//method void p_InitializeReadable() /*[shared Readable >> shared Readable this]*/
 }

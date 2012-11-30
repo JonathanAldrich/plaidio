@@ -21,6 +21,8 @@
 /**
 	CID:	SR-1121111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission
+			contains all dimensions of ExPermissionDimension typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.existent.expermission;

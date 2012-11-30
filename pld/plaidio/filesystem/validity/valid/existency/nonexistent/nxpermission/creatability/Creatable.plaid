@@ -37,44 +37,44 @@ state Creatable case of CreatabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121111
+		CID:	ST-112121110
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	method void p_InitializeCreatable() /*[shared Creatable >> shared Creatable this]*/
 	{
 	}
-	//method void initializeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	//method void p_InitializeCreatable() /*[shared Creatable >> shared Creatable this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121112
+		CID:	ST-112121111
 		DESC:	Automically creates a new, empty file named by this abstract pathname
 				if and only if a file with this name does not yet exist.
 	**/
 	method createAsFile() /*[unique Creatable >> unique Valid this]*/
 	{
-		initializePath();
+		p_InitializePath();
 		if (isCreatable(this))
 		{
 			j_File.createNewFile();
-			initializePath();
+			p_InitializePath();
 		};
 	}
 	//method void createAsFile() /*[unique Creatable >> unique Valid this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121113
+		CID:	ST-112121112
 		DESC:	Creates the directory named by this abstract pathname, including any necessary but nonexistent parent directories.
 				Note that if this operation fails it may have succeeded in creating some of the necessary parent directories.
 	**/
 	method createAsFolder() /*[unique Creatable >> unique Valid this]*/
 	{
-		initializePath();
+		p_InitializePath();
 		if (isCreatable(this))
 		{
 			j_File.mkdirs();
-			initializePath();
+			p_InitializePath();
 		};
 	}
 	//method void createAsFolder() /*[unique Creatable >> unique Valid this]*/

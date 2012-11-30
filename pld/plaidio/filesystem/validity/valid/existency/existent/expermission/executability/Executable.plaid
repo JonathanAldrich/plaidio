@@ -36,11 +36,11 @@ state Executable case of ExecutabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111111
+		CID:	ST-112111110
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeExecutable() /*[shared Executable >> shared Executable this]*/
+	method void p_InitializeExecutable() /*[shared Executable >> shared Executable this]*/
 	{
 	}
-	//method void initializeExecutable() /*[shared Executable >> shared Executable this]*/
+	//method void p_InitializeExecutable() /*[shared Executable >> shared Executable this]*/
 }

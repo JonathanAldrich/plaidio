@@ -21,6 +21,8 @@
 /**
 	CID:	SR-1121121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype
+			contains all dimensions of PathTypeDimension typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype;

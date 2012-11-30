@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121121
+	CID:	SR-11211121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype
-			for state regions of "PathType" typestate.
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission.readability
+			contains sub-typestate of "ReadabilityDimension" typestate.
 	FILE:	_package.txt
 **/

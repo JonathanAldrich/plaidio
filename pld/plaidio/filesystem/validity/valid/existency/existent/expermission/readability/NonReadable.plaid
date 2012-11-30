@@ -36,11 +36,11 @@ state NonReadable case of ReadabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111211
+		CID:	ST-112111210
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
+	method void p_InitializeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 	{
 	}
-	//method void initializeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
+	//method void p_InitializeNonReadable() /*[shared NonReadable >> shared NonReadable this]*/
 }

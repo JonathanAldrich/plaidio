@@ -36,11 +36,11 @@ state NonExecutable case of ExecutabilityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112111121
+		CID:	ST-112111120
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
+	method void p_InitializeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
 	{
 	}
-	//method void initializeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
+	//method void p_InitializeNonExecutable() /*[shared NonExecutable >> shared NonExecutable this]*/
 }
