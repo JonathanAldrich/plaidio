@@ -44,36 +44,57 @@ state Leaf case of PathTypeDimension
 	**/
 	method void p_InitializeLeaf() /*[shared Leaf >> shared Leaf this]*/
 	{
-		checkLeafType();
-	}
-	//method void p_InitializeLeaf() /*[shared Leaf >> shared Leaf this]*/
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11211212
-		DESC:	Checks whether the existent path is a root or not, and
-				changes the state of "this" into either "Root" or "Leaf".				
-	**/
-	method void checkLeafType() /*[shared Leaf >> shared Leaf this]*/
-	{
 		ifElse (j_File.isFile())
 		{
-			this <- File;
-			p_InitializeFile();
+			p_MakeFile();
 		}
 		/*else*/
 		{
 			ifElse (j_File.isDirectory())
 			{
-				this <- Folder;
-				p_InitializeFolder();
+				p_MakeFolder();
 			}
 			/*else*/
 			{
-				this <- UnknownLeaf;
-				p_InitializeUnknownLeaf();
+				p_MakeUnknownLeaf();
 			}
 		}
 	}
-	//method void checkLeafType() /*[shared Leaf >> shared Leaf this]*/
+	//method void p_InitializeLeaf() /*[shared Leaf >> shared Leaf this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211211
+		DESC:	Makes the object File.
+	**/
+	method void p_MakeFile() /*[shared Leaf >> shared File this]*/
+	{
+		this <- File;
+		p_InitializeFile();
+	}
+	//method void p_MakeExistent() /*[shared Leaf >> shared File this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211212
+		DESC:	Makes the object Folder.
+	**/
+	method void p_MakeFolder() /*[shared Leaf >> shared Folder this]*/
+	{
+		this <- Folder;
+		p_InitializeFolder();
+	}
+	//method void p_MakeFolder() /*[shared Leaf >> shared Folder this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211213
+		DESC:	Makes the object UnknownLeaf.
+	**/
+	method void p_MakeUnknownLeaf() /*[shared Leaf >> shared UnknownLeaf this]*/
+	{
+		this <- Folder;
+		p_InitializeUnknownLeaf();
+	}
+	//method void p_MakeUnknownLeaf() /*[shared Leaf >> shared UnknownLeaf this]*/
 }

@@ -1,0 +1,80 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-1121121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	i_PathType.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+
+import plaidio.filesystem.validity.valid.existency.existent.PathTypeDimension;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1121120
+	DESC:	"i_PathType" typestate which is created to intialize PathTypeDimension state.
+			This state should not be public.
+**/
+state i_PathType case of PathTypeDimension
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211200
+		DESC:	Checks whether the path is root or not, and within PathTypeDimension,
+				changes the state of "this" into either "Leaf" or "Root".
+	**/
+	method void p_Finalize() /*[shared i_PathType >> shared PathTypeDimension this]*/
+	{
+		ifElse (com.akefirad.plaid.PlaidHelper.isRootPath(j_File))
+		{
+			p_MakeRoot();
+		}
+		/*else*/
+		{
+			p_MakeLeaf();
+		}
+	}
+	//method void p_Finalize() /*[shared i_PathType >> shared PathTypeDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211201
+		DESC:	Makes the object Leaf.
+	**/
+	method void p_MakeLeaf() /*[shared i_PathType >> shared Leaf this]*/
+	{
+		this <- Leaf;
+		p_InitializeLeaf();
+	}
+	//method void p_MakeLeaf() /*[shared i_PathType >> shared Leaf this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11211202
+		DESC:	Makes the object Root.
+	**/
+	method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
+	{
+		this <- Root;
+		p_InitializeRoot();
+	}
+	//method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
+}

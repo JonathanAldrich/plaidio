@@ -25,8 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.expermission;
 
-import plaidio.filesystem.validity.valid.existency.existent.expermission.readability.Readable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.readability.NonReadable;
+import plaidio.filesystem.validity.valid.existency.existent.expermission.readability.i_Readability;
 
 /*------------------------------------------------------------------------------
 /**

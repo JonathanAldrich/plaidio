@@ -36,39 +36,46 @@ SS-1	plaidio.filesystem
 						SR-1121111	plaidio.filesystem.path.valid.existency.existent.expermission
 						TS-1121111	ExecutabilityDimension
 							ST-11211110	p_InitializeExecutabilityDimension()
-							ST-11211112	checkExecutability()
 							SR-11211111	plaidio.filesystem.path.valid.existency.existent.expermission.executability
 							TS-11211110	i_Executability
 							ST-112111100	p_finalize()
-							ST-112111101	p_MakeCreatable()
-							ST-112111102	p_MakeNonCreatable()
+							ST-112111101	p_MakeExecutable()
+							ST-112111102	p_MakeNonExecutable()
 							TS-11211111	Executable
 							ST-112111110	p_InitializeExecutable()
 							TS-11211112	NonExecutable
 							ST-112111120	p_InitializeNonExecutable()
 						TS-1121112	ReadabilityDimension
 							ST-11211120	p_InitializeReadabilityDimension()
-							ST-11211122	checkReadability()
 							SR-11211121	plaidio.filesystem.path.valid.existency.existent.expermission.readability
+							TS-11211120	i_Readability
+							ST-112111200	p_finalize()
+							ST-112111201	p_MakeReadable()
+							ST-112111202	p_MakeNonReadable()
 							TS-11211121	NonReadable
 							ST-112111210	p_InitializeNonReadable()
 							TS-11211122	Readable
 							ST-112111220	p_InitializeReadable()
 						TS-1121113	WritabilityDimension
 							ST-11211130	p_InitializeWritabilityDimension()
-							ST-11211132	checkReadability()
 							SR-11211131	plaidio.filesystem.path.valid.existency.existent.expermission.writability
+							TS-11211130	i_Writability
+							ST-112111300	p_finalize()
+							ST-112111301	p_MakeWritable()
+							ST-112111302	p_MakeNonWritable()
 							TS-11211131	NonWritable
 							ST-112111310	p_InitializeNonWritable()
 							TS-11211132	Writable
 							ST-112111320	p_InitializeWritable()
 					TS-112112	PathTypeDimension
 						ST-1121120	p_InitializePathTypeDimension()
-						ST-1121122	checkPathType()
 						SR-1121121	plaidio.filesystem.path.valid.existency.existent.pathtype
+						TS-1121120	i_PathType
+						ST-11211200	p_finalize()
+						ST-11211201	p_MakeLeaf()
+						ST-11211202	p_MakeRoot()
 						TS-1121121	Leaf
 							ST-11211210	p_InitializeLeaf()
-							ST-11211212	checkLeafType()
 							SR-11211211	plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype
 							TS-11211211	File
 								ST-112112110	p_InitializeFile()
@@ -106,7 +113,8 @@ SS-1	plaidio.filesystem
 					ST-112202	p_MakeRelative()
 				TS-11221	NonRelative
 					ST-112210	p_InitializeNonRelative()
-					ST-112212	checkNonRelativity()
+					ST-112211	p_MakeAbsolute()
+					ST-112212	p_MakeCanonical()
 					SR-112211	plaidio.filesystem.path.valid.relativity.nonrelative
 					TS-112211	Absolute
 						ST-1122110	p_InitializeAbsolute()
