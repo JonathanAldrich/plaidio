@@ -25,8 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.expermission;
 
-import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.Writable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.NonWritable;
+import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.i_Writability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -42,28 +41,8 @@ state WritabilityDimension
 	**/
 	method void p_InitializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 	{
-		checkWritability();
+		this <- i_Writability;
+		p_Finalize();
 	}
 	//method void p_InitializeWritabilityDimension() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11211132
-		DESC:	Checks whether the path is writable or not, and
-				changes the state of "this" into either "Writable" or "NonWritable".				
-	**/
-	method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
-	{
-		ifElse (j_File.canWrite())
-		{
-			this <- Writable;
-			p_InitializeWritable();
-		}
-		/*else*/
-		{
-			this <- NonWritable;
-			p_InitializeNonWritable();
-		}
-	}
-	//method void checkWritability() /*[shared WritabilityDimension >> shared WritabilityDimension this]*/
 }

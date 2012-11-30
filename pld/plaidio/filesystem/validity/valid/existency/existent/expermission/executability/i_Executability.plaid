@@ -1,0 +1,80 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-11211111
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	i_Executability.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.expermission.executability;
+
+import plaidio.filesystem.validity.valid.existency.existent.expermission.ExecutabilityDimension;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-11211110
+	DESC:	"i_Executability" typestate which is created to intialize ExecutabilityDimension state.
+			This state should not be public.
+**/
+state i_Executability case of ExecutabilityDimension
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112111100
+		DESC:	Checks whether the path executable or not, and within ExecutabilityDimension,
+				changes the state of "this" into either "Executable" or "NonExecutable".
+	**/
+	method void p_Finalize() /*[shared i_Executability >> shared ExecutabilityDimension this]*/
+	{
+		ifElse (j_File.canExecute())
+		{
+			p_MakeExecutable();
+		}
+		/*else*/
+		{
+			p_MakeNonExecutable();
+		}
+	}
+	//method void p_Finalize() /*[shared i_Executability >> shared ExecutabilityDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112111101
+		DESC:	Makes the object Existent.
+	**/
+	method void p_MakeExecutable() /*[shared i_Executability >> shared Executable this]*/
+	{
+		this <- Executable;
+		p_InitializeExecutable();
+	}
+	//method void p_MakeExecutable() /*[shared i_Executability >> shared Executable this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112111102
+		DESC:	Makes the object NonExistent.
+	**/
+	method void p_MakeNonExecutable() /*[shared i_Executability >> shared NonExecutable this]*/
+	{
+		this <- NonExecutable;
+		p_InitializeNonExecutable();
+	}
+	//method void p_MakeNonExecutable() /*[shared i_Executability >> shared NonExecutable this]*/
+}

@@ -38,6 +38,10 @@ SS-1	plaidio.filesystem
 							ST-11211110	p_InitializeExecutabilityDimension()
 							ST-11211112	checkExecutability()
 							SR-11211111	plaidio.filesystem.path.valid.existency.existent.expermission.executability
+							TS-11211110	i_Executability
+							ST-112111100	p_finalize()
+							ST-112111101	p_MakeCreatable()
+							ST-112111102	p_MakeNonCreatable()
 							TS-11211111	Executable
 							ST-112111110	p_InitializeExecutable()
 							TS-11211112	NonExecutable

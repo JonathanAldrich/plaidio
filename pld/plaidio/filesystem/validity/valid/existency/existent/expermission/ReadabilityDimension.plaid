@@ -42,28 +42,8 @@ state ReadabilityDimension
 	**/
 	method void p_InitializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 	{
-		checkReadability();
+		this <- i_Readability;
+		p_Finalize();
 	}
 	//method void p_InitializeReadabilityDimension() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11211122
-		DESC:	Checks whether the path is readable or not, and
-				changes the state of "this" into either "Readable" or "NonReadable".				
-	**/
-	method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
-	{
-		ifElse (j_File.canRead())
-		{
-			this <- Readable;
-			p_InitializeReadable();
-		}
-		/*else*/
-		{
-			this <- NonReadable;
-			p_InitializeNonReadable();
-		}
-	}
-	//method void checkReadability() /*[shared ReadabilityDimension >> shared ReadabilityDimension this]*/
 }

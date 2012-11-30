@@ -1,0 +1,80 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-11211121
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	i_Readability.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.expermission.readability;
+
+import plaidio.filesystem.validity.valid.existency.existent.expermission.ReadabilityDimension;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-112111210
+	DESC:	"i_Readability" typestate which is created to intialize ReadabilityDimension state.
+			This state should not be public.
+**/
+state i_Readability case of ReadabilityDimension
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1121112100
+		DESC:	Checks whether the path readable or not, and within ReadabilityDimension,
+				changes the state of "this" into either "Readable" or "NonReadable".
+	**/
+	method void p_Finalize() /*[shared i_Readability >> shared ReadabilityDimension this]*/
+	{
+		ifElse (j_File.canRead())
+		{
+			p_MakeReadable();
+		}
+		/*else*/
+		{
+			p_MakeNonReadable();
+		}
+	}
+	//method void p_Finalize() /*[shared i_Readability >> shared ReadabilityDimension this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1121112101
+		DESC:	Makes the object Existent.
+	**/
+	method void p_MakeReadable() /*[shared i_Readability >> shared Readable this]*/
+	{
+			this <- Readable;
+			p_InitializeReadable();
+	}
+	//method void p_MakeReadable() /*[shared i_Readability >> shared Readable this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1121112102
+		DESC:	Makes the object NonExistent.
+	**/
+	method void p_MakeNonReadable() /*[shared i_Readability >> shared NonReadable this]*/
+	{
+			this <- NonReadable;
+			p_InitializeNonReadable();
+	}
+	//method void p_MakeNonReadable() /*[shared i_Readability >> shared NonReadable this]*/
+}
