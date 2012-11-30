@@ -29,10 +29,10 @@ SS-1	plaidio.filesystem
 					ST-112101	p_MakeExistent()
 					ST-112102	p_MakeNonExistent()
 				TS-11211	Existent
-					ST-112111	initializeExistent()
+					ST-112111	p_InitializeExistent()
 					SR-112111	plaidio.filesystem.path.valid.existency.existent
 					TS-112111	ExPermissionDimension
-						ST-1121111	initializeExPermissionDimension()
+						ST-1121111	p_InitializeExPermissionDimension()
 						SR-1121111	plaidio.filesystem.path.valid.existency.existent.expermission
 						TS-1121111	ExecutabilityDimension
 							ST-11211111	initializeD_Executability()
@@ -53,7 +53,7 @@ SS-1	plaidio.filesystem
 							TS-11211131	NonWritable
 							TS-11211132	Writable
 					TS-112112	PathTypeDimension
-						ST-1121121	initializePathTypeDimension()
+						ST-1121121	p_InitializePathTypeDimension()
 						ST-1121122	checkPathType()
 						SR-1121121	plaidio.filesystem.path.valid.existency.existent.pathtype
 						TS-1121121	Leaf
@@ -69,7 +69,7 @@ SS-1	plaidio.filesystem
 						TS-1121122	Root
 							ST-11211221	initializeRoot()
 				TS-11212	NonExistent
-					ST-112121	initializeNonExistent()
+					ST-112121	p_InitializeNonExistent()
 					SR-112121	plaidio.filesystem.path.valid.existency.nonexistent
 					TS-112121	NxPermissionDimension
 						ST-1121211	initializeNxPermissionDimension()

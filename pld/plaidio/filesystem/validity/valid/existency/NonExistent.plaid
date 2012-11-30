@@ -42,7 +42,7 @@ state NonExistent case of ExistencyDimension = NxPermissionDimension with
 	**/
 	method void p_InitializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 	{
-		initializeNxPermissionDimension();
+		p_InitializeNxPermissionDimension();
 	}
 	//method void p_InitializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 }

@@ -39,9 +39,9 @@ state NxPermissionDimension = CreatabilityDimension with
 		CID:	ST-1121211
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
+	method void p_InitializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
 	{
 		initializeCreatabilityDimension();
 	}
-	//method void initializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
+	//method void p_InitializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
 }

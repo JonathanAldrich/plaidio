@@ -40,11 +40,11 @@ state PathTypeDimension
 		CID:	ST-1121121
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void initializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
+	method void p_InitializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
 	{
 		checkPathType();
 	}
-	//method void initializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
+	//method void p_InitializePathTypeDimension() /*[shared PathTypeDimension >> shared PathTypeDimension this]*/
 
 	//-----------------------------------------------------------------------------
 	/**

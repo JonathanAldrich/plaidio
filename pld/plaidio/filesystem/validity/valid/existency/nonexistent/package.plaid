@@ -21,6 +21,8 @@
 /**
 	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent
+			contains all dimensions of NonExistent typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.nonexistent;

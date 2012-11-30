@@ -21,6 +21,8 @@
 /**
 	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent
+			contains all dimensions of Existent typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.existent;

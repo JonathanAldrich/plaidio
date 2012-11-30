@@ -43,8 +43,8 @@ state Existent case of ExistencyDimension = ExPermissionDimension with PathTypeD
 	**/
 	method void p_InitializeExistent() /*[shared Existent >> shared Existent this]*/
 	{
-		initializeExPermissionDimension();
-		initializePathTypeDimension();
+		p_InitializeExPermissionDimension();
+		p_InitializePathTypeDimension();
 	}
 	//method void p_InitializeExistent() /*[shared Existent >> shared Existent this]*/
 }
