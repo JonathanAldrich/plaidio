@@ -35,8 +35,6 @@ import plaidio.filesystem.validity.valid.existency.existent.test_existent;
 import plaidio.filesystem.validity.valid.existency.existent.expermission.test_expermission;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
 import plaidio.filesystem.validity.valid.existency.nonexistent.test_nonexistent;
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.test_nxpermission;
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability.test_creatability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -55,6 +53,4 @@ method main()
 	test_expermission(verbose);
 	test_pathtype(verbose);
 	test_nonexistent(verbose);
-	test_nxpermission(verbose);
-	test_creatability(verbose);
 }

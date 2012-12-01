@@ -19,28 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211211
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	UnknownLeaf.plaid
+	FILE:	File.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype;
+package plaidio.filesystem.validity.valid.existency.pathtype;
 
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.Leaf;
+import plaidio.filesystem.validity.valid.existency.Existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11211213
-	DESC:	"UnknownLeaf" typestate which contains an existent file path.
+	CID:	TS-112111
+	DESC:	"File" typestate which contains an existent file path.
 **/
-state UnknownLeaf case of Leaf
+state File case of Existent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112112130
+		CID:	ST-1121110
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
+	method void p_InitializeFile() /*[shared File >> shared File this]*/
 	{
 	}
-	//method void p_InitializeUnknownLeaf() /*[shared UnknownLeaf >> shared UnknownLeaf this]*/
+	//method void p_InitializeFile() /*[shared File >> shared File this]*/
 }

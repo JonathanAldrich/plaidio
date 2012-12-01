@@ -17,31 +17,30 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	SR-112121
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	NxPermissionDimension.plaid
+	FILE:	Root.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.nonexistent;
+package plaidio.filesystem.validity.valid.existency.pathtype;
 
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
+import plaidio.filesystem.validity.valid.existency.Existent;
 
-//------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-112121
-	DESC:	"NxPermissionDimension" state region of "NonExistent" typestate.
+	CID:	TS-112114
+	DESC:	"UnknownLeaf" typestate which contains an existent file path.
 **/
-state NxPermissionDimension = CreatabilityDimension with
+state Unknown case of Existent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121210
+		CID:	ST-1121140
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
+	method void p_InitializeUnknown() /*[shared Unknown >> shared Unknown this]*/
 	{
-		p_InitializeCreatabilityDimension();
 	}
-	//method void p_InitializeNxPermissionDimension() /*[shared NxPermissionDimension >> shared NxPermissionDimension this]*/
+	//method void p_InitializeUnknown() /*[shared Unknown >> shared Unknown this]*/
 }

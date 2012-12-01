@@ -23,10 +23,8 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.Root;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.File;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.Folder;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.UnknownLeaf;
-import plaidio.filesystem.validity.valid.existency.nonexistent.NxPermissionDimension;
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability.Creatable;
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability.NonCreatable;
+import plaidio.filesystem.validity.valid.existency.nonexistent.Creatable;
+import plaidio.filesystem.validity.valid.existency.nonexistent.NonCreatable;
 import plaidio.filesystem.validity.valid.relativity.NonRelative;
 import plaidio.filesystem.validity.valid.relativity.Relative;
 import plaidio.filesystem.validity.valid.relativity.nonrelative.Absolute;
@@ -55,8 +53,6 @@ method immutable Boolean isRoot(v) { match (v) { case Root { true; } default { f
 method immutable Boolean isFile(v) { match (v) { case File { true; } default { false; } }; }
 method immutable Boolean isFolder(v) { match (v) { case Folder { true; } default { false; } }; }
 method immutable Boolean isUnknownLeaf(v) { match (v) { case UnknownLeaf { true; } default { false; } }; }
-method immutable Boolean isNxPermissionDimension(v) { match (v) { case NxPermissionDimension { true; } default { false; } }; }
-method immutable Boolean isCreatabilityDimension(v) { match (v) { case CreatabilityDimension { true; } default { false; } }; }
 method immutable Boolean isCreatable(v) { match (v) { case Creatable { true; } default { false; } }; }
 method immutable Boolean isNonCreatable(v) { match (v) { case NonCreatable { true; } default { false; } }; }
 method immutable Boolean isNonRelative(v) { match (v) { case NonRelative { true; } default { false; } }; }
@@ -89,8 +85,6 @@ method void match_state(v)
 	if (true) { match (v) { case File { printLine("The object is File"); } default { printLine("The object is NOT File"); } }; };
 	if (true) { match (v) { case Folder { printLine("The object is Folder"); } default { printLine("The object is NOT Folder"); } }; };
 	if (true) { match (v) { case UnknownLeaf { printLine("The object is UnknownLeaf"); } default { printLine("The object is NOT UnknownLeaf"); } }; };
-	if (true) { match (v) { case NxPermissionDimension { printLine("The object is NxPermissionDimension"); } default { printLine("The object is NOT NxPermissionDimension"); } }; };
-	if (true) { match (v) { case CreatabilityDimension { printLine("The object is CreatabilityDimension"); } default { printLine("The object is NOT CreatabilityDimension"); } }; };
 	if (true) { match (v) { case Creatable { printLine("The object is Creatable"); } default { printLine("The object is NOT Creatable"); } }; };
 	if (true) { match (v) { case NonCreatable { printLine("The object is NonCreatable"); } default { printLine("The object is NOT NonCreatable"); } }; };
 	if (true) { match (v) { case NonRelative { printLine("The object is NonRelative"); } default { printLine("The object is NOT NonRelative"); } }; };

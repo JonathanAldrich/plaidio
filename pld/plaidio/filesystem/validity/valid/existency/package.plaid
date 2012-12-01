@@ -36,7 +36,6 @@ import plaidio.statecheckers.isExistent;
 import plaidio.statecheckers.isNonExistent;
 import plaidio.statecheckers.isPathTypeDimension;
 import plaidio.statecheckers.isExPermissionDimension;
-import plaidio.statecheckers.isNxPermissionDimension;
 import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
@@ -80,7 +79,6 @@ method void test_existency(immutable Boolean verbose)
 		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
 		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); } 	/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 		ifElse (isNonExistent(v))			{ debug("The object is NonExistent!"); }			/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
-		ifElse (isNxPermissionDimension(v))	{ debug("The object has NxPermissionDimension!"); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
 	});
 	testbed.addTestCase(testcase);
 

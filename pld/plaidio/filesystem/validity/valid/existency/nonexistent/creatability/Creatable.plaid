@@ -19,25 +19,24 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11212111
+	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Creatable.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability;
+package plaidio.filesystem.validity.valid.existency.creatability;
 
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
-import plaidio.statecheckers.isCreatable;
+import plaidio.filesystem.validity.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11212111
+	CID:	TS-1121211
 	DESC:	"Creatable" typestate which represent a creatable permission state.
 **/
-state Creatable case of CreatabilityDimension
+state Creatable case of NonExistent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121110
+		CID:	ST-11212110
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeCreatable() /*[shared Creatable >> shared Creatable this]*/
@@ -47,7 +46,7 @@ state Creatable case of CreatabilityDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121111
+		CID:	ST-11212111
 		DESC:	Automically creates a new, empty file named by this abstract pathname
 				if and only if a file with this name does not yet exist.
 	**/
@@ -64,7 +63,7 @@ state Creatable case of CreatabilityDimension
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121112
+		CID:	ST-11212112
 		DESC:	Creates the directory named by this abstract pathname, including any necessary but nonexistent parent directories.
 				Note that if this operation fails it may have succeeded in creating some of the necessary parent directories.
 	**/

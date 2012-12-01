@@ -19,28 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11212111
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	NonCreatable.plaid
+	FILE:	Folder.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability;
+package plaidio.filesystem.validity.valid.existency.pathtype;
 
-import plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.CreatabilityDimension;
+import plaidio.filesystem.validity.valid.existency.Existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11212112
-	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
+	CID:	TS-112112
+	DESC:	"Folder" typestate which contains an existent folder path.
 **/
-state NonCreatable case of CreatabilityDimension
+state Folder case of Existent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112121120
+		CID:	ST-1121120
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	method void p_InitializeFolder() /*[shared Folder >> shared Folder this]*/
 	{
 	}
-	//method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	//method void p_InitializeFolder() /*[shared Folder >> shared Folder this]*/
 }

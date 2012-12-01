@@ -19,62 +19,61 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121121
+	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	i_PathType.plaid
+	FILE:	i_Creatability.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+package plaidio.filesystem.validity.valid.existency.creatability;
 
-import plaidio.filesystem.validity.valid.existency.existent.PathTypeDimension;
+import plaidio.filesystem.validity.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121120
-	DESC:	"i_PathType" typestate which is created to intialize PathTypeDimension state.
-			This state should not be public.
+	CID:	TS-112120
+	DESC:	"i_Creatability" typestate which initializes creatability state region.
 **/
-state i_PathType case of PathTypeDimension
+state i_Creatability case of NonExistent
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211200
-		DESC:	Checks whether the path is root or not, and within PathTypeDimension,
-				changes the state of "this" into either "Leaf" or "Root".
+		CID:	ST-1121200
+		DESC:	Checks whether the path is creatable or not, and within NonExistent,
+				changes the state of "this" into either "Creatable" or "NonCreatable".
 	**/
-	method void p_Finalize() /*[shared i_PathType >> shared PathTypeDimension this]*/
+	method void p_Finalize() /*[shared i_Creatability >> shared NonExistent this]*/
 	{
-		ifElse (com.akefirad.plaid.PlaidHelper.isRootPath(j_File))
+		ifElse (true)
 		{
-			p_MakeRoot();
+			p_MakeCreatable();
 		}
 		/*else*/
 		{
-			p_MakeLeaf();
+			p_MakeNonCreatable();
 		}
 	}
-	//method void p_Finalize() /*[shared i_PathType >> shared PathTypeDimension this]*/
+	//method void p_Finalize() /*[shared i_Creatability >> shared NonExistent this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211201
-		DESC:	Makes the object Leaf.
+		CID:	ST-1121201
+		DESC:	Makes the object Creatable.
 	**/
-	method void p_MakeLeaf() /*[shared i_PathType >> shared Leaf this]*/
+	method void p_MakeCreatable() /*[shared i_Creatability >> shared Creatable this]*/
 	{
-		this <- Leaf;
-		p_InitializeLeaf();
+		this <- Creatable;
+		p_InitializeCreatable();
 	}
-	//method void p_MakeLeaf() /*[shared i_PathType >> shared Leaf this]*/
+	//method void p_MakeCreatable() /*[shared i_Creatability >> shared Creatable this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211202
-		DESC:	Makes the object Root.
+		CID:	ST-1121202
+		DESC:	Makes the object NonCreatable.
 	**/
-	method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
+	method void p_MakeNonCreatable() /*[shared i_Creatability >> shared NonCreatable this]*/
 	{
-		this <- Root;
-		p_InitializeRoot();
+		this <- NonCreatable;
+		p_InitializeNonCreatable();
 	}
-	//method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
+	//method void p_MakeNonCreatable() /*[shared i_Creatability >> shared NonCreatable this]*/
 }

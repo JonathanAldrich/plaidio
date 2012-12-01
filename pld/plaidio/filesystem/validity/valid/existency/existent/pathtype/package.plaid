@@ -19,77 +19,92 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121121
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype
-			contains all dimensions of PathTypeDimension typestates
+	DESC:	Package plaidio.filesystem.validity.valid.existency.pathtype
+			contains all subtypes of Existent typestates
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+package plaidio.filesystem.validity.valid.existency.pathtype;
 
-import plaidio.filesystem.separator;
-import plaidio.filesystem.makePath;
-import plaidio.statecheckers.isPath;
-import plaidio.statecheckers.isValid;
-import plaidio.statecheckers.isExistencyDimension;
-import plaidio.statecheckers.isExistent;
-import plaidio.statecheckers.isPathTypeDimension;
-import plaidio.statecheckers.isLeaf;
-import plaidio.statecheckers.isFile;
-import plaidio.statecheckers.isFolder;
-import plaidio.statecheckers.isUnknownLeaf;
-import com.akefirad.plaid.testing.debug;
-import com.akefirad.plaid.testing.makeTestBed;
-import com.akefirad.plaid.testing.makeTestCase;
+//import plaidio.filesystem.makePath;
+//import plaidio.statecheckers.isPath;
+//import plaidio.statecheckers.isValid;
+//import plaidio.statecheckers.isExistencyDimension;
+//import plaidio.statecheckers.isExistent;
+//import plaidio.statecheckers.isLeaf;
+//import plaidio.statecheckers.isRoot;
+//import com.akefirad.plaid.testing.debug;
+//import com.akefirad.plaid.testing.makeTestBed;
+//import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-1121121
-	DESC:	Test plaidio.filesystem.validity.valid.existency.existent.pathtype package's features
+	CID:	TC-SR-112111
+	DESC:	Test plaidio.filesystem.validity.valid.existency.existent package's features
 **/
-method void test_pathtype(immutable Boolean verbose)
+method void test_existent(immutable Boolean verbose)
 {
-	val testbed = makeTestBed();
-	var testcase = new Unit;
-	
-	testcase = makeTestCase("TC-TS-11211211 make a file path", fn(tc) => {
-		val unique Path v = makePath(java.lang.System.getProperty("user.dir") + separator() + "build.xml");
-		debug("'" + v + "'");
-		ifElse (isPath(v))				{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))				{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }				/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
-		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }							/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
-		ifElse (isFile(v))				{ debug("The object is File!"); }							/*else*/ { debug("The object is NOT File!"); tc.fail(verbose); };
-		ifElse (isFolder(v))			{ debug("The object is Folder!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Folder!"); };
-		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT UnknownLeaf!"); };
-	});
-	testbed.addTestCase(testcase);
-
-	testcase = makeTestCase("TC-TS-11211212 make a folder path", fn(tc) => {
-		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
-		debug("'" + v + "'");
-		ifElse (isPath(v))				{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))				{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }				/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
-		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }							/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
-		ifElse (isFile(v))				{ debug("The object is File!"); tc.fail(verbose); }			/*else*/ { debug("The object is NOT File!"); };
-		ifElse (isFolder(v))			{ debug("The object is Folder!"); }							/*else*/ { debug("The object is NOT Folder!"); tc.fail(verbose); };
-		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT UnknownLeaf!"); };
-	});
-	testbed.addTestCase(testcase);
-
-	testcase = makeTestCase("TC-TS-11211213 make an unknown leaf path", fn(tc) => {
-		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
-		debug("'" + v + "'");
-		ifElse (isPath(v))				{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))				{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-		ifElse (isPathTypeDimension(v))	{ debug("The object has PathTypeDimension!"); }			/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
-		ifElse (isLeaf(v))				{ debug("The object is Leaf!"); }						/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
-		ifElse (isFile(v))				{ debug("The object is File!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT File!"); };
-		ifElse (isFolder(v))			{ debug("The object is Folder!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Folder!"); };
-		ifElse (isUnknownLeaf(v))		{ debug("The object is UnknownLeaf!"); }				/*else*/ { debug("The object is NOT UnknownLeaf!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
-
-	testbed.runTestCases(verbose);
+//	val testbed = makeTestBed();
+//	var testcase = new Unit;
+//	
+//	testcase = makeTestCase("TC-TS-1121111 make an exitent path which has executability dimension", fn(tc) => {
+//		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+//		debug("'" + v + "'");
+//		ifElse (isPath(v))						{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+//		ifElse (isValid(v))						{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }		/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
+//		ifElse (isExistent(v))					{ debug("The object is Existent!"); }					/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
+//		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }		/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
+//		ifElse (isExecutabilityDimension(v))	{ debug("The object has Executability dimension!"); }	/*else*/ { debug("The object has NO Executability dimension!"); tc.fail(verbose); };
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testcase = makeTestCase("TC-TS-1121112 make an exitent path which has readability dimension", fn(tc) => {
+//		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+//		debug("'" + v + "'");
+//		ifElse (isPath(v))						{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+//		ifElse (isValid(v))						{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }		/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
+//		ifElse (isExistent(v))					{ debug("The object is Existent!"); }					/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
+//		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }		/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
+//		ifElse (isReadabilityDimension(v))		{ debug("The object has Readability dimension!"); }		/*else*/ { debug("The object has NO Readability dimension!"); tc.fail(verbose); };
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testcase = makeTestCase("TC-TS-1121113 make an exitent path which has writability dimension", fn(tc) => {
+//		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+//		debug("'" + v + "'");
+//		ifElse (isPath(v))						{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+//		ifElse (isValid(v))						{ debug("The object is Valid!"); }						/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }		/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
+//		ifElse (isExistent(v))					{ debug("The object is Existent!"); }					/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
+//		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }		/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
+//		ifElse (isWritabilityDimension(v))		{ debug("The object has WritabilityDimension!"); }		/*else*/ { debug("The object has NO WritabilityDimension!"); tc.fail(verbose); };
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testcase = makeTestCase("TC-TS-1121121 make a leaf path", fn(tc) => {
+//		val unique Path v = makePath(java.lang.System.getProperty("user.dir"));
+//		debug("'" + v + "'");
+//		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
+//		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
+//		ifElse (isPathTypeDimension(v))		{ debug("The object has PathTypeDimension!"); }		/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+//		ifElse (isLeaf(v))					{ debug("The object is Leaf!"); }					/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
+//		ifElse (isRoot(v))					{ debug("The object is Root!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Root!"); };
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testcase = makeTestCase("TC-TS-1121122 make a root path", fn(tc) => {
+//		val unique Path v = makePath(com.akefirad.plaid.PlaidHelper.getRootPath());
+//		debug("'" + v + "'");
+//		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
+//		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
+//		ifElse (isPathTypeDimension(v))		{ debug("The object has PathTypeDimension!"); }		/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
+//		ifElse (isLeaf(v))					{ debug("The object is Leaf!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Leaf!"); };
+//		ifElse (isRoot(v))					{ debug("The object is Root!"); }					/*else*/ { debug("The object is NOT Root!"); tc.fail(verbose); };
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testbed.runTestCases(verbose);
 }

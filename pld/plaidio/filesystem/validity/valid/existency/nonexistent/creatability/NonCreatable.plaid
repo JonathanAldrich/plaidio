@@ -19,9 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211111
+	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.expermission.executability
-			contains sub-typestate of "ExecutabilityDimension" typestate.
-	FILE:	_package.txt
+	FILE:	NonCreatable.plaid
 **/
+package plaidio.filesystem.validity.valid.existency.creatability;
+
+import plaidio.filesystem.validity.valid.existency.NonExistent;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-1121212
+	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
+**/
+state NonCreatable case of NonExistent
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-11212120
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	{
+	}
+	//method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+}

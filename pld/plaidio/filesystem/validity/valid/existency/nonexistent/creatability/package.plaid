@@ -19,13 +19,13 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11212111
+	CID:	SR-112121
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability
-			"Creatability" subtypes of "CreatabilityDimension" typestate.
-	FILE:	NonCreatable.plaid
+	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent
+			contains all dimensions of NonExistent typestates
+	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.nonexistent.nxpermission.creatability;
+package plaidio.filesystem.validity.valid.existency.creatability;
 
 import plaidio.filesystem.separator;
 import plaidio.filesystem.makePath;
@@ -34,8 +34,6 @@ import plaidio.statecheckers.isValid;
 import plaidio.statecheckers.isExistencyDimension;
 import plaidio.statecheckers.isExistent;
 import plaidio.statecheckers.isNonExistent;
-import plaidio.statecheckers.isNxPermissionDimension;
-import plaidio.statecheckers.isCreatabilityDimension;
 import plaidio.statecheckers.isCreatable;
 import plaidio.statecheckers.isNonCreatable;
 import plaidio.statecheckers.isExPermissionDimension;
@@ -56,10 +54,10 @@ import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-11212111
-	DESC:	Test plaidio.filesystem.validity.valid.existency.existent.expermission.creatability package's features
+	CID:	TC-SR-112121
+	DESC:	Test plaidio.filesystem.validity.valid.existency.nonexistent package's features
 **/
-method void test_creatability(immutable Boolean verbose)
+method void test_nonexistent(immutable Boolean verbose)
 {
 	val testbed = makeTestBed();
 	var testcase = new Unit;
@@ -73,8 +71,6 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }			/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 		ifElse (isExistent(v))					{ debug("The object is Existent!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Existent!"); };
 		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); }					/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
-		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); }			/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
-		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
 		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
@@ -90,8 +86,6 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }						/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
 		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
-		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); };
-		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
 		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
@@ -116,8 +110,6 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }			/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 		ifElse (isExistent(v))					{ debug("The object is Existent!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Existent!"); };
 		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); }					/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
-		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); }			/*else*/ { debug("The object has NO NxPermissionDimension!"); tc.fail(verbose); };
-		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); }			/*else*/ { debug("The object has NO CreatabilityDimension!"); tc.fail(verbose); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
 		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
@@ -133,8 +125,6 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }						/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
 		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
 		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
-		ifElse (isNxPermissionDimension(v))		{ debug("The object has NxPermissionDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO NxPermissionDimension!"); };
-		ifElse (isCreatabilityDimension(v))		{ debug("The object has CreatabilityDimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO CreatabilityDimension!"); };
 		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
 		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
 		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
@@ -150,6 +140,6 @@ method void test_creatability(immutable Boolean verbose)
 		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
 	});
 	testbed.addTestCase(testcase);
-
+	
 	testbed.runTestCases(verbose);
 }

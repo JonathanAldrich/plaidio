@@ -19,24 +19,24 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121121
+	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Root.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype;
+package plaidio.filesystem.validity.valid.existency.pathtype;
 
-import plaidio.filesystem.validity.valid.existency.existent.PathTypeDimension;
+import plaidio.filesystem.validity.valid.existency.Existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121122
+	CID:	TS-112113
 	DESC:	"Root" typestate which contains an existent root path.
 **/
-state Root case of PathTypeDimension
+state Root case of Existent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211220
+		CID:	ST-1121130
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeRoot() /*[shared Root >> shared Root this]*/
