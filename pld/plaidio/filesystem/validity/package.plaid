@@ -19,60 +19,49 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-13
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package of plaid.io.filesystem.validity statespace.
+	DESC:	Package of plaid.io.filesystem.validity statespace
+			contains all sub-types of Validity state region of Path typestate.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity;
 
 import plaidio.filesystem.makePath;
-import plaidio.statecheckers.isPath;
-import plaidio.statecheckers.isInvalid;
-import plaidio.statecheckers.isValid;
-import plaidio.statecheckers.isExistencyDimension;
-import plaidio.statecheckers.isRelativityDimension;
-import com.akefirad.plaid.testing.debug;
+import plaidio.filesystem.statecheckers.debugIsPath;
+import plaidio.filesystem.validity.statecheckers.debugIsValid;
+import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
+import plaidio.filesystem.validity.valid.statecheckers.debugIsExistencyDimension;
+import plaidio.filesystem.validity.valid.statecheckers.debugIsRelativityDimension;
+
 import com.akefirad.plaid.testing.makeTestBed;
-import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-111
+	CID:	TC-SR-14
 	DESC:	Test plaidio.filesystem.validity package's features
 **/
 method void test_validity(immutable Boolean verbose)
 {
-	val testbed = makeTestBed();
-	var testcase = new Unit;
-	
-	testcase = makeTestCase("TC-TS-111 make an invalid path which has no dimensions", fn(tc) => {
-		val unique Path v = makePath("con");
-		debug("'" + v + "'");
-		ifElse (isPath(v))					{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-		ifElse (isInvalid(v))				{ debug("The object is Invalid!"); }									/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
-		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); tc.fail(verbose); }		/*else*/ { debug("The object has NO Existency dimension!"); };
-		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); tc.fail(verbose); }	/*else*/ { debug("The object has NO Relativity dimension!"); };
-	});
-	testbed.addTestCase(testcase);
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity package's features");
 
-	testcase = makeTestCase("TC-TS-1121 make a valid path which has existency dimension", fn(tc) => {
-		val unique Path v = makePath("foo");
-		debug("'" + v + "'");
-		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
-		ifElse (isExistencyDimension(v))	{ debug("The object has Existency dimension!"); }	/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
+	testbed.makeTestCase("TC-TS-19 make a valid path which has existency dimension", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
 	});
-	testbed.addTestCase(testcase);
 
-	testcase = makeTestCase("TC-TS-1122 make a valid path which has relativity dimensions", fn(tc) => {
-		val unique Path v = makePath("foo");
-		debug("'" + v + "'");
-		ifElse (isPath(v))					{ debug("The object is Path!"); }					/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
-		ifElse (isValid(v))					{ debug("The object is Valid!"); }					/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
-		ifElse (isRelativityDimension(v))	{ debug("The object has Relativity dimension!"); }	/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
+	testbed.makeTestCase("TC-TS-21 make a valid path which has relativity dimensions", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
 	});
-	testbed.addTestCase(testcase);
 
 	testbed.runTestCases(verbose);
 }

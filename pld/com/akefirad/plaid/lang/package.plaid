@@ -21,12 +21,12 @@
 /**
 	CID:	SS-0.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of plaid programming language testing platform.
+	DESC:	Main package of plaid programming language.
 	FILE:	package.plaid
 **/
-package com.akefirad.plaid.testing;
+package com.akefirad.plaid.lang;
 
-method immutable TestBed makeTestBed(immutable String name)
+method trycatch(tryBlock, catchBlock, immutable String exception)
 {
-	/*return*/ new TestBed { p_Name = name; p_TestCases = makeEmptyList(); };
+	com.akefirad.plaid.PlaidHelper.runMethodInTryBlock(tryBlock, catchBlock, exception);
 }

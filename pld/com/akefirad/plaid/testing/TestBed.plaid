@@ -26,7 +26,7 @@
 **/
 package com.akefirad.plaid.testing;
 
-import com.akefirad.plaid.statecheckers.*;
+import com.akefirad.plaid.lang.statecheckers.isNil;
 
 //------------------------------------------------------------------------------
 /**
@@ -38,6 +38,11 @@ immutable state TestBed
 	val immutable String p_Name;
 	val unique List<immutable TestCase> p_TestCases;
 	
+	method void makeTestCase(immutable String name, body)
+	{
+		addTestCase(new TestCase { p_Name = name; p_Body = body; });
+	}
+
 	method void addTestCase(immutable TestCase testcase)
 	{
 		p_TestCases.add(testcase);
@@ -45,9 +50,10 @@ immutable state TestBed
 
 	method void runTestCases(immutable Boolean verbose)
 	{
+		if (verbose) { printLine(p_Name); };
 		ifElse (p_TestCases.isEmpty())
 		{
-			printLine("There is no test case to run!");
+			if (verbose) { printLine("There is no test case to run!"); };
 		}
 		//else
 		{

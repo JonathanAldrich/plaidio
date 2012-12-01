@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-14
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Invalid.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.Path;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-111
+	CID:	TS-16
 	DESC:	"Invalid" typestate which  represents an invalid path.
 **/
 state Invalid case of Path
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1110
+		CID:	ST-16.1
 		DESC:	Initialize the object and check	all its dimensions and substates.
 				This method should not be public.
 	**/

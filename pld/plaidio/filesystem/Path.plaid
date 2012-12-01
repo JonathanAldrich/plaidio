@@ -19,7 +19,7 @@
 
 //------------------------------------------------------------------------------
 /**
-	CID:	SS-1
+	CID:	SS-12
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Path.plaid
 **/
@@ -38,7 +38,7 @@ state Path
 	
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-110
+		CID:	ST-11.1
 		DESC:	Initialize the object and check	all its dimensions and substates.
 				This method should not be public.
 	**/
@@ -51,7 +51,7 @@ state Path
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-111
+		CID:	ST-11.2
 		DESC:	Returns the name of the file or directory denoted by this abstract pathname.
 	**/
 	method immutable String getName() /*[Pure Path >> Pure Path this]*/
@@ -62,7 +62,7 @@ state Path
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112
+		CID:	ST-11.3
 		DESC:	Converts this abstract pathname into a pathname string.
 	**/
 	method immutable String getAddress() /*[Pure Path >> Pure Path this]*/
@@ -73,7 +73,7 @@ state Path
 
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-113
+		CID:	ST-11.4
 		DESC:	Convert this abstract pathname into string.
 	**/
 	method immutable String toString() /*[Pure Path >> Pure Path this]*/

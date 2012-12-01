@@ -19,18 +19,18 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-111
+	CID:	SR-14
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_Validity.plaid
 **/
 package plaidio.filesystem.validity;
 
 import plaidio.filesystem.Path;
-import com.akefirad.plaid.testing.trycatch;
+import com.akefirad.plaid.lang.trycatch;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-110
+	CID:	TS-15
 	DESC:	"i_Validity" typestate which is created to initialize validity state region.
 			This state should not be public.
 **/
@@ -38,7 +38,7 @@ state i_Validity case of Path
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1100
+		CID:	ST-15.1
 		DESC:	Checks whether the path is valid or not, and within Path,
 				changes the state of "this" into either "Invalid" or "Valid".
 	**/
@@ -60,7 +60,7 @@ state i_Validity case of Path
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1101
+		CID:	ST-15.2
 		DESC:	Makes the object Invalid.
 	**/
 	method void p_MakeInvalid() /*[shared i_Validity >> shared Invalid this]*/
@@ -72,7 +72,7 @@ state i_Validity case of Path
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1102
+		CID:	ST-15.3
 		DESC:	Makes the object Valid.
 	**/
 	method void p_MakeValid() /*[shared i_Validity >> shared Valid this]*/

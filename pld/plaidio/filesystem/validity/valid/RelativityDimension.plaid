@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121
+	CID:	SR-18
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Relativity.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.relativity.i_Relativity;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1122
+	CID:	TS-21
 	DESC:	"RelativityDimension" typestate which is one dimension of Valid typestate.
 **/
 state RelativityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11220
+		CID:	ST-21.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/

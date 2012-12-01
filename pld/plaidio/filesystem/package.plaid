@@ -19,27 +19,25 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-1
+	CID:	SS-12
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem is basic statespace for SR-11 features
+	DESC:	Package plaidio.filesystem is basic statespace for SR-12 features
 	FILE:	package.plaid
 **/
 package plaidio.filesystem;
 
-import plaidio.statecheckers.debugIsPath;
-import plaidio.statecheckers.debugIsValid;
-import plaidio.statecheckers.debugIsInvalid;
+import plaidio.filesystem.statecheckers.debugIsPath;
+import plaidio.filesystem.validity.statecheckers.debugIsValid;
+import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
 
-import com.akefirad.plaid.statecheckers.debugIsString;
-import com.akefirad.plaid.statecheckers.debugIsCharacter;
+import com.akefirad.plaid.lang.statecheckers.debugIsString;
+import com.akefirad.plaid.lang.statecheckers.debugIsCharacter;
 
-import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
-import com.akefirad.plaid.testing.makeTestCase;
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-11
+	CID: 	ST-12.1
 	DESC:	The system-dependent path-separator character.
 **/
 method immutable String pathSeparator()
@@ -49,7 +47,7 @@ method immutable String pathSeparator()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-12
+	CID: 	ST-12.2
 	DESC:	The system-dependent path-separator character.
 **/
 method immutable Character pathSeparatorChar()
@@ -59,7 +57,7 @@ method immutable Character pathSeparatorChar()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-13
+	CID: 	ST-12.3
 	DESC:	The system-dependent default name-separator character.
 **/
 method immutable String separator()
@@ -69,7 +67,7 @@ method immutable String separator()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-14
+	CID: 	ST-12.4
 	DESC:	The system-dependent default name-separator character.
 **/
 method immutable Character separatorChar()
@@ -79,7 +77,7 @@ method immutable Character separatorChar()
 
 /*------------------------------------------------------------------------------
 /**
-	CID: 	ST-11
+	CID: 	ST-12.5
 	DESC:	constructor for TS-11
 **/
 method unique Path makePath(immutable String path)
@@ -91,73 +89,79 @@ method unique Path makePath(immutable String path)
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SS-1
-	DESC:	Test cases of plaidio.filesystem.validity package's features
+	CID:	TC-SS-12
+	DESC:	Test cases of plaidio.filesystem package's features
 **/
 method void test_filesystem(immutable Boolean verbose)
 {
-	val testbed = makeTestBed();
-	var testcase = new Unit;
-	
-	testcase = makeTestCase("TC-ST-11 pathSeparator()", fn(tc) => {
-		val immutable String v = pathSeparator();
-		debug("'" + v + "'", verbose);
-		tc.assert(fn() => { debugIsString(v, verbose); }, verbose);
-	});
-	testbed.addTestCase(testcase);
+	val testbed = makeTestBed("Test cases of plaidio.filesystem package's features");
 
-//	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
-//		val immutable Character v = pathSeparatorChar();
-//		debug("'" + v + "'", verbose);
-//		tc.assert(fn() => debugIsCharacter(v, verbose));
-//	});
-//	testbed.addTestCase(testcase);
-//	
-//	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
-//		val immutable String v = separator();
-//		debug("'" + v + "'", verbose);
-//		tc.assert(fn() => { debugIsString(v, verbose); });
-//	});
-//	testbed.addTestCase(testcase);
-//	
-//	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
-//		val immutable Character v = separatorChar();
-//		debug("'" + v + "'", verbose);
-//		tc.assert(fn() => debugIsCharacter(v, verbose));
-//	});
-//	testbed.addTestCase(testcase);
-//	
-//	testcase = makeTestCase("TC-TS-11 make a path", fn(tc) => {
-//		val unique Path v = makePath("foo");
-//		debug("'" + v + "'", verbose);
-//		tc.assert(fn() => debugIsPath(v, verbose));
-//	});
-//	testbed.addTestCase(testcase);
+	testbed.makeTestCase("TC-ST-12.1 pathSeparator()", fn(tc) => {
+		val immutable String o = pathSeparator();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-12.2 pathSeparatorChar()", fn(tc) => {
+		val immutable Character o = pathSeparatorChar();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsCharacter(o, verbose); }, verbose);
+	});
 	
-//	testcase = makeTestCase("TC-TS-111 make an invalid path (WINDOWS)", fn(tc) => {
-//		ifElse(java.lang.System.getProperty("os.name").contains("Windows"))
-//		{
-//			val unique Path v = makePath("con");
-//			debug("'" + v + "'", verbose);
-//			debugIsPath(v, verbose);
-//			debugIsInvalid(v, verbose);
-//			debugIsValid(v, verbose);
-//		}
-//		/*else*/
-//		{
-//			debug("Warning: this test case is not applicable for non-windows OSs.", verbose);
-//		}
-//	});
-//	testbed.addTestCase(testcase);
-//
-//	testcase = makeTestCase("TC-TS-112 make a valid path", fn(tc) => {
-//		val unique Path v = makePath("foo");
-//		debug("'" + v + "'", verbose);
-//		debugIsPath(v, verbose);
-//		debugIsInvalid(v, verbose);
-//		debugIsValid(v, verbose);
-//	});
-//	testbed.addTestCase(testcase);
-//
+	testbed.makeTestCase("TC-ST-12.3 separator()", fn(tc) => {
+		val immutable String o = separator();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+	
+	testbed.makeTestCase("TC-ST-12.4 separatorChar()", fn(tc) => {
+		val immutable Character o = separatorChar();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsCharacter(o, verbose); }, verbose);
+	});
+	
+	testbed.makeTestCase("TC-TS-12.5 make a path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-11.2 Path.getName()", fn(tc) => {
+		val immutable String o = makePath("foo").getName();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-11.3 Path.getAddress()", fn(tc) => {
+		val immutable String o = makePath("foo").getAddress();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-11.4 Path.toString()", fn(tc) => {
+		val immutable String o = makePath("foo").toString();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-TS-16 make an invalid path (Windows-Based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Windows"))
+		{
+			val unique Path o = makePath("con");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsInvalid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-17 make a valid path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+	});
+
 	testbed.runTestCases(verbose);
 }

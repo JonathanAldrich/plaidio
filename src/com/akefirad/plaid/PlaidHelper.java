@@ -77,7 +77,6 @@ public class PlaidHelper {
 
             if (states.size() > 0)
             {
-                String rootPackageName = packageFolder.getName();
                 String rootPackagePath = packageFolder.getAbsolutePath();
                 File packageplaidFile = new File(statecheckersFolder.getAbsoluteFile(), "package.plaid");
                 packageplaidFile.createNewFile();

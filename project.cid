@@ -1,28 +1,28 @@
-SS-0	plaidio
-	ST-00	 	main()
-SS-1	plaidio.filesystem
-	ST-11		pathSeparator()
-	ST-12		pathSeparatorChar()
-	ST-13		separator()
-	ST-14		separatorChar()
-	ST-11		makePath()
-	TS-11		Path
-		ST-110		p_InitializePath()
-		ST-111		getName()
-		ST-112		getAddress()
-		ST-113		toString()
-		SR-111		plaidio.filesystem.validity
-		TS-110		i_Validity
-			ST-1100		p_Finalize()
-			ST-1101		p_MakeInvalid()
-			ST-1102		p_MakeValid()
-		TS-111		Invalid
-			ST-1110		p_InitializeInvalid()
-		TS-112		Valid
-			ST-1120		p_InitializeValid()
-			SR-1121		plaidio.filesystem.validity.valid
-			TS-1121		ExistencyDimension
-				ST-11210	p_InitializeExistencyDimension()
+SS-11	plaidio
+	ST-11.1	 	main()
+SS-12	plaidio.filesystem
+	ST-12.1		pathSeparator()
+	ST-12.2		pathSeparatorChar()
+	ST-12.3		separator()
+	ST-12.4		separatorChar()
+	ST-12.5		makePath()
+	TS-13		Path
+		ST-13.1		p_InitializePath()
+		ST-13.2		getName()
+		ST-13.3		getAddress()
+		ST-13.4		toString()
+		SR-14		plaidio.filesystem.validity
+		TS-15		i_Validity
+			ST-15.1		p_Finalize()
+			ST-15.2		p_MakeInvalid()
+			ST-15.3		p_MakeValid()
+		TS-16		Invalid
+			ST-16.1		p_InitializeInvalid()
+		TS-17		Valid
+			ST-17.1		p_InitializeValid()
+			SR-18		plaidio.filesystem.validity.valid
+			TS-19	ExistencyDimension
+				ST-19.1		p_InitializeExistencyDimension()
 				SR-11211	plaidio.filesystem.path.valid.existency
 				TS-11210	i_Existency
 					ST-112100	p_finalize()
@@ -104,8 +104,8 @@ SS-1	plaidio.filesystem
 								ST-112121112	createAsFolder()
 							TS-11212112	NonCreatable
 								ST-112121120	p_InitializeNonCreatable()
-			TS-1122		RelativityDimension
-				ST-11220	p_InitializeRelativityDimension()
+			TS-21		RelativityDimension
+				ST-21.1		p_InitializeRelativityDimension()
 				SR-11221	plaidio.filesystem.path.valid.relativity
 				TS-11220	i_Relativity
 					ST-112200	p_finalize()

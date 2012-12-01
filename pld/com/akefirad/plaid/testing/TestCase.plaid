@@ -80,4 +80,14 @@ immutable state TestCase
 		p_Result = false;
 		if (verbose) { printLine("FAILED..."); };
 	}
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-914
+		DESC:	Makes the test case failed.
+	**/
+	method void debug(object, immutable Boolean verbose)
+	{
+		if (verbose) { printLine(object); };
+	}
 }

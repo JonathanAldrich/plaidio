@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-1121
+	CID:	SR-18
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	ExistencyDimension.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.existency.i_Existency;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121
+	CID:	TS-19
 	DESC:	"ExistencyDimension" typestate which is one dimension of Valid typestate.
 **/
 state ExistencyDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11210
+		CID:	ST-19.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeExistencyDimension() /*[shared ExistencyDimension >> shared ExistencyDimension this]*/
