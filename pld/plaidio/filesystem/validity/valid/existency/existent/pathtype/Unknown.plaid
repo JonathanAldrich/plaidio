@@ -23,7 +23,7 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Root.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.pathtype;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.validity.valid.existency.Existent;
 

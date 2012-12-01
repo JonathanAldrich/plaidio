@@ -21,11 +21,11 @@
 /**
 	CID:	SR-112111
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.pathtype
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype
 			contains all subtypes of Existent typestates
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.pathtype;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 //import plaidio.filesystem.makePath;
 //import plaidio.statecheckers.isPath;
@@ -41,9 +41,9 @@ package plaidio.filesystem.validity.valid.existency.pathtype;
 /*------------------------------------------------------------------------------
 /**
 	CID:	TC-SR-112111
-	DESC:	Test plaidio.filesystem.validity.valid.existency.existent package's features
+	DESC:	Test plaidio.filesystem.validity.valid.existency.existent.pathtype package's features
 **/
-method void test_existent(immutable Boolean verbose)
+method void test_pathtype(immutable Boolean verbose)
 {
 //	val testbed = makeTestBed();
 //	var testcase = new Unit;

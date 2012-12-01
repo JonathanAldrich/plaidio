@@ -7,24 +7,12 @@ import plaidio.filesystem.validity.valid.ExistencyDimension;
 import plaidio.filesystem.validity.valid.RelativityDimension;
 import plaidio.filesystem.validity.valid.existency.Existent;
 import plaidio.filesystem.validity.valid.existency.NonExistent;
-import plaidio.filesystem.validity.valid.existency.existent.ExPermissionDimension;
-import plaidio.filesystem.validity.valid.existency.existent.PathTypeDimension;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.ExecutabilityDimension;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.ReadabilityDimension;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.WritabilityDimension;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.executability.Executable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.executability.NonExecutable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.readability.NonReadable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.readability.Readable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.NonWritable;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.writability.Writable;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.Leaf;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.File;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Folder;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.Root;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.File;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.Folder;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.leaftype.UnknownLeaf;
-import plaidio.filesystem.validity.valid.existency.nonexistent.Creatable;
-import plaidio.filesystem.validity.valid.existency.nonexistent.NonCreatable;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Unknown;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.Creatable;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.NonCreatable;
 import plaidio.filesystem.validity.valid.relativity.NonRelative;
 import plaidio.filesystem.validity.valid.relativity.Relative;
 import plaidio.filesystem.validity.valid.relativity.nonrelative.Absolute;
@@ -37,58 +25,13 @@ method immutable Boolean isExistencyDimension(v) { match (v) { case ExistencyDim
 method immutable Boolean isRelativityDimension(v) { match (v) { case RelativityDimension { true; } default { false; } }; }
 method immutable Boolean isExistent(v) { match (v) { case Existent { true; } default { false; } }; }
 method immutable Boolean isNonExistent(v) { match (v) { case NonExistent { true; } default { false; } }; }
-method immutable Boolean isExPermissionDimension(v) { match (v) { case ExPermissionDimension { true; } default { false; } }; }
-method immutable Boolean isPathTypeDimension(v) { match (v) { case PathTypeDimension { true; } default { false; } }; }
-method immutable Boolean isExecutabilityDimension(v) { match (v) { case ExecutabilityDimension { true; } default { false; } }; }
-method immutable Boolean isReadabilityDimension(v) { match (v) { case ReadabilityDimension { true; } default { false; } }; }
-method immutable Boolean isWritabilityDimension(v) { match (v) { case WritabilityDimension { true; } default { false; } }; }
-method immutable Boolean isExecutable(v) { match (v) { case Executable { true; } default { false; } }; }
-method immutable Boolean isNonExecutable(v) { match (v) { case NonExecutable { true; } default { false; } }; }
-method immutable Boolean isNonReadable(v) { match (v) { case NonReadable { true; } default { false; } }; }
-method immutable Boolean isReadable(v) { match (v) { case Readable { true; } default { false; } }; }
-method immutable Boolean isNonWritable(v) { match (v) { case NonWritable { true; } default { false; } }; }
-method immutable Boolean isWritable(v) { match (v) { case Writable { true; } default { false; } }; }
-method immutable Boolean isLeaf(v) { match (v) { case Leaf { true; } default { false; } }; }
-method immutable Boolean isRoot(v) { match (v) { case Root { true; } default { false; } }; }
 method immutable Boolean isFile(v) { match (v) { case File { true; } default { false; } }; }
 method immutable Boolean isFolder(v) { match (v) { case Folder { true; } default { false; } }; }
-method immutable Boolean isUnknownLeaf(v) { match (v) { case UnknownLeaf { true; } default { false; } }; }
+method immutable Boolean isRoot(v) { match (v) { case Root { true; } default { false; } }; }
+method immutable Boolean isUnknown(v) { match (v) { case Unknown { true; } default { false; } }; }
 method immutable Boolean isCreatable(v) { match (v) { case Creatable { true; } default { false; } }; }
 method immutable Boolean isNonCreatable(v) { match (v) { case NonCreatable { true; } default { false; } }; }
 method immutable Boolean isNonRelative(v) { match (v) { case NonRelative { true; } default { false; } }; }
 method immutable Boolean isRelative(v) { match (v) { case Relative { true; } default { false; } }; }
 method immutable Boolean isAbsolute(v) { match (v) { case Absolute { true; } default { false; } }; }
 method immutable Boolean isCanonical(v) { match (v) { case Canonical { true; } default { false; } }; }
-
-method void match_state(v)
-{
-	if (true) { match (v) { case Path { printLine("The object is Path"); } default { printLine("The object is NOT Path"); } }; };
-	if (true) { match (v) { case Invalid { printLine("The object is Invalid"); } default { printLine("The object is NOT Invalid"); } }; };
-	if (true) { match (v) { case Valid { printLine("The object is Valid"); } default { printLine("The object is NOT Valid"); } }; };
-	if (true) { match (v) { case ExistencyDimension { printLine("The object is ExistencyDimension"); } default { printLine("The object is NOT ExistencyDimension"); } }; };
-	if (true) { match (v) { case RelativityDimension { printLine("The object is RelativityDimension"); } default { printLine("The object is NOT RelativityDimension"); } }; };
-	if (true) { match (v) { case Existent { printLine("The object is Existent"); } default { printLine("The object is NOT Existent"); } }; };
-	if (true) { match (v) { case NonExistent { printLine("The object is NonExistent"); } default { printLine("The object is NOT NonExistent"); } }; };
-	if (true) { match (v) { case ExPermissionDimension { printLine("The object is ExPermissionDimension"); } default { printLine("The object is NOT ExPermissionDimension"); } }; };
-	if (true) { match (v) { case PathTypeDimension { printLine("The object is PathTypeDimension"); } default { printLine("The object is NOT PathTypeDimension"); } }; };
-	if (true) { match (v) { case ExistencyDimension { printLine("The object is ExistencyDimension"); } default { printLine("The object is NOT ExistencyDimension"); } }; };
-	if (true) { match (v) { case ReadabilityDimension { printLine("The object is ReadabilityDimension"); } default { printLine("The object is NOT ReadabilityDimension"); } }; };
-	if (true) { match (v) { case WritabilityDimension { printLine("The object is WritabilityDimension"); } default { printLine("The object is NOT WritabilityDimension"); } }; };
-	if (true) { match (v) { case Executable { printLine("The object is Executable"); } default { printLine("The object is NOT Executable"); } }; };
-	if (true) { match (v) { case NonExecutable { printLine("The object is NonExecutable"); } default { printLine("The object is NOT NonExecutable"); } }; };
-	if (true) { match (v) { case NonReadable { printLine("The object is NonReadable"); } default { printLine("The object is NOT NonReadable"); } }; };
-	if (true) { match (v) { case Readable { printLine("The object is Readable"); } default { printLine("The object is NOT Readable"); } }; };
-	if (true) { match (v) { case NonWritable { printLine("The object is NonWritable"); } default { printLine("The object is NOT NonWritable"); } }; };
-	if (true) { match (v) { case Writable { printLine("The object is Writable"); } default { printLine("The object is NOT Writable"); } }; };
-	if (true) { match (v) { case Leaf { printLine("The object is Leaf"); } default { printLine("The object is NOT Leaf"); } }; };
-	if (true) { match (v) { case Root { printLine("The object is Root"); } default { printLine("The object is NOT Root"); } }; };
-	if (true) { match (v) { case File { printLine("The object is File"); } default { printLine("The object is NOT File"); } }; };
-	if (true) { match (v) { case Folder { printLine("The object is Folder"); } default { printLine("The object is NOT Folder"); } }; };
-	if (true) { match (v) { case UnknownLeaf { printLine("The object is UnknownLeaf"); } default { printLine("The object is NOT UnknownLeaf"); } }; };
-	if (true) { match (v) { case Creatable { printLine("The object is Creatable"); } default { printLine("The object is NOT Creatable"); } }; };
-	if (true) { match (v) { case NonCreatable { printLine("The object is NonCreatable"); } default { printLine("The object is NOT NonCreatable"); } }; };
-	if (true) { match (v) { case NonRelative { printLine("The object is NonRelative"); } default { printLine("The object is NOT NonRelative"); } }; };
-	if (true) { match (v) { case Relative { printLine("The object is Relative"); } default { printLine("The object is NOT Relative"); } }; };
-	if (true) { match (v) { case Absolute { printLine("The object is Absolute"); } default { printLine("The object is NOT Absolute"); } }; };
-	if (true) { match (v) { case Canonical { printLine("The object is Canonical"); } default { printLine("The object is NOT Canonical"); } }; };
-}

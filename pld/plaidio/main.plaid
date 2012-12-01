@@ -31,10 +31,8 @@ import plaidio.filesystem.validity.test_validity;
 import plaidio.filesystem.validity.valid.test_valid;
 import plaidio.filesystem.validity.valid.existency.test_existency;
 import plaidio.filesystem.validity.valid.relativity.test_relativity;
-import plaidio.filesystem.validity.valid.existency.existent.test_existent;
-import plaidio.filesystem.validity.valid.existency.existent.expermission.test_expermission;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
-import plaidio.filesystem.validity.valid.existency.nonexistent.test_nonexistent;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.test_creatability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -49,8 +47,6 @@ method main()
 	test_valid(verbose);
 	test_existency(verbose);
 	test_relativity(verbose);
-	test_existent(verbose);
-	test_expermission(verbose);
 	test_pathtype(verbose);
-	test_nonexistent(verbose);
+	test_creatability(verbose);
 }

@@ -23,7 +23,7 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Creatable.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.creatability;
+package plaidio.filesystem.validity.valid.existency.nonexistent.creatability;
 
 import plaidio.filesystem.validity.valid.existency.NonExistent;
 
