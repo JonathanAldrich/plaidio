@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-13
+	CID:	SR-14
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package of plaid.io.filesystem.validity statespace
 			contains all sub-types of Validity state region of Path typestate.
@@ -28,6 +28,7 @@
 package plaidio.filesystem.validity;
 
 import plaidio.filesystem.makePath;
+
 import plaidio.filesystem.statecheckers.debugIsPath;
 import plaidio.filesystem.validity.statecheckers.debugIsValid;
 import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
@@ -44,6 +45,25 @@ import com.akefirad.plaid.testing.makeTestBed;
 method void test_validity(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity package's features");
+
+	testbed.makeTestCase("TC-TS-16 make an invalid path (Windows-Based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Windows"))
+		{
+			val unique Path o = makePath("con");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsInvalid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-17 make a valid path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+	});
 
 	testbed.makeTestCase("TC-TS-19 make a valid path which has existency dimension", fn(tc) => {
 		val unique Path o = makePath("foo");

@@ -126,41 +126,22 @@ method void test_filesystem(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 	});
 
-	testbed.makeTestCase("TC-ST-11.2 Path.getName()", fn(tc) => {
+	testbed.makeTestCase("TC-ST-13.2 Path.getName()", fn(tc) => {
 		val immutable String o = makePath("foo").getName();
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
 	});
 
-	testbed.makeTestCase("TC-ST-11.3 Path.getAddress()", fn(tc) => {
+	testbed.makeTestCase("TC-ST-13.3 Path.getAddress()", fn(tc) => {
 		val immutable String o = makePath("foo").getAddress();
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
 	});
 
-	testbed.makeTestCase("TC-ST-11.4 Path.toString()", fn(tc) => {
+	testbed.makeTestCase("TC-ST-13.4 Path.toString()", fn(tc) => {
 		val immutable String o = makePath("foo").toString();
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
-	});
-
-	testbed.makeTestCase("TC-TS-16 make an invalid path (Windows-Based)", fn(tc) => {
-		if (java.lang.System.getProperty("os.name").contains("Windows"))
-		{
-			val unique Path o = makePath("con");
-			tc.debug("'" + o + "'", verbose);
-			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsInvalid(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsValid(o, verbose) == false; }, verbose);
-		}
-	});
-
-	testbed.makeTestCase("TC-TS-17 make a valid path", fn(tc) => {
-		val unique Path o = makePath("foo");
-		tc.debug("'" + o + "'", verbose);
-		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

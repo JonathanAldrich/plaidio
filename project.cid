@@ -23,12 +23,12 @@ SS-12	plaidio.filesystem
 			SR-18		plaidio.filesystem.validity.valid
 			TS-19	ExistencyDimension
 				ST-19.1		p_InitializeExistencyDimension()
-				SR-11211	plaidio.filesystem.path.valid.existency
-				TS-11210	i_Existency
+				SR-22	plaidio.filesystem.path.valid.existency
+				TS-23	i_Existency
 					ST-112100	p_finalize()
 					ST-112101	p_MakeExistent()
 					ST-112102	p_MakeNonExistent()
-				TS-11211	Existent
+				TS-24	Existent
 					ST-112110	p_InitializeExistent()
 					SR-112111	plaidio.filesystem.path.valid.existency.existent
 					TS-112111	ExPermissionDimension
@@ -85,7 +85,7 @@ SS-12	plaidio.filesystem
 								ST-112112130	p_InitializeUnknownLeaf()
 						TS-1121122	Root
 							ST-11211220	p_InitializeRoot()
-				TS-11212	NonExistent
+				TS-25	NonExistent
 					ST-112120	p_InitializeNonExistent()
 					SR-112121	plaidio.filesystem.path.valid.existency.nonexistent
 					TS-112121	NxPermissionDimension

@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211
+	CID:	SR-22
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Existent.plaid
 **/
@@ -30,14 +30,14 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.i_PathType;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11211
+	CID:	TS-24
 	DESC:	"Existent" typestate which contains an existent valid path.
 **/
 state Existent case of ExistencyDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112110
+		CID:	ST-24.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeExistent() /*[shared Existent >> shared Existent this]*/

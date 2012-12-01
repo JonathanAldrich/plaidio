@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211
+	CID:	SR-22
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_Existency.plaid
 **/
@@ -29,7 +29,7 @@ import plaidio.filesystem.validity.valid.ExistencyDimension;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11210
+	CID:	TS-23
 	DESC:	"i_Existency" typestate which is created to intialize ExistencyDimension state.
 			This state should not be public.
 **/
@@ -37,7 +37,7 @@ state i_Existency case of ExistencyDimension
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112100
+		CID:	ST-23.1
 		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
 				changes the state of "this" into either "Existent" or "NonExistent".
 	**/
@@ -56,7 +56,7 @@ state i_Existency case of ExistencyDimension
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112101
+		CID:	ST-23.2
 		DESC:	Makes the object Existent.
 	**/
 	method void p_MakeExistent() /*[shared i_Existency >> shared Existent this]*/
@@ -68,7 +68,7 @@ state i_Existency case of ExistencyDimension
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112102
+		CID:	ST-23.3
 		DESC:	Makes the object NonExistent.
 	**/
 	method void p_MakeNonExistent() /*[shared i_Existency >> shared NonExistent this]*/
