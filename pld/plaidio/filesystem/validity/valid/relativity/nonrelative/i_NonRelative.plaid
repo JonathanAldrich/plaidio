@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11221
+	CID:	SR-41
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_Relativity.plaid
 **/
@@ -29,7 +29,7 @@ import plaidio.filesystem.validity.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-11220
+	CID:	TS-42
 	DESC:	"i_NonRelative" typestate which is created to intialize NonRelative state.
 			This state should not be public.
 **/
@@ -37,7 +37,7 @@ state i_NonRelative case of NonRelative
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112200
+		CID:	ST-42.1
 		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
 				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
@@ -56,7 +56,7 @@ state i_NonRelative case of NonRelative
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112211
+		CID:	ST-42.2
 		DESC:	Makes the object Absolute.
 	**/
 	method void p_MakeAbsolute() /*[shared i_NonRelative >> shared Absolute this]*/
@@ -68,7 +68,7 @@ state i_NonRelative case of NonRelative
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112212
+		CID:	ST-42.3
 		DESC:	Makes the object Canonical.
 	**/
 	method void p_MakeCanonical() /*[shared i_NonRelative >> shared Canonical this]*/

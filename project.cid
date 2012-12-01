@@ -6,21 +6,21 @@ SS-12	plaidio.filesystem
 	ST-12.3		separator()
 	ST-12.4		separatorChar()
 	ST-12.5		makePath()
-	TS-13		Path
+	TS-13	Path
 		ST-13.1		p_InitializePath()
 		ST-13.2		getName()
 		ST-13.3		getAddress()
 		ST-13.4		toString()
-		SR-14		plaidio.filesystem.validity
-		TS-15		i_Validity
+		SR-14	plaidio.filesystem.validity
+		TS-15	i_Validity
 			ST-15.1		p_Finalize()
 			ST-15.2		p_MakeInvalid()
 			ST-15.3		p_MakeValid()
-		TS-16		Invalid
+		TS-16	Invalid
 			ST-16.1		p_InitializeInvalid()
-		TS-17		Valid
+		TS-17	Valid
 			ST-17.1		p_InitializeValid()
-			SR-18		plaidio.filesystem.validity.valid
+			SR-18	plaidio.filesystem.validity.valid
 			TS-19	ExistencyDimension
 				ST-19.1		p_InitializeExistencyDimension()
 				SR-22	plaidio.filesystem.validity.valid.existency
@@ -30,7 +30,7 @@ SS-12	plaidio.filesystem
 					ST-23.3		p_MakeNonExistent()
 				TS-24	Existent
 					ST-24.1		p_InitializeExistent()
-					SR-31		plaidio.filesystem.path.valid.existency.existent.pathtype
+					SR-31	plaidio.filesystem.path.valid.existency.existent.pathtype
 					TS-32	i_PathType
 						ST-32.1		p_finalize()
 						ST-32.2		p_MakeFile()
@@ -57,21 +57,21 @@ SS-12	plaidio.filesystem
 						ST-39.1		p_InitializeNonCreatable()
 			TS-21		RelativityDimension
 				ST-21.1		p_InitializeRelativityDimension()
-				SR-26		plaidio.filesystem.validity.valid.relativity
+				SR-26	plaidio.filesystem.validity.valid.relativity
 				TS-27	i_Relativity
 					ST-27.1		p_finalize()
 					ST-27.2		p_MakeNonRelative()
 					ST-27.3		p_MakeRelative()
 				TS-28	NonRelative
 					ST-28.1		p_InitializeNonRelative()
-					SR-112211	plaidio.filesystem.path.valid.relativity.nonrelative
-					TS-112211	i_NonRelative
-						ST-27.1		p_finalize()
-						ST-28.2		p_MakeAbsolute()
-						ST-28.3		p_MakeCanonical()
-					TS-112211	Absolute
-						ST-1122110	p_InitializeAbsolute()
-					TS-112212	Canonical
-						ST-1122120	p_InitializeCanonical()
+					SR-41	plaidio.filesystem.path.valid.relativity.nonrelative
+					TS-42	i_NonRelative
+						ST-42.1		p_finalize()
+						ST-42.2		p_MakeAbsolute()
+						ST-42.3		p_MakeCanonical()
+					TS-43	Absolute
+						ST-43.1		p_InitializeAbsolute()
+					TS-44	Canonical
+						ST-44.1		p_InitializeCanonical()
 				TS-29	Relative
 					ST-29.1		p_InitializeRelative()

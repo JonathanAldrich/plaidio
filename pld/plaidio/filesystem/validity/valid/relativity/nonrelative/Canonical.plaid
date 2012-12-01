@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112211
+	CID:	SR-41
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Canonical.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112212
+	CID:	TS-44
 	DESC:	"Canonical" typestate which contains a canonical valid path.
 **/
 state Canonical case of NonRelative
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1122120
+		CID:	ST-44.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeCanonical() /*[shared Canonical >> shared Canonical this]*/

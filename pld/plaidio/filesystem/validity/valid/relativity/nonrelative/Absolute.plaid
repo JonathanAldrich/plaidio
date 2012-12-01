@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112211
+	CID:	SR-41
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Absolute.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112211
+	CID:	TS-43
 	DESC:	"Absolute" typestate which contains a absolute valid path.
 **/
 state Absolute case of NonRelative
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1122110
+		CID:	ST-43.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeAbsolute() /*[shared Absolute >> shared Absolute this]*/
