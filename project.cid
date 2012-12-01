@@ -23,102 +23,55 @@ SS-12	plaidio.filesystem
 			SR-18		plaidio.filesystem.validity.valid
 			TS-19	ExistencyDimension
 				ST-19.1		p_InitializeExistencyDimension()
-				SR-22	plaidio.filesystem.path.valid.existency
+				SR-22	plaidio.filesystem.validity.valid.existency
 				TS-23	i_Existency
-					ST-112100	p_finalize()
-					ST-112101	p_MakeExistent()
-					ST-112102	p_MakeNonExistent()
+					ST-23.1		p_finalize()
+					ST-23.2		p_MakeExistent()
+					ST-23.3		p_MakeNonExistent()
 				TS-24	Existent
-					ST-112110	p_InitializeExistent()
-					SR-112111	plaidio.filesystem.path.valid.existency.existent
-					TS-112111	ExPermissionDimension
-						ST-1121110	p_InitializeExPermissionDimension()
-						SR-1121111	plaidio.filesystem.path.valid.existency.existent.expermission
-						TS-1121111	ExecutabilityDimension
-							ST-11211110	p_InitializeExecutabilityDimension()
-							SR-11211111	plaidio.filesystem.path.valid.existency.existent.expermission.executability
-							TS-11211110	i_Executability
-							ST-112111100	p_finalize()
-							ST-112111101	p_MakeExecutable()
-							ST-112111102	p_MakeNonExecutable()
-							TS-11211111	Executable
-							ST-112111110	p_InitializeExecutable()
-							TS-11211112	NonExecutable
-							ST-112111120	p_InitializeNonExecutable()
-						TS-1121112	ReadabilityDimension
-							ST-11211120	p_InitializeReadabilityDimension()
-							SR-11211121	plaidio.filesystem.path.valid.existency.existent.expermission.readability
-							TS-11211120	i_Readability
-							ST-112111200	p_finalize()
-							ST-112111201	p_MakeReadable()
-							ST-112111202	p_MakeNonReadable()
-							TS-11211121	NonReadable
-							ST-112111210	p_InitializeNonReadable()
-							TS-11211122	Readable
-							ST-112111220	p_InitializeReadable()
-						TS-1121113	WritabilityDimension
-							ST-11211130	p_InitializeWritabilityDimension()
-							SR-11211131	plaidio.filesystem.path.valid.existency.existent.expermission.writability
-							TS-11211130	i_Writability
-							ST-112111300	p_finalize()
-							ST-112111301	p_MakeWritable()
-							ST-112111302	p_MakeNonWritable()
-							TS-11211131	NonWritable
-							ST-112111310	p_InitializeNonWritable()
-							TS-11211132	Writable
-							ST-112111320	p_InitializeWritable()
-					TS-112112	PathTypeDimension
-						ST-1121120	p_InitializePathTypeDimension()
-						SR-1121121	plaidio.filesystem.path.valid.existency.existent.pathtype
-						TS-1121120	i_PathType
-						ST-11211200	p_finalize()
-						ST-11211201	p_MakeLeaf()
-						ST-11211202	p_MakeRoot()
-						TS-1121121	Leaf
-							ST-11211210	p_InitializeLeaf()
-							SR-11211211	plaidio.filesystem.path.valid.existency.existent.pathtype.leaftype
-							TS-11211211	File
-								ST-112112110	p_InitializeFile()
-							TS-11211212	Folder
-								ST-112112120	p_InitializeFolder()
-							TS-11211213	UnknownLeaf
-								ST-112112130	p_InitializeUnknownLeaf()
-						TS-1121122	Root
-							ST-11211220	p_InitializeRoot()
+					ST-24.1		p_InitializeExistent()
+					SR-31		plaidio.filesystem.path.valid.existency.existent.pathtype
+					TS-32	i_PathType
+						ST-32.1		p_finalize()
+						ST-32.2		p_MakeFile()
+						ST-32.3		p_MakeFolder()
+						ST-32.4		p_MakeUnknown()
+					TS-33	File
+						ST-33.1		p_InitializeFile()
+					TS-34	Folder
+						ST-34.1		p_InitializeFolder()
+					TS-35	UnknownLeaf
+						ST-35.1		p_InitializeUnknownLeaf()
 				TS-25	NonExistent
-					ST-112120	p_InitializeNonExistent()
-					SR-112121	plaidio.filesystem.path.valid.existency.nonexistent
-					TS-112121	NxPermissionDimension
-						ST-1121210	p_InitializeNxPermissionDimension()
-						SR-1121211	plaidio.filesystem.path.valid.existency.nonexistent.nxpermission
-						TS-1121211	CreatabilityDimension
-							ST-11212110	p_InitializeCreatabilityDimension()
-							SR-11212111	plaidio.filesystem.path.valid.existency.existent.nxpermission.creatability
-							TS-11212110	i_Creatability
-								ST-112121100	p_finalize()
-								ST-112121101	p_MakeCreatable()
-								ST-112121102	p_MakeNonCreatable()
-							TS-11212111	Creatable
-								ST-112121110	p_InitializeCreatable()
-								ST-112121111	createAsFile()
-								ST-112121112	createAsFolder()
-							TS-11212112	NonCreatable
-								ST-112121120	p_InitializeNonCreatable()
+					ST-25.1		p_InitializeNonExistent()
+					SR-36	plaidio.filesystem.path.valid.existency.nonexistent.creatability
+					TS-37	i_Creatability
+						ST-37.1		p_finalize()
+						ST-37.2		p_MakeCreatable()
+						ST-37.3		p_MakeNonCreatable()
+					TS-38	Creatable
+						ST-38.1		p_InitializeCreatable()
+						ST-38.2		createAsFile()
+						ST-38.3		createAsFolder()
+					TS-39	NonCreatable
+						ST-39.1		p_InitializeNonCreatable()
 			TS-21		RelativityDimension
 				ST-21.1		p_InitializeRelativityDimension()
-				SR-26		plaidio.filesystem.path.valid.relativity
+				SR-26		plaidio.filesystem.validity.valid.relativity
 				TS-27	i_Relativity
-					ST-112200	p_finalize()
-					ST-112201	p_MakeNonRelative()
-					ST-112202	p_MakeRelative()
+					ST-27.1		p_finalize()
+					ST-27.2		p_MakeNonRelative()
+					ST-27.3		p_MakeRelative()
 				TS-28	NonRelative
-					ST-112210	p_InitializeNonRelative()
-					ST-112211	p_MakeAbsolute()
-					ST-112212	p_MakeCanonical()
+					ST-28.1		p_InitializeNonRelative()
 					SR-112211	plaidio.filesystem.path.valid.relativity.nonrelative
+					TS-112211	i_NonRelative
+						ST-27.1		p_finalize()
+						ST-28.2		p_MakeAbsolute()
+						ST-28.3		p_MakeCanonical()
 					TS-112211	Absolute
 						ST-1122110	p_InitializeAbsolute()
 					TS-112212	Canonical
 						ST-1122120	p_InitializeCanonical()
 				TS-29	Relative
-					ST-112220	p_InitializeRelative()
+					ST-29.1		p_InitializeRelative()

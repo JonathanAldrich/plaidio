@@ -19,127 +19,104 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112121
+	CID:	SR-36
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent
-			contains all dimensions of NonExistent typestates
+	DESC:	Package plaidio.filesystem.validity.valid.existency.nonexistent.creatability
+			contains all sub-typestates of NonExistent typestates
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency.nonexistent.creatability;
 
-//import plaidio.filesystem.separator;
-//import plaidio.filesystem.makePath;
-//import plaidio.statecheckers.isPath;
-//import plaidio.statecheckers.isValid;
-//import plaidio.statecheckers.isExistencyDimension;
-//import plaidio.statecheckers.isExistent;
-//import plaidio.statecheckers.isNonExistent;
-//import plaidio.statecheckers.isCreatable;
-//import plaidio.statecheckers.isNonCreatable;
-//import plaidio.statecheckers.isExPermissionDimension;
-//import plaidio.statecheckers.isExecutabilityDimension;
-//import plaidio.statecheckers.isReadabilityDimension;
-//import plaidio.statecheckers.isWritabilityDimension;
-//import plaidio.statecheckers.isPathTypeDimension;
-//import plaidio.statecheckers.isLeaf;
-//import plaidio.statecheckers.isFile;
-//import plaidio.statecheckers.isFolder;
-//import plaidio.statecheckers.isRelativityDimension;
-//import plaidio.statecheckers.isRelative;
-//import plaidio.statecheckers.isNonRelative;
-//import plaidio.statecheckers.isCanonical;
-//import com.akefirad.plaid.testing.debug;
-//import com.akefirad.plaid.testing.makeTestBed;
-//import com.akefirad.plaid.testing.makeTestCase;
+import plaidio.filesystem.makePath;
+import plaidio.filesystem.separator;
+
+import plaidio.filesystem.statecheckers.debugIsPath;
+import plaidio.filesystem.validity.statecheckers.debugIsValid;
+import plaidio.filesystem.validity.valid.statecheckers.debugIsExistencyDimension;
+import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsExistent;
+import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsNonExistent;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.statecheckers.debugIsCreatable;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.statecheckers.debugIsNonCreatable;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.statecheckers.debugIsFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.statecheckers.debugIsFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.statecheckers.debugIsUnknown;
+
+import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-112121
+	CID:	TC-SR-36
 	DESC:	Test plaidio.filesystem.validity.valid.existency.nonexistent.creatability package's features
 **/
 method void test_creatability(immutable Boolean verbose)
 {
-//	val testbed = makeTestBed();
-//	var testcase = new Unit;
-//	
-//	//------------------------------------------------------------------------------------------------------
-//	testcase = makeTestCase("TC-ST-112121112 make a non-existent path and create it as a file.", fn(tc) => {
-//		val unique Path v = makePath("foo.file");
-//		debug("'" + v + "'");
-//		ifElse (isPath(v))						{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-//		ifElse (isValid(v))						{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }			/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
-//		ifElse (isExistent(v))					{ debug("The object is Existent!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Existent!"); };
-//		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); }					/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
-//		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
-//		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
-//		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
-//		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
-//		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
-//		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
-//
-//		debug("The path is going to be created as a file!");
-//		v.createAsFile();
-//
-//		ifElse (isPath(v))						{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-//		ifElse (isValid(v))						{ debug("The object is Valid!"); }										/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }						/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
-//		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
-//		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
-//		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
-//		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
-//		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
-//		ifElse (isExecutabilityDimension(v))	{ debug("The object has Executability dimension!"); }					/*else*/ { debug("The object has NO Executability dimension!"); tc.fail(verbose); };
-//		ifElse (isReadabilityDimension(v))		{ debug("The object has Readability dimension!"); }						/*else*/ { debug("The object has NO Readability dimension!"); tc.fail(verbose); };
-//		ifElse (isWritabilityDimension(v))		{ debug("The object has WritabilityDimension!"); }						/*else*/ { debug("The object has NO WritabilityDimension!"); tc.fail(verbose); };
-//		ifElse (isPathTypeDimension(v))			{ debug("The object has PathTypeDimension!"); }							/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
-//		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
-//		ifElse (isFile(v))						{ debug("The object is File!"); }										/*else*/ { debug("The object is NOT File!"); tc.fail(verbose); };
-//		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
-//		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
-//		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
-//	});
-//	testbed.addTestCase(testcase);
-//
-//	//------------------------------------------------------------------------------------------------------
-//	testcase = makeTestCase("TC-ST-112121113 make a non-existent path and create it as a folder.", fn(tc) => {
-//		val unique Path v = makePath("foo.folder\\bar.folder");
-//		debug("'" + v + "'");
-//		ifElse (isPath(v))						{ debug("The object is Path!"); }							/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-//		ifElse (isValid(v))						{ debug("The object is Valid!"); }							/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }			/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
-//		ifElse (isExistent(v))					{ debug("The object is Existent!"); tc.fail(verbose); }		/*else*/ { debug("The object is NOT Existent!"); };
-//		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); }					/*else*/ { debug("The object is NOT NonExistent!"); tc.fail(verbose); };
-//		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); }						/*else*/ { debug("The object is NOT Creatable!"); tc.fail(verbose); };
-//		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT NonCreatable!"); };
-//		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }			/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
-//		ifElse (isRelative(v))					{ debug("The object is Relative!"); }						/*else*/ { debug("The object is NOT Relative!"); };
-//		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }					/*else*/ { debug("The object is NOT NonRelative!"); };
-//		ifElse (isCanonical(v))					{ debug("The object is Canonical!"); }						/*else*/ { debug("The object is NOT Canonical!"); };
-//
-//		debug("The path is going to be created as a folder!");
-//		v.createAsFolder();
-//
-//		ifElse (isPath(v))						{ debug("The object is Path!"); }										/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-//		ifElse (isValid(v))						{ debug("The object is Valid!"); }										/*else*/ { debug("The object is NOT Valid!"); tc.fail(verbose); };
-//		ifElse (isExistencyDimension(v))		{ debug("The object has Existency dimension!"); }						/*else*/ { debug("The object has NO Existency dimension!"); tc.fail(verbose); };
-//		ifElse (isExistent(v))					{ debug("The object is Existent!"); }									/*else*/ { debug("The object is NOT Existent!"); tc.fail(verbose); };
-//		ifElse (isNonExistent(v))				{ debug("The object is NonExistent!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonExistent!"); };
-//		ifElse (isCreatable(v))					{ debug("The object is Creatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT Creatable!"); };
-//		ifElse (isNonCreatable(v))				{ debug("The object is NonCreatable!"); tc.fail(verbose); }				/*else*/ { debug("The object is NOT NonCreatable!"); };
-//		ifElse (isExPermissionDimension(v))		{ debug("The object has ExPermissionDimension!"); }						/*else*/ { debug("The object has NO ExPermissionDimension!"); tc.fail(verbose); };
-//		ifElse (isExecutabilityDimension(v))	{ debug("The object has Executability dimension!"); }					/*else*/ { debug("The object has NO Executability dimension!"); tc.fail(verbose); };
-//		ifElse (isReadabilityDimension(v))		{ debug("The object has Readability dimension!"); }						/*else*/ { debug("The object has NO Readability dimension!"); tc.fail(verbose); };
-//		ifElse (isWritabilityDimension(v))		{ debug("The object has WritabilityDimension!"); }						/*else*/ { debug("The object has NO WritabilityDimension!"); tc.fail(verbose); };
-//		ifElse (isPathTypeDimension(v))			{ debug("The object has PathTypeDimension!"); }							/*else*/ { debug("The object has NO PathTypeDimension!"); tc.fail(verbose); };
-//		ifElse (isLeaf(v))						{ debug("The object is Leaf!"); }										/*else*/ { debug("The object is NOT Leaf!"); tc.fail(verbose); };
-//		ifElse (isFile(v))						{ debug("The object is File!"); tc.fail(verbose); }						/*else*/ { debug("The object is NOT File!"); };
-//		ifElse (isFolder(v))					{ debug("The object is Folder!"); }										/*else*/ { debug("The object is NOT Folder!"); tc.fail(verbose); };
-//		ifElse (isRelativityDimension(v))		{ debug("The object has Relativity dimension!"); }						/*else*/ { debug("The object has NO Relativity dimension!"); tc.fail(verbose); };
-//		ifElse (isRelative(v))					{ debug("The object is Relative!"); }									/*else*/ { debug("The object is NOT Relative!"); };
-//		ifElse (isNonRelative(v))				{ debug("The object is NonRelative!"); }								/*else*/ { debug("The object is NOT NonRelative!"); };
-//	});
-//	testbed.addTestCase(testcase);
-//	
-//	testbed.runTestCases(verbose);
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.nonexistent.creatability package's features");
+	
+	testbed.makeTestCase("TC-TS-38 make a creatable path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
+	});
+
+	testbed.makeTestCase("TC-TS-39 make a non-creatable path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCreatable(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsNonCreatable(o, verbose); }, verbose);
+	});
+	
+	testbed.makeTestCase("TC-ST-38.2 make a non-existent path and create it as a file.", fn(tc) => {
+		val unique Path o = makePath("foo.file");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
+
+		tc.debug("The path is going to be created as a file!", verbose);
+		o.createAsFile();
+
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsUnknown(o, verbose) == false; }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-38.3 make a non-existent path and create it as a folder.", fn(tc) => {
+		val unique Path o = makePath("foo.folder\\bar.folder");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
+
+		tc.debug("The path is going to be created as a folder!", verbose);
+		o.createAsFolder();
+
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsUnknown(o, verbose) == false; }, verbose);
+	});
+	
+	testbed.runTestCases(verbose);
 }

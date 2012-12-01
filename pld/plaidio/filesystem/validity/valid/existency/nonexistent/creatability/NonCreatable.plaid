@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112121
+	CID:	SR-36
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	NonCreatable.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-1121212
+	CID:	TS-39
 	DESC:	"NonCreatable" typestate which represent a non-creatable permission state.
 **/
 state NonCreatable case of NonExistent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11212120
+		CID:	ST-39.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/

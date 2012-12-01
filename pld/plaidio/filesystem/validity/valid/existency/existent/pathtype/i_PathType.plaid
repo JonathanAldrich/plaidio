@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112111
+	CID:	SR-31
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_PathType.plaid
 **/
@@ -29,39 +29,32 @@ import plaidio.filesystem.validity.valid.existency.Existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112120
+	CID:	TS-32
 	DESC:	"i_PathType" typestate which initializes pathtype state region.
 **/
 state i_PathType case of Existent
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121200
+		CID:	ST-32.1
 		DESC:	Checks whether the path is creatable or not, and within Existent,
 				changes the state of "this" into either "File", "Folder", "Root", or "Unknown".
 	**/
 	method void p_Finalize() /*[shared i_PathType >> shared Existent this]*/
 	{
-		ifElse (com.akefirad.plaid.PlaidHelper.isRootPath(j_File))
+		ifElse (j_File.isFile())
 		{
-			p_MakeRoot();
+			p_MakeFile();
 		}
 		/*else*/
 		{
-			ifElse (j_File.isFile())
+			ifElse (j_File.isDirectory())
 			{
-				p_MakeFile();
+				p_MakeFolder();
 			}
 			/*else*/
 			{
-				ifElse (j_File.isDirectory())
-				{
-					p_MakeFolder();
-				}
-				/*else*/
-				{
-					p_MakeUnknownLeaf();
-				}
+				p_MakeUnknown();
 			}
 		}
 	}
@@ -69,7 +62,7 @@ state i_PathType case of Existent
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211211
+		CID:	ST-32.2
 		DESC:	Makes the object File.
 	**/
 	method void p_MakeFile() /*[shared i_PathType >> shared File this]*/
@@ -81,7 +74,7 @@ state i_PathType case of Existent
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211212
+		CID:	ST-32.3
 		DESC:	Makes the object Folder.
 	**/
 	method void p_MakeFolder() /*[shared i_PathType >> shared Folder this]*/
@@ -93,24 +86,12 @@ state i_PathType case of Existent
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-11211202
-		DESC:	Makes the object Root.
-	**/
-	method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
-	{
-		this <- Root;
-		p_InitializeRoot();
-	}
-	//method void p_MakeRoot() /*[shared i_PathType >> shared Root this]*/
-
-	/*-----------------------------------------------------------------------------
-	/**
-		CID:	ST-11211213
+		CID:	ST-32.4
 		DESC:	Makes the object Unknown.
 	**/
 	method void p_MakeUnknown() /*[shared i_PathType >> shared Unknown this]*/
 	{
-		this <- Folder;
+		this <- Unknown;
 		p_InitializeUnknown();
 	}
 	//method void p_MakeUnknown() /*[shared i_PathType >> shared Unknown this]*/

@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112111
+	CID:	SR-31
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	File.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.existency.Existent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112111
+	CID:	TS-33
 	DESC:	"File" typestate which contains an existent file path.
 **/
 state File case of Existent
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121110
+		CID:	ST-33.1
 		DESC:	Checks all dimensions of the object.
 	**/
 	method void p_InitializeFile() /*[shared File >> shared File this]*/

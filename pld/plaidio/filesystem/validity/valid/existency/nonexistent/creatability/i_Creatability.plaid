@@ -19,7 +19,7 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112121
+	CID:	SR-36
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_Creatability.plaid
 **/
@@ -29,14 +29,14 @@ import plaidio.filesystem.validity.valid.existency.NonExistent;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-112120
+	CID:	TS-37
 	DESC:	"i_Creatability" typestate which initializes creatability state region.
 **/
 state i_Creatability case of NonExistent
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121200
+		CID:	ST-37.1
 		DESC:	Checks whether the path is creatable or not, and within NonExistent,
 				changes the state of "this" into either "Creatable" or "NonCreatable".
 	**/
@@ -55,7 +55,7 @@ state i_Creatability case of NonExistent
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121201
+		CID:	ST-37.2
 		DESC:	Makes the object Creatable.
 	**/
 	method void p_MakeCreatable() /*[shared i_Creatability >> shared Creatable this]*/
@@ -67,7 +67,7 @@ state i_Creatability case of NonExistent
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1121202
+		CID:	ST-37.3
 		DESC:	Makes the object NonCreatable.
 	**/
 	method void p_MakeNonCreatable() /*[shared i_Creatability >> shared NonCreatable this]*/

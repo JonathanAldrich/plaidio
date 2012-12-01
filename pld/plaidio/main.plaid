@@ -31,8 +31,8 @@ import plaidio.filesystem.validity.test_validity;
 import plaidio.filesystem.validity.valid.test_valid;
 import plaidio.filesystem.validity.valid.existency.test_existency;
 import plaidio.filesystem.validity.valid.relativity.test_relativity;
-//import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
-//import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.test_creatability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.test_creatability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -47,8 +47,8 @@ method main()
 	test_valid(verbose);
 	test_existency(verbose);
 	test_relativity(verbose);
-//	test_pathtype(verbose);
-//	test_creatability(verbose);
+	test_pathtype(verbose);
+	test_creatability(verbose);
 
 //	com.akefirad.plaid.PlaidHelper.buildStateCheckers(java.io.File.new("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio"), "D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld");
 }
