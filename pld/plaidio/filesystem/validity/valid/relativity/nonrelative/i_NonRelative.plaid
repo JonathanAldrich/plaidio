@@ -19,62 +19,62 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-26
+	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	i_Relativity.plaid
 **/
-package plaidio.filesystem.validity.valid.relativity;
+package plaidio.filesystem.validity.valid.relativity.nonrelative;
 
-import plaidio.filesystem.validity.valid.RelativityDimension;
+import plaidio.filesystem.validity.valid.relativity.NonRelative;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-27
-	DESC:	"i_Relativity" typestate which is created to intialize RelativityDimension state.
+	CID:	TS-11220
+	DESC:	"i_NonRelative" typestate which is created to intialize NonRelative state.
 			This state should not be public.
 **/
-state i_Relativity case of RelativityDimension
+state i_NonRelative case of NonRelative
 {
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-27.1
+		CID:	ST-112200
 		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
 				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
-	method void p_Finalize() /*[shared i_Relativity >> shared RelativityDimension this]*/
+	method void p_Finalize() /*[shared i_NonRelative >> shared NonRelative this]*/
 	{
-		ifElse (j_File.isAbsolute())
+		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
 		{
-			p_MakeNonRelative();
+			p_MakeCanonical();
 		}
 		/*else*/
 		{
-			p_MakeRelative();
+			p_MakeAbsolute();
 		}
 	}
-	//method void p_Finalize() /*[shared i_Relativity >> shared RelativityDimension this]*/
+	//method void p_Finalize() /*[shared i_NonRelative >> shared NonRelative this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-27.2
+		CID:	ST-112211
 		DESC:	Makes the object Absolute.
 	**/
-	method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
+	method void p_MakeAbsolute() /*[shared i_NonRelative >> shared Absolute this]*/
 	{
-		this <- NonRelative;
-		p_InitializeNonRelative();
+		this <- Absolute;
+		p_InitializeAbsolute();
 	}
-	//method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
+	//method void p_MakeExistent() /*[shared i_NonRelative >> shared Absolute this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-27.3
-		DESC:	Makes the object Relative.
+		CID:	ST-112212
+		DESC:	Makes the object Canonical.
 	**/
-	method void p_MakeRelative() /*[shared i_Relativity >> shared Relative this]*/
+	method void p_MakeCanonical() /*[shared i_NonRelative >> shared Canonical this]*/
 	{
-		this <- Relative;
-		p_InitializeRelative();
+		this <- Canonical;
+		p_InitializeCanonical();
 	}
-	//method void p_MakeRelative() /*[shared i_Relativity >> shared Relative this]*/
+	//method void p_MakeFolder() /*[shared i_NonRelative >> shared Canonical this]*/
 }

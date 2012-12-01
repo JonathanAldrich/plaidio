@@ -19,52 +19,53 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-22
+	CID:	SR-26
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.existency
-			contains subtypes of "ExistencyDimension" typestate.
+	DESC:	Package plaidio.filesystem.validity.valid.relativity
+			for subtypes of "RelativityDimension" typestate.
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.existency;
+
+package plaidio.filesystem.validity.valid.relativity;
 
 import plaidio.filesystem.makePath;
-import plaidio.filesystem.separator;
 
 import plaidio.filesystem.statecheckers.debugIsPath;
 import plaidio.filesystem.validity.statecheckers.debugIsValid;
-import plaidio.filesystem.validity.valid.statecheckers.debugIsExistencyDimension;
-import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsNonExistent;
+import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
+import plaidio.filesystem.validity.valid.statecheckers.debugIsRelativityDimension;
+import plaidio.filesystem.validity.valid.relativity.statecheckers.debugIsNonRelative;
+import plaidio.filesystem.validity.valid.relativity.statecheckers.debugIsRelative;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SR-22
-	DESC:	Test plaidio.filesystem.validity.valid.existency package's features
+	CID:	TC-SR-26
+	DESC:	Test plaidio.filesystem.validity.valid.relativity package's features
 **/
-method void test_existency(immutable Boolean verbose)
+method void test_relativity(immutable Boolean verbose)
 {
-	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency package's features");
-	
-	testbed.makeTestCase("TC-TS-24 make an existent path", fn(tc) => {
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.relativity package's features");
+
+	testbed.makeTestCase("TC-TS-28 make a non-relative path", fn(tc) => {
 		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsNonExistent(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonRelative(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsRelative(o, verbose) == false; }, verbose);
 	});
 
-	testbed.makeTestCase("TC-TS-25 make a non-existent path", fn(tc) => {
-		val unique Path o = makePath(java.lang.System.getProperty("user.dir") + separator()+ "foo");
+	testbed.makeTestCase("TC-TS-29 make a relative path", fn(tc) => {
+		val unique Path o = makePath("foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistent(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonRelative(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsRelative(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

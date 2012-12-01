@@ -27,6 +27,8 @@
 **/
 package plaidio.filesystem.validity.valid;
 
+import com.akefirad.plaid.testing.makeTestBed;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TC-SR-18
@@ -34,4 +36,7 @@ package plaidio.filesystem.validity.valid;
 **/
 method void test_valid(immutable Boolean verbose)
 {
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid package's features");
+
+	testbed.runTestCases(verbose);
 }

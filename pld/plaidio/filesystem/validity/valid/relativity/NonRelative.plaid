@@ -19,28 +19,32 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-112211
+	CID:	SR-26
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	Absolute.plaid
+	DESC:	"NonRelative" subtypes of "RelativityDimension" typestate.
+	FILE:	NonRelative.plaid
 **/
 package plaidio.filesystem.validity.valid.relativity;
 
 import plaidio.filesystem.validity.valid.RelativityDimension;
+import plaidio.filesystem.validity.valid.relativity.nonrelative.i_NonRelative;
 
-/*------------------------------------------------------------------------------
+	/*------------------------------------------------------------------------------
 /**
-	CID:	TS-112211
-	DESC:	"Absolute" typestate which contains a absolute valid path.
+	CID:	TS-28
+	DESC:	"NonRelative" typestate which contains a non-relative valid path.
 **/
-state Absolute case of RelativityDimension
+state NonRelative case of RelativityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-1122110
+		CID:	ST-28.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeAbsolute() /*[shared Absolute >> shared Absolute this]*/
+	method void p_InitializeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 	{
+		this <- i_NonRelative;
+		p_Finalize();
 	}
-	//method void p_InitializeAbsolute() /*[shared Absolute >> shared Absolute this]*/
+	//method void p_InitializeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 }

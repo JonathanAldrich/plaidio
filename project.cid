@@ -106,12 +106,12 @@ SS-12	plaidio.filesystem
 								ST-112121120	p_InitializeNonCreatable()
 			TS-21		RelativityDimension
 				ST-21.1		p_InitializeRelativityDimension()
-				SR-11221	plaidio.filesystem.path.valid.relativity
-				TS-11220	i_Relativity
+				SR-26		plaidio.filesystem.path.valid.relativity
+				TS-27	i_Relativity
 					ST-112200	p_finalize()
 					ST-112201	p_MakeNonRelative()
 					ST-112202	p_MakeRelative()
-				TS-11221	NonRelative
+				TS-28	NonRelative
 					ST-112210	p_InitializeNonRelative()
 					ST-112211	p_MakeAbsolute()
 					ST-112212	p_MakeCanonical()
@@ -120,5 +120,5 @@ SS-12	plaidio.filesystem
 						ST-1122110	p_InitializeAbsolute()
 					TS-112212	Canonical
 						ST-1122120	p_InitializeCanonical()
-				TS-11222	Relative
+				TS-29	Relative
 					ST-112220	p_InitializeRelative()

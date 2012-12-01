@@ -19,9 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11221
+	CID:	SR-112211
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.relativity
-			for subtypes of "RelativityDimension" typestate.
-	FILE:	package.plaid
+	FILE:	Absolute.plaid
 **/
+package plaidio.filesystem.validity.valid.relativity.nonrelative;
+
+import plaidio.filesystem.validity.valid.relativity.NonRelative;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-112211
+	DESC:	"Absolute" typestate which contains a absolute valid path.
+**/
+state Absolute case of NonRelative
+{
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-1122110
+		DESC:	Checks all dimensions of the object.
+	**/
+	method void p_InitializeAbsolute() /*[shared Absolute >> shared Absolute this]*/
+	{
+	}
+	//method void p_InitializeAbsolute() /*[shared Absolute >> shared Absolute this]*/
+}
