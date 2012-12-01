@@ -36,9 +36,9 @@ method immutable TestBed makeTestBed()
 	/*return*/ new TestBed { p_TestCases = makeEmptyList(); };
 }
 
-method void debug(object)
+method void debug(object, immutable Boolean verbose)
 {
-	com.akefirad.plaid.PlaidHelper.debug(object);
+	if (verbose) { printLine(object); };
 }
 
 method trycatch(tryBlock, catchBlock, immutable String exception)

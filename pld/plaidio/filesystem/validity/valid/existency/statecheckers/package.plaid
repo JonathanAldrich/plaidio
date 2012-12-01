@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.statecheckers;
+
+import plaidio.filesystem.validity.valid.existency.Existent;
+import plaidio.filesystem.validity.valid.existency.NonExistent;
+
+method immutable Boolean isExistent(object) { match (object) { case Existent { true; } default { false; } }; }
+method immutable Boolean isNonExistent(object) { match (object) { case NonExistent { true; } default { false; } }; }
+
+method immutable Boolean debugIsExistent(object, immutable Boolean verbose) { ifElse (isExistent(object)) { if (verbose) { printLine("The object is Existent"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Existent"); }; false; }; }
+method immutable Boolean debugIsNonExistent(object, immutable Boolean verbose) { ifElse (isNonExistent(object)) { if (verbose) { printLine("The object is NonExistent"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExistent"); }; false; }; }

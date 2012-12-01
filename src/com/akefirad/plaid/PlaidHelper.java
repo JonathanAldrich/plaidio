@@ -58,9 +58,8 @@ public class PlaidHelper {
 		return result;
 	}
 
-	public static void buildStateCheckers(String packagePath) throws IOException {
-        File packageFolder = new File(packagePath);
-        if (packageFolder.exists() && packageFolder.isDirectory()) {
+	public static void buildStateCheckers(File packageFolder, String baseFolder) throws IOException {
+        if (packageFolder.exists() && packageFolder.isDirectory() && packageFolder.getAbsolutePath().endsWith("statecheckers") == false) {
             File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "statecheckers");
             if (statecheckersFolder.exists() == false) {
                 statecheckersFolder.mkdir();
@@ -83,10 +82,10 @@ public class PlaidHelper {
                 File packageplaidFile = new File(statecheckersFolder.getAbsoluteFile(), "package.plaid");
                 packageplaidFile.createNewFile();
                 StringBuilder sb = new StringBuilder();
-                sb.append("package ").append(rootPackageName).append(".").append(statecheckersFolder.getName()).append(";\n\n");
+                sb.append("package ").append(rootPackagePath.replace(baseFolder + "\\", "").replace("\\", ".")).append("." + statecheckersFolder.getName()).append(";\n\n");
                 for (int i = 0; i < states.size(); i++) {
                     File f = states.get(i);
-                    String stateQualifiedName = f.getAbsolutePath().replace(rootPackagePath, rootPackageName).replace(".plaid", "").replace("\\", ".");
+                    String stateQualifiedName = f.getAbsolutePath().replace(baseFolder + "\\", "").replace(".plaid", "").replace("\\", ".");
                     sb.append("import ").append(stateQualifiedName).append(";\n");
                 }
 
@@ -95,37 +94,22 @@ public class PlaidHelper {
                 for (int i = 0; i < states.size(); i++) {
                     File f = states.get(i);
                     String state = f.getName().replace(".plaid", "");
-                    sb.append("method immutable Boolean is").append(state).append("(v) { match (v) { case ").append(state).append(" { true; } default { false; } }; }\n");
+                    sb.append("method immutable Boolean is").append(state).append("(object) { match (object) { case ").append(state).append(" { true; } default { false; } }; }\n");
+                }
+                
+                sb.append("\n");
+
+                for (int i = 0; i < states.size(); i++) {
+                    File f = states.get(i);
+                    String state = f.getName().replace(".plaid", "");
+                    sb.append("method immutable Boolean debugIs").append(state).append("(object, immutable Boolean verbose) { ifElse (is").append(state).append("(object)) { if (verbose) { printLine(\"The object is ").append(state).append("\"); }; true; } /*else*/ { if (verbose) { printLine(\"The object is NOT ").append(state).append("\"); }; false; }; }\n");
                 }
                 
                 FileWriter fw = new FileWriter(packageplaidFile);
                 fw.append(sb.toString());
                 fw.flush();
-                fw.close();
+                fw.close();                
             }
-        }
-    }
-
-    public static ArrayList<File> getStateFiles(File packageFolder) throws IOException {
-        ArrayList<File> states = new ArrayList<File>();
-        if (packageFolder.exists() && packageFolder.isDirectory()) {
-            // List plaid files
-            File[] files = packageFolder.listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File file) {
-                    String n = file.getName();
-                    if (file.isFile() && n.endsWith(".plaid")) {
-                        boolean isPackage = n.equals("package.plaid");
-                        boolean isMain = n.equals("main.plaid");
-                        boolean isTesting = n.startsWith("_");
-                        return ((isPackage || isMain || isTesting) ? false : true);
-                    } else {
-                        return false;
-                    }
-                }
-            });
-            states.addAll(Arrays.asList(files));
-
             // List sub-folders
             File[] folders = packageFolder.listFiles(new FileFilter() {
                 @Override
@@ -138,14 +122,32 @@ public class PlaidHelper {
                 }
             });
 
-            // Get StateFiles for each sub-folder and add them into state list
+            // Build statecheckers for sub-folders
             for (int i = 0; i < folders.length; i++) {
-                states.addAll(getStateFiles(folders[i]));
+            	buildStateCheckers(folders[i], baseFolder);
             }
-
-            return states;
-        } else {
-            throw new IOException("The argument is not a valid folder.");
         }
+    }
+
+    private static ArrayList<File> getStateFiles(File packageFolder) throws IOException {
+        ArrayList<File> states = new ArrayList<File>();
+        // List plaid files
+        File[] files = packageFolder.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File file) {
+                String n = file.getName();
+                if (file.isFile() && n.endsWith(".plaid")) {
+                    boolean isPackage = n.equals("package.plaid");
+                    boolean isMain = n.equals("main.plaid");
+                    boolean isInitializing = n.startsWith("i_");
+                    return ((isPackage || isMain || isInitializing) ? false : true);
+                } else {
+                    return false;
+                }
+            }
+        });
+        states.addAll(Arrays.asList(files));
+
+        return states;
     }
 }

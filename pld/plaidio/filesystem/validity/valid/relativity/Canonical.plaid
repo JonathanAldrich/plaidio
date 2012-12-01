@@ -23,16 +23,16 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Canonical.plaid
 **/
-package plaidio.filesystem.validity.valid.relativity.nonrelative;
+package plaidio.filesystem.validity.valid.relativity;
 
-import plaidio.filesystem.validity.valid.relativity.NonRelative;
+import plaidio.filesystem.validity.valid.RelativityDimension;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-112212
 	DESC:	"Canonical" typestate which contains a canonical valid path.
 **/
-state Canonical case of NonRelative
+state Canonical case of RelativityDimension
 {
 	//-----------------------------------------------------------------------------
 	/**

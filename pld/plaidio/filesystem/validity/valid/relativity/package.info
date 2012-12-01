@@ -19,9 +19,9 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-11211
+	CID:	SR-11221
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package plaidio.filesystem.validity.valid.relativity
-			contains sub-typestates of "NonRelative" typestate.
-	FILE:	_package.info
+			for subtypes of "RelativityDimension" typestate.
+	FILE:	package.plaid
 **/

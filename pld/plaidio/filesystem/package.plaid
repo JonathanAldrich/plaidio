@@ -26,12 +26,13 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.statecheckers.isPath;
-import plaidio.statecheckers.isValid;
-import plaidio.statecheckers.isInvalid;
+import plaidio.statecheckers.debugIsPath;
+import plaidio.statecheckers.debugIsValid;
+import plaidio.statecheckers.debugIsInvalid;
 
-import com.akefirad.plaid.statecheckers.isString;
-import com.akefirad.plaid.statecheckers.isCharacter;
+import com.akefirad.plaid.statecheckers.debugIsString;
+import com.akefirad.plaid.statecheckers.debugIsCharacter;
+
 import com.akefirad.plaid.testing.debug;
 import com.akefirad.plaid.testing.makeTestBed;
 import com.akefirad.plaid.testing.makeTestCase;
@@ -100,63 +101,63 @@ method void test_filesystem(immutable Boolean verbose)
 	
 	testcase = makeTestCase("TC-ST-11 pathSeparator()", fn(tc) => {
 		val immutable String v = pathSeparator();
-		debug("'" + v + "'");
-		ifElse (isString(v)) { debug("The object is String!"); } /*else*/ { debug("The object is NOT String!"); tc.fail(verbose); };
+		debug("'" + v + "'", verbose);
+		tc.assert(fn() => { debugIsString(v, verbose); }, verbose);
 	});
 	testbed.addTestCase(testcase);
 
-	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
-		val immutable Character v = pathSeparatorChar();
-		debug("'" + v + "'");
-		ifElse (isCharacter(v)) { debug("The object is Character!"); } /*else*/ { debug("The object is NOT Character!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
+//	testcase = makeTestCase("TC-ST-12 pathSeparatorChar()", fn(tc) => {
+//		val immutable Character v = pathSeparatorChar();
+//		debug("'" + v + "'", verbose);
+//		tc.assert(fn() => debugIsCharacter(v, verbose));
+//	});
+//	testbed.addTestCase(testcase);
+//	
+//	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
+//		val immutable String v = separator();
+//		debug("'" + v + "'", verbose);
+//		tc.assert(fn() => { debugIsString(v, verbose); });
+//	});
+//	testbed.addTestCase(testcase);
+//	
+//	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
+//		val immutable Character v = separatorChar();
+//		debug("'" + v + "'", verbose);
+//		tc.assert(fn() => debugIsCharacter(v, verbose));
+//	});
+//	testbed.addTestCase(testcase);
+//	
+//	testcase = makeTestCase("TC-TS-11 make a path", fn(tc) => {
+//		val unique Path v = makePath("foo");
+//		debug("'" + v + "'", verbose);
+//		tc.assert(fn() => debugIsPath(v, verbose));
+//	});
+//	testbed.addTestCase(testcase);
 	
-	testcase = makeTestCase("TC-ST-13 separator()", fn(tc) => {
-		val immutable String v = separator();
-		debug("'" + v + "'");
-		ifElse (isString(v)) { debug("The object is String!"); } /*else*/ { debug("The object is NOT String!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
-	
-	testcase = makeTestCase("TC-ST-14 separatorChar()", fn(tc) => {
-		val immutable Character v = separatorChar();
-		debug("'" + v + "'");
-		ifElse (isCharacter(v)) { debug("The object is Character!"); } /*else*/ { debug("The object is NOT Character!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
-	
-	testcase = makeTestCase("TC-TS-11 make a path", fn(tc) => {
-		val unique Path v = makePath("foo");
-		debug("'" + v + "'");
-		ifElse (isPath(v)) { debug("The object is Path!"); } /*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
-	
-	testcase = makeTestCase("TC-TS-111 make an invalid path (WINDOWS)", fn(tc) => {
-		ifElse(java.lang.System.getProperty("os.name").contains("Windows"))
-		{
-			val unique Path v = makePath("con");
-			debug("'" + v + "'");
-			ifElse (isPath(v))		{ debug("The object is Path!"); }						/*else*/ { debug("The object is NOT Path!"); tc.fail(verbose); };
-			ifElse (isInvalid(v))	{ debug("The object is Invalid!"); }					/*else*/ { debug("The object is NOT Invalid!"); tc.fail(verbose); };
-			ifElse (isValid(v))		{ debug("The object is Valid!"); tc.fail(verbose); }	/*else*/ { debug("The object is NOT Valid!"); };
-		}
-		/*else*/
-		{
-			debug("Warning: this test case is not applicable for non-windows OSs.");
-		}
-	});
-	testbed.addTestCase(testcase);
-
-	testcase = makeTestCase("TC-TS-112 make a valid path", fn(tc) => {
-		val unique Path v = makePath("foo");
-		debug("'" + v + "'");
-		ifElse (isPath(v))		{ debug("The object is Path!"); }						/*else*/ { debug("The object is not Path!"); tc.fail(verbose); };
-		ifElse (isInvalid(v))	{ debug("The object is Invalid!"); tc.fail(verbose); }	/*else*/ { debug("The object is not Invalid!"); };
-		ifElse (isValid(v))		{ debug("The object is Valid!"); }						/*else*/ { debug("The object is not Valid!"); tc.fail(verbose); };
-	});
-	testbed.addTestCase(testcase);
-
+//	testcase = makeTestCase("TC-TS-111 make an invalid path (WINDOWS)", fn(tc) => {
+//		ifElse(java.lang.System.getProperty("os.name").contains("Windows"))
+//		{
+//			val unique Path v = makePath("con");
+//			debug("'" + v + "'", verbose);
+//			debugIsPath(v, verbose);
+//			debugIsInvalid(v, verbose);
+//			debugIsValid(v, verbose);
+//		}
+//		/*else*/
+//		{
+//			debug("Warning: this test case is not applicable for non-windows OSs.", verbose);
+//		}
+//	});
+//	testbed.addTestCase(testcase);
+//
+//	testcase = makeTestCase("TC-TS-112 make a valid path", fn(tc) => {
+//		val unique Path v = makePath("foo");
+//		debug("'" + v + "'", verbose);
+//		debugIsPath(v, verbose);
+//		debugIsInvalid(v, verbose);
+//		debugIsValid(v, verbose);
+//	});
+//	testbed.addTestCase(testcase);
+//
 	testbed.runTestCases(verbose);
 }

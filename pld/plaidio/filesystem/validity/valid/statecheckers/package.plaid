@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.statecheckers;
+
+import plaidio.filesystem.validity.valid.ExistencyDimension;
+import plaidio.filesystem.validity.valid.RelativityDimension;
+
+method immutable Boolean isExistencyDimension(object) { match (object) { case ExistencyDimension { true; } default { false; } }; }
+method immutable Boolean isRelativityDimension(object) { match (object) { case RelativityDimension { true; } default { false; } }; }
+
+method immutable Boolean debugIsExistencyDimension(object, immutable Boolean verbose) { ifElse (isExistencyDimension(object)) { if (verbose) { printLine("The object is ExistencyDimension"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExistencyDimension"); }; false; }; }
+method immutable Boolean debugIsRelativityDimension(object, immutable Boolean verbose) { ifElse (isRelativityDimension(object)) { if (verbose) { printLine("The object is RelativityDimension"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT RelativityDimension"); }; false; }; }

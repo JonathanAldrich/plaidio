@@ -1,0 +1,7 @@
+package plaidio.filesystem.statecheckers;
+
+import plaidio.filesystem.Path;
+
+method immutable Boolean isPath(object) { match (object) { case Path { true; } default { false; } }; }
+
+method immutable Boolean debugIsPath(object, immutable Boolean verbose) { ifElse (isPath(object)) { if (verbose) { printLine("The object is Path"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Path"); }; false; }; }

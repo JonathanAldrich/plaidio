@@ -45,9 +45,16 @@ state i_Relativity case of RelativityDimension
 	{
 		ifElse (j_File.isAbsolute())
 		{
-			p_MakeNonRelative();
+			ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
+			{
+				p_MakeCanonical();
+			}
+			/*else*/
+			{
+				p_MakeAbsolute();
+			}
 		}
-		//else
+		/*else*/
 		{
 			p_MakeRelative();
 		}
@@ -56,15 +63,27 @@ state i_Relativity case of RelativityDimension
 
 	/*-----------------------------------------------------------------------------
 	/**
-		CID:	ST-112201
-		DESC:	Makes the object NonRelative.
+		CID:	ST-112211
+		DESC:	Makes the object Absolute.
 	**/
-	method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
+	method void p_MakeAbsolute() /*[shared i_Relativity >> shared Absolute this]*/
 	{
-		this <- NonRelative;
-		p_InitializeNonRelative();
+		this <- Absolute;
+		p_InitializeAbsolute();
 	}
-	//method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
+	//method void p_MakeExistent() /*[shared i_Relativity >> shared Absolute this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-112212
+		DESC:	Makes the object Canonical.
+	**/
+	method void p_MakeCanonical() /*[shared i_Relativity >> shared Canonical this]*/
+	{
+		this <- Canonical;
+		p_InitializeCanonical();
+	}
+	//method void p_MakeFolder() /*[shared i_Relativity >> shared Canonical this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

@@ -1,57 +1,136 @@
 package com.akefirad.plaid.statecheckers;
 
 method immutable Boolean isString(v) { match (v) { case String { true; } default { false; } }; }
+method immutable Boolean debugIsString(object, immutable Boolean verbose) { ifElse (isString(object)) { if (verbose) { printLine("The object is String"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT String"); }; false; }; }
 
 // plaid.collection 2762:b17367e99a32@default
-method immutable Boolean isAANode(v) { match (v) { case AANode { true; } default { false; } }; }
-method immutable Boolean isAATree(v) { match (v) { case AATree { true; } default { false; } }; }
-method immutable Boolean isArray(v) { match (v) { case Array { true; } default { false; } }; }
-method immutable Boolean isCollection(v) { match (v) { case Collection { true; } default { false; } }; }
-method immutable Boolean isEndOfListNode(v) { match (v) { case EndOfListNode { true; } default { false; } }; }
-method immutable Boolean isHashProvider(v) { match (v) { case HashProvider { true; } default { false; } }; }
-method immutable Boolean isLinkedList(v) { match (v) { case LinkedList { true; } default { false; } }; }
-method immutable Boolean isListNode(v) { match (v) { case ListNode { true; } default { false; } }; }
-method immutable Boolean isListValueNode(v) { match (v) { case ListValueNode { true; } default { false; } }; }
-method immutable Boolean isMap(v) { match (v) { case Map { true; } default { false; } }; }
-method immutable Boolean isMapWithDefault(v) { match (v) { case MapWithDefault { true; } default { false; } }; }
-method immutable Boolean isMutableCollection(v) { match (v) { case MutableCollection { true; } default { false; } }; }
-method immutable Boolean isMutableMap(v) { match (v) { case MutableMap { true; } default { false; } }; }
-method immutable Boolean isSet(v) { match (v) { case Set { true; } default { false; } }; }
-method immutable Boolean isTreeMap(v) { match (v) { case TreeMap { true; } default { false; } }; }
-method immutable Boolean isTreeSet(v) { match (v) { case TreeSet { true; } default { false; } }; }
+method immutable Boolean isAANode(object) { match (object) { case AANode { true; } default { false; } }; }
+method immutable Boolean isAANodeTest(object) { match (object) { case AANodeTest { true; } default { false; } }; }
+method immutable Boolean isAATree(object) { match (object) { case AATree { true; } default { false; } }; }
+method immutable Boolean isAATreeTest(object) { match (object) { case AATreeTest { true; } default { false; } }; }
+method immutable Boolean isArray(object) { match (object) { case Array { true; } default { false; } }; }
+method immutable Boolean isArrayTest(object) { match (object) { case ArrayTest { true; } default { false; } }; }
+method immutable Boolean isCollection(object) { match (object) { case Collection { true; } default { false; } }; }
+method immutable Boolean isEndOfListNode(object) { match (object) { case EndOfListNode { true; } default { false; } }; }
+method immutable Boolean isHashProvider(object) { match (object) { case HashProvider { true; } default { false; } }; }
+method immutable Boolean isLinkedList(object) { match (object) { case LinkedList { true; } default { false; } }; }
+method immutable Boolean isLinkedListTest(object) { match (object) { case LinkedListTest { true; } default { false; } }; }
+method immutable Boolean isListNode(object) { match (object) { case ListNode { true; } default { false; } }; }
+method immutable Boolean isListValueNode(object) { match (object) { case ListValueNode { true; } default { false; } }; }
+method immutable Boolean isMap(object) { match (object) { case Map { true; } default { false; } }; }
+method immutable Boolean isMapWithDefault(object) { match (object) { case MapWithDefault { true; } default { false; } }; }
+method immutable Boolean isMutableCollection(object) { match (object) { case MutableCollection { true; } default { false; } }; }
+method immutable Boolean isMutableMap(object) { match (object) { case MutableMap { true; } default { false; } }; }
+method immutable Boolean isSet(object) { match (object) { case Set { true; } default { false; } }; }
+method immutable Boolean isTreeMap(object) { match (object) { case TreeMap { true; } default { false; } }; }
+method immutable Boolean isTreeSet(object) { match (object) { case TreeSet { true; } default { false; } }; }
+
+method immutable Boolean debugIsAANode(object, immutable Boolean verbose) { ifElse (isAANode(object)) { if (verbose) { printLine("The object is AANode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AANode"); }; false; }; }
+method immutable Boolean debugIsAANodeTest(object, immutable Boolean verbose) { ifElse (isAANodeTest(object)) { if (verbose) { printLine("The object is AANodeTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AANodeTest"); }; false; }; }
+method immutable Boolean debugIsAATree(object, immutable Boolean verbose) { ifElse (isAATree(object)) { if (verbose) { printLine("The object is AATree"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AATree"); }; false; }; }
+method immutable Boolean debugIsAATreeTest(object, immutable Boolean verbose) { ifElse (isAATreeTest(object)) { if (verbose) { printLine("The object is AATreeTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AATreeTest"); }; false; }; }
+method immutable Boolean debugIsArray(object, immutable Boolean verbose) { ifElse (isArray(object)) { if (verbose) { printLine("The object is Array"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Array"); }; false; }; }
+method immutable Boolean debugIsArrayTest(object, immutable Boolean verbose) { ifElse (isArrayTest(object)) { if (verbose) { printLine("The object is ArrayTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ArrayTest"); }; false; }; }
+method immutable Boolean debugIsCollection(object, immutable Boolean verbose) { ifElse (isCollection(object)) { if (verbose) { printLine("The object is Collection"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Collection"); }; false; }; }
+method immutable Boolean debugIsEndOfListNode(object, immutable Boolean verbose) { ifElse (isEndOfListNode(object)) { if (verbose) { printLine("The object is EndOfListNode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT EndOfListNode"); }; false; }; }
+method immutable Boolean debugIsHashProvider(object, immutable Boolean verbose) { ifElse (isHashProvider(object)) { if (verbose) { printLine("The object is HashProvider"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT HashProvider"); }; false; }; }
+method immutable Boolean debugIsLinkedList(object, immutable Boolean verbose) { ifElse (isLinkedList(object)) { if (verbose) { printLine("The object is LinkedList"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT LinkedList"); }; false; }; }
+method immutable Boolean debugIsLinkedListTest(object, immutable Boolean verbose) { ifElse (isLinkedListTest(object)) { if (verbose) { printLine("The object is LinkedListTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT LinkedListTest"); }; false; }; }
+method immutable Boolean debugIsListNode(object, immutable Boolean verbose) { ifElse (isListNode(object)) { if (verbose) { printLine("The object is ListNode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ListNode"); }; false; }; }
+method immutable Boolean debugIsListValueNode(object, immutable Boolean verbose) { ifElse (isListValueNode(object)) { if (verbose) { printLine("The object is ListValueNode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ListValueNode"); }; false; }; }
+method immutable Boolean debugIsMap(object, immutable Boolean verbose) { ifElse (isMap(object)) { if (verbose) { printLine("The object is Map"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Map"); }; false; }; }
+method immutable Boolean debugIsMapWithDefault(object, immutable Boolean verbose) { ifElse (isMapWithDefault(object)) { if (verbose) { printLine("The object is MapWithDefault"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT MapWithDefault"); }; false; }; }
+method immutable Boolean debugIsMutableCollection(object, immutable Boolean verbose) { ifElse (isMutableCollection(object)) { if (verbose) { printLine("The object is MutableCollection"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT MutableCollection"); }; false; }; }
+method immutable Boolean debugIsMutableMap(object, immutable Boolean verbose) { ifElse (isMutableMap(object)) { if (verbose) { printLine("The object is MutableMap"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT MutableMap"); }; false; }; }
+method immutable Boolean debugIsSet(object, immutable Boolean verbose) { ifElse (isSet(object)) { if (verbose) { printLine("The object is Set"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Set"); }; false; }; }
+method immutable Boolean debugIsTreeMap(object, immutable Boolean verbose) { ifElse (isTreeMap(object)) { if (verbose) { printLine("The object is TreeMap"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT TreeMap"); }; false; }; }
+method immutable Boolean debugIsTreeSet(object, immutable Boolean verbose) { ifElse (isTreeSet(object)) { if (verbose) { printLine("The object is TreeSet"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT TreeSet"); }; false; }; }
 
 // plaid.lang 2762:b17367e99a32@default
-method immutable Boolean isBoolean(v) { match (v) { case Boolean { true; } default { false; } }; }
-method immutable Boolean isCharacter(v) { match (v) { case Character { true; } default { false; } }; }
-method immutable Boolean isComparable(v) { match (v) { case Comparable { true; } default { false; } }; }
-method immutable Boolean isCons(v) { match (v) { case Cons { true; } default { false; } }; }
-method immutable Boolean isDecimal(v) { match (v) { case Decimal { true; } default { false; } }; }
-method immutable Boolean isFalse(v) { match (v) { case False { true; } default { false; } }; }
-method immutable Boolean isFloat32(v) { match (v) { case Float32 { true; } default { false; } }; }
-method immutable Boolean isFloat64(v) { match (v) { case Float64 { true; } default { false; } }; }
-method immutable Boolean isHashable(v) { match (v) { case Hashable { true; } default { false; } }; }
-method immutable Boolean isInt16(v) { match (v) { case Int16 { true; } default { false; } }; }
-method immutable Boolean isInt32(v) { match (v) { case Int32 { true; } default { false; } }; }
-method immutable Boolean isInt64(v) { match (v) { case Int64 { true; } default { false; } }; }
-method immutable Boolean isInt8(v) { match (v) { case Int8 { true; } default { false; } }; }
-method immutable Boolean isInteger(v) { match (v) { case Integer { true; } default { false; } }; }
-method immutable Boolean isList(v) { match (v) { case List { true; } default { false; } }; }
-method immutable Boolean isListCell(v) { match (v) { case ListCell { true; } default { false; } }; }
-method immutable Boolean isNativeNumber(v) { match (v) { case NativeNumber { true; } default { false; } }; }
-method immutable Boolean isNil(v) { match (v) { case Nil { true; } default { false; } }; }
-method immutable Boolean isNone(v) { match (v) { case None { true; } default { false; } }; }
-method immutable Boolean isNumber(v) { match (v) { case Number { true; } default { false; } }; }
-method immutable Boolean isOption(v) { match (v) { case Option { true; } default { false; } }; }
-method immutable Boolean isOrdEqual(v) { match (v) { case OrdEqual { true; } default { false; } }; }
-method immutable Boolean isOrderable(v) { match (v) { case Orderable { true; } default { false; } }; }
-method immutable Boolean isOrdering(v) { match (v) { case Ordering { true; } default { false; } }; }
-method immutable Boolean isOrderProvider(v) { match (v) { case OrderProvider { true; } default { false; } }; }
-method immutable Boolean isOrdGreaterThan(v) { match (v) { case OrdGreaterThan { true; } default { false; } }; }
-method immutable Boolean isOrdLessThan(v) { match (v) { case OrdLessThan { true; } default { false; } }; }
-method immutable Boolean isPair(v) { match (v) { case Pair { true; } default { false; } }; }
-method immutable Boolean isPrintable(v) { match (v) { case Printable { true; } default { false; } }; }
-method immutable Boolean isRational(v) { match (v) { case Rational { true; } default { false; } }; }
-method immutable Boolean isSome(v) { match (v) { case Some { true; } default { false; } }; }
-method immutable Boolean isStack(v) { match (v) { case Stack { true; } default { false; } }; }
-method immutable Boolean isTrue(v) { match (v) { case True { true; } default { false; } }; }
-method immutable Boolean isWhile(v) { match (v) { case While { true; } default { false; } }; }
+method immutable Boolean isBoolean(object) { match (object) { case Boolean { true; } default { false; } }; }
+method immutable Boolean isBooleanTest(object) { match (object) { case BooleanTest { true; } default { false; } }; }
+method immutable Boolean isCharacter(object) { match (object) { case Character { true; } default { false; } }; }
+method immutable Boolean isCharacterTest(object) { match (object) { case CharacterTest { true; } default { false; } }; }
+method immutable Boolean isComparable(object) { match (object) { case Comparable { true; } default { false; } }; }
+method immutable Boolean isCons(object) { match (object) { case Cons { true; } default { false; } }; }
+method immutable Boolean isDecimal(object) { match (object) { case Decimal { true; } default { false; } }; }
+method immutable Boolean isFalse(object) { match (object) { case False { true; } default { false; } }; }
+method immutable Boolean isFloat32(object) { match (object) { case Float32 { true; } default { false; } }; }
+method immutable Boolean isFloat64(object) { match (object) { case Float64 { true; } default { false; } }; }
+method immutable Boolean isHashable(object) { match (object) { case Hashable { true; } default { false; } }; }
+method immutable Boolean isInt16(object) { match (object) { case Int16 { true; } default { false; } }; }
+method immutable Boolean isInt16Test(object) { match (object) { case Int16Test { true; } default { false; } }; }
+method immutable Boolean isInt32(object) { match (object) { case Int32 { true; } default { false; } }; }
+method immutable Boolean isInt32Test(object) { match (object) { case Int32Test { true; } default { false; } }; }
+method immutable Boolean isInt64(object) { match (object) { case Int64 { true; } default { false; } }; }
+method immutable Boolean isInt64Test(object) { match (object) { case Int64Test { true; } default { false; } }; }
+method immutable Boolean isInt8(object) { match (object) { case Int8 { true; } default { false; } }; }
+method immutable Boolean isInt8Test(object) { match (object) { case Int8Test { true; } default { false; } }; }
+method immutable Boolean isInteger(object) { match (object) { case Integer { true; } default { false; } }; }
+method immutable Boolean isIntegerTest(object) { match (object) { case IntegerTest { true; } default { false; } }; }
+method immutable Boolean isJavaInteropTest(object) { match (object) { case JavaInteropTest { true; } default { false; } }; }
+method immutable Boolean isList(object) { match (object) { case List { true; } default { false; } }; }
+method immutable Boolean isListCell(object) { match (object) { case ListCell { true; } default { false; } }; }
+method immutable Boolean isNativeNumber(object) { match (object) { case NativeNumber { true; } default { false; } }; }
+method immutable Boolean isNil(object) { match (object) { case Nil { true; } default { false; } }; }
+method immutable Boolean isNone(object) { match (object) { case None { true; } default { false; } }; }
+method immutable Boolean isNumber(object) { match (object) { case Number { true; } default { false; } }; }
+method immutable Boolean isOption(object) { match (object) { case Option { true; } default { false; } }; }
+method immutable Boolean isOptionTest(object) { match (object) { case OptionTest { true; } default { false; } }; }
+method immutable Boolean isOrdEqual(object) { match (object) { case OrdEqual { true; } default { false; } }; }
+method immutable Boolean isOrderable(object) { match (object) { case Orderable { true; } default { false; } }; }
+method immutable Boolean isOrdering(object) { match (object) { case Ordering { true; } default { false; } }; }
+method immutable Boolean isOrderProvider(object) { match (object) { case OrderProvider { true; } default { false; } }; }
+method immutable Boolean isOrdGreaterThan(object) { match (object) { case OrdGreaterThan { true; } default { false; } }; }
+method immutable Boolean isOrdLessThan(object) { match (object) { case OrdLessThan { true; } default { false; } }; }
+method immutable Boolean isPair(object) { match (object) { case Pair { true; } default { false; } }; }
+method immutable Boolean isPrintable(object) { match (object) { case Printable { true; } default { false; } }; }
+method immutable Boolean isRational(object) { match (object) { case Rational { true; } default { false; } }; }
+method immutable Boolean isSome(object) { match (object) { case Some { true; } default { false; } }; }
+method immutable Boolean isStack(object) { match (object) { case Stack { true; } default { false; } }; }
+method immutable Boolean isTrue(object) { match (object) { case True { true; } default { false; } }; }
+method immutable Boolean isWhile(object) { match (object) { case While { true; } default { false; } }; }
+
+method immutable Boolean debugIsBoolean(object, immutable Boolean verbose) { ifElse (isBoolean(object)) { if (verbose) { printLine("The object is Boolean"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Boolean"); }; false; }; }
+method immutable Boolean debugIsBooleanTest(object, immutable Boolean verbose) { ifElse (isBooleanTest(object)) { if (verbose) { printLine("The object is BooleanTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT BooleanTest"); }; false; }; }
+method immutable Boolean debugIsCharacter(object, immutable Boolean verbose) { ifElse (isCharacter(object)) { if (verbose) { printLine("The object is Character"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Character"); }; false; }; }
+method immutable Boolean debugIsCharacterTest(object, immutable Boolean verbose) { ifElse (isCharacterTest(object)) { if (verbose) { printLine("The object is CharacterTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT CharacterTest"); }; false; }; }
+method immutable Boolean debugIsComparable(object, immutable Boolean verbose) { ifElse (isComparable(object)) { if (verbose) { printLine("The object is Comparable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Comparable"); }; false; }; }
+method immutable Boolean debugIsCons(object, immutable Boolean verbose) { ifElse (isCons(object)) { if (verbose) { printLine("The object is Cons"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Cons"); }; false; }; }
+method immutable Boolean debugIsDecimal(object, immutable Boolean verbose) { ifElse (isDecimal(object)) { if (verbose) { printLine("The object is Decimal"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Decimal"); }; false; }; }
+method immutable Boolean debugIsFalse(object, immutable Boolean verbose) { ifElse (isFalse(object)) { if (verbose) { printLine("The object is False"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT False"); }; false; }; }
+method immutable Boolean debugIsFloat32(object, immutable Boolean verbose) { ifElse (isFloat32(object)) { if (verbose) { printLine("The object is Float32"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Float32"); }; false; }; }
+method immutable Boolean debugIsFloat64(object, immutable Boolean verbose) { ifElse (isFloat64(object)) { if (verbose) { printLine("The object is Float64"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Float64"); }; false; }; }
+method immutable Boolean debugIsHashable(object, immutable Boolean verbose) { ifElse (isHashable(object)) { if (verbose) { printLine("The object is Hashable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Hashable"); }; false; }; }
+method immutable Boolean debugIsInt16(object, immutable Boolean verbose) { ifElse (isInt16(object)) { if (verbose) { printLine("The object is Int16"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int16"); }; false; }; }
+method immutable Boolean debugIsInt16Test(object, immutable Boolean verbose) { ifElse (isInt16Test(object)) { if (verbose) { printLine("The object is Int16Test"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int16Test"); }; false; }; }
+method immutable Boolean debugIsInt32(object, immutable Boolean verbose) { ifElse (isInt32(object)) { if (verbose) { printLine("The object is Int32"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int32"); }; false; }; }
+method immutable Boolean debugIsInt32Test(object, immutable Boolean verbose) { ifElse (isInt32Test(object)) { if (verbose) { printLine("The object is Int32Test"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int32Test"); }; false; }; }
+method immutable Boolean debugIsInt64(object, immutable Boolean verbose) { ifElse (isInt64(object)) { if (verbose) { printLine("The object is Int64"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int64"); }; false; }; }
+method immutable Boolean debugIsInt64Test(object, immutable Boolean verbose) { ifElse (isInt64Test(object)) { if (verbose) { printLine("The object is Int64Test"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int64Test"); }; false; }; }
+method immutable Boolean debugIsInt8(object, immutable Boolean verbose) { ifElse (isInt8(object)) { if (verbose) { printLine("The object is Int8"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int8"); }; false; }; }
+method immutable Boolean debugIsInt8Test(object, immutable Boolean verbose) { ifElse (isInt8Test(object)) { if (verbose) { printLine("The object is Int8Test"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int8Test"); }; false; }; }
+method immutable Boolean debugIsInteger(object, immutable Boolean verbose) { ifElse (isInteger(object)) { if (verbose) { printLine("The object is Integer"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Integer"); }; false; }; }
+method immutable Boolean debugIsIntegerTest(object, immutable Boolean verbose) { ifElse (isIntegerTest(object)) { if (verbose) { printLine("The object is IntegerTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT IntegerTest"); }; false; }; }
+method immutable Boolean debugIsJavaInteropTest(object, immutable Boolean verbose) { ifElse (isJavaInteropTest(object)) { if (verbose) { printLine("The object is JavaInteropTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT JavaInteropTest"); }; false; }; }
+method immutable Boolean debugIsList(object, immutable Boolean verbose) { ifElse (isList(object)) { if (verbose) { printLine("The object is List"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT List"); }; false; }; }
+method immutable Boolean debugIsListCell(object, immutable Boolean verbose) { ifElse (isListCell(object)) { if (verbose) { printLine("The object is ListCell"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ListCell"); }; false; }; }
+method immutable Boolean debugIsNativeNumber(object, immutable Boolean verbose) { ifElse (isNativeNumber(object)) { if (verbose) { printLine("The object is NativeNumber"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NativeNumber"); }; false; }; }
+method immutable Boolean debugIsNil(object, immutable Boolean verbose) { ifElse (isNil(object)) { if (verbose) { printLine("The object is Nil"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Nil"); }; false; }; }
+method immutable Boolean debugIsNone(object, immutable Boolean verbose) { ifElse (isNone(object)) { if (verbose) { printLine("The object is None"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT None"); }; false; }; }
+method immutable Boolean debugIsNumber(object, immutable Boolean verbose) { ifElse (isNumber(object)) { if (verbose) { printLine("The object is Number"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Number"); }; false; }; }
+method immutable Boolean debugIsOption(object, immutable Boolean verbose) { ifElse (isOption(object)) { if (verbose) { printLine("The object is Option"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Option"); }; false; }; }
+method immutable Boolean debugIsOptionTest(object, immutable Boolean verbose) { ifElse (isOptionTest(object)) { if (verbose) { printLine("The object is OptionTest"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OptionTest"); }; false; }; }
+method immutable Boolean debugIsOrdEqual(object, immutable Boolean verbose) { ifElse (isOrdEqual(object)) { if (verbose) { printLine("The object is OrdEqual"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OrdEqual"); }; false; }; }
+method immutable Boolean debugIsOrderable(object, immutable Boolean verbose) { ifElse (isOrderable(object)) { if (verbose) { printLine("The object is Orderable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Orderable"); }; false; }; }
+method immutable Boolean debugIsOrdering(object, immutable Boolean verbose) { ifElse (isOrdering(object)) { if (verbose) { printLine("The object is Ordering"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Ordering"); }; false; }; }
+method immutable Boolean debugIsOrderProvider(object, immutable Boolean verbose) { ifElse (isOrderProvider(object)) { if (verbose) { printLine("The object is OrderProvider"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OrderProvider"); }; false; }; }
+method immutable Boolean debugIsOrdGreaterThan(object, immutable Boolean verbose) { ifElse (isOrdGreaterThan(object)) { if (verbose) { printLine("The object is OrdGreaterThan"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OrdGreaterThan"); }; false; }; }
+method immutable Boolean debugIsOrdLessThan(object, immutable Boolean verbose) { ifElse (isOrdLessThan(object)) { if (verbose) { printLine("The object is OrdLessThan"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OrdLessThan"); }; false; }; }
+method immutable Boolean debugIsPair(object, immutable Boolean verbose) { ifElse (isPair(object)) { if (verbose) { printLine("The object is Pair"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Pair"); }; false; }; }
+method immutable Boolean debugIsPrintable(object, immutable Boolean verbose) { ifElse (isPrintable(object)) { if (verbose) { printLine("The object is Printable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Printable"); }; false; }; }
+method immutable Boolean debugIsRational(object, immutable Boolean verbose) { ifElse (isRational(object)) { if (verbose) { printLine("The object is Rational"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Rational"); }; false; }; }
+method immutable Boolean debugIsSome(object, immutable Boolean verbose) { ifElse (isSome(object)) { if (verbose) { printLine("The object is Some"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Some"); }; false; }; }
+method immutable Boolean debugIsStack(object, immutable Boolean verbose) { ifElse (isStack(object)) { if (verbose) { printLine("The object is Stack"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Stack"); }; false; }; }
+method immutable Boolean debugIsTrue(object, immutable Boolean verbose) { ifElse (isTrue(object)) { if (verbose) { printLine("The object is True"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT True"); }; false; }; }
+method immutable Boolean debugIsWhile(object, immutable Boolean verbose) { ifElse (isWhile(object)) { if (verbose) { printLine("The object is While"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT While"); }; false; }; }

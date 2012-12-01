@@ -65,34 +65,14 @@ immutable state TestCase
 		CID:	ST-912
 		DESC:	Gets a function and asserts its result in this test case.
 	**/
-	method void assert(() -> immutable Boolean assertion)
+	method void assert(() -> immutable Boolean assertion, verbose)
 	{
-		p_Result = p_Result && assertion();
+		if (assertion() == false) { fail(verbose); };
 	}
 
 	//-----------------------------------------------------------------------------
 	/**
 		CID:	ST-913
-		DESC:	Gets a boolean expression and asserts it in this test case whether it is True.
-	**/
-	method void assertTrue(immutable Boolean assertion)
-	{
-		assert(fn() => { assertion; });
-	}
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-914
-		DESC:	Gets a boolean expression and asserts it in this test case whether it is False.
-	**/
-	method void assertFalse(immutable Boolean assertion)
-	{
-		assert(fn() => { !assertion; });
-	}
-
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-914
 		DESC:	Makes the test case failed.
 	**/
 	method void fail(immutable Boolean verbose)
