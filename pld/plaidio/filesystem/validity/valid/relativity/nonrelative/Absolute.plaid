@@ -26,6 +26,7 @@
 package plaidio.filesystem.validity.valid.relativity.nonrelative;
 
 import plaidio.filesystem.validity.valid.relativity.NonRelative;
+import plaidio.filesystem.validity.valid.relativity.nonrelative.Canonical;
 
 /*------------------------------------------------------------------------------
 /**
@@ -43,4 +44,17 @@ state Absolute case of NonRelative
 	{
 	}
 	//method void p_InitAbsolute() /*[shared Absolute >> shared Absolute this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-43.2
+		DESC:	Changes the object state into Canonical.
+	**/
+	method void makeCanonical() /*[unique Absolute >> unique Canonical this]*/
+	{
+		j_File = j_File.getCanonicalFile();
+		this <- Canonical;
+		p_InitCanonical();
+	}
+	//method void makeCanonical() /*[unique Absolute >> unique Canonical this]*/
 }

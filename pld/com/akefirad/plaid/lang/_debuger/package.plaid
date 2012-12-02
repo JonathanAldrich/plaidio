@@ -50,7 +50,7 @@ method immutable Boolean isCharacter(object) { match (object) { case Character {
 //method immutable Boolean isHashable(object) { match (object) { case Hashable { true; } default { false; } }; }
 //method immutable Boolean isInt16(object) { match (object) { case Int16 { true; } default { false; } }; }
 //method immutable Boolean isInt32(object) { match (object) { case Int32 { true; } default { false; } }; }
-//method immutable Boolean isInt64(object) { match (object) { case Int64 { true; } default { false; } }; }
+method immutable Boolean isInt64(object) { match (object) { case Int64 { true; } default { false; } }; }
 //method immutable Boolean isInt8(object) { match (object) { case Int8 { true; } default { false; } }; }
 //method immutable Boolean isInteger(object) { match (object) { case Integer { true; } default { false; } }; }
 //method immutable Boolean isList(object) { match (object) { case List { true; } default { false; } }; }
@@ -85,7 +85,7 @@ method immutable Boolean debugIsCharacter(object, immutable Boolean verbose) { i
 //method immutable Boolean debugIsHashable(object, immutable Boolean verbose) { ifElse (isHashable(object)) { if (verbose) { printLine("The object is Hashable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Hashable"); }; false; }; }
 //method immutable Boolean debugIsInt16(object, immutable Boolean verbose) { ifElse (isInt16(object)) { if (verbose) { printLine("The object is Int16"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int16"); }; false; }; }
 //method immutable Boolean debugIsInt32(object, immutable Boolean verbose) { ifElse (isInt32(object)) { if (verbose) { printLine("The object is Int32"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int32"); }; false; }; }
-//method immutable Boolean debugIsInt64(object, immutable Boolean verbose) { ifElse (isInt64(object)) { if (verbose) { printLine("The object is Int64"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int64"); }; false; }; }
+method immutable Boolean debugIsInt64(object, immutable Boolean verbose) { ifElse (isInt64(object)) { if (verbose) { printLine("The object is Int64"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int64"); }; false; }; }
 //method immutable Boolean debugIsInt8(object, immutable Boolean verbose) { ifElse (isInt8(object)) { if (verbose) { printLine("The object is Int8"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Int8"); }; false; }; }
 //method immutable Boolean debugIsInteger(object, immutable Boolean verbose) { ifElse (isInteger(object)) { if (verbose) { printLine("The object is Integer"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Integer"); }; false; }; }
 //method immutable Boolean debugIsList(object, immutable Boolean verbose) { ifElse (isList(object)) { if (verbose) { printLine("The object is List"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT List"); }; false; }; }

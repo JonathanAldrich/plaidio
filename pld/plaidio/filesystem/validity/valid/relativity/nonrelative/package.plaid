@@ -74,5 +74,27 @@ method void test_nonrelative(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsCanonical(o, verbose); }, verbose);
 	});
 
+	testbed.makeTestCase("TC-ST-43.2 make an absolute path and change it to canonical path", fn(tc) => {
+		val unique Path o = makePath(java.lang.System.getProperty("user.dir") + separator() + "..");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonRelative(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsAbsolute(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCanonical(o, verbose) == false; }, verbose);
+
+		tc.debug("The object is going to become canonical...", verbose);
+		o.makeCanonical();
+
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsNonRelative(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsAbsolute(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsCanonical(o, verbose); }, verbose);
+	});
+
 	testbed.runTestCases(verbose);
 }

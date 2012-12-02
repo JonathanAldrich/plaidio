@@ -28,7 +28,7 @@ SS-12	plaidio.filesystem
 					ST-23.1		p_finalize()
 					ST-23.2		p_MakeExistent()
 					ST-23.3		p_MakeNonExistent()
-				TS-24		Existent
+				TS-24		Existent (checked)
 					ST-24.1		p_InitializeExistent()
 					SR-31	plaidio.filesystem.path.valid.existency.existent.pathtype
 					TS-32		i_PathType
@@ -36,7 +36,7 @@ SS-12	plaidio.filesystem
 						ST-32.2		p_MakeFile()
 						ST-32.3		p_MakeFolder()
 						ST-32.4		p_MakeUnknown()
-					TS-33		File
+					TS-33		File (checked)
 						ST-33.1		p_InitializeFile()
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
 						TS-48		D_FileReadability (checked)
@@ -54,7 +54,7 @@ SS-12	plaidio.filesystem
 							TS-84		i_FileExecutability
 							TS-85		NonExecutableFile
 							TS-86		ExecutableFile
-					TS-34		Folder
+					TS-34		Folder (checked)
 						ST-34.1		p_InitializeFolder()
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
 						TS-51		D_FolderReadability (checked)
@@ -72,7 +72,7 @@ SS-12	plaidio.filesystem
 							TS-89		i_FolderExecutability
 							TS-91		NonExecutableFolder
 							TS-92		ExecutableFolder
-					TS-35		Unknown
+					TS-35		Unknown (checked)
 						ST-35.1		p_InitializeUnknown()
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
 						TS-53		D_UnknownReadability (checked)
@@ -90,7 +90,7 @@ SS-12	plaidio.filesystem
 							TS-95		i_UnknownExecutability
 							TS-96		NonExecutableUnknown
 							TS-97		ExecutableUnknown
-				TS-25		NonExistent
+				TS-25		NonExistent (checked)
 					ST-25.1		p_InitializeNonExistent()
 					SR-36	plaidio.filesystem.path.valid.existency.nonexistent.creatability
 					TS-37		i_Creatability
@@ -117,9 +117,9 @@ SS-12	plaidio.filesystem
 						ST-42.1		p_finalize()
 						ST-42.2		p_MakeAbsolute()
 						ST-42.3		p_MakeCanonical()
-					TS-43		Absolute
+					TS-43		Absolute (checked)
 						ST-43.1		p_InitializeAbsolute()
-					TS-44		Canonical
+					TS-44		Canonical (checked)
 						ST-44.1		p_InitializeCanonical()
 				TS-29		Relative (checked)
 					ST-29.1		p_InitializeRelative()

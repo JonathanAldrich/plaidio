@@ -47,4 +47,15 @@ state NonRelative case of D_Relativity
 		p_Finalize();
 	}
 	//method void p_InitNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-28.2
+		DESC:	Checks all dimensions of the object.
+	**/
+	method immutable Int64 getFreeSpace() /*[pure NonRelative >> pure NonRelative this]*/
+	{
+		/*return*/ j_File.getFreeSpace();
+	}
+	//method immutable Int64 p_InitNonRelative() /*[pure NonRelative >> pure NonRelative this]*/
 }
