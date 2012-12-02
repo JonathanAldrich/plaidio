@@ -26,15 +26,15 @@
 package plaidio.filesystem.validity;
 
 import plaidio.filesystem.Path;
-import plaidio.filesystem.validity.valid.RelativityDimension;
-import plaidio.filesystem.validity.valid.ExistencyDimension;
+import plaidio.filesystem.validity.valid.D_Relativity;
+import plaidio.filesystem.validity.valid.D_Existency;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-17
 	DESC:	"Valid" typestate which represents a valid path.
 **/
-state Valid case of Path = ExistencyDimension with RelativityDimension with
+state Valid case of Path = D_Existency with D_Relativity with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -44,8 +44,8 @@ state Valid case of Path = ExistencyDimension with RelativityDimension with
 	**/
 	method void p_InitValid() /*[shared Valid >> shared Valid this]*/
 	{
-		p_InitExistencyDimension();
-		p_InitRelativityDimension();
+		p_InitD_Existency();
+		p_InitD_Relativity();
 	}
 	//method void p_InitValid() /*[shared Valid >> shared Valid this]*/
 }

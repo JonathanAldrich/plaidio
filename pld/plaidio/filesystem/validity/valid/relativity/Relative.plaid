@@ -21,19 +21,19 @@
 /**
 	CID:	SR-26
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"Relativity" subtypes of "RelativityDimension" typestate.
+	DESC:	"Relativity" subtypes of "D_Relativity" typestate.
 	FILE:	Relative.plaid
 **/
 package plaidio.filesystem.validity.valid.relativity;
 
-import plaidio.filesystem.validity.valid.RelativityDimension;
+import plaidio.filesystem.validity.valid.D_Relativity;
 
 	/*------------------------------------------------------------------------------
 /**
 	CID:	TS-29
 	DESC:	"Relative" typestate which contains a relative valid path.
 **/
-state Relative case of RelativityDimension
+state Relative case of D_Relativity
 {
 	//-----------------------------------------------------------------------------
 	/**

@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid.existency;
 
-import plaidio.filesystem.validity.valid.ExistencyDimension;
+import plaidio.filesystem.validity.valid.D_Existency;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.i_PathType;
 
 /*------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.i_PathType;
 	CID:	TS-24
 	DESC:	"Existent" typestate which contains an existent valid path.
 **/
-state Existent case of ExistencyDimension
+state Existent case of D_Existency
 {
 	//-----------------------------------------------------------------------------
 	/**

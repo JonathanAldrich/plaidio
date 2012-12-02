@@ -25,23 +25,23 @@
 **/
 package plaidio.filesystem.validity.valid.existency;
 
-import plaidio.filesystem.validity.valid.ExistencyDimension;
+import plaidio.filesystem.validity.valid.D_Existency;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-23
-	DESC:	"i_Existency" typestate which is created to intialize ExistencyDimension state.
+	DESC:	"i_Existency" typestate which is created to intialize D_Existency state.
 			This state should not be public.
 **/
-state i_Existency case of ExistencyDimension
+state i_Existency case of D_Existency
 {
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-23.1
-		DESC:	Checks whether the path exists or not, and within ExistencyDimension,
+		DESC:	Checks whether the path exists or not, and within D_Existency,
 				changes the state of "this" into either "Existent" or "NonExistent".
 	**/
-	method void p_Finalize() /*[shared i_Existency >> shared ExistencyDimension this]*/
+	method void p_Finalize() /*[shared i_Existency >> shared D_Existency this]*/
 	{
 		ifElse (j_File.exists())
 		{
@@ -52,7 +52,7 @@ state i_Existency case of ExistencyDimension
 			p_MakeNonExistent();
 		}
 	}
-	//method void p_Finalize() /*[shared i_Existency >> shared ExistencyDimension this]*/
+	//method void p_Finalize() /*[shared i_Existency >> shared D_Existency this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

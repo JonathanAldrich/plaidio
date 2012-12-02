@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid.existency;
 
-import plaidio.filesystem.validity.valid.ExistencyDimension;
+import plaidio.filesystem.validity.valid.D_Existency;
 import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.i_Creatability;
 
 /*------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.i_Cr
 	CID:	TS-25
 	DESC:	"NonExistent" typestate which contains a nonexistent valid path.
 **/
-state NonExistent case of ExistencyDimension
+state NonExistent case of D_Existency
 {
 	//-----------------------------------------------------------------------------
 	/**

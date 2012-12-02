@@ -25,23 +25,23 @@
 **/
 package plaidio.filesystem.validity.valid.relativity;
 
-import plaidio.filesystem.validity.valid.RelativityDimension;
+import plaidio.filesystem.validity.valid.D_Relativity;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-27
-	DESC:	"i_Relativity" typestate which is created to intialize RelativityDimension state.
+	DESC:	"i_Relativity" typestate which is created to intialize D_Relativity state.
 			This state should not be public.
 **/
-state i_Relativity case of RelativityDimension
+state i_Relativity case of D_Relativity
 {
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-27.1
-		DESC:	Checks whether the path is relative or not, and within RelativityDimension,
+		DESC:	Checks whether the path is relative or not, and within D_Relativity,
 				changes the state of "this" into either "NonRelative" or "Relative".
 	**/
-	method void p_Finalize() /*[shared i_Relativity >> shared RelativityDimension this]*/
+	method void p_Finalize() /*[shared i_Relativity >> shared D_Relativity this]*/
 	{
 		ifElse (j_File.isAbsolute())
 		{
@@ -52,7 +52,7 @@ state i_Relativity case of RelativityDimension
 			p_MakeRelative();
 		}
 	}
-	//method void p_Finalize() /*[shared i_Relativity >> shared RelativityDimension this]*/
+	//method void p_Finalize() /*[shared i_Relativity >> shared D_Relativity this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

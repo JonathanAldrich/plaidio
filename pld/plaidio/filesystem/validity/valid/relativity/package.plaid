@@ -22,7 +22,7 @@
 	CID:	SR-26
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package plaidio.filesystem.validity.valid.relativity
-			for subtypes of "RelativityDimension" typestate.
+			for subtypes of "D_Relativity" typestate.
 	FILE:	package.plaid
 **/
 
@@ -33,7 +33,7 @@ import plaidio.filesystem.makePath;
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsRelativityDimension;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Relativity;
 import plaidio.filesystem.validity.valid.relativity._debuger.debugIsNonRelative;
 import plaidio.filesystem.validity.valid.relativity._debuger.debugIsRelative;
 
@@ -53,7 +53,7 @@ method void test_relativity(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonRelative(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsRelative(o, verbose) == false; }, verbose);
 	});
@@ -63,7 +63,7 @@ method void test_relativity(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonRelative(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsRelative(o, verbose); }, verbose);
 	});

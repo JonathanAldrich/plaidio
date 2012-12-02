@@ -22,7 +22,7 @@
 	CID:	SR-22
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	DESC:	Package plaidio.filesystem.validity.valid.existency
-			contains subtypes of "ExistencyDimension" typestate.
+			contains subtypes of "D_Existency" typestate.
 	FILE:	package.plaid
 **/
 package plaidio.filesystem.validity.valid.existency;
@@ -32,7 +32,7 @@ import plaidio.filesystem.separator;
 
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity.valid._debuger.debugIsExistencyDimension;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsNonExistent;
 
@@ -52,7 +52,7 @@ method void test_existency(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose) == false; }, verbose);
 	});
@@ -62,7 +62,7 @@ method void test_existency(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsExistent(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
 	});

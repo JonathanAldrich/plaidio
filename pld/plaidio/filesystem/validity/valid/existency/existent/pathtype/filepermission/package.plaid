@@ -19,32 +19,23 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-26
+	CID:	SR-45
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	"NonRelative" subtypes of "D_Relativity" typestate.
-	FILE:	NonRelative.plaid
+	DESC:	Package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission
+			contains contains all dimensions of File typestates
+	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.relativity;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission;
 
-import plaidio.filesystem.validity.valid.D_Relativity;
-import plaidio.filesystem.validity.valid.relativity.nonrelative.i_NonRelative;
+import com.akefirad.plaid.testing.makeTestBed;
 
-	/*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
-	CID:	TS-28
-	DESC:	"NonRelative" typestate which contains a non-relative valid path.
+	CID:	TC-SR-45
 **/
-state NonRelative case of D_Relativity
+method void test_filepermission(immutable Boolean verbose)
 {
-	//-----------------------------------------------------------------------------
-	/**
-		CID:	ST-28.1
-		DESC:	Checks all dimensions of the object.
-	**/
-	method void p_InitNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
-	{
-		this <- i_NonRelative;
-		p_Finalize();
-	}
-	//method void p_InitNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission package's features");
+
+	testbed.runTestCases(verbose);
 }

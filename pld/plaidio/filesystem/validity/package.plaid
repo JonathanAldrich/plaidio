@@ -32,8 +32,8 @@ import plaidio.filesystem.makePath;
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsExistencyDimension;
-import plaidio.filesystem.validity.valid._debuger.debugIsRelativityDimension;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Relativity;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
@@ -71,7 +71,7 @@ method void test_validity(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("TC-TS-21 make a valid path which has relativity dimensions", fn(tc) => {
@@ -80,7 +80,7 @@ method void test_validity(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsRelativityDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

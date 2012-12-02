@@ -32,7 +32,7 @@ import plaidio.filesystem.separator;
 
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity.valid._debuger.debugIsExistencyDimension;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsNonExistent;
 import plaidio.filesystem.validity.valid.existency.nonexistent.creatability._debuger.debugIsCreatable;
@@ -57,7 +57,7 @@ method void test_creatability(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
@@ -68,7 +68,7 @@ method void test_creatability(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsCreatable(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsNonCreatable(o, verbose); }, verbose);
@@ -79,7 +79,7 @@ method void test_creatability(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
@@ -89,7 +89,7 @@ method void test_creatability(immutable Boolean verbose)
 
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
@@ -101,7 +101,7 @@ method void test_creatability(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsCreatable(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsNonCreatable(o, verbose) == false; }, verbose);
@@ -111,7 +111,7 @@ method void test_creatability(immutable Boolean verbose)
 
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistencyDimension(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
