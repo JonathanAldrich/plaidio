@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -29,6 +30,16 @@ public class PlaidHelper {
 		return (file.getAbsoluteFile().getParentFile() == null) ? true : false;
 	}
 
+    public static File getRootFile(File file)
+    {
+        if (file.isAbsolute() == false)
+            throw new InvalidParameterException("File should be absolute!");
+        
+        if (isRootPath(file))
+            return file;
+        else
+            return getRootFile(file.getParentFile());
+    }
 	public static boolean isCanonicalPath(File file) throws IOException {
 		return (file.getAbsolutePath().equals(file.getCanonicalPath())) ? true : false;
 	}

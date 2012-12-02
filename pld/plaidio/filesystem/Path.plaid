@@ -34,7 +34,7 @@ import plaidio.filesystem.validity.i_Validity;
 **/
 state Path
 {
-	val /*unique java.io.File*/ j_File;
+	var /*unique java.io.File*/ j_File;
 	
 	//-----------------------------------------------------------------------------
 	/**

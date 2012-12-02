@@ -46,17 +46,17 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownperm
 method main()
 {
 	val verbose = true;
-	test_filesystem(verbose);
-	test_validity(verbose);
-	test_valid(verbose);
-	test_existency(verbose);
+//	test_filesystem(verbose);
+//	test_validity(verbose);
+//	test_valid(verbose);
+//	test_existency(verbose);
 	test_relativity(verbose);
-	test_pathtype(verbose);
-	test_creatability(verbose);
-	test_nonrelative(verbose);
-	test_filepermission(verbose);
-	test_folderpermission(verbose);
-	test_unknownpermission(verbose);
+//	test_pathtype(verbose);
+//	test_creatability(verbose);
+//	test_nonrelative(verbose);
+//	test_filepermission(verbose);
+//	test_folderpermission(verbose);
+//	test_unknownpermission(verbose);
 
 //	com.akefirad.plaid.PlaidHelper.buildStateCheckers(java.io.File.new("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio"), "D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld");
 }

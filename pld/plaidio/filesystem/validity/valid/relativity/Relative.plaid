@@ -27,8 +27,9 @@
 package plaidio.filesystem.validity.valid.relativity;
 
 import plaidio.filesystem.validity.valid.D_Relativity;
+import plaidio.filesystem.validity.valid.relativity.NonRelative;
 
-	/*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 /**
 	CID:	TS-29
 	DESC:	"Relative" typestate which contains a relative valid path.
@@ -44,4 +45,17 @@ state Relative case of D_Relativity
 	{
 	}
 	//method void p_InitRelative() /*[shared Relative >> shared Relative this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-29.2
+		DESC:	Changes the object state into NonRelative
+	**/
+	method void makeNonRelative() /*[unique Relative >> unique NonRelative this]*/
+	{
+		j_File = j_File.getAbsoluteFile();
+		this <- NonRelative;
+		p_InitNonRelative();
+	}
+	//method void makeNonRelative() /*[unique Relative >> unique NonRelative this]*/
 }

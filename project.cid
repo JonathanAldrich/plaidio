@@ -39,17 +39,17 @@ SS-12	plaidio.filesystem
 					TS-33		File
 						ST-33.1		p_InitializeFile()
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
-						TS-48		D_FileReadability
+						TS-48		D_FileReadability (checked)
 							SR-55	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filereadability
 							TS-75		i_FileReadability
 							TS-58		NonReadableFile
 							TS-59		ReadableFile
-						TS-49		D_FileWritability
+						TS-49		D_FileWritability (checked)
 							SR-65	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filewritability
 							TS-76		i_FileWritability
 							TS-68		NonWritableFile
 							TS-69		WritableFile
-						TS-82		D_FileExecutability
+						TS-82		D_FileExecutability (checked)
 							SR-83	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.fileexecutability
 							TS-84		i_FileExecutability
 							TS-85		NonExecutableFile
@@ -57,17 +57,17 @@ SS-12	plaidio.filesystem
 					TS-34		Folder
 						ST-34.1		p_InitializeFolder()
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
-						TS-51		D_FolderReadability
+						TS-51		D_FolderReadability (checked)
 							SR-56	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderreadability
 							TS-77		i_FolderReadability
 							TS-61		NonReadableFolder
 							TS-62		ReadableFolder
-						TS-52		D_FolderWritability
+						TS-52		D_FolderWritability (checked)
 							SR-66	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderwritability
 							TS-78		i_FolderWritability
 							TS-71		NonWritableFolder
 							TS-72		WritableFolder
-						TS-87		D_FolderExecutability
+						TS-87		D_FolderExecutability (checked)
 							SR-88	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderexecutability
 							TS-89		i_FolderExecutability
 							TS-91		NonExecutableFolder
@@ -75,17 +75,17 @@ SS-12	plaidio.filesystem
 					TS-35		Unknown
 						ST-35.1		p_InitializeUnknown()
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
-						TS-53		UnknownReadabilityDimension
+						TS-53		D_UnknownReadability (checked)
 							SR-57	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownreadability
 							TS-79		i_FolderReadability
 							TS-63		NonReadableUnknown
 							TS-64		ReadableUnknown
-						TS-54		UnknownWritabilityDimension
+						TS-54		D_UnknownWritability (checked)
 							SR-67	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownwritability
 							TS-81		i_FolderWritability
 							TS-73		NonWritableUnknown
 							TS-74		WritableUnknown
-						TS-93		D_UnknownExecutability
+						TS-93		D_UnknownExecutability (checked)
 							SR-94	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownexecutability
 							TS-95		i_UnknownExecutability
 							TS-96		NonExecutableUnknown
@@ -97,11 +97,11 @@ SS-12	plaidio.filesystem
 						ST-37.1		p_finalize()
 						ST-37.2		p_MakeCreatable()
 						ST-37.3		p_MakeNonCreatable()
-					TS-38		Creatable
+					TS-38		Creatable (checked)
 						ST-38.1		p_InitializeCreatable()
 						ST-38.2		createAsFile()
 						ST-38.3		createAsFolder()
-					TS-39		NonCreatable
+					TS-39		NonCreatable (checked)
 						ST-39.1		p_InitializeNonCreatable()
 			TS-21		RelativityDimension
 				ST-21.1		p_InitializeRelativityDimension()
@@ -110,7 +110,7 @@ SS-12	plaidio.filesystem
 					ST-27.1		p_finalize()
 					ST-27.2		p_MakeNonRelative()
 					ST-27.3		p_MakeRelative()
-				TS-28		NonRelative
+				TS-28		NonRelative (checked)
 					ST-28.1		p_InitializeNonRelative()
 					SR-41	plaidio.filesystem.path.valid.relativity.nonrelative
 					TS-42		i_NonRelative
@@ -121,5 +121,5 @@ SS-12	plaidio.filesystem
 						ST-43.1		p_InitializeAbsolute()
 					TS-44		Canonical
 						ST-44.1		p_InitializeCanonical()
-				TS-29		Relative
+				TS-29		Relative (checked)
 					ST-29.1		p_InitializeRelative()
