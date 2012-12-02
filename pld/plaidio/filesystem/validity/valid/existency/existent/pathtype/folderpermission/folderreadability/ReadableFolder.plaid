@@ -19,26 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-45
+	CID:	SR-56
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	D_FileWritability.plaid
+	FILE:	ReadableFolder.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderReadability;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-49
-	DESC:	"D_FileWritability" typestate which is one dimension of File typestate.
+	CID:	TS-62
+	DESC:	"ReadableFile" typestate which is one sub-typestate of D_FileReadability typestate.
 **/
-state D_FileWritability
+state ReadableFolder case of D_FolderReadability
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-49.1
+		CID:	ST-62.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
+	method void p_InitReadableFolder() /*[shared ReadableFolder >> shared ReadableFolder this]*/
 	{
 	}
-	//method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
+	//method void p_InitReadableFolder() /*[shared ReadableFolder >> shared ReadableFolder this]*/
 }

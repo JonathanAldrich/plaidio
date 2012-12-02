@@ -39,21 +39,36 @@ SS-12	plaidio.filesystem
 					TS-33		File
 						ST-33.1		p_InitializeFile()
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
-						TS-48		FileExecutabilityDimension
-						TS-49		FileReadabilityDimension
-						TS-51		FileWritabilityDimension
+						TS-48		FileReadabilityDimension
+							SR-55	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filereadability
+							TS-58		NonReadableFile
+							TS-59		ReadableFile
+						TS-49		FileWritabilityDimension
+							SR-65	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filewritability
+							TS-68		NonWritableFile
+							TS-69		WritableFile
 					TS-34		Folder
 						ST-34.1		p_InitializeFolder()
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
-						TS-52		FolderExecutabilityDimension
-						TS-53		FolderReadabilityDimension
-						TS-54		FolderWritabilityDimension
+						TS-51		FolderReadabilityDimension
+							SR-56	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderreadability
+							TS-61		NonReadableFolder
+							TS-62		ReadableFolder
+						TS-52		FolderWritabilityDimension
+							SR-66	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderwritability
+							TS-71		NonWritableFolder
+							TS-72		WritableFolder
 					TS-35		Unknown
 						ST-35.1		p_InitializeUnknown()
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
-						TS-55		UnknownExecutabilityDimension
-						TS-56		UnknownReadabilityDimension
-						TS-57		UnknownWritabilityDimension
+						TS-53		UnknownReadabilityDimension
+							SR-57	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownreadability
+							TS-63		NonReadableUnknown
+							TS-64		ReadableUnknown
+						TS-54		UnknownWritabilityDimension
+							SR-67	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownwritability
+							TS-73		NonWritableUnknown
+							TS-74		WritableUnknown
 				TS-25		NonExistent
 					ST-25.1		p_InitializeNonExistent()
 					SR-36	plaidio.filesystem.path.valid.existency.nonexistent.creatability

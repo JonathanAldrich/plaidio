@@ -19,26 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-45
+	CID:	SR-67
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	D_FileWritability.plaid
+	FILE:	WritableUnknown.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownWritability;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-49
-	DESC:	"D_FileWritability" typestate which is one dimension of File typestate.
+	CID:	TS-74
+	DESC:	"WritableUnknown" typestate which is one sub-typestate of D_UnknownWritability typestate.
 **/
-state D_FileWritability
+state WritableUnknown case of D_UnknownWritability
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-49.1
+		CID:	ST-74.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
+	method void p_InitWritableUnknown() /*[shared WritableUnknown >> shared WritableUnknown this]*/
 	{
 	}
-	//method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
+	//method void p_InitWritableUnknown() /*[shared WritableUnknown >> shared WritableUnknown this]*/
 }

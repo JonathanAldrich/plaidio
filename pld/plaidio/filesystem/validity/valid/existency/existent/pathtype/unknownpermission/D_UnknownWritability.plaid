@@ -27,7 +27,7 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownper
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-57
+	CID:	TS-54
 	DESC:	"D_UnknownWritability" typestate which is one dimension of Unknown typestate.
 **/
 state D_UnknownWritability
