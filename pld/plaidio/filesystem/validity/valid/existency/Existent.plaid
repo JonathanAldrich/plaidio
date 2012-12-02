@@ -78,7 +78,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setExecutableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -96,7 +96,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setExecutableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -114,7 +114,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setReadableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -132,7 +132,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setReadableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -150,7 +150,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setWritableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -168,7 +168,7 @@ state Existent case of D_Existency
 	**/
 	method immutable Boolean setWritableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 	{
-		var immutable Boolean result = false
+		var immutable Boolean result = false;
 		p_InitPath();
 		if (isExistent(this))
 		{
@@ -178,4 +178,49 @@ state Existent case of D_Existency
 		/*return*/ result;
 	}
 	//method immutable Boolean setWritableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.10
+		DESC:	Deletes the file or directory denoted by this abstract pathname.
+				If this pathname denotes a directory, then the directory must be empty in order to be deleted.
+	**/
+	method immutable Boolean delete() /*[unique Existent >> unique NonExistent this]*/
+	{
+		var immutable Boolean result = false;
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.delete();
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean delete() /*[unique Existent >> unique NonExistent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.11
+		DESC:	Requests that the file or directory denoted by this abstract pathname be deleted when the virtual machine terminates.
+	**/
+	method void deleteOnExit() /*[pure Existent >> pure Existent this]*/
+	{
+		p_InitPath();
+		if (isExistent(this)) { j_File.deleteOnExit(); };
+	}
+	//method void deleteOnExit() /*[pure Existent >> pure Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.12
+		DESC:	Requests that the file or directory denoted by this abstract pathname be deleted when the virtual machine terminates.
+	**/
+	method immutable Boolean isHidden() /*[pure Existent >> pure Existent this]*/
+	{
+		var immutable Boolean result = false;
+		p_InitPath();
+		if (isExistent(this)) { result = j_File.isHidden(); };
+		/*return*/ result;
+	}
+	//method immutable Boolean isHidden() /*[pure Existent >> pure Existent this]*/
 }
