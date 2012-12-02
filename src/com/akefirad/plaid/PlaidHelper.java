@@ -59,8 +59,8 @@ public class PlaidHelper {
 	}
 
 	public static void buildStateCheckers(File packageFolder, String baseFolder) throws IOException {
-        if (packageFolder.exists() && packageFolder.isDirectory() && packageFolder.getAbsolutePath().endsWith("statecheckers") == false) {
-            File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "statecheckers");
+        if (packageFolder.exists() && packageFolder.isDirectory() && packageFolder.getAbsolutePath().endsWith("_debuger") == false) {
+            File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "_debuger");
             if (statecheckersFolder.exists() == false) {
                 statecheckersFolder.mkdir();
             } else if (statecheckersFolder.isDirectory() == false) {

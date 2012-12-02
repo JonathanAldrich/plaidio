@@ -1,4 +1,4 @@
-package com.akefirad.plaid.lang.statecheckers;
+package com.akefirad.plaid.lang._debuger;
 
 method immutable Boolean isString(v) { match (v) { case String { true; } default { false; } }; }
 method immutable Boolean debugIsString(object, immutable Boolean verbose) { ifElse (isString(object)) { if (verbose) { printLine("The object is String"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT String"); }; false; }; }
