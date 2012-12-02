@@ -30,11 +30,11 @@ package plaidio.filesystem.validity.valid.existency;
 import plaidio.filesystem.makePath;
 import plaidio.filesystem.separator;
 
-import plaidio.filesystem.statecheckers.debugIsPath;
-import plaidio.filesystem.validity.statecheckers.debugIsValid;
-import plaidio.filesystem.validity.valid.statecheckers.debugIsExistencyDimension;
-import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.statecheckers.debugIsNonExistent;
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity.valid._debuger.debugIsExistencyDimension;
+import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
+import plaidio.filesystem.validity.valid.existency._debuger.debugIsNonExistent;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

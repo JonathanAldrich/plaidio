@@ -26,12 +26,12 @@
 **/
 package plaidio.filesystem;
 
-import plaidio.filesystem.statecheckers.debugIsPath;
-import plaidio.filesystem.validity.statecheckers.debugIsValid;
-import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity._debuger.debugIsInvalid;
 
-import com.akefirad.plaid.lang.statecheckers.debugIsString;
-import com.akefirad.plaid.lang.statecheckers.debugIsCharacter;
+import com.akefirad.plaid.lang._debuger.debugIsString;
+import com.akefirad.plaid.lang._debuger.debugIsCharacter;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

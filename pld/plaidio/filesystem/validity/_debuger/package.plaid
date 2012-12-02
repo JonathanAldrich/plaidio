@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity._debuger;
+
+import plaidio.filesystem.validity.Invalid;
+import plaidio.filesystem.validity.Valid;
+
+method immutable Boolean isInvalid(object) { match (object) { case Invalid { true; } default { false; } }; }
+method immutable Boolean isValid(object) { match (object) { case Valid { true; } default { false; } }; }
+
+method immutable Boolean debugIsInvalid(object, immutable Boolean verbose) { ifElse (isInvalid(object)) { if (verbose) { printLine("The object is Invalid"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Invalid"); }; false; }; }
+method immutable Boolean debugIsValid(object, immutable Boolean verbose) { ifElse (isValid(object)) { if (verbose) { printLine("The object is Valid"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Valid"); }; false; }; }

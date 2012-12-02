@@ -30,12 +30,12 @@ package plaidio.filesystem.validity.valid.relativity;
 
 import plaidio.filesystem.makePath;
 
-import plaidio.filesystem.statecheckers.debugIsPath;
-import plaidio.filesystem.validity.statecheckers.debugIsValid;
-import plaidio.filesystem.validity.statecheckers.debugIsInvalid;
-import plaidio.filesystem.validity.valid.statecheckers.debugIsRelativityDimension;
-import plaidio.filesystem.validity.valid.relativity.statecheckers.debugIsNonRelative;
-import plaidio.filesystem.validity.valid.relativity.statecheckers.debugIsRelative;
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity._debuger.debugIsInvalid;
+import plaidio.filesystem.validity.valid._debuger.debugIsRelativityDimension;
+import plaidio.filesystem.validity.valid.relativity._debuger.debugIsNonRelative;
+import plaidio.filesystem.validity.valid.relativity._debuger.debugIsRelative;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

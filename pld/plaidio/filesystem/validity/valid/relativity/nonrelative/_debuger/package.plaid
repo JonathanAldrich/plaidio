@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.relativity.nonrelative._debuger;
+
+import plaidio.filesystem.validity.valid.relativity.nonrelative.Absolute;
+import plaidio.filesystem.validity.valid.relativity.nonrelative.Canonical;
+
+method immutable Boolean isAbsolute(object) { match (object) { case Absolute { true; } default { false; } }; }
+method immutable Boolean isCanonical(object) { match (object) { case Canonical { true; } default { false; } }; }
+
+method immutable Boolean debugIsAbsolute(object, immutable Boolean verbose) { ifElse (isAbsolute(object)) { if (verbose) { printLine("The object is Absolute"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Absolute"); }; false; }; }
+method immutable Boolean debugIsCanonical(object, immutable Boolean verbose) { ifElse (isCanonical(object)) { if (verbose) { printLine("The object is Canonical"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Canonical"); }; false; }; }

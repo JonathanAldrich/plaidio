@@ -1,0 +1,13 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.File;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Folder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Unknown;
+
+method immutable Boolean isFile(object) { match (object) { case File { true; } default { false; } }; }
+method immutable Boolean isFolder(object) { match (object) { case Folder { true; } default { false; } }; }
+method immutable Boolean isUnknown(object) { match (object) { case Unknown { true; } default { false; } }; }
+
+method immutable Boolean debugIsFile(object, immutable Boolean verbose) { ifElse (isFile(object)) { if (verbose) { printLine("The object is File"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT File"); }; false; }; }
+method immutable Boolean debugIsFolder(object, immutable Boolean verbose) { ifElse (isFolder(object)) { if (verbose) { printLine("The object is Folder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Folder"); }; false; }; }
+method immutable Boolean debugIsUnknown(object, immutable Boolean verbose) { ifElse (isUnknown(object)) { if (verbose) { printLine("The object is Unknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Unknown"); }; false; }; }
