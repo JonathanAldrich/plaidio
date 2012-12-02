@@ -44,13 +44,13 @@ state i_UnknownReadability case of D_UnknownReadability
 	**/
 	method void p_Finalize() /*[shared i_UnknownReadability >> shared D_UnknownReadability this]*/
 	{
-		ifElse (j_Unknown.canRead())
+		ifElse (j_File.canRead())
 		{
-			p_MakeReadabaleUnknown();
+			p_MakeReadableUnknown();
 		}
 		/*else*/
 		{
-			p_MakeNonReadabaleUnknown();
+			p_MakeNonReadableUnknown();
 		}
 	}
 	//method void p_Finalize() /*[shared i_UnknownReadability >> shared D_UnknownReadability this]*/
@@ -60,12 +60,12 @@ state i_UnknownReadability case of D_UnknownReadability
 		CID:	ST-79.2
 		DESC:	Makes the object NonReadableUnknown.
 	**/
-	method void p_MakeNonReadable() /*[shared i_UnknownReadability >> shared NonReadableUnknown this]*/
+	method void p_MakeNonReadableUnknown() /*[shared i_UnknownReadability >> shared NonReadableUnknown this]*/
 	{
 		this <- NonReadableUnknown;
 		p_InitNonReadableUnknown();
 	}
-	//method void p_MakeNonReadable() /*[shared i_UnknownReadability >> shared NonReadableUnknown this]*/
+	//method void p_MakeNonReadableUnknown() /*[shared i_UnknownReadability >> shared NonReadableUnknown this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

@@ -44,13 +44,13 @@ state i_FolderReadability case of D_FolderReadability
 	**/
 	method void p_Finalize() /*[shared i_FolderReadability >> shared D_FolderReadability this]*/
 	{
-		ifElse (j_Folder.canRead())
+		ifElse (j_File.canRead())
 		{
-			p_MakeReadabaleFolder();
+			p_MakeReadableFolder();
 		}
 		/*else*/
 		{
-			p_MakeNonReadabaleFolder();
+			p_MakeNonReadableFolder();
 		}
 	}
 	//method void p_Finalize() /*[shared i_FolderReadability >> shared D_FolderReadability this]*/
@@ -60,12 +60,12 @@ state i_FolderReadability case of D_FolderReadability
 		CID:	ST-77.2
 		DESC:	Makes the object NonReadableFolder.
 	**/
-	method void p_MakeNonReadable() /*[shared i_FolderReadability >> shared NonReadableFolder this]*/
+	method void p_MakeNonReadableFolder() /*[shared i_FolderReadability >> shared NonReadableFolder this]*/
 	{
 		this <- NonReadableFolder;
 		p_InitNonReadableFolder();
 	}
-	//method void p_MakeNonReadable() /*[shared i_FolderReadability >> shared NonReadableFolder this]*/
+	//method void p_MakeNonReadableFolder() /*[shared i_FolderReadability >> shared NonReadableFolder this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

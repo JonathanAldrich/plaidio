@@ -49,8 +49,9 @@ import com.akefirad.plaid.testing.makeTestBed;
 **/
 method void test_unknownpermission(immutable Boolean verbose)
 {
-	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission package's features");
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission package's features (#N/A)");
 
+/*
 	testbed.makeTestCase("TC-TS-58 make an existent non-readable unknown path (UNIX-based)", fn(tc) => {
 		if (java.lang.System.getProperty("os.name").contains("Linux"))
 		{
@@ -114,6 +115,7 @@ method void test_unknownpermission(immutable Boolean verbose)
 			tc.assert(fn() => { debugIsWritableUnknown(o, verbose); }, verbose);
 		}
 	});
+*/
 
 	testbed.runTestCases(verbose);
 }

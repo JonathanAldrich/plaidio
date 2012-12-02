@@ -26,8 +26,8 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability;
 
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.WritableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.NonWritableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability.WritableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability.NonWritableFile;
 
 /*------------------------------------------------------------------------------
 /**
@@ -44,13 +44,13 @@ state i_FileWritability case of D_FileWritability
 	**/
 	method void p_Finalize() /*[shared i_FileWritability >> shared D_FileWritability this]*/
 	{
-		ifElse (j_File.canWrit())
+		ifElse (j_File.canWrite())
 		{
-			p_MakeWritabaleFile();
+			p_MakeWritableFile();
 		}
 		/*else*/
 		{
-			p_MakeNonWritabaleFile();
+			p_MakeNonWritableFile();
 		}
 	}
 	//method void p_Finalize() /*[shared i_FileWritability >> shared D_FileWritability this]*/
@@ -60,12 +60,12 @@ state i_FileWritability case of D_FileWritability
 		CID:	ST-76.2
 		DESC:	Makes the object NonWritableFile.
 	**/
-	method void p_MakeNonWritable() /*[shared i_FileWritability >> shared NonWritableFile this]*/
+	method void p_MakeNonWritableFile() /*[shared i_FileWritability >> shared NonWritableFile this]*/
 	{
 		this <- NonWritableFile;
 		p_InitNonWritableFile();
 	}
-	//method void p_MakeNonWritable() /*[shared i_FileWritability >> shared NonWritableFile this]*/
+	//method void p_MakeNonWritableFile() /*[shared i_FileWritability >> shared NonWritableFile this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

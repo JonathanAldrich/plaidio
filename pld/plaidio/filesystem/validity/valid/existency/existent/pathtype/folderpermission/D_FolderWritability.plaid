@@ -25,7 +25,7 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission;
 
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.foldewritability.i_FolderWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.i_FolderWritability;
 
 /*------------------------------------------------------------------------------
 /**

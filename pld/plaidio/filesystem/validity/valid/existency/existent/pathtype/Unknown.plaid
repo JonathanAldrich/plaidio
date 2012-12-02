@@ -26,7 +26,6 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.validity.valid.existency.Existent;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownExecutability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownReadability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownWritability;
 
@@ -35,7 +34,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownperm
 	CID:	TS-35
 	DESC:	"Unknown" typestate which contains an existent unknown path.
 **/
-state Unknown case of Existent = D_UnknownExecutability with D_UnknownReadability with D_UnknownWritability with
+state Unknown case of Existent = D_UnknownReadability with D_UnknownWritability with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -44,6 +43,8 @@ state Unknown case of Existent = D_UnknownExecutability with D_UnknownReadabilit
 	**/
 	method void p_InitUnknown() /*[shared Unknown >> shared Unknown this]*/
 	{
+		p_InitD_UnknownReadability();
+		p_InitD_UnknownWritability();
 	}
 	//method void p_InitUnknown() /*[shared Unknown >> shared Unknown this]*/
 }

@@ -115,5 +115,43 @@ method void test_filepermission(immutable Boolean verbose)
 		}
 	});
 
+	testbed.makeTestCase("TC-TS-69 make an existent readable and writable file path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/readablewritablefile");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableFile(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableFile(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-69 make an existent non-readable and non-writable file path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/nonreadablenonwritablefile");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsReadableFile(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsWritableFile(o, verbose) == false; }, verbose);
+		}
+	});
+
 	testbed.runTestCases(verbose);
 }

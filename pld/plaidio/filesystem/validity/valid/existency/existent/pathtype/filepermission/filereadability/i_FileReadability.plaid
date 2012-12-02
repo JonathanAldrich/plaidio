@@ -46,11 +46,11 @@ state i_FileReadability case of D_FileReadability
 	{
 		ifElse (j_File.canRead())
 		{
-			p_MakeReadabaleFile();
+			p_MakeReadableFile();
 		}
 		/*else*/
 		{
-			p_MakeNonReadabaleFile();
+			p_MakeNonReadableFile();
 		}
 	}
 	//method void p_Finalize() /*[shared i_FileReadability >> shared D_FileReadability this]*/
@@ -60,12 +60,12 @@ state i_FileReadability case of D_FileReadability
 		CID:	ST-75.2
 		DESC:	Makes the object NonReadableFile.
 	**/
-	method void p_MakeNonReadable() /*[shared i_FileReadability >> shared NonReadableFile this]*/
+	method void p_MakeNonReadableFile() /*[shared i_FileReadability >> shared NonReadableFile this]*/
 	{
 		this <- NonReadableFile;
 		p_InitNonReadableFile();
 	}
-	//method void p_MakeNonReadable() /*[shared i_FileReadability >> shared NonReadableFile this]*/
+	//method void p_MakeNonReadableFile() /*[shared i_FileReadability >> shared NonReadableFile this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**

@@ -26,8 +26,8 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability;
 
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.WritableFolder;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.NonWritableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.WritableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.NonWritableFolder;
 
 /*------------------------------------------------------------------------------
 /**
@@ -44,13 +44,13 @@ state i_FolderWritability case of D_FolderWritability
 	**/
 	method void p_Finalize() /*[shared i_FolderWritability >> shared D_FolderWritability this]*/
 	{
-		ifElse (j_Folder.canWrit())
+		ifElse (j_File.canWrite())
 		{
-			p_MakeWritabaleFolder();
+			p_MakeWritableFolder();
 		}
 		/*else*/
 		{
-			p_MakeNonWritabaleFolder();
+			p_MakeNonWritableFolder();
 		}
 	}
 	//method void p_Finalize() /*[shared i_FolderWritability >> shared D_FolderWritability this]*/
@@ -60,12 +60,12 @@ state i_FolderWritability case of D_FolderWritability
 		CID:	ST-78.2
 		DESC:	Makes the object NonWritableFolder.
 	**/
-	method void p_MakeNonWritable() /*[shared i_FolderWritability >> shared NonWritableFolder this]*/
+	method void p_MakeNonWritableFolder() /*[shared i_FolderWritability >> shared NonWritableFolder this]*/
 	{
 		this <- NonWritableFolder;
 		p_InitNonWritableFolder();
 	}
-	//method void p_MakeNonWritable() /*[shared i_FolderWritability >> shared NonWritableFolder this]*/
+	//method void p_MakeNonWritableFolder() /*[shared i_FolderWritability >> shared NonWritableFolder this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
