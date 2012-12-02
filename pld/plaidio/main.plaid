@@ -38,6 +38,7 @@ import plaidio.filesystem.validity.valid.relativity.nonrelative.test_nonrelative
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.test_filepermission;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.test_folderpermission;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.test_unknownpermission;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.test_folderreadability;
 
 /*------------------------------------------------------------------------------
 /**
@@ -50,7 +51,7 @@ method main()
 //	test_filesystem(verbose);
 //	test_validity(verbose);
 //	test_valid(verbose);
-	test_existency(verbose);
+//	test_existency(verbose);
 //	test_relativity(verbose);
 //	test_parentalness(verbose);
 //	test_pathtype(verbose);
@@ -59,6 +60,7 @@ method main()
 //	test_filepermission(verbose);
 //	test_folderpermission(verbose);
 //	test_unknownpermission(verbose);
+	test_folderreadability(verbose);
 
 //	com.akefirad.plaid.PlaidHelper.buildStateCheckers(java.io.File.new("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio"), "D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld");
 }
