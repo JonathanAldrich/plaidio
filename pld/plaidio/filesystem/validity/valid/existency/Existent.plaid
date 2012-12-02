@@ -28,6 +28,8 @@ package plaidio.filesystem.validity.valid.existency;
 import plaidio.filesystem.validity.valid.D_Existency;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.i_PathType;
 
+import plaidio.filesystem.validity.valid.existency._debuger.isExistent;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-24
@@ -68,4 +70,112 @@ state Existent case of D_Existency
 		/*return*/ j_File.setLastModified(time);
 	}
 	//method immutable Int64 setLastModified(immutable Int64 time) /*[pure Existent >> pure Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.4
+		DESC:	Sets the owner's execute permission for this abstract pathname.
+	**/
+	method immutable Boolean setExecutableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setExecutable(flag);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setExecutableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.5
+		DESC:	Sets the owner's and everybody's execute permission for this abstract pathname.
+	**/
+	method immutable Boolean setExecutableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setExecutable(flag, false);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setExecutableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.6
+		DESC:	Sets the owner's read permission for this abstract pathname.
+	**/
+	method immutable Boolean setReadableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setReadable(flag);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setReadableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.7
+		DESC:	Sets the owner's or everybody's read permission for this abstract pathname.
+	**/
+	method immutable Boolean setReadableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setReadable(flag, false);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setReadableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.8
+		DESC:	Sets the owner's write permission for this abstract pathname.
+	**/
+	method immutable Boolean setWritableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setReadable(flag);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setWritableForOwner(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.9
+		DESC:	Sets the owner's or everybody's write permission for this abstract pathname.
+	**/
+	method immutable Boolean setWritableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
+	{
+		var immutable Boolean result = false
+		p_InitPath();
+		if (isExistent(this))
+		{
+			result = j_File.setWritable(flag, false);
+			if (result) { p_InitPath(); };
+		};
+		/*return*/ result;
+	}
+	//method immutable Boolean setWritableForAll(immutable Boolean flag) /*[shared Existent >> shared Existent this]*/
 }
