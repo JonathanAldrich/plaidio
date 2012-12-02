@@ -1,0 +1,70 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-99
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.filesystem.validity.valid.parentalness
+			contains subtypes of "D_Parentalness" typestate.
+	FILE:	package.plaid
+**/
+package plaidio.filesystem.validity.valid.parentalness;
+
+import plaidio.filesystem.makePath;
+
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentalness;
+import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParentless;
+import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParented;
+
+import com.akefirad.plaid.testing.makeTestBed;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SR-99
+	DESC:	Test plaidio.filesystem.validity.valid.parentalness package's features
+**/
+method void test_parentalness(immutable Boolean verbose)
+{
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.parentalness package's features");
+
+	testbed.makeTestCase("TC-TS-28 make a parentless path", fn(tc) => {
+		val unique Path o = makePath("foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsParentless(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsParented(o, verbose) == false; }, verbose);
+	});
+
+	testbed.makeTestCase("TC-TS-29 make a parented path", fn(tc) => {
+		val unique Path o = makePath("parent\\foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
+	});
+
+	testbed.runTestCases(verbose);
+}

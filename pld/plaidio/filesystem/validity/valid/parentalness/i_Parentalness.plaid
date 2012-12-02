@@ -1,0 +1,80 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-99
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	i_Parentalness.plaid
+**/
+package plaidio.filesystem.validity.valid.parentalness;
+
+import plaidio.filesystem.validity.valid.D_Parentalness;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-111
+	DESC:	"i_Parentalness" typestate which is created to intialize D_Parentalness state.
+			This state should not be public.
+**/
+state i_Parentalness case of D_Parentalness
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-111.1
+		DESC:	Checks whether the path has any parent or not, and within D_Parentalness,
+				changes the state of "this" into either "Parentless" or "Parented".
+	**/
+	method void p_Finalize() /*[shared i_Parentalness >> shared D_Parentalness this]*/
+	{
+		ifElse (com.akefirad.plaid.PlaidHelper.hasParent(j_File))
+		{
+			p_MakeParented();
+		}
+		/*else*/
+		{
+			p_MakeParentless();
+		}
+	}
+	//method void p_Finalize() /*[shared i_Parentalness >> shared D_Parentalness this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-111.2
+		DESC:	Makes the object Parentless.
+	**/
+	method void p_MakeParentless() /*[shared i_Parentalness >> shared Parentless this]*/
+	{
+		this <- Parentless;
+		p_InitParentless();
+	}
+	//method void p_MakeParentless() /*[shared i_Parentalness >> shared Parentless this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-111.3
+		DESC:	Makes the object Parented.
+	**/
+	method void p_MakeParented() /*[shared i_Parentalness >> shared Parented this]*/
+	{
+		this <- Parented;
+		p_InitParented();
+	}
+	//method void p_MakeParented() /*[shared i_Parentalness >> shared Parented this]*/
+}

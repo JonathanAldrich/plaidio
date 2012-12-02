@@ -19,35 +19,30 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-14
+	CID:	SR-18
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	Valid.plaid
+	FILE:	D_Parentalness.plaid
 **/
-package plaidio.filesystem.validity;
+package plaidio.filesystem.validity.valid;
 
-import plaidio.filesystem.Path;
-import plaidio.filesystem.validity.valid.D_Relativity;
-import plaidio.filesystem.validity.valid.D_Existency;
-import plaidio.filesystem.validity.valid.D_Parentalness;
+import plaidio.filesystem.validity.valid.parentalness.i_Parentalness;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-17
-	DESC:	"Valid" typestate which represents a valid path.
+	CID:	TS-98
+	DESC:	"D_Parentalness" typestate which is one dimension of Valid typestate.
 **/
-state Valid case of Path = D_Existency with D_Relativity with D_Parentalness with
+state D_Parentalness
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-17.1
-		DESC:	Initialize the object and check	all its dimensions and substates.
-				This method should not be public.
+		CID:	ST-98.1
+		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitValid() /*[shared Valid >> shared Valid this]*/
+	method void p_InitD_Parentalness() /*[shared D_Parentalness >> shared D_Parentalness this]*/
 	{
-		p_InitD_Existency();
-		p_InitD_Relativity();
-		p_InitD_Parentalness();
+		this <- i_Parentalness;
+		p_Finalize();
 	}
-	//method void p_InitValid() /*[shared Valid >> shared Valid this]*/
+	//method void p_InitD_Parentalness() /*[shared D_Parentalness >> shared D_Parentalness this]*/
 }

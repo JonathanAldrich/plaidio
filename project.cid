@@ -7,7 +7,7 @@ SS-12	plaidio.filesystem
 	ST-12.4		separatorChar()
 	ST-12.5		makePath()
 	TS-13	Path
-		ST-13.1		p_InitializePath()
+		ST-13.1		p_InitPath()
 		ST-13.2		getName()
 		ST-13.3		getAddress()
 		ST-13.4		toString()
@@ -17,19 +17,19 @@ SS-12	plaidio.filesystem
 			ST-15.2		p_MakeInvalid()
 			ST-15.3		p_MakeValid()
 		TS-16		Invalid
-			ST-16.1		p_InitializeInvalid()
+			ST-16.1		p_InitInvalid()
 		TS-17		Valid
-			ST-17.1		p_InitializeValid()
+			ST-17.1		p_InitValid()
 			SR-18	plaidio.filesystem.validity.valid
-			TS-19		ExistencyDimension
-				ST-19.1		p_InitializeExistencyDimension()
+			TS-19		D_Existency
+				ST-19.1		p_InitD_Existency()
 				SR-22	plaidio.filesystem.validity.valid.existency
 				TS-23		i_Existency
 					ST-23.1		p_finalize()
 					ST-23.2		p_MakeExistent()
 					ST-23.3		p_MakeNonExistent()
 				TS-24		Existent (checked)
-					ST-24.1		p_InitializeExistent()
+					ST-24.1		p_InitExistent()
 					SR-31	plaidio.filesystem.path.valid.existency.existent.pathtype
 					TS-32		i_PathType
 						ST-32.1		p_finalize()
@@ -37,7 +37,7 @@ SS-12	plaidio.filesystem
 						ST-32.3		p_MakeFolder()
 						ST-32.4		p_MakeUnknown()
 					TS-33		File (checked)
-						ST-33.1		p_InitializeFile()
+						ST-33.1		p_InitFile()
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
 						TS-48		D_FileReadability (checked)
 							SR-55	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filereadability
@@ -55,7 +55,7 @@ SS-12	plaidio.filesystem
 							TS-85		NonExecutableFile
 							TS-86		ExecutableFile
 					TS-34		Folder (checked)
-						ST-34.1		p_InitializeFolder()
+						ST-34.1		p_InitFolder()
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
 						TS-51		D_FolderReadability (checked)
 							SR-56	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderreadability
@@ -73,7 +73,7 @@ SS-12	plaidio.filesystem
 							TS-91		NonExecutableFolder
 							TS-92		ExecutableFolder
 					TS-35		Unknown (checked)
-						ST-35.1		p_InitializeUnknown()
+						ST-35.1		p_InitUnknown()
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
 						TS-53		D_UnknownReadability (checked)
 							SR-57	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownreadability
@@ -91,35 +91,46 @@ SS-12	plaidio.filesystem
 							TS-96		NonExecutableUnknown
 							TS-97		ExecutableUnknown
 				TS-25		NonExistent (checked)
-					ST-25.1		p_InitializeNonExistent()
+					ST-25.1		p_InitNonExistent()
 					SR-36	plaidio.filesystem.path.valid.existency.nonexistent.creatability
 					TS-37		i_Creatability
 						ST-37.1		p_finalize()
 						ST-37.2		p_MakeCreatable()
 						ST-37.3		p_MakeNonCreatable()
 					TS-38		Creatable (checked)
-						ST-38.1		p_InitializeCreatable()
+						ST-38.1		p_InitCreatable()
 						ST-38.2		createAsFile()
 						ST-38.3		createAsFolder()
 					TS-39		NonCreatable (checked)
-						ST-39.1		p_InitializeNonCreatable()
-			TS-21		RelativityDimension
-				ST-21.1		p_InitializeRelativityDimension()
+						ST-39.1		p_InitNonCreatable()
+			TS-21		D_Relativity
+				ST-21.1		p_InitD_Relativity()
 				SR-26	plaidio.filesystem.validity.valid.relativity
 				TS-27		i_Relativity
 					ST-27.1		p_finalize()
 					ST-27.2		p_MakeNonRelative()
 					ST-27.3		p_MakeRelative()
 				TS-28		NonRelative (checked)
-					ST-28.1		p_InitializeNonRelative()
+					ST-28.1		p_InitNonRelative()
 					SR-41	plaidio.filesystem.path.valid.relativity.nonrelative
 					TS-42		i_NonRelative
 						ST-42.1		p_finalize()
 						ST-42.2		p_MakeAbsolute()
 						ST-42.3		p_MakeCanonical()
 					TS-43		Absolute (checked)
-						ST-43.1		p_InitializeAbsolute()
+						ST-43.1		p_InitAbsolute()
 					TS-44		Canonical (checked)
-						ST-44.1		p_InitializeCanonical()
+						ST-44.1		p_InitCanonical()
 				TS-29		Relative (checked)
-					ST-29.1		p_InitializeRelative()
+					ST-29.1		p_InitRelative()
+			TS-98		D_Parentalness (checked)
+				ST-98.1		p_InitD_Parentalness()
+				SR-99	plaidio.filesystem.validity.valid.parentalness
+				TS-111		i_Parentalness (checked)
+					ST-111.1	p_finalize()
+					ST-111.2	p_MakeParentless()
+					ST-111.3	p_MakeParented()
+				TS-112		Parentless (checked)
+					ST-112.1	p_InitParentless()
+				TS-113		Parented (checked)
+					ST-113.1	p_InitParented()

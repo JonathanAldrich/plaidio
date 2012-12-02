@@ -26,6 +26,10 @@ public class PlaidHelper {
 		return File.listRoots()[0].getAbsolutePath();
 	}
 
+	public static boolean hasParent(File file) {
+		return (file.getParent() == null) ? false : true;
+	}
+
 	public static boolean isRootPath(File file) {
 		return (file.getAbsoluteFile().getParentFile() == null) ? true : false;
 	}
