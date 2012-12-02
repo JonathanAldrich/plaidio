@@ -97,7 +97,7 @@ method void test_creatability(immutable Boolean verbose)
 	});
 
 	testbed.makeTestCase("TC-ST-38.3 make a non-existent path and create it as a folder.", fn(tc) => {
-		val unique Path o = makePath("foo.folder\\bar.folder");
+		val unique Path o = makePath("foo.folder" + separator + "bar.folder");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);

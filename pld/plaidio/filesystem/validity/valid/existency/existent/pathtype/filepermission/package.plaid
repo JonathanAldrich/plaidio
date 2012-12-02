@@ -34,8 +34,11 @@ import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsNonExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsExecutableFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsNonReadableFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsNonWritableFile;
@@ -115,41 +118,35 @@ method void test_filepermission(immutable Boolean verbose)
 		}
 	});
 
-	testbed.makeTestCase("TC-TS-69 make an existent readable and writable file path (UNIX-based)", fn(tc) => {
+	testbed.makeTestCase("TC-TS-85 make an existent non-executable file path (UNIX-based)", fn(tc) => {
 		if (java.lang.System.getProperty("os.name").contains("Linux"))
 		{
-			val unique Path o = makePath("/home/radion/workspace/temp/readablewritablefile");
+			val unique Path o = makePath("/home/radion/workspace/temp/nonexecutablefile");
 			tc.debug("'" + o + "'", verbose);
 			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsNonReadableFile(o, verbose) == false; }, verbose);
-			tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsNonWritableFile(o, verbose) == false; }, verbose);
-			tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FileExecutability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonExecutableFile(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExecutableFile(o, verbose) == false; }, verbose);
 		}
 	});
 
-	testbed.makeTestCase("TC-TS-69 make an existent non-readable and non-writable file path (UNIX-based)", fn(tc) => {
+	testbed.makeTestCase("TC-TS-86 make an existent executable file path (UNIX-based)", fn(tc) => {
 		if (java.lang.System.getProperty("os.name").contains("Linux"))
 		{
-			val unique Path o = makePath("/home/radion/workspace/temp/nonreadablenonwritablefile");
+			val unique Path o = makePath("/home/radion/workspace/temp/executablefile");
 			tc.debug("'" + o + "'", verbose);
 			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
 			tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsNonReadableFile(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsReadableFile(o, verbose) == false; }, verbose);
-			tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsNonWritableFile(o, verbose); }, verbose);
-			tc.assert(fn() => { debugIsWritableFile(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsD_FileExecutability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonExecutableFile(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsExecutableFile(o, verbose); }, verbose);
 		}
 	});
 

@@ -26,6 +26,7 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.validity.valid.existency.Existent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderExecutability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderReadability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderWritability;
 
@@ -34,7 +35,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermi
 	CID:	TS-34
 	DESC:	"Folder" typestate which contains an existent folder path.
 **/
-state Folder case of Existent = D_FolderReadability with D_FolderWritability with
+state Folder case of Existent = D_FolderExecutability with D_FolderReadability with D_FolderWritability with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -43,6 +44,7 @@ state Folder case of Existent = D_FolderReadability with D_FolderWritability wit
 	**/
 	method void p_InitFolder() /*[shared Folder >> shared Folder this]*/
 	{
+		p_InitD_FolderExecutability();
 		p_InitD_FolderReadability();
 		p_InitD_FolderWritability();
 	}

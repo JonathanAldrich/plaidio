@@ -26,6 +26,7 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.validity.valid.existency.Existent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileExecutability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileReadability;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileWritability;
 
@@ -34,7 +35,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermiss
 	CID:	TS-33
 	DESC:	"File" typestate which contains an existent file path.
 **/
-state File case of Existent = D_FileReadability with D_FileWritability with
+state File case of Existent = D_FileExecutability with D_FileReadability with D_FileWritability with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -43,6 +44,7 @@ state File case of Existent = D_FileReadability with D_FileWritability with
 	**/
 	method void p_InitFile() /*[shared File >> shared File this]*/
 	{
+		p_InitD_FileExecutability();
 		p_InitD_FileReadability();
 		p_InitD_FileWritability();
 	}

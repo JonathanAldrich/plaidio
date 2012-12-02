@@ -1,0 +1,81 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SR-83
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	i_FileExecutability.plaid
+**/
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.ExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.NonExecutableFile;
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TS-84
+	DESC:	"i_FileExecutability" typestate which initializes D_FileExecutability state region.
+**/
+state i_FileExecutability case of D_FileExecutability
+{
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-84.1
+		DESC:	Checks whether the path is readable or not, and within D_FileExecutability,
+				changes the state of "this" into either "ExecutableFile" or "NonExecutableFile".
+	**/
+	method void p_Finalize() /*[shared i_FileExecutability >> shared D_FileExecutability this]*/
+	{
+		ifElse (j_File.canExecute())
+		{
+			p_MakeExecutableFile();
+		}
+		/*else*/
+		{
+			p_MakeNonExecutableFile();
+		}
+	}
+	//method void p_Finalize() /*[shared i_FileExecutability >> shared D_FileExecutability this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-84.2
+		DESC:	Makes the object NonExecutableFile.
+	**/
+	method void p_MakeNonExecutableFile() /*[shared i_FileExecutability >> shared NonExecutableFile this]*/
+	{
+		this <- NonExecutableFile;
+		p_InitNonExecutableFile();
+	}
+	//method void p_MakeNonExecutableFile() /*[shared i_FileExecutability >> shared NonExecutableFile this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-84.3
+		DESC:	Makes the object ExecutableFile.
+	**/
+	method void p_MakeExecutableFile() /*[shared i_FileExecutability >> shared ExecutableFile this]*/
+	{
+		this <- ExecutableFile;
+		p_InitExecutableFile();
+	}
+	//method void p_MakeExecutableFile() /*[shared i_FileExecutability >> shared ExecutableFile this]*/
+}

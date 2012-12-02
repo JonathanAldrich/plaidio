@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.NonExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.ExecutableFile;
+
+method immutable Boolean isNonExecutableFile(object) { match (object) { case NonExecutableFile { true; } default { false; } }; }
+method immutable Boolean isExecutableFile(object) { match (object) { case ExecutableFile { true; } default { false; } }; }
+
+method immutable Boolean debugIsNonExecutableFile(object, immutable Boolean verbose) { ifElse (isNonExecutableFile(object)) { if (verbose) { printLine("The object is NonExecutableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableFile"); }; false; }; }
+method immutable Boolean debugIsExecutableFile(object, immutable Boolean verbose) { ifElse (isExecutableFile(object)) { if (verbose) { printLine("The object is ExecutableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableFile"); }; false; }; }

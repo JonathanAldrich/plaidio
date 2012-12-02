@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability.NonExecutableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability.ExecutableFolder;
+
+method immutable Boolean isNonExecutableFolder(object) { match (object) { case NonExecutableFolder { true; } default { false; } }; }
+method immutable Boolean isExecutableFolder(object) { match (object) { case ExecutableFolder { true; } default { false; } }; }
+
+method immutable Boolean debugIsNonExecutableFolder(object, immutable Boolean verbose) { ifElse (isNonExecutableFolder(object)) { if (verbose) { printLine("The object is NonExecutableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableFolder"); }; false; }; }
+method immutable Boolean debugIsExecutableFolder(object, immutable Boolean verbose) { ifElse (isExecutableFolder(object)) { if (verbose) { printLine("The object is ExecutableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableFolder"); }; false; }; }

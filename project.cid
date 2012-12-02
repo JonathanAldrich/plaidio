@@ -39,29 +39,39 @@ SS-12	plaidio.filesystem
 					TS-33		File
 						ST-33.1		p_InitializeFile()
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
-						TS-48		FileReadabilityDimension
+						TS-48		D_FileReadability
 							SR-55	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filereadability
 							TS-75		i_FileReadability
 							TS-58		NonReadableFile
 							TS-59		ReadableFile
-						TS-49		FileWritabilityDimension
+						TS-49		D_FileWritability
 							SR-65	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filewritability
 							TS-76		i_FileWritability
 							TS-68		NonWritableFile
 							TS-69		WritableFile
+						TS-82		D_FileExecutability
+							SR-83	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.fileexecutability
+							TS-84		i_FileExecutability
+							TS-85		NonExecutableFile
+							TS-86		ExecutableFile
 					TS-34		Folder
 						ST-34.1		p_InitializeFolder()
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
-						TS-51		FolderReadabilityDimension
+						TS-51		D_FolderReadability
 							SR-56	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderreadability
 							TS-77		i_FolderReadability
 							TS-61		NonReadableFolder
 							TS-62		ReadableFolder
-						TS-52		FolderWritabilityDimension
+						TS-52		D_FolderWritability
 							SR-66	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderwritability
 							TS-78		i_FolderWritability
 							TS-71		NonWritableFolder
 							TS-72		WritableFolder
+						TS-87		D_FolderExecutability
+							SR-88	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderexecutability
+							TS-89		i_FolderExecutability
+							TS-91		NonExecutableFolder
+							TS-92		ExecutableFolder
 					TS-35		Unknown
 						ST-35.1		p_InitializeUnknown()
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
@@ -75,6 +85,11 @@ SS-12	plaidio.filesystem
 							TS-81		i_FolderWritability
 							TS-73		NonWritableUnknown
 							TS-74		WritableUnknown
+						TS-93		D_UnknownExecutability
+							SR-94	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownexecutability
+							TS-95		i_UnknownExecutability
+							TS-96		NonExecutableUnknown
+							TS-97		ExecutableUnknown
 				TS-25		NonExistent
 					ST-25.1		p_InitializeNonExistent()
 					SR-36	plaidio.filesystem.path.valid.existency.nonexistent.creatability

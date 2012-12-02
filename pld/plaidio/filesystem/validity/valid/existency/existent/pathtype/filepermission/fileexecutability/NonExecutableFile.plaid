@@ -19,30 +19,28 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SR-45
+	CID:	SR-83
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	D_FileExecutability.plaid
+	FILE:	NonExecutableFile.plaid
 **/
-package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission;
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability;
 
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.i_FileExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileExecutability;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TS-82
-	DESC:	"D_FileExecutability" typestate which is one dimension of File typestate.
+	CID:	TS-85
+	DESC:	"NonExecutableFile" typestate which is one sub-typestate of D_FileExecutability typestate.
 **/
-state D_FileExecutability
+state NonExecutableFile case of D_FileExecutability
 {
 	//-----------------------------------------------------------------------------
 	/**
-		CID:	ST-82.1
+		CID:	ST-85.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitD_FileExecutability() /*[shared D_FileExecutability >> shared D_FileExecutability this]*/
+	method void p_InitNonExecutableFile() /*[shared NonExecutableFile >> shared NonExecutableFile this]*/
 	{
-		this <- i_FileExecutability;
-		p_Finalize();
 	}
-	//method void p_InitD_FileExecutability() /*[shared D_FileExecutability >> shared D_FileExecutability this]*/
+	//method void p_InitNonExecutableFile() /*[shared NonExecutableFile >> shared NonExecutableFile this]*/
 }

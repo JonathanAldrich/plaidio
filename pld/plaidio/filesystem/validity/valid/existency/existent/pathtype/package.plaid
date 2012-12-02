@@ -88,22 +88,21 @@ method void test_pathtype(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_FolderWritability(o, verbose); }, verbose);
 	});
 
-/*
 	testbed.makeTestCase("TC-TS-24 make an existent unknown path (#N/A)", fn(tc) => {
-		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
-		tc.debug("'" + o + "'", verbose);
-		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_UnknownExecutability(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_UnknownReadability(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_UnknownWritability(o, verbose); }, verbose);
+		tc.debug("This typestate cannot be tested.", verbose);
+//		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
+//		tc.debug("'" + o + "'", verbose);
+//		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
+//		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
+//		tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsD_UnknownExecutability(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsD_UnknownReadability(o, verbose); }, verbose);
+//		tc.assert(fn() => { debugIsD_UnknownWritability(o, verbose); }, verbose);
 	});
-*/
 
 	testbed.runTestCases(verbose);
 }

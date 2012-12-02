@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability.NonExecutableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability.ExecutableUnknown;
+
+method immutable Boolean isNonExecutableUnknown(object) { match (object) { case NonExecutableUnknown { true; } default { false; } }; }
+method immutable Boolean isExecutableUnknown(object) { match (object) { case ExecutableUnknown { true; } default { false; } }; }
+
+method immutable Boolean debugIsNonExecutableUnknown(object, immutable Boolean verbose) { ifElse (isNonExecutableUnknown(object)) { if (verbose) { printLine("The object is NonExecutableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableUnknown"); }; false; }; }
+method immutable Boolean debugIsExecutableUnknown(object, immutable Boolean verbose) { ifElse (isExecutableUnknown(object)) { if (verbose) { printLine("The object is ExecutableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableUnknown"); }; false; }; }
