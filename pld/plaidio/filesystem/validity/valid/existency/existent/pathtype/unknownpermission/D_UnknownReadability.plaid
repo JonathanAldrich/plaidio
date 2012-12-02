@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability.i_UnknownReadability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-53
@@ -39,6 +41,8 @@ state D_UnknownReadability
 	**/
 	method void p_InitD_UnknownReadability() /*[shared D_UnknownReadability >> shared D_UnknownReadability this]*/
 	{
+		this <- i_UnknownReadability;
+		p_Finalize();
 	}
 	//method void p_InitD_UnknownReadability() /*[shared D_UnknownReadability >> shared D_UnknownReadability this]*/
 }

@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability.NonReadableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability.ReadableUnknown;
+
+method immutable Boolean isNonReadableUnknown(object) { match (object) { case NonReadableUnknown { true; } default { false; } }; }
+method immutable Boolean isReadableUnknown(object) { match (object) { case ReadableUnknown { true; } default { false; } }; }
+
+method immutable Boolean debugIsNonReadableUnknown(object, immutable Boolean verbose) { ifElse (isNonReadableUnknown(object)) { if (verbose) { printLine("The object is NonReadableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonReadableUnknown"); }; false; }; }
+method immutable Boolean debugIsReadableUnknown(object, immutable Boolean verbose) { ifElse (isReadableUnknown(object)) { if (verbose) { printLine("The object is ReadableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ReadableUnknown"); }; false; }; }

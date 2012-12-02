@@ -1,0 +1,10 @@
+package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger;
+
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.NonReadableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.ReadableFile;
+
+method immutable Boolean isNonReadableFile(object) { match (object) { case NonReadableFile { true; } default { false; } }; }
+method immutable Boolean isReadableFile(object) { match (object) { case ReadableFile { true; } default { false; } }; }
+
+method immutable Boolean debugIsNonReadableFile(object, immutable Boolean verbose) { ifElse (isNonReadableFile(object)) { if (verbose) { printLine("The object is NonReadableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonReadableFile"); }; false; }; }
+method immutable Boolean debugIsReadableFile(object, immutable Boolean verbose) { ifElse (isReadableFile(object)) { if (verbose) { printLine("The object is ReadableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ReadableFile"); }; false; }; }

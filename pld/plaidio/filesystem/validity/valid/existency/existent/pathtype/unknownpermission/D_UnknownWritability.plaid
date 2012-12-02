@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability.i_UnknownWritability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-54
@@ -39,6 +41,8 @@ state D_UnknownWritability
 	**/
 	method void p_InitD_UnknownWritability() /*[shared D_UnknownWritability >> shared D_UnknownWritability this]*/
 	{
+		this <- i_UnknownWritability;
+		p_Finalize();
 	}
 	//method void p_InitD_UnknownWritability() /*[shared D_UnknownWritability >> shared D_UnknownWritability this]*/
 }

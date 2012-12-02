@@ -27,6 +27,20 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission;
 
+import plaidio.filesystem.makePath;
+
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
+import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability._debuger.debugIsNonReadableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability._debuger.debugIsReadableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability._debuger.debugIsNonWritableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability._debuger.debugIsWritableFolder;
+
 import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
@@ -36,6 +50,70 @@ import com.akefirad.plaid.testing.makeTestBed;
 method void test_folderpermission(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission package's features");
+
+	testbed.makeTestCase("TC-TS-58 make an existent non-readable folder path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/nonreadablefolder");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FolderReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsReadableFolder(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-59 make an existent readable folder path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/readablefolder");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FolderReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableFolder(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsReadableFolder(o, verbose); }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-68 make an existent non-writable folder path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/nonwritablefolder");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FolderWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsWritableFolder(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-69 make an existent writable folder path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/writablefolder");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_FolderWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableFolder(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsWritableFolder(o, verbose); }, verbose);
+		}
+	});
 
 	testbed.runTestCases(verbose);
 }

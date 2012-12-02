@@ -41,10 +41,12 @@ SS-12	plaidio.filesystem
 						SR-45	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission
 						TS-48		FileReadabilityDimension
 							SR-55	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filereadability
+							TS-75		i_FileReadability
 							TS-58		NonReadableFile
 							TS-59		ReadableFile
 						TS-49		FileWritabilityDimension
 							SR-65	plaidio.filesystem.path.valid.existency.existent.pathtype.filepermission.filewritability
+							TS-76		i_FileWritability
 							TS-68		NonWritableFile
 							TS-69		WritableFile
 					TS-34		Folder
@@ -52,10 +54,12 @@ SS-12	plaidio.filesystem
 						SR-46	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission
 						TS-51		FolderReadabilityDimension
 							SR-56	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderreadability
+							TS-77		i_FolderReadability
 							TS-61		NonReadableFolder
 							TS-62		ReadableFolder
 						TS-52		FolderWritabilityDimension
 							SR-66	plaidio.filesystem.path.valid.existency.existent.pathtype.folderpermission.folderwritability
+							TS-78		i_FolderWritability
 							TS-71		NonWritableFolder
 							TS-72		WritableFolder
 					TS-35		Unknown
@@ -63,10 +67,12 @@ SS-12	plaidio.filesystem
 						SR-47	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission
 						TS-53		UnknownReadabilityDimension
 							SR-57	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownreadability
+							TS-79		i_FolderReadability
 							TS-63		NonReadableUnknown
 							TS-64		ReadableUnknown
 						TS-54		UnknownWritabilityDimension
 							SR-67	plaidio.filesystem.path.valid.existency.existent.pathtype.unknownpermission.unknownwritability
+							TS-81		i_FolderWritability
 							TS-73		NonWritableUnknown
 							TS-74		WritableUnknown
 				TS-25		NonExistent

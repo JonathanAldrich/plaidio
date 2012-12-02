@@ -30,7 +30,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermi
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-62
-	DESC:	"ReadableFile" typestate which is one sub-typestate of D_FileReadability typestate.
+	DESC:	"ReadableFile" typestate which is one sub-typestate of D_FolderReadability typestate.
 **/
 state ReadableFolder case of D_FolderReadability
 {

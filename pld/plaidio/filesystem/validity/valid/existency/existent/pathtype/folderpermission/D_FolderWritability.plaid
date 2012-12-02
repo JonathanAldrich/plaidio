@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.foldewritability.i_FolderWritability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-52
@@ -39,6 +41,8 @@ state D_FolderWritability
 	**/
 	method void p_InitD_FolderWritability() /*[shared D_FolderWritability >> shared D_FolderWritability this]*/
 	{
+		this <- i_FolderWritability;
+		p_Finalize();
 	}
 	//method void p_InitD_FolderWritability() /*[shared D_FolderWritability >> shared D_FolderWritability this]*/
 }

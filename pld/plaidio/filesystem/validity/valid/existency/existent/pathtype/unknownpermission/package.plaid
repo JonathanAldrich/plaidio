@@ -27,6 +27,20 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission;
 
+import plaidio.filesystem.makePath;
+
+import plaidio.filesystem._debuger.debugIsPath;
+import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
+import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability._debuger.debugIsNonReadableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability._debuger.debugIsReadableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability._debuger.debugIsNonWritableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability._debuger.debugIsWritableUnknown;
+
 import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
@@ -36,6 +50,70 @@ import com.akefirad.plaid.testing.makeTestBed;
 method void test_unknownpermission(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission package's features");
+
+	testbed.makeTestCase("TC-TS-58 make an existent non-readable unknown path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/nonreadableunknown");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_UnknownReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsReadableUnknown(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-59 make an existent readable unknown path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/readableunknown");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_UnknownReadability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonReadableUnknown(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsReadableUnknown(o, verbose); }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-68 make an existent non-writable unknown path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/nonwritableunknown");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_UnknownWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsWritableUnknown(o, verbose) == false; }, verbose);
+		}
+	});
+
+	testbed.makeTestCase("TC-TS-69 make an existent writable unknown path (UNIX-based)", fn(tc) => {
+		if (java.lang.System.getProperty("os.name").contains("Linux"))
+		{
+			val unique Path o = makePath("/home/radion/workspace/temp/writableunknown");
+			tc.debug("'" + o + "'", verbose);
+			tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsD_UnknownWritability(o, verbose); }, verbose);
+			tc.assert(fn() => { debugIsNonWritableUnknown(o, verbose) == false; }, verbose);
+			tc.assert(fn() => { debugIsWritableUnknown(o, verbose); }, verbose);
+		}
+	});
 
 	testbed.runTestCases(verbose);
 }

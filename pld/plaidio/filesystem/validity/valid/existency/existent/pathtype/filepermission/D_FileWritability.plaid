@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability.i_FileWritability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-49
@@ -39,6 +41,8 @@ state D_FileWritability
 	**/
 	method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
 	{
+		this <- i_FileWritability;
+		p_Finalize();
 	}
 	//method void p_InitD_FileWritability() /*[shared D_FileWritability >> shared D_FileWritability this]*/
 }

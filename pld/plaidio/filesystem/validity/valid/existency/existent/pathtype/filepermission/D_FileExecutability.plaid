@@ -28,7 +28,7 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermis
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-48
-	DESC:	"D_FileReadability" typestate which is one dimension of File typestate.
+	DESC:	"D_FileExecutability" typestate which is one dimension of File typestate.
 **/
 state D_FileExecutability
 {
