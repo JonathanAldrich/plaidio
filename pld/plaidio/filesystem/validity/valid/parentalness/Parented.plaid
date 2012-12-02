@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.parentalness;
 
+import plaidio.filesystem.makePath;
+import plaidio.filesystem.validity.Valid;
 import plaidio.filesystem.validity.valid.D_Parentalness;
 
 /*------------------------------------------------------------------------------
@@ -43,4 +45,26 @@ state Parented case of D_Parentalness
 	{
 	}
 	//method void p_InitParented() /*[shared Parented >> shared Parented this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-113.2
+		DESC:	 Returns the pathname string of this abstract pathname's parent.
+	**/
+	method immutable String getParentString() /*[pure Parented >> pure Parented this]*/
+	{
+		/*return*/ j_File.getParent();
+	}
+	//method immutable String getParentString() /*[pure Parented >> pure Parented this]*/
+
+	/*-----------------------------------------------------------------------------
+	/**
+		CID:	ST-113.3
+		DESC:	Returns the abstract pathname of this abstract pathname's parent.
+	**/
+	method unique Valid getParent() /*[pure Parented >> pure Parented this]*/
+	{
+		/*return*/ makePath(getParentString());
+	}
+	//method unique Valid getParent() /*[pure Parented >> pure Parented this]*/
 }

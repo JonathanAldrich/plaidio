@@ -29,8 +29,11 @@ package plaidio.filesystem.validity.valid.parentalness;
 
 import plaidio.filesystem.makePath;
 
+import com.akefirad.plaid.lang._debuger.debugIsString;
+
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
+import plaidio.filesystem.validity._debuger.debugIsInvalid;
 import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentalness;
 import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParentless;
 import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParented;
@@ -46,7 +49,7 @@ method void test_parentalness(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.parentalness package's features");
 
-	testbed.makeTestCase("TC-TS-28 make a parentless path", fn(tc) => {
+	testbed.makeTestCase("TC-TS-112 make a parentless path", fn(tc) => {
 		val unique Path o = makePath("foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
@@ -56,7 +59,7 @@ method void test_parentalness(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsParented(o, verbose) == false; }, verbose);
 	});
 
-	testbed.makeTestCase("TC-TS-29 make a parented path", fn(tc) => {
+	testbed.makeTestCase("TC-TS-113 make a parented path", fn(tc) => {
 		val unique Path o = makePath("parent\\foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
@@ -64,6 +67,38 @@ method void test_parentalness(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-113.2 make a parented path and get its parent string", fn(tc) => {
+		val unique Path o = makePath("parent\\foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
+		
+		val immutable String p = o.getParentString();
+		
+		tc.debug("'" + p + "'", verbose);
+		tc.assert(fn() => { debugIsString(p, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-113.3 make a parented path and get its parent", fn(tc) => {
+		val unique Path o = makePath("parent\\foo");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
+		
+		val unique Valid p = o.getParent();
+		
+		tc.debug("'" + p + "'", verbose);
+		tc.assert(fn() => { debugIsPath(p, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInvalid(p, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsValid(p, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);
