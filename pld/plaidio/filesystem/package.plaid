@@ -104,9 +104,15 @@ method unique Path createTempFile(immutable String prefix, immutable String suff
 **/
 method unique Path createTempFileIn(immutable String prefix, immutable String suffix, pure Folder folder)
 {
-	val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
-	p.p_InitPath();
-	/*return*/ p;
+	match (folder)
+	{
+		case WritableFolder
+		{
+			val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
+			p.p_InitPath();
+			/*return*/ p;
+		}
+	};
 }
 
 /*------------------------------------------------------------------------------

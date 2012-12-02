@@ -82,5 +82,22 @@ method void test_existency(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsInt64(i, verbose); }, verbose);
 	});
 
+	testbed.makeTestCase("TC-TS-24.2 make an existent path and set the last modified time of file", fn(tc) => {
+		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		
+		val immutable Int64 i = o.lastModified();
+		tc.debug("'" + i + "'", verbose);
+
+		o.setLastModified(i + 100000000);
+
+		val immutable Int64 j = o.lastModified();
+		tc.debug("'" + j + "'", verbose);
+	});
+
 	testbed.runTestCases(verbose);
 }

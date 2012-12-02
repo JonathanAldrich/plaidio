@@ -57,4 +57,15 @@ state Existent case of D_Existency
 		/*return*/ j_File.lastModified();
 	}
 	//method immutable Int64 lastModified() /*[pure Existent >> pure Existent this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-24.3
+		DESC:	Returns the time that the file denoted by this abstract pathname was last modified
+	**/
+	method immutable Int64 setLastModified(immutable Int64 time) /*[pure Existent >> pure Existent this]*/
+	{
+		/*return*/ j_File.setLastModified(time);
+	}
+	//method immutable Int64 setLastModified(immutable Int64 time) /*[pure Existent >> pure Existent this]*/
 }

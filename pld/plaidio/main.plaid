@@ -50,10 +50,10 @@ method main()
 //	test_filesystem(verbose);
 //	test_validity(verbose);
 //	test_valid(verbose);
-//	test_existency(verbose);
+	test_existency(verbose);
 //	test_relativity(verbose);
 //	test_parentalness(verbose);
-	test_pathtype(verbose);
+//	test_pathtype(verbose);
 //	test_creatability(verbose);
 //	test_nonrelative(verbose);
 //	test_filepermission(verbose);
