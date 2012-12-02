@@ -47,7 +47,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownperm
 method main()
 {
 	val verbose = true;
-//	test_filesystem(verbose);
+	test_filesystem(verbose);
 //	test_validity(verbose);
 //	test_valid(verbose);
 //	test_existency(verbose);

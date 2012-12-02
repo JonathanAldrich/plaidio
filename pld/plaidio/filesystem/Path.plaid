@@ -81,4 +81,15 @@ state Path
 		/*return*/ j_File.toString();
 	}
 	//method immutable String toString() /*[Pure Path >> Pure Path this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-13.5
+		DESC:	Computes a hash code for this abstract pathname.
+	**/
+	method immutable Int32 hashCode() /*[Pure Path >> Pure Path this]*/
+	{
+		/*return*/ j_File.hashCode();
+	}
+	//method immutable Int32 hashCode()() /*[Pure Path >> Pure Path this]*/
 }

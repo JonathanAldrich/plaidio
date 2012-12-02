@@ -69,4 +69,15 @@ state NonRelative case of D_Relativity
 		/*return*/ j_File.getTotalSpace();
 	}
 	//method immutable Int64 getTotalSpace() /*[pure NonRelative >> pure NonRelative this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-28.4
+		DESC:	Returns the number of bytes available to this virtual machine on the partition named by this abstract pathname.
+	**/
+	method immutable Int64 getUsableSpace() /*[pure NonRelative >> pure NonRelative this]*/
+	{
+		/*return*/ j_File.getUsableSpace();
+	}
+	//method immutable Int64 getUsableSpace() /*[pure NonRelative >> pure NonRelative this]*/
 }

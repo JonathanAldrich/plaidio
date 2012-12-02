@@ -39,6 +39,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermiss
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsWritableFile;
 
+import com.akefirad.plaid.lang._debuger.debugIsInt32;
 import com.akefirad.plaid.lang._debuger.debugIsString;
 import com.akefirad.plaid.lang._debuger.debugIsCharacter;
 
@@ -207,6 +208,12 @@ method void test_filesystem(immutable Boolean verbose)
 		val immutable String o = makePath("foo").toString();
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsString(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-13.4 Path.hashCode()", fn(tc) => {
+		val immutable String o = makePath("foo").hashCode();
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsInt32(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);
