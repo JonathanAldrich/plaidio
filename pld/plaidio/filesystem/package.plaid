@@ -26,6 +26,8 @@
 **/
 package plaidio.filesystem;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.WritableFolder;
+
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
@@ -102,17 +104,20 @@ method unique Path createTempFile(immutable String prefix, immutable String suff
 	CID: 	ST-12.6
 	DESC:	The system-dependent default name-separator character.
 **/
-method unique Path createTempFileIn(immutable String prefix, immutable String suffix, pure Folder folder)
+method unique Path createTempFileIn(immutable String prefix, immutable String suffix, pure WritableFolder folder)
 {
-	match (folder)
-	{
-		case WritableFolder
-		{
-			val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
-			p.p_InitPath();
-			/*return*/ p;
-		}
-	};
+//	match (folder)
+//	{
+//		case WritableFolder
+//		{
+//			val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
+//			p.p_InitPath();
+//			/*return*/ p;
+//		}
+//	};
+	val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
+	p.p_InitPath();
+	/*return*/ p;
 }
 
 /*------------------------------------------------------------------------------
@@ -137,6 +142,28 @@ method unique Path makePathFromFile(file)
 	val unique Path p = new Path { var j_File = file; };
 	p.p_InitPath();
 	/*return*/ p;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-12.9
+	DESC:	List the available filesystem roots.
+**/
+method unique List<immutable Path> listRoots()
+{
+	val unique List<immutable Path> roots = makeEmptyList();
+	val javalist = java.util.Arrays.asList(java.io.File.listRoots());
+	var i = 0;
+	while
+	{
+		i < javalist.size();
+	}
+	//do
+	{
+		roots.add(makePathFromFile(javalist.get(i)));
+		i = i + 1;
+	};
+	childs;
 }
 
 /*------------------------------------------------------------------------------
@@ -232,6 +259,32 @@ method void test_filesystem(immutable Boolean verbose)
 		val immutable String o = makePath("foo").hashCode();
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsInt32(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("ST-12.9 list the available filesystem roots", fn(tc) => {
+		printLine("Start");
+		var childs = listRoots();
+
+		ifElse (childs.isEmpty())
+		{
+			tc.debug("The folder is empty!", verbose);
+		}
+		/*else*/
+		{
+			var i = 0;
+			var child = new Unit;
+			while
+			{
+				child = childs.get(i);
+				isNil(child) == false;
+			}
+			/*do*/
+			{
+				tc.debug("'" + child + "'", verbose);
+				tc.assert(fn() => { debugIsExistent(child, verbose); }, verbose);
+				i = i + 1;
+			};
+		}
 	});
 
 	testbed.runTestCases(verbose);
