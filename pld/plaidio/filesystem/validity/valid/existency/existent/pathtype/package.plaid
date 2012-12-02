@@ -37,6 +37,15 @@ import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFolder;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownWritability;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
@@ -59,6 +68,9 @@ method void test_pathtype(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsUnknown(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsD_FileExecutability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("TC-TS-24 make an existent folder path", fn(tc) => {
@@ -71,6 +83,9 @@ method void test_pathtype(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsUnknown(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsD_FolderExecutability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FolderReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FolderWritability(o, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("TC-TS-24 make an existent unknown path", fn(tc) => {
@@ -83,6 +98,9 @@ method void test_pathtype(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsFile(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsFolder(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsUnknown(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_UnknownExecutability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_UnknownReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_UnknownWritability(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

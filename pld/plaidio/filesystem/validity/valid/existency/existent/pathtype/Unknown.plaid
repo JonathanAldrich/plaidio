@@ -26,13 +26,16 @@
 package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 
 import plaidio.filesystem.validity.valid.existency.Existent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownWritability;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-35
-	DESC:	"UnknownLeaf" typestate which contains an existent file path.
+	DESC:	"Unknown" typestate which contains an existent unknown path.
 **/
-state Unknown case of Existent
+state Unknown case of Existent = D_UnknownExecutability with D_UnknownReadability with D_UnknownWritability with
 {
 	//-----------------------------------------------------------------------------
 	/**
