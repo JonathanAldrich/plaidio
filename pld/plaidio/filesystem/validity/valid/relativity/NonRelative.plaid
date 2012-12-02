@@ -58,4 +58,15 @@ state NonRelative case of D_Relativity
 		/*return*/ j_File.getFreeSpace();
 	}
 	//method immutable Int64 getFreeSpace() /*[pure NonRelative >> pure NonRelative this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-28.3
+		DESC:	Returns the size of the partition named by this abstract pathname.
+	**/
+	method immutable Int64 getTotalSpace() /*[pure NonRelative >> pure NonRelative this]*/
+	{
+		/*return*/ j_File.getTotalSpace();
+	}
+	//method immutable Int64 getTotalSpace() /*[pure NonRelative >> pure NonRelative this]*/
 }

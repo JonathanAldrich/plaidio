@@ -29,6 +29,15 @@ package plaidio.filesystem;
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
+import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsWritableFile;
 
 import com.akefirad.plaid.lang._debuger.debugIsString;
 import com.akefirad.plaid.lang._debuger.debugIsCharacter;
@@ -78,6 +87,30 @@ method immutable Character separatorChar()
 /*------------------------------------------------------------------------------
 /**
 	CID: 	ST-12.5
+	DESC:	The system-dependent default name-separator character.
+**/
+method unique Path createTempFile(immutable String prefix, immutable String suffix)
+{
+	val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix); };
+	p.p_InitPath();
+	/*return*/ p;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-12.6
+	DESC:	The system-dependent default name-separator character.
+**/
+method unique Path createTempFileIn(immutable String prefix, immutable String suffix, pure Folder folder)
+{
+	val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
+	p.p_InitPath();
+	/*return*/ p;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID: 	ST-12.7
 	DESC:	constructor for TS-11
 **/
 method unique Path makePath(immutable String path)
@@ -119,8 +152,40 @@ method void test_filesystem(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsCharacter(o, verbose); }, verbose);
 	});
-	
-	testbed.makeTestCase("TC-TS-12.5 make a path", fn(tc) => {
+
+	testbed.makeTestCase("TC-ST-12.5 createTempFile()", fn(tc) => {
+		val unique Path o = createTempFile("foo", "tmp");
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileExecutability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExecutableFile(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-ST-12.6 createTempFileIn()", fn(tc) => {
+		val unique Path o = createTempFileIn("foo", "tmp", makePath(""));
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileExecutability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExecutableFile(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-TS-12.7 make a path", fn(tc) => {
 		val unique Path o = makePath("foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
