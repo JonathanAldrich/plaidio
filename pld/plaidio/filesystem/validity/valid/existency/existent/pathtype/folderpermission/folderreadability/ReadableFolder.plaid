@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability;
 
+import plaidio.filesystem.makePathFromFile;
+import plaidio.filesystem.validity.valid.existency.Existent;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderReadability;
 
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability._debuger.isReadableFolder;
@@ -70,4 +72,29 @@ state ReadableFolder case of D_FolderReadability
 		childs;
 	}
 	//method unique List<immutable String> getChildsAsString() /*[pure ReadableFolder >> pure ReadableFolder this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-62.3
+		DESC:	Returns an array of strings naming the files and directories in the directory denoted by this abstract pathname.
+	**/
+	method unique List<immutable Existent> getChildsAsPath() /*[pure ReadableFolder >> pure ReadableFolder this]*/
+	{
+		val unique List<immutable Existent> childs = makeEmptyList();
+		var javalist = new Unit;
+		p_InitPath();
+		if (isReadableFolder(this)) { javalist = java.util.Arrays.asList(j_File.listFiles()); };
+		var i = 0;
+		while
+		{
+			i < javalist.size();
+		}
+		//do
+		{
+			childs.add(makePathFromFile(javalist.get(i)));
+			i = i + 1;
+		};
+		childs;
+	}
+	//method unique List<immutable Existent> getChildsAsPath() /*[pure ReadableFolder >> pure ReadableFolder this]*/
 }

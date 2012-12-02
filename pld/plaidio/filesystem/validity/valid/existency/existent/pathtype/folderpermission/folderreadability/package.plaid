@@ -29,6 +29,8 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderperm
 
 import plaidio.filesystem.makePath;
 
+import plaidio.filesystem.validity.valid.existency.Existent;
+
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
@@ -80,6 +82,41 @@ method void test_folderreadability(immutable Boolean verbose)
 			{
 				tc.debug("'" + child + "'", verbose);
 				tc.assert(fn() => { debugIsString(child, verbose); }, verbose);
+				i = i + 1;
+			};
+		}
+	});
+
+	testbed.makeTestCase("ST-62.3 make an existent readable folder path and get its childs as path", fn(tc) => {
+		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFolder(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_FolderReadability(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsReadableFolder(o, verbose); }, verbose);
+
+		val unique List<immutable Existent> childs = o.getChildsAsPath();
+
+		ifElse (childs.isEmpty())
+		{
+			tc.debug("The folder is empty!", verbose);
+		}
+		/*else*/
+		{
+			var i = 0;
+			var child = new Unit;
+			while
+			{
+				child = childs.get(i);
+				isNil(child) == false;
+			}
+			/*do*/
+			{
+				tc.debug("'" + child + "'", verbose);
+				tc.assert(fn() => { debugIsExistent(child, verbose); }, verbose);
 				i = i + 1;
 			};
 		}

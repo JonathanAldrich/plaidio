@@ -129,6 +129,18 @@ method unique Path makePath(immutable String path)
 
 /*------------------------------------------------------------------------------
 /**
+	CID: 	ST-12.8
+	DESC:	constructor for TS-11
+**/
+method unique Path makePathFromFile(file)
+{
+	val unique Path p = new Path { var j_File = file; };
+	p.p_InitPath();
+	/*return*/ p;
+}
+
+/*------------------------------------------------------------------------------
+/**
 	CID:	TC-SS-12
 	DESC:	Test cases of plaidio.filesystem package's features
 **/
