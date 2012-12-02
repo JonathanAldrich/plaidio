@@ -49,4 +49,15 @@ state File case of Existent = D_FileExecutability with D_FileReadability with D_
 		p_InitD_FileWritability();
 	}
 	//method void p_InitFile() /*[shared File >> shared File this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-33.2
+		DESC:	Returns the length of the file denoted by this abstract pathname.
+	**/
+	method immutable Int64 length() /*[pure File >> pure File this]*/
+	{
+		/*return*/ j_File.length();
+	}
+	//method immutable Int64 length() /*[pure File >> pure File this]*/
 }

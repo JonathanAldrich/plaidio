@@ -36,6 +36,8 @@ import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
 import plaidio.filesystem.validity.valid.existency._debuger.debugIsNonExistent;
 
+import com.akefirad.plaid.lang._debuger.debugIsInt64;
+
 import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
@@ -65,6 +67,19 @@ method void test_existency(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsExistent(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsNonExistent(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("TC-TS-24.2 make an existent path and get the time the file was last modified", fn(tc) => {
+		val unique Path o = makePath(java.lang.System.getProperty("user.dir"));
+		tc.debug("'" + o + "'", verbose);
+		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Existency(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsExistent(o, verbose); }, verbose);
+		
+		val immutable Int64 i = o.lastModified();
+		tc.debug("'" + i + "'", verbose);
+		tc.assert(fn() => { debugIsInt64(i, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);
