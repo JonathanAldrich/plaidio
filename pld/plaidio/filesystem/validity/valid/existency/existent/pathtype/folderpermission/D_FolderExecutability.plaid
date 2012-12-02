@@ -25,6 +25,8 @@
 **/
 package plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission;
 
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability.i_FolderExecutability;
+
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-87
@@ -39,6 +41,8 @@ state D_FolderExecutability
 	**/
 	method void p_InitD_FolderExecutability() /*[shared D_FolderExecutability >> shared D_FolderExecutability this]*/
 	{
+		this <- i_FolderExecutability;
+		p_Finalize();
 	}
 	//method void p_InitD_FolderExecutability() /*[shared D_FolderExecutability >> shared D_FolderExecutability this]*/
 }
