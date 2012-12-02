@@ -68,7 +68,7 @@ state i_PathType case of Existent
 	method void p_MakeFile() /*[shared i_PathType >> shared File this]*/
 	{
 		this <- File;
-		p_InitializeFile();
+		p_InitFile();
 	}
 	//method void p_MakeExistent() /*[shared i_PathType >> shared File this]*/
 
@@ -80,7 +80,7 @@ state i_PathType case of Existent
 	method void p_MakeFolder() /*[shared i_PathType >> shared Folder this]*/
 	{
 		this <- Folder;
-		p_InitializeFolder();
+		p_InitFolder();
 	}
 	//method void p_MakeFolder() /*[shared i_PathType >> shared Folder this]*/
 
@@ -92,7 +92,7 @@ state i_PathType case of Existent
 	method void p_MakeUnknown() /*[shared i_PathType >> shared Unknown this]*/
 	{
 		this <- Unknown;
-		p_InitializeUnknown();
+		p_InitUnknown();
 	}
 	//method void p_MakeUnknown() /*[shared i_PathType >> shared Unknown this]*/
 }

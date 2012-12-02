@@ -39,8 +39,8 @@ state NonCreatable case of NonExistent
 		CID:	ST-39.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	method void p_InitNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
 	{
 	}
-	//method void p_InitializeNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
+	//method void p_InitNonCreatable() /*[shared NonCreatable >> shared NonCreatable this]*/
 }

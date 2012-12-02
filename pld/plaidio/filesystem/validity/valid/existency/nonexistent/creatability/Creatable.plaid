@@ -40,10 +40,10 @@ state Creatable case of NonExistent
 		CID:	ST-38.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	method void p_InitCreatable() /*[shared Creatable >> shared Creatable this]*/
 	{
 	}
-	//method void p_InitializeCreatable() /*[shared Creatable >> shared Creatable this]*/
+	//method void p_InitCreatable() /*[shared Creatable >> shared Creatable this]*/
 
 	//-----------------------------------------------------------------------------
 	/**
@@ -53,11 +53,11 @@ state Creatable case of NonExistent
 	**/
 	method createAsFile() /*[unique Creatable >> unique Valid this]*/
 	{
-		p_InitializePath();
+		p_InitPath();
 		if (isCreatable(this))
 		{
 			j_File.createNewFile();
-			p_InitializePath();
+			p_InitPath();
 		};
 	}
 	//method void createAsFile() /*[unique Creatable >> unique Valid this]*/
@@ -70,11 +70,11 @@ state Creatable case of NonExistent
 	**/
 	method createAsFolder() /*[unique Creatable >> unique Valid this]*/
 	{
-		p_InitializePath();
+		p_InitPath();
 		if (isCreatable(this))
 		{
 			j_File.mkdirs();
-			p_InitializePath();
+			p_InitPath();
 		};
 	}
 	//method void createAsFolder() /*[unique Creatable >> unique Valid this]*/

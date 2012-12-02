@@ -66,7 +66,7 @@ state i_Validity case of Path
 	method void p_MakeInvalid() /*[shared i_Validity >> shared Invalid this]*/
 	{
 		this <- Invalid;
-		p_InitializeInvalid();
+		p_InitInvalid();
 	}
 	//method void p_MakeInvalid() /*[shared i_Validity >> shared Invalid this]*/
 
@@ -78,7 +78,7 @@ state i_Validity case of Path
 	method void p_MakeValid() /*[shared i_Validity >> shared Valid this]*/
 	{
 		this <- Valid;
-		p_InitializeValid();
+		p_InitValid();
 	}
 	//method void p_MakeValid() /*[shared i_Validity >> shared Valid this]*/
 }

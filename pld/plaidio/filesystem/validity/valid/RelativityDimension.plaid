@@ -39,10 +39,10 @@ state RelativityDimension
 		CID:	ST-21.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
+	method void p_InitRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 	{
 		this <- i_Relativity;
 		p_Finalize();
 	}
-	//method void p_InitializeRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
+	//method void p_InitRelativityDimension() /*[shared RelativityDimension >> shared RelativityDimension this]*/
 }

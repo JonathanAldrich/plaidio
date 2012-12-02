@@ -39,8 +39,8 @@ state Canonical case of NonRelative
 		CID:	ST-44.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeCanonical() /*[shared Canonical >> shared Canonical this]*/
+	method void p_InitCanonical() /*[shared Canonical >> shared Canonical this]*/
 	{
 	}
-	//method void p_InitializeCanonical() /*[shared Canonical >> shared Canonical this]*/
+	//method void p_InitCanonical() /*[shared Canonical >> shared Canonical this]*/
 }

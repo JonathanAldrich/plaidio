@@ -62,7 +62,7 @@ state i_Existency case of ExistencyDimension
 	method void p_MakeExistent() /*[shared i_Existency >> shared Existent this]*/
 	{
 		this <- Existent;
-		p_InitializeExistent();
+		p_InitExistent();
 	}
 	//method void p_MakeExistent() /*[shared i_Existency >> shared Existent this]*/
 
@@ -74,7 +74,7 @@ state i_Existency case of ExistencyDimension
 	method void p_MakeNonExistent() /*[shared i_Existency >> shared NonExistent this]*/
 	{
 		this <- NonExistent;
-		p_InitializeNonExistent();
+		p_InitNonExistent();
 	}
 	//method void p_MakeNonExistent() /*[shared i_Existency >> shared NonExistent this]*/
 }

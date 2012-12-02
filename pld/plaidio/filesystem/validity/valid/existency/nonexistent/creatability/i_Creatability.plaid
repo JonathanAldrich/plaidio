@@ -61,7 +61,7 @@ state i_Creatability case of NonExistent
 	method void p_MakeCreatable() /*[shared i_Creatability >> shared Creatable this]*/
 	{
 		this <- Creatable;
-		p_InitializeCreatable();
+		p_InitCreatable();
 	}
 	//method void p_MakeCreatable() /*[shared i_Creatability >> shared Creatable this]*/
 
@@ -73,7 +73,7 @@ state i_Creatability case of NonExistent
 	method void p_MakeNonCreatable() /*[shared i_Creatability >> shared NonCreatable this]*/
 	{
 		this <- NonCreatable;
-		p_InitializeNonCreatable();
+		p_InitNonCreatable();
 	}
 	//method void p_MakeNonCreatable() /*[shared i_Creatability >> shared NonCreatable this]*/
 }

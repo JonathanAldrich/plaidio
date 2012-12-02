@@ -40,8 +40,8 @@ state Relative case of RelativityDimension
 		CID:	ST-29.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeRelative() /*[shared Relative >> shared Relative this]*/
+	method void p_InitRelative() /*[shared Relative >> shared Relative this]*/
 	{
 	}
-	//method void p_InitializeRelative() /*[shared Relative >> shared Relative this]*/
+	//method void p_InitRelative() /*[shared Relative >> shared Relative this]*/
 }

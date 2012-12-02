@@ -62,7 +62,7 @@ state i_NonRelative case of NonRelative
 	method void p_MakeAbsolute() /*[shared i_NonRelative >> shared Absolute this]*/
 	{
 		this <- Absolute;
-		p_InitializeAbsolute();
+		p_InitAbsolute();
 	}
 	//method void p_MakeExistent() /*[shared i_NonRelative >> shared Absolute this]*/
 
@@ -74,7 +74,7 @@ state i_NonRelative case of NonRelative
 	method void p_MakeCanonical() /*[shared i_NonRelative >> shared Canonical this]*/
 	{
 		this <- Canonical;
-		p_InitializeCanonical();
+		p_InitCanonical();
 	}
 	//method void p_MakeFolder() /*[shared i_NonRelative >> shared Canonical this]*/
 }

@@ -42,10 +42,10 @@ state Valid case of Path = ExistencyDimension with RelativityDimension with
 		DESC:	Initialize the object and check	all its dimensions and substates.
 				This method should not be public.
 	**/
-	method void p_InitializeValid() /*[shared Valid >> shared Valid this]*/
+	method void p_InitValid() /*[shared Valid >> shared Valid this]*/
 	{
-		p_InitializeExistencyDimension();
-		p_InitializeRelativityDimension();
+		p_InitExistencyDimension();
+		p_InitRelativityDimension();
 	}
-	//method void p_InitializeValid() /*[shared Valid >> shared Valid this]*/
+	//method void p_InitValid() /*[shared Valid >> shared Valid this]*/
 }

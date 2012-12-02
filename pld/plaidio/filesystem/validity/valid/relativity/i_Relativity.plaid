@@ -62,7 +62,7 @@ state i_Relativity case of RelativityDimension
 	method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
 	{
 		this <- NonRelative;
-		p_InitializeNonRelative();
+		p_InitNonRelative();
 	}
 	//method void p_MakeNonRelative() /*[shared i_Relativity >> shared NonRelative this]*/
 
@@ -74,7 +74,7 @@ state i_Relativity case of RelativityDimension
 	method void p_MakeRelative() /*[shared i_Relativity >> shared Relative this]*/
 	{
 		this <- Relative;
-		p_InitializeRelative();
+		p_InitRelative();
 	}
 	//method void p_MakeRelative() /*[shared i_Relativity >> shared Relative this]*/
 }

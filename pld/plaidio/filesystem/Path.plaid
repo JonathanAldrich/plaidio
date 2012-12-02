@@ -42,12 +42,12 @@ state Path
 		DESC:	Initialize the object and check	all its dimensions and substates.
 				This method should not be public.
 	**/
-	method void p_InitializePath() /*[shared Path >> shared Path this]*/
+	method void p_InitPath() /*[shared Path >> shared Path this]*/
 	{
 		this <- i_Validity;
 		p_Finalize();
 	}
-	//method void p_InitializePath() /*[shared Path >> shared Path this]*/
+	//method void p_InitPath() /*[shared Path >> shared Path this]*/
 
 	//-----------------------------------------------------------------------------
 	/**

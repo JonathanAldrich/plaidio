@@ -83,7 +83,7 @@ method immutable Character separatorChar()
 method unique Path makePath(immutable String path)
 {
 	val unique Path p = new Path { j_File = java.io.File.new(path); };
-	p.p_InitializePath();
+	p.p_InitPath();
 	/*return*/ p;
 }
 

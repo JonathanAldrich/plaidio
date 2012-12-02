@@ -41,10 +41,10 @@ state NonRelative case of RelativityDimension
 		CID:	ST-28.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+	method void p_InitNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 	{
 		this <- i_NonRelative;
 		p_Finalize();
 	}
-	//method void p_InitializeNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
+	//method void p_InitNonRelative() /*[shared NonRelative >> shared NonRelative this]*/
 }

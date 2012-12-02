@@ -39,8 +39,8 @@ state Unknown case of Existent
 		CID:	ST-35.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeUnknown() /*[shared Unknown >> shared Unknown this]*/
+	method void p_InitUnknown() /*[shared Unknown >> shared Unknown this]*/
 	{
 	}
-	//method void p_InitializeUnknown() /*[shared Unknown >> shared Unknown this]*/
+	//method void p_InitUnknown() /*[shared Unknown >> shared Unknown this]*/
 }

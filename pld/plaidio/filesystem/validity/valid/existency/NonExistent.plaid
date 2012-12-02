@@ -40,10 +40,10 @@ state NonExistent case of ExistencyDimension
 		CID:	ST-25.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
+	method void p_InitNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 	{
 		this <- i_Creatability;
 		p_Finalize();
 	}
-	//method void p_InitializeNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
+	//method void p_InitNonExistent() /*[shared NonExistent >> shared NonExistent this]*/
 }
