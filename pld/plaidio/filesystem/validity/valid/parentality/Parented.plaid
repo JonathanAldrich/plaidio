@@ -23,18 +23,18 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	Parented.plaid
 **/
-package plaidio.filesystem.validity.valid.parentalness;
+package plaidio.filesystem.validity.valid.parentality;
 
 import plaidio.filesystem.makePath;
 import plaidio.filesystem.validity.Valid;
-import plaidio.filesystem.validity.valid.D_Parentalness;
+import plaidio.filesystem.validity.valid.D_Parentality;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-113
-	DESC:	"Parented" typestate which is a sub-typestate of D_Parentalness state.
+	DESC:	"Parented" typestate which is a sub-typestate of D_Parentality state.
 **/
-state Parented case of D_Parentalness
+state Parented case of D_Parentality
 {
 	/*-----------------------------------------------------------------------------
 	/**

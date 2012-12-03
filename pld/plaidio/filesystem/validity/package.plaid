@@ -34,7 +34,7 @@ import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
 import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
 import plaidio.filesystem.validity.valid._debuger.debugIsD_Relativity;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentalness;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentality;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
@@ -84,13 +84,13 @@ method void test_validity(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_Relativity(o, verbose); }, verbose);
 	});
 
-	testbed.makeTestCase("TC-TS-21 make a valid path which has parentalness dimension", fn(tc) => {
+	testbed.makeTestCase("TC-TS-21 make a valid path which has parentality dimension", fn(tc) => {
 		val unique Path o = makePath("foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInvalid(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentality(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

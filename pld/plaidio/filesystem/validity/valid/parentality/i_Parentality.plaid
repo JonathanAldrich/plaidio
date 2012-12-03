@@ -21,27 +21,27 @@
 /**
 	CID:	SR-99
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	i_Parentalness.plaid
+	FILE:	i_Parentality.plaid
 **/
-package plaidio.filesystem.validity.valid.parentalness;
+package plaidio.filesystem.validity.valid.parentality;
 
-import plaidio.filesystem.validity.valid.D_Parentalness;
+import plaidio.filesystem.validity.valid.D_Parentality;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-111
-	DESC:	"i_Parentalness" typestate which is created to intialize D_Parentalness state.
+	DESC:	"i_Parentality" typestate which is created to intialize D_Parentality state.
 			This state should not be public.
 **/
-state i_Parentalness case of D_Parentalness
+state i_Parentality case of D_Parentality
 {
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111.1
-		DESC:	Checks whether the path has any parent or not, and within D_Parentalness,
-				changes the state of "this" into either "Parentless" or "Parented".
+		DESC:	Checks whether the path has any parent or not, and within D_Parentality,
+				changes the state of "this" into either "Unparented" or "Parented".
 	**/
-	method void p_Finalize() /*[shared i_Parentalness >> shared D_Parentalness this]*/
+	method void p_Finalize() /*[shared i_Parentality >> shared D_Parentality this]*/
 	{
 		ifElse (com.akefirad.plaid.PlaidHelper.hasParent(j_File))
 		{
@@ -49,32 +49,32 @@ state i_Parentalness case of D_Parentalness
 		}
 		/*else*/
 		{
-			p_MakeParentless();
+			p_MakeUnparented();
 		}
 	}
-	//method void p_Finalize() /*[shared i_Parentalness >> shared D_Parentalness this]*/
+	//method void p_Finalize() /*[shared i_Parentality >> shared D_Parentality this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111.2
-		DESC:	Makes the object Parentless.
+		DESC:	Makes the object Unparented.
 	**/
-	method void p_MakeParentless() /*[shared i_Parentalness >> shared Parentless this]*/
+	method void p_MakeUnparented() /*[shared i_Parentality >> shared Unparented this]*/
 	{
-		this <- Parentless;
-		p_InitParentless();
+		this <- Unparented;
+		p_InitUnparented();
 	}
-	//method void p_MakeParentless() /*[shared i_Parentalness >> shared Parentless this]*/
+	//method void p_MakeUnparented() /*[shared i_Parentality >> shared Unparented this]*/
 
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-111.3
 		DESC:	Makes the object Parented.
 	**/
-	method void p_MakeParented() /*[shared i_Parentalness >> shared Parented this]*/
+	method void p_MakeParented() /*[shared i_Parentality >> shared Parented this]*/
 	{
 		this <- Parented;
 		p_InitParented();
 	}
-	//method void p_MakeParented() /*[shared i_Parentalness >> shared Parented this]*/
+	//method void p_MakeParented() /*[shared i_Parentality >> shared Parented this]*/
 }

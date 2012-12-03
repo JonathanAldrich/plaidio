@@ -28,14 +28,14 @@ package plaidio.filesystem.validity;
 import plaidio.filesystem.Path;
 import plaidio.filesystem.validity.valid.D_Relativity;
 import plaidio.filesystem.validity.valid.D_Existency;
-import plaidio.filesystem.validity.valid.D_Parentalness;
+import plaidio.filesystem.validity.valid.D_Parentality;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-17
 	DESC:	"Valid" typestate which represents a valid path.
 **/
-state Valid case of Path = D_Existency with D_Relativity with D_Parentalness with
+state Valid case of Path = D_Existency with D_Relativity with D_Parentality with
 {
 	//-----------------------------------------------------------------------------
 	/**
@@ -47,7 +47,7 @@ state Valid case of Path = D_Existency with D_Relativity with D_Parentalness wit
 	{
 		p_InitD_Existency();
 		p_InitD_Relativity();
-		p_InitD_Parentalness();
+		p_InitD_Parentality();
 	}
 	//method void p_InitValid() /*[shared Valid >> shared Valid this]*/
 }

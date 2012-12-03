@@ -21,11 +21,11 @@
 /**
 	CID:	SR-99
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Package plaidio.filesystem.validity.valid.parentalness
-			contains subtypes of "D_Parentalness" typestate.
+	DESC:	Package plaidio.filesystem.validity.valid.parentality
+			contains subtypes of "D_Parentality" typestate.
 	FILE:	package.plaid
 **/
-package plaidio.filesystem.validity.valid.parentalness;
+package plaidio.filesystem.validity.valid.parentality;
 
 import plaidio.filesystem.makePath;
 
@@ -34,28 +34,28 @@ import com.akefirad.plaid.lang._debuger.debugIsString;
 import plaidio.filesystem._debuger.debugIsPath;
 import plaidio.filesystem.validity._debuger.debugIsValid;
 import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentalness;
-import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParentless;
-import plaidio.filesystem.validity.valid.parentalness._debuger.debugIsParented;
+import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentality;
+import plaidio.filesystem.validity.valid.parentality._debuger.debugIsUnparented;
+import plaidio.filesystem.validity.valid.parentality._debuger.debugIsParented;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TC-SR-99
-	DESC:	Test plaidio.filesystem.validity.valid.parentalness package's features
+	DESC:	Test plaidio.filesystem.validity.valid.parentality package's features
 **/
-method void test_parentalness(immutable Boolean verbose)
+method void test_parentality(immutable Boolean verbose)
 {
-	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.parentalness package's features");
+	val testbed = makeTestBed("Test cases of plaidio.filesystem.validity.valid.parentality package's features");
 
 	testbed.makeTestCase("TC-TS-112 make a parentless path", fn(tc) => {
 		val unique Path o = makePath("foo");
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsParentless(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsD_Parentality(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsUnparented(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsParented(o, verbose) == false; }, verbose);
 	});
 
@@ -64,8 +64,8 @@ method void test_parentalness(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsD_Parentality(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsUnparented(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
 	});
 
@@ -74,8 +74,8 @@ method void test_parentalness(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsD_Parentality(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsUnparented(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
 		
 		val immutable String p = o.getParentString();
@@ -89,8 +89,8 @@ method void test_parentalness(immutable Boolean verbose)
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsD_Parentalness(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsParentless(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsD_Parentality(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsUnparented(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsParented(o, verbose); }, verbose);
 		
 		val unique Valid p = o.getParent();

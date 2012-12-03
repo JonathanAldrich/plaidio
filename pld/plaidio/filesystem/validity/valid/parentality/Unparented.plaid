@@ -21,26 +21,26 @@
 /**
 	CID:	SR-99
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	Parentless.plaid
+	FILE:	Unparented.plaid
 **/
-package plaidio.filesystem.validity.valid.parentalness;
+package plaidio.filesystem.validity.valid.parentality;
 
-import plaidio.filesystem.validity.valid.D_Parentalness;
+import plaidio.filesystem.validity.valid.D_Parentality;
 
 /*------------------------------------------------------------------------------
 /**
 	CID:	TS-112
-	DESC:	"Parentless" typestate which is a sub-typestate of D_Parentalness state.
+	DESC:	"Unparented" typestate which is a sub-typestate of D_Parentality state.
 **/
-state Parentless case of D_Parentalness
+state Unparented case of D_Parentality
 {
 	/*-----------------------------------------------------------------------------
 	/**
 		CID:	ST-112.1
 		DESC:	Checks all dimensions of the object.
 	**/
-	method void p_InitParentless() /*[shared Parentless >> shared Parentless this]*/
+	method void p_InitUnparented() /*[shared Unparented >> shared Unparented this]*/
 	{
 	}
-	//method void p_InitParentless() /*[shared Parentless >> shared Parentless this]*/
+	//method void p_InitUnparented() /*[shared Unparented >> shared Unparented this]*/
 }
