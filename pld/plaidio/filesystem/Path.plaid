@@ -91,5 +91,16 @@ state Path
 	{
 		/*return*/ j_File.hashCode();
 	}
-	//method immutable Int32 hashCode()() /*[Pure Path >> Pure Path this]*/
+	//method immutable Int32 hashCode() /*[Pure Path >> Pure Path this]*/
+
+	//-----------------------------------------------------------------------------
+	/**
+		CID:	ST-13.6
+		DESC:	Compares two abstract pathnames lexicographically.
+	**/
+	method immutable Int32 compareTo(pure Path path) /*[Pure Path >> Pure Path this]*/
+	{
+		/*return*/ j_File.compareTo(path.j_File);
+	}
+	//method immutable Int32 compareTo(pure Path path) /*[Pure Path >> Pure Path this]*/
 }
