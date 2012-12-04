@@ -6,13 +6,12 @@
       <State headergradientend="white"/>
     </ElementStyles>
   </Settings>
-  <OpenDiagrams activeDiagram="5561f1e6-1eab-48e3-a904-117c5d5b3cf8">
+  <OpenDiagrams activeDiagram="3fae7a63-6e04-4ae2-8711-4ec62a513ceb">
     <OpenDiagramEntry>5561f1e6-1eab-48e3-a904-117c5d5b3cf8</OpenDiagramEntry>
     <OpenDiagramEntry>db274fb6-7e42-4309-8e98-026ce9193c23</OpenDiagramEntry>
     <OpenDiagramEntry>915d00a0-00a1-4c92-93f6-0ee0be5366ac</OpenDiagramEntry>
     <OpenDiagramEntry>e7567d7b-3804-47ae-8f89-4aaa0814cc4d</OpenDiagramEntry>
     <OpenDiagramEntry>3fae7a63-6e04-4ae2-8711-4ec62a513ceb</OpenDiagramEntry>
-    <OpenDiagramEntry>2d5d516a-20a9-49b3-b83c-355fb3b765d6</OpenDiagramEntry>
     <OpenDiagramEntry>f2ae1fb6-18c9-4e71-8019-68447ec5ea21</OpenDiagramEntry>
     <OpenDiagramEntry>7a8688ce-0152-4c72-b690-4ff599f93ab8</OpenDiagramEntry>
     <OpenDiagramEntry>061a4ddd-c2a8-4b87-9f01-f2cc0731ad03</OpenDiagramEntry>
@@ -809,12 +808,12 @@
                                   <packagedElement>
                                     <Package uuid="6b1daa82-7b83-4280-9532-7f8a0bf96ee7" name="creatability" visibility="public">
                                       <packagedElement>
-                                        <Class uuid="662e01e2-a6ca-4ff4-84a0-bc16de67b6ca" name="Creatable" visibility="public">
+                                        <Class uuid="662e01e2-a6ca-4ff4-84a0-bc16de67b6ca" name="NonCreatable" visibility="public">
                                           <generalization>
                                             <Generalization uuid="9ce3ccbd-b6dc-4546-86a3-c9099255ef0a" general="beb8ec7d-2084-4eca-aaa9-c0ad9b401921"/>
                                           </generalization>
                                           <ownedOperation>
-                                            <Operation uuid="4008c0b0-3c06-4b4e-8fa5-6cdfabd1110b" name="p_InitCreatable" visibility="package"/>
+                                            <Operation uuid="4008c0b0-3c06-4b4e-8fa5-6cdfabd1110b" name="p_InitNonCreatable" visibility="package"/>
                                           </ownedOperation>
                                         </Class>
                                         <Class uuid="5e28d6b8-4541-4e74-9a93-7f1d18d198f5" name="i_Creatability" visibility="public">
@@ -827,12 +826,12 @@
                                             <Operation uuid="38d01b2f-20f6-4aec-b834-61eb1e8aa360" name="p_MakeNonCreatable" visibility="private"/>
                                           </ownedOperation>
                                         </Class>
-                                        <Class uuid="660af491-9f57-48a9-8864-969f98b9b63a" name="NonCreatable" visibility="public">
+                                        <Class uuid="660af491-9f57-48a9-8864-969f98b9b63a" name="Creatable" visibility="public">
                                           <generalization>
                                             <Generalization uuid="b28dee79-1c18-4e2e-ac59-f46478d68bb9" general="beb8ec7d-2084-4eca-aaa9-c0ad9b401921"/>
                                           </generalization>
                                           <ownedOperation>
-                                            <Operation uuid="ab0c02f9-fa42-446a-bb4d-40f36ea6d7eb" name="p_InitNonCreatable" visibility="package"/>
+                                            <Operation uuid="ab0c02f9-fa42-446a-bb4d-40f36ea6d7eb" name="p_InitCreatable" visibility="package"/>
                                             <Operation uuid="3a481476-8bb5-4792-a9d0-77224cc6b72b" name="createAsFile" visibility="public"/>
                                             <Operation uuid="40e278a3-0b7a-49e8-858d-353dbafb9d1d" name="createAsFolder" visibility="public"/>
                                           </ownedOperation>
@@ -2346,56 +2345,56 @@
               </guiLineLinkWaypoint>
             </LineLink>
             <NodeLink uuid="8fdeba48-1e7f-4b0a-bbb2-052711dfadc5" guiLink_Element="662e01e2-a6ca-4ff4-84a0-bc16de67b6ca">
-              <nodeRect Left="795" Top="490" Right="911" Bottom="568"/>
+              <nodeRect Left="810" Top="480" Right="945" Bottom="558"/>
             </NodeLink>
             <LineLink uuid="4916f606-c8f9-461f-9afc-f1cff842e99c" guiLink_Element="9ce3ccbd-b6dc-4546-86a3-c9099255ef0a" guiLineLink_LineBegin="8fdeba48-1e7f-4b0a-bbb2-052711dfadc5" guiLineLink_LineEnd="5c98b312-fa87-47a5-a4c3-57eee34a084d">
               <style linestyle="2"/>
               <guiLineLink_LineMiddleWaypoint>
                 <MiddleWaypoint uuid="df69647f-d0a0-4fdb-bfaf-385cc2f46476">
-                  <pos X="924" Y="402"/>
+                  <pos X="935" Y="397"/>
                 </MiddleWaypoint>
               </guiLineLink_LineMiddleWaypoint>
               <guiLineLinkWaypoint>
                 <EndWaypoint uuid="5e13593a-9ff5-438f-a726-cd771900ec30" alignment="4">
-                  <pos X="875" Y="490"/>
+                  <pos X="896" Y="480"/>
                 </EndWaypoint>
                 <EndWaypoint uuid="2bd98a2f-a6d2-4d3f-909c-528d6a0f5b31" alignment="1">
-                  <pos X="973" Y="313"/>
+                  <pos X="976" Y="313"/>
                 </EndWaypoint>
               </guiLineLinkWaypoint>
             </LineLink>
             <NodeLink uuid="866b9a0f-6be9-43f3-915a-c07b51814815" guiLink_Element="5e28d6b8-4541-4e74-9a93-7f1d18d198f5">
-              <nodeRect Left="920" Top="475" Right="1067" Bottom="591"/>
+              <nodeRect Left="950" Top="475" Right="1097" Bottom="591"/>
             </NodeLink>
             <LineLink uuid="af5e4c0e-24c1-4453-b340-c3adabe87b68" guiLink_Element="a66456ec-3800-44a7-9552-19ee61ac7334" guiLineLink_LineBegin="866b9a0f-6be9-43f3-915a-c07b51814815" guiLineLink_LineEnd="5c98b312-fa87-47a5-a4c3-57eee34a084d">
               <style linestyle="2"/>
               <guiLineLink_LineMiddleWaypoint>
                 <MiddleWaypoint uuid="5c5c4307-8ccc-4e63-8f76-adb28c2b6916">
-                  <pos X="994" Y="394"/>
+                  <pos X="1008" Y="394"/>
                 </MiddleWaypoint>
               </guiLineLink_LineMiddleWaypoint>
               <guiLineLinkWaypoint>
                 <EndWaypoint uuid="ad385b6b-23f7-4097-aa65-4ddc534fd1da" alignment="4">
-                  <pos X="994" Y="475"/>
+                  <pos X="1017" Y="475"/>
                 </EndWaypoint>
                 <EndWaypoint uuid="817ecb6e-15bd-46ef-9ff2-4c5d3cf3a27d" alignment="1">
-                  <pos X="995" Y="313"/>
+                  <pos X="999" Y="313"/>
                 </EndWaypoint>
               </guiLineLinkWaypoint>
             </LineLink>
             <NodeLink uuid="1278e3ba-3af4-4aa4-8f1d-0147bc501419" guiLink_Element="660af491-9f57-48a9-8864-969f98b9b63a">
-              <nodeRect Left="1100" Top="470" Right="1235" Bottom="586"/>
+              <nodeRect Left="1105" Top="475" Right="1225" Bottom="591"/>
             </NodeLink>
             <LineLink uuid="1176aa00-6487-4283-a8e1-5ee03de0234d" guiLink_Element="b28dee79-1c18-4e2e-ac59-f46478d68bb9" guiLineLink_LineBegin="1278e3ba-3af4-4aa4-8f1d-0147bc501419" guiLineLink_LineEnd="5c98b312-fa87-47a5-a4c3-57eee34a084d">
               <style linestyle="2"/>
               <guiLineLink_LineMiddleWaypoint>
                 <MiddleWaypoint uuid="cfd88313-b394-4778-a752-cbbfcc7a258a">
-                  <pos X="1075" Y="392"/>
+                  <pos X="1075" Y="395"/>
                 </MiddleWaypoint>
               </guiLineLink_LineMiddleWaypoint>
               <guiLineLinkWaypoint>
                 <EndWaypoint uuid="4c6e69b7-3507-48e4-a287-61b4d94c0d30" alignment="4">
-                  <pos X="1128" Y="470"/>
+                  <pos X="1127" Y="475"/>
                 </EndWaypoint>
                 <EndWaypoint uuid="19294e02-ad3c-4948-94dd-758ac2f44bb1" alignment="1">
                   <pos X="1021" Y="313"/>
@@ -2596,73 +2595,6 @@
           </guiDiagramGuiLink>
           <guiDiagramLayer>
             <DiagramLayer uuid="f61c54e0-7c3d-4fb6-b5cd-89ea82a08238" name="Default"/>
-          </guiDiagramLayer>
-        </ClassDiagram>
-        <ClassDiagram uuid="2d5d516a-20a9-49b3-b83c-355fb3b765d6" name="plaidio.filesystem.validity.valid.existency.nonexistent" guiDiagramLinkedOwner="c0a032a0-211c-485c-90c6-21b8a3274e36">
-          <guiDiagramGuiLink>
-            <NodeLink uuid="40748033-dc74-475e-83b1-54ab3a98d348" guiLink_Element="662e01e2-a6ca-4ff4-84a0-bc16de67b6ca">
-              <nodeRect Left="20" Top="155" Right="136" Bottom="233"/>
-            </NodeLink>
-            <NodeLink uuid="dda8c00a-8151-49b6-b49b-2065e6fba182" guiLink_Element="5e28d6b8-4541-4e74-9a93-7f1d18d198f5">
-              <nodeRect Left="155" Top="140" Right="302" Bottom="256"/>
-            </NodeLink>
-            <NodeLink uuid="9f0fc275-981a-4d7d-83ed-c4899f57771f" guiLink_Element="660af491-9f57-48a9-8864-969f98b9b63a">
-              <nodeRect Left="325" Top="155" Right="460" Bottom="271"/>
-            </NodeLink>
-            <NodeLink uuid="a37b4485-88eb-4e1f-b4ad-226de9eb1a18" guiLink_Element="beb8ec7d-2084-4eca-aaa9-c0ad9b401921">
-              <nodeRect Left="155" Top="20" Right="306" Bottom="98"/>
-            </NodeLink>
-            <LineLink uuid="8c2195ec-e734-417e-9a7d-f80ce4495924" guiLink_Element="a66456ec-3800-44a7-9552-19ee61ac7334" guiLineLink_LineBegin="dda8c00a-8151-49b6-b49b-2065e6fba182" guiLineLink_LineEnd="a37b4485-88eb-4e1f-b4ad-226de9eb1a18">
-              <style linestyle="2"/>
-              <guiLineLink_LineMiddleWaypoint>
-                <MiddleWaypoint uuid="cd36e9ee-041c-43f4-91b9-a02bcc84d08e">
-                  <pos X="229" Y="119"/>
-                </MiddleWaypoint>
-              </guiLineLink_LineMiddleWaypoint>
-              <guiLineLinkWaypoint>
-                <EndWaypoint uuid="02b6f8ac-750d-4562-8c03-460259272726" alignment="4">
-                  <pos X="229" Y="140"/>
-                </EndWaypoint>
-                <EndWaypoint uuid="e819a537-1685-4882-a23f-f90c0cac4bec" alignment="1">
-                  <pos X="230" Y="98"/>
-                </EndWaypoint>
-              </guiLineLinkWaypoint>
-            </LineLink>
-            <LineLink uuid="32f2387a-1850-4fd5-a183-3b0bc473e078" guiLink_Element="9ce3ccbd-b6dc-4546-86a3-c9099255ef0a" guiLineLink_LineBegin="40748033-dc74-475e-83b1-54ab3a98d348" guiLineLink_LineEnd="a37b4485-88eb-4e1f-b4ad-226de9eb1a18">
-              <style linestyle="2"/>
-              <guiLineLink_LineMiddleWaypoint>
-                <MiddleWaypoint uuid="4bf9886e-3fb5-4a8b-8d12-cdb619e32298">
-                  <pos X="153" Y="127"/>
-                </MiddleWaypoint>
-              </guiLineLink_LineMiddleWaypoint>
-              <guiLineLinkWaypoint>
-                <EndWaypoint uuid="337f1e62-6e9f-4ad5-93e4-04ea87402664" alignment="3">
-                  <pos X="122" Y="155"/>
-                </EndWaypoint>
-                <EndWaypoint uuid="5cfee42b-28ef-44c1-9cae-13dbd8239719" alignment="2">
-                  <pos X="186" Y="98"/>
-                </EndWaypoint>
-              </guiLineLinkWaypoint>
-            </LineLink>
-            <LineLink uuid="e706ac33-0338-49bf-b459-d97b4519d174" guiLink_Element="b28dee79-1c18-4e2e-ac59-f46478d68bb9" guiLineLink_LineBegin="9f0fc275-981a-4d7d-83ed-c4899f57771f" guiLineLink_LineEnd="a37b4485-88eb-4e1f-b4ad-226de9eb1a18">
-              <style linestyle="2"/>
-              <guiLineLink_LineMiddleWaypoint>
-                <MiddleWaypoint uuid="0ec89812-fb55-4d36-9075-fc583c9f06cf">
-                  <pos X="301" Y="127"/>
-                </MiddleWaypoint>
-              </guiLineLink_LineMiddleWaypoint>
-              <guiLineLinkWaypoint>
-                <EndWaypoint uuid="ec7ad9f5-5989-482b-afed-834b4c91dd3f" alignment="4">
-                  <pos X="331" Y="155"/>
-                </EndWaypoint>
-                <EndWaypoint uuid="16b3a643-40e2-4ad1-8963-bae519b323a6" alignment="1">
-                  <pos X="271" Y="98"/>
-                </EndWaypoint>
-              </guiLineLinkWaypoint>
-            </LineLink>
-          </guiDiagramGuiLink>
-          <guiDiagramLayer>
-            <DiagramLayer uuid="36d9f7fa-9079-4598-988a-68abb74ef51e" name="Default"/>
           </guiDiagramLayer>
         </ClassDiagram>
         <ClassDiagram uuid="f2ae1fb6-18c9-4e71-8019-68447ec5ea21" name="plaidio.filesystem.validity.valid.existency.existent.pathtype.file" guiDiagramLinkedOwner="c0a032a0-211c-485c-90c6-21b8a3274e36">
