@@ -9,7 +9,7 @@
  *  (at your option) any later version.
  * 
  *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
@@ -41,6 +41,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermiss
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsWritableFile;
 
+import com.akefirad.plaid.lang._debuger.isNil;
 import com.akefirad.plaid.lang._debuger.debugIsInt32;
 import com.akefirad.plaid.lang._debuger.debugIsString;
 import com.akefirad.plaid.lang._debuger.debugIsCharacter;
@@ -106,15 +107,6 @@ method unique Path createTempFile(immutable String prefix, immutable String suff
 **/
 method unique Path createTempFileIn(immutable String prefix, immutable String suffix, pure WritableFolder folder)
 {
-//	match (folder)
-//	{
-//		case WritableFolder
-//		{
-//			val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
-//			p.p_InitPath();
-//			/*return*/ p;
-//		}
-//	};
 	val unique Path p = new Path { var j_File = java.io.File.createTempFile(prefix, suffix, folder.j_File); };
 	p.p_InitPath();
 	/*return*/ p;
@@ -163,7 +155,7 @@ method unique List<immutable Path> listRoots()
 		roots.add(makePathFromFile(javalist.get(i)));
 		i = i + 1;
 	};
-	childs;
+	roots;
 }
 
 /*------------------------------------------------------------------------------
@@ -212,11 +204,10 @@ method void test_filesystem(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExecutableFile(o, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("TC-ST-12.6 createTempFileIn()", fn(tc) => {
-		val unique Path o = createTempFileIn("foo", "tmp", makePath(""));
+		val unique Path o = createTempFileIn("foo", "tmp", makePath(java.lang.System.getProperty("java.io.tmpdir")));
 		tc.debug("'" + o + "'", verbose);
 		tc.assert(fn() => { debugIsPath(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsValid(o, verbose); }, verbose);
@@ -228,7 +219,6 @@ method void test_filesystem(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsD_FileWritability(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsReadableFile(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsWritableFile(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsExecutableFile(o, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("TC-TS-12.7 make a path", fn(tc) => {
@@ -262,7 +252,6 @@ method void test_filesystem(immutable Boolean verbose)
 	});
 
 	testbed.makeTestCase("ST-12.9 list the available filesystem roots", fn(tc) => {
-		printLine("Start");
 		var childs = listRoots();
 
 		ifElse (childs.isEmpty())

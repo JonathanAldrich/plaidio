@@ -45,22 +45,21 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermi
 	CID: 	ST-11.1
 	DESC:	Main method of the package. It is used for testing.
 **/
-method main()
-{
+method main(){
 	val verbose = true;
 	test_filesystem(verbose);
-//	test_validity(verbose);
-//	test_valid(verbose);
-//	test_existency(verbose);
-//	test_relativity(verbose);
-//	test_parentality(verbose);
-//	test_pathtype(verbose);
-//	test_creatability(verbose);
-//	test_nonrelative(verbose);
-//	test_filepermission(verbose);
-//	test_folderpermission(verbose);
-//	test_unknownpermission(verbose);
-//	test_folderreadability(verbose);
+/*	test_validity(verbose);
+	test_valid(verbose);
+	test_existency(verbose);
+	test_relativity(verbose);
+	test_parentality(verbose);
+	test_pathtype(verbose);
+	test_creatability(verbose);
+	test_nonrelative(verbose);
+	test_filepermission(verbose);
+	test_folderpermission(verbose);
+	test_unknownpermission(verbose);
+	test_folderreadability(verbose);*/
 
 //	com.akefirad.plaid.PlaidHelper.buildStateCheckers(java.io.File.new("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio"), "D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld");
 }
