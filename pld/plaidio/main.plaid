@@ -26,19 +26,7 @@
 **/
 package plaidio;
 
-import plaidio.filesystem.test_filesystem;
-import plaidio.filesystem.validity.test_validity;
-import plaidio.filesystem.validity.valid.test_valid;
-import plaidio.filesystem.validity.valid.existency.test_existency;
-import plaidio.filesystem.validity.valid.relativity.test_relativity;
-import plaidio.filesystem.validity.valid.parentality.test_parentality;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.test_pathtype;
-import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.test_creatability;
-import plaidio.filesystem.validity.valid.relativity.nonrelative.test_nonrelative;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.test_filepermission;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.test_folderpermission;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.test_unknownpermission;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.test_folderreadability;
+import plaidio.streams.test_streams;
 
 /*------------------------------------------------------------------------------
 /**
@@ -47,19 +35,7 @@ import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermi
 **/
 method main(){
 	val verbose = false;
-	test_filesystem(verbose);
-	test_validity(verbose);
-	test_valid(verbose);
-	test_existency(verbose);
-	test_relativity(verbose);
-	test_parentality(verbose);
-	test_pathtype(verbose);
-	test_creatability(verbose);
-	test_nonrelative(verbose);
-	test_filepermission(verbose);
-	test_folderpermission(verbose);
-	test_unknownpermission(verbose);
-	test_folderreadability(verbose);
+	test_streams(verbose);
 
 	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
 }
