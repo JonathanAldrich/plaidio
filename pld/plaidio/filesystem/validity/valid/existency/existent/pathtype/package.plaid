@@ -30,24 +30,8 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype;
 import plaidio.filesystem.makePath;
 import plaidio.filesystem.separator;
 
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
-import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFolder;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission._debuger.debugIsD_FolderWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownWritability;
-
-import com.akefirad.plaid.lang._debuger.debugIsInt64;
+import plaidio.statecheckers.*;
+import com.akefirad.plaid.lang.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

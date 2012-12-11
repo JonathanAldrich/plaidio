@@ -29,20 +29,7 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownper
 
 import plaidio.filesystem.makePath;
 
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
-import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission._debuger.debugIsD_UnknownWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability._debuger.debugIsNonExecutableUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability._debuger.debugIsExecutableUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability._debuger.debugIsNonReadableUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability._debuger.debugIsReadableUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability._debuger.debugIsNonWritableUnknown;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability._debuger.debugIsWritableUnknown;
+import plaidio.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

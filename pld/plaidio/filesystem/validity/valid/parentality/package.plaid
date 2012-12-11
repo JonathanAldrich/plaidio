@@ -29,14 +29,8 @@ package plaidio.filesystem.validity.valid.parentality;
 
 import plaidio.filesystem.makePath;
 
-import com.akefirad.plaid.lang._debuger.debugIsString;
-
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentality;
-import plaidio.filesystem.validity.valid.parentality._debuger.debugIsUnparented;
-import plaidio.filesystem.validity.valid.parentality._debuger.debugIsParented;
+import plaidio.statecheckers.*;
+import com.akefirad.plaid.lang.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

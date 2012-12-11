@@ -43,7 +43,7 @@ state i_Parentality case of D_Parentality
 	**/
 	method void p_Finalize() /*[shared i_Parentality >> shared D_Parentality this]*/
 	{
-		ifElse (com.akefirad.plaid.PlaidHelper.hasParent(j_File))
+		ifElse (com.akefirad.plaid.JavaHelper.hasParent(j_File))
 		{
 			p_MakeParented();
 		}

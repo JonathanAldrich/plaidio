@@ -29,7 +29,7 @@ import plaidio.filesystem.makePathFromFile;
 import plaidio.filesystem.validity.valid.existency.Existent;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderReadability;
 
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability._debuger.isReadableFolder;
+import plaidio.statecheckers.*;
 
 /*------------------------------------------------------------------------------
 /**

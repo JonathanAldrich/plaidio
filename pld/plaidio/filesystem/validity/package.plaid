@@ -29,12 +29,7 @@ package plaidio.filesystem.validity;
 
 import plaidio.filesystem.makePath;
 
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Relativity;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Parentality;
+import plaidio.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

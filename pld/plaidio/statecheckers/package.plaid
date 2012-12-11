@@ -1,0 +1,142 @@
+package plaidio.statecheckers;
+
+import plaidio.filesystem.Path;
+import plaidio.filesystem.validity.Invalid;
+import plaidio.filesystem.validity.Valid;
+import plaidio.filesystem.validity.valid.D_Existency;
+import plaidio.filesystem.validity.valid.D_Parentality;
+import plaidio.filesystem.validity.valid.D_Relativity;
+import plaidio.filesystem.validity.valid.existency.Existent;
+import plaidio.filesystem.validity.valid.existency.NonExistent;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.File;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Folder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.Unknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.D_FileWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.ExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability.NonExecutableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.NonReadableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability.ReadableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability.NonWritableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability.WritableFile;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.D_FolderWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability.ExecutableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderexecutability.NonExecutableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.NonReadableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderreadability.ReadableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.NonWritableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.WritableFolder;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownExecutability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownReadability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.D_UnknownWritability;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability.ExecutableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownexecutability.NonExecutableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability.NonReadableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownreadability.ReadableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability.NonWritableUnknown;
+import plaidio.filesystem.validity.valid.existency.existent.pathtype.unknownpermission.unknownwritability.WritableUnknown;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.Creatable;
+import plaidio.filesystem.validity.valid.existency.nonexistent.creatability.NonCreatable;
+import plaidio.filesystem.validity.valid.parentality.Parented;
+import plaidio.filesystem.validity.valid.parentality.Unparented;
+import plaidio.filesystem.validity.valid.relativity.NonRelative;
+import plaidio.filesystem.validity.valid.relativity.Relative;
+import plaidio.filesystem.validity.valid.relativity.nonrelative.Absolute;
+import plaidio.filesystem.validity.valid.relativity.nonrelative.Canonical;
+
+method immutable Boolean isPath(object) { match (object) { case Path { true; } default { false; } }; }
+method immutable Boolean isInvalid(object) { match (object) { case Invalid { true; } default { false; } }; }
+method immutable Boolean isValid(object) { match (object) { case Valid { true; } default { false; } }; }
+method immutable Boolean isD_Existency(object) { match (object) { case D_Existency { true; } default { false; } }; }
+method immutable Boolean isD_Parentality(object) { match (object) { case D_Parentality { true; } default { false; } }; }
+method immutable Boolean isD_Relativity(object) { match (object) { case D_Relativity { true; } default { false; } }; }
+method immutable Boolean isExistent(object) { match (object) { case Existent { true; } default { false; } }; }
+method immutable Boolean isNonExistent(object) { match (object) { case NonExistent { true; } default { false; } }; }
+method immutable Boolean isFile(object) { match (object) { case File { true; } default { false; } }; }
+method immutable Boolean isFolder(object) { match (object) { case Folder { true; } default { false; } }; }
+method immutable Boolean isUnknown(object) { match (object) { case Unknown { true; } default { false; } }; }
+method immutable Boolean isD_FileExecutability(object) { match (object) { case D_FileExecutability { true; } default { false; } }; }
+method immutable Boolean isD_FileReadability(object) { match (object) { case D_FileReadability { true; } default { false; } }; }
+method immutable Boolean isD_FileWritability(object) { match (object) { case D_FileWritability { true; } default { false; } }; }
+method immutable Boolean isExecutableFile(object) { match (object) { case ExecutableFile { true; } default { false; } }; }
+method immutable Boolean isNonExecutableFile(object) { match (object) { case NonExecutableFile { true; } default { false; } }; }
+method immutable Boolean isNonReadableFile(object) { match (object) { case NonReadableFile { true; } default { false; } }; }
+method immutable Boolean isReadableFile(object) { match (object) { case ReadableFile { true; } default { false; } }; }
+method immutable Boolean isNonWritableFile(object) { match (object) { case NonWritableFile { true; } default { false; } }; }
+method immutable Boolean isWritableFile(object) { match (object) { case WritableFile { true; } default { false; } }; }
+method immutable Boolean isD_FolderExecutability(object) { match (object) { case D_FolderExecutability { true; } default { false; } }; }
+method immutable Boolean isD_FolderReadability(object) { match (object) { case D_FolderReadability { true; } default { false; } }; }
+method immutable Boolean isD_FolderWritability(object) { match (object) { case D_FolderWritability { true; } default { false; } }; }
+method immutable Boolean isExecutableFolder(object) { match (object) { case ExecutableFolder { true; } default { false; } }; }
+method immutable Boolean isNonExecutableFolder(object) { match (object) { case NonExecutableFolder { true; } default { false; } }; }
+method immutable Boolean isNonReadableFolder(object) { match (object) { case NonReadableFolder { true; } default { false; } }; }
+method immutable Boolean isReadableFolder(object) { match (object) { case ReadableFolder { true; } default { false; } }; }
+method immutable Boolean isNonWritableFolder(object) { match (object) { case NonWritableFolder { true; } default { false; } }; }
+method immutable Boolean isWritableFolder(object) { match (object) { case WritableFolder { true; } default { false; } }; }
+method immutable Boolean isD_UnknownExecutability(object) { match (object) { case D_UnknownExecutability { true; } default { false; } }; }
+method immutable Boolean isD_UnknownReadability(object) { match (object) { case D_UnknownReadability { true; } default { false; } }; }
+method immutable Boolean isD_UnknownWritability(object) { match (object) { case D_UnknownWritability { true; } default { false; } }; }
+method immutable Boolean isExecutableUnknown(object) { match (object) { case ExecutableUnknown { true; } default { false; } }; }
+method immutable Boolean isNonExecutableUnknown(object) { match (object) { case NonExecutableUnknown { true; } default { false; } }; }
+method immutable Boolean isNonReadableUnknown(object) { match (object) { case NonReadableUnknown { true; } default { false; } }; }
+method immutable Boolean isReadableUnknown(object) { match (object) { case ReadableUnknown { true; } default { false; } }; }
+method immutable Boolean isNonWritableUnknown(object) { match (object) { case NonWritableUnknown { true; } default { false; } }; }
+method immutable Boolean isWritableUnknown(object) { match (object) { case WritableUnknown { true; } default { false; } }; }
+method immutable Boolean isCreatable(object) { match (object) { case Creatable { true; } default { false; } }; }
+method immutable Boolean isNonCreatable(object) { match (object) { case NonCreatable { true; } default { false; } }; }
+method immutable Boolean isParented(object) { match (object) { case Parented { true; } default { false; } }; }
+method immutable Boolean isUnparented(object) { match (object) { case Unparented { true; } default { false; } }; }
+method immutable Boolean isNonRelative(object) { match (object) { case NonRelative { true; } default { false; } }; }
+method immutable Boolean isRelative(object) { match (object) { case Relative { true; } default { false; } }; }
+method immutable Boolean isAbsolute(object) { match (object) { case Absolute { true; } default { false; } }; }
+method immutable Boolean isCanonical(object) { match (object) { case Canonical { true; } default { false; } }; }
+
+method immutable Boolean debugIsPath(object, immutable Boolean verbose) { ifElse (isPath(object)) { if (verbose) { printLine("The object is Path"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Path"); }; false; }; }
+method immutable Boolean debugIsInvalid(object, immutable Boolean verbose) { ifElse (isInvalid(object)) { if (verbose) { printLine("The object is Invalid"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Invalid"); }; false; }; }
+method immutable Boolean debugIsValid(object, immutable Boolean verbose) { ifElse (isValid(object)) { if (verbose) { printLine("The object is Valid"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Valid"); }; false; }; }
+method immutable Boolean debugIsD_Existency(object, immutable Boolean verbose) { ifElse (isD_Existency(object)) { if (verbose) { printLine("The object is D_Existency"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_Existency"); }; false; }; }
+method immutable Boolean debugIsD_Parentality(object, immutable Boolean verbose) { ifElse (isD_Parentality(object)) { if (verbose) { printLine("The object is D_Parentality"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_Parentality"); }; false; }; }
+method immutable Boolean debugIsD_Relativity(object, immutable Boolean verbose) { ifElse (isD_Relativity(object)) { if (verbose) { printLine("The object is D_Relativity"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_Relativity"); }; false; }; }
+method immutable Boolean debugIsExistent(object, immutable Boolean verbose) { ifElse (isExistent(object)) { if (verbose) { printLine("The object is Existent"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Existent"); }; false; }; }
+method immutable Boolean debugIsNonExistent(object, immutable Boolean verbose) { ifElse (isNonExistent(object)) { if (verbose) { printLine("The object is NonExistent"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExistent"); }; false; }; }
+method immutable Boolean debugIsFile(object, immutable Boolean verbose) { ifElse (isFile(object)) { if (verbose) { printLine("The object is File"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT File"); }; false; }; }
+method immutable Boolean debugIsFolder(object, immutable Boolean verbose) { ifElse (isFolder(object)) { if (verbose) { printLine("The object is Folder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Folder"); }; false; }; }
+method immutable Boolean debugIsUnknown(object, immutable Boolean verbose) { ifElse (isUnknown(object)) { if (verbose) { printLine("The object is Unknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Unknown"); }; false; }; }
+method immutable Boolean debugIsD_FileExecutability(object, immutable Boolean verbose) { ifElse (isD_FileExecutability(object)) { if (verbose) { printLine("The object is D_FileExecutability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FileExecutability"); }; false; }; }
+method immutable Boolean debugIsD_FileReadability(object, immutable Boolean verbose) { ifElse (isD_FileReadability(object)) { if (verbose) { printLine("The object is D_FileReadability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FileReadability"); }; false; }; }
+method immutable Boolean debugIsD_FileWritability(object, immutable Boolean verbose) { ifElse (isD_FileWritability(object)) { if (verbose) { printLine("The object is D_FileWritability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FileWritability"); }; false; }; }
+method immutable Boolean debugIsExecutableFile(object, immutable Boolean verbose) { ifElse (isExecutableFile(object)) { if (verbose) { printLine("The object is ExecutableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableFile"); }; false; }; }
+method immutable Boolean debugIsNonExecutableFile(object, immutable Boolean verbose) { ifElse (isNonExecutableFile(object)) { if (verbose) { printLine("The object is NonExecutableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableFile"); }; false; }; }
+method immutable Boolean debugIsNonReadableFile(object, immutable Boolean verbose) { ifElse (isNonReadableFile(object)) { if (verbose) { printLine("The object is NonReadableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonReadableFile"); }; false; }; }
+method immutable Boolean debugIsReadableFile(object, immutable Boolean verbose) { ifElse (isReadableFile(object)) { if (verbose) { printLine("The object is ReadableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ReadableFile"); }; false; }; }
+method immutable Boolean debugIsNonWritableFile(object, immutable Boolean verbose) { ifElse (isNonWritableFile(object)) { if (verbose) { printLine("The object is NonWritableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonWritableFile"); }; false; }; }
+method immutable Boolean debugIsWritableFile(object, immutable Boolean verbose) { ifElse (isWritableFile(object)) { if (verbose) { printLine("The object is WritableFile"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT WritableFile"); }; false; }; }
+method immutable Boolean debugIsD_FolderExecutability(object, immutable Boolean verbose) { ifElse (isD_FolderExecutability(object)) { if (verbose) { printLine("The object is D_FolderExecutability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FolderExecutability"); }; false; }; }
+method immutable Boolean debugIsD_FolderReadability(object, immutable Boolean verbose) { ifElse (isD_FolderReadability(object)) { if (verbose) { printLine("The object is D_FolderReadability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FolderReadability"); }; false; }; }
+method immutable Boolean debugIsD_FolderWritability(object, immutable Boolean verbose) { ifElse (isD_FolderWritability(object)) { if (verbose) { printLine("The object is D_FolderWritability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_FolderWritability"); }; false; }; }
+method immutable Boolean debugIsExecutableFolder(object, immutable Boolean verbose) { ifElse (isExecutableFolder(object)) { if (verbose) { printLine("The object is ExecutableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableFolder"); }; false; }; }
+method immutable Boolean debugIsNonExecutableFolder(object, immutable Boolean verbose) { ifElse (isNonExecutableFolder(object)) { if (verbose) { printLine("The object is NonExecutableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableFolder"); }; false; }; }
+method immutable Boolean debugIsNonReadableFolder(object, immutable Boolean verbose) { ifElse (isNonReadableFolder(object)) { if (verbose) { printLine("The object is NonReadableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonReadableFolder"); }; false; }; }
+method immutable Boolean debugIsReadableFolder(object, immutable Boolean verbose) { ifElse (isReadableFolder(object)) { if (verbose) { printLine("The object is ReadableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ReadableFolder"); }; false; }; }
+method immutable Boolean debugIsNonWritableFolder(object, immutable Boolean verbose) { ifElse (isNonWritableFolder(object)) { if (verbose) { printLine("The object is NonWritableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonWritableFolder"); }; false; }; }
+method immutable Boolean debugIsWritableFolder(object, immutable Boolean verbose) { ifElse (isWritableFolder(object)) { if (verbose) { printLine("The object is WritableFolder"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT WritableFolder"); }; false; }; }
+method immutable Boolean debugIsD_UnknownExecutability(object, immutable Boolean verbose) { ifElse (isD_UnknownExecutability(object)) { if (verbose) { printLine("The object is D_UnknownExecutability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_UnknownExecutability"); }; false; }; }
+method immutable Boolean debugIsD_UnknownReadability(object, immutable Boolean verbose) { ifElse (isD_UnknownReadability(object)) { if (verbose) { printLine("The object is D_UnknownReadability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_UnknownReadability"); }; false; }; }
+method immutable Boolean debugIsD_UnknownWritability(object, immutable Boolean verbose) { ifElse (isD_UnknownWritability(object)) { if (verbose) { printLine("The object is D_UnknownWritability"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT D_UnknownWritability"); }; false; }; }
+method immutable Boolean debugIsExecutableUnknown(object, immutable Boolean verbose) { ifElse (isExecutableUnknown(object)) { if (verbose) { printLine("The object is ExecutableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ExecutableUnknown"); }; false; }; }
+method immutable Boolean debugIsNonExecutableUnknown(object, immutable Boolean verbose) { ifElse (isNonExecutableUnknown(object)) { if (verbose) { printLine("The object is NonExecutableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonExecutableUnknown"); }; false; }; }
+method immutable Boolean debugIsNonReadableUnknown(object, immutable Boolean verbose) { ifElse (isNonReadableUnknown(object)) { if (verbose) { printLine("The object is NonReadableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonReadableUnknown"); }; false; }; }
+method immutable Boolean debugIsReadableUnknown(object, immutable Boolean verbose) { ifElse (isReadableUnknown(object)) { if (verbose) { printLine("The object is ReadableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ReadableUnknown"); }; false; }; }
+method immutable Boolean debugIsNonWritableUnknown(object, immutable Boolean verbose) { ifElse (isNonWritableUnknown(object)) { if (verbose) { printLine("The object is NonWritableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonWritableUnknown"); }; false; }; }
+method immutable Boolean debugIsWritableUnknown(object, immutable Boolean verbose) { ifElse (isWritableUnknown(object)) { if (verbose) { printLine("The object is WritableUnknown"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT WritableUnknown"); }; false; }; }
+method immutable Boolean debugIsCreatable(object, immutable Boolean verbose) { ifElse (isCreatable(object)) { if (verbose) { printLine("The object is Creatable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Creatable"); }; false; }; }
+method immutable Boolean debugIsNonCreatable(object, immutable Boolean verbose) { ifElse (isNonCreatable(object)) { if (verbose) { printLine("The object is NonCreatable"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonCreatable"); }; false; }; }
+method immutable Boolean debugIsParented(object, immutable Boolean verbose) { ifElse (isParented(object)) { if (verbose) { printLine("The object is Parented"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Parented"); }; false; }; }
+method immutable Boolean debugIsUnparented(object, immutable Boolean verbose) { ifElse (isUnparented(object)) { if (verbose) { printLine("The object is Unparented"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Unparented"); }; false; }; }
+method immutable Boolean debugIsNonRelative(object, immutable Boolean verbose) { ifElse (isNonRelative(object)) { if (verbose) { printLine("The object is NonRelative"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT NonRelative"); }; false; }; }
+method immutable Boolean debugIsRelative(object, immutable Boolean verbose) { ifElse (isRelative(object)) { if (verbose) { printLine("The object is Relative"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Relative"); }; false; }; }
+method immutable Boolean debugIsAbsolute(object, immutable Boolean verbose) { ifElse (isAbsolute(object)) { if (verbose) { printLine("The object is Absolute"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Absolute"); }; false; }; }
+method immutable Boolean debugIsCanonical(object, immutable Boolean verbose) { ifElse (isCanonical(object)) { if (verbose) { printLine("The object is Canonical"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Canonical"); }; false; }; }

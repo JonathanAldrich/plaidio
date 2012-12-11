@@ -28,23 +28,8 @@ package plaidio.filesystem;
 
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.folderpermission.folderwritability.WritableFolder;
 
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity._debuger.debugIsInvalid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
-import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsExecutableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsWritableFile;
-
-import com.akefirad.plaid.lang._debuger.isNil;
-import com.akefirad.plaid.lang._debuger.debugIsInt32;
-import com.akefirad.plaid.lang._debuger.debugIsString;
-import com.akefirad.plaid.lang._debuger.debugIsCharacter;
+import plaidio.statecheckers.*;
+import com.akefirad.plaid.lang.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

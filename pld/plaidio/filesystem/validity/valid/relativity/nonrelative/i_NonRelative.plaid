@@ -43,7 +43,7 @@ state i_NonRelative case of NonRelative
 	**/
 	method void p_Finalize() /*[shared i_NonRelative >> shared NonRelative this]*/
 	{
-		ifElse (com.akefirad.plaid.PlaidHelper.isCanonicalPath(j_File))
+		ifElse (com.akefirad.plaid.JavaHelper.isCanonicalPath(j_File))
 		{
 			p_MakeCanonical();
 		}

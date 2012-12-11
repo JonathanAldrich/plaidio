@@ -29,20 +29,7 @@ package plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermis
 
 import plaidio.filesystem.makePath;
 
-import plaidio.filesystem._debuger.debugIsPath;
-import plaidio.filesystem.validity._debuger.debugIsValid;
-import plaidio.filesystem.validity.valid._debuger.debugIsD_Existency;
-import plaidio.filesystem.validity.valid.existency._debuger.debugIsExistent;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype._debuger.debugIsFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileExecutability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileReadability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission._debuger.debugIsD_FileWritability;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsNonExecutableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.fileexecutability._debuger.debugIsExecutableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsNonReadableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filereadability._debuger.debugIsReadableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsNonWritableFile;
-import plaidio.filesystem.validity.valid.existency.existent.pathtype.filepermission.filewritability._debuger.debugIsWritableFile;
+import plaidio.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 

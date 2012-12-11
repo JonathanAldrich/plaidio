@@ -12,7 +12,7 @@ import plaid.runtime.PlaidException;
 import plaid.runtime.PlaidMethod;
 import plaid.runtime.Util;
 
-public class PlaidHelper {
+public class JavaHelper {
 	public static boolean isValidPath(File file) {
 		try {
 			file.getCanonicalPath();
@@ -73,9 +73,10 @@ public class PlaidHelper {
 		return result;
 	}
 
-	public static void buildStateCheckers(File packageFolder, String baseFolder) throws IOException {
-        if (packageFolder.exists() && packageFolder.isDirectory() && packageFolder.getAbsolutePath().endsWith("_debuger") == false) {
-            File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "_debuger");
+	public static void buildStateCheckers(String packagePath) throws IOException {
+        File packageFolder = new File(packagePath);
+        if (packageFolder.exists() && packageFolder.isDirectory()) {
+            File statecheckersFolder = new File(packageFolder.getAbsolutePath(), "statecheckers");
             if (statecheckersFolder.exists() == false) {
                 statecheckersFolder.mkdir();
             } else if (statecheckersFolder.isDirectory() == false) {
@@ -92,14 +93,15 @@ public class PlaidHelper {
 
             if (states.size() > 0)
             {
+                String rootPackageName = packageFolder.getName();
                 String rootPackagePath = packageFolder.getAbsolutePath();
                 File packageplaidFile = new File(statecheckersFolder.getAbsoluteFile(), "package.plaid");
                 packageplaidFile.createNewFile();
                 StringBuilder sb = new StringBuilder();
-                sb.append("package ").append(rootPackagePath.replace(baseFolder + "\\", "").replace("\\", ".")).append("." + statecheckersFolder.getName()).append(";\n\n");
+                sb.append("package ").append(rootPackageName).append(".").append(statecheckersFolder.getName()).append(";\n\n");
                 for (int i = 0; i < states.size(); i++) {
                     File f = states.get(i);
-                    String stateQualifiedName = f.getAbsolutePath().replace(baseFolder + "\\", "").replace(".plaid", "").replace("\\", ".");
+                    String stateQualifiedName = f.getAbsolutePath().replace(rootPackagePath, rootPackageName).replace(".plaid", "").replace("\\", ".");
                     sb.append("import ").append(stateQualifiedName).append(";\n");
                 }
 
@@ -110,7 +112,7 @@ public class PlaidHelper {
                     String state = f.getName().replace(".plaid", "");
                     sb.append("method immutable Boolean is").append(state).append("(object) { match (object) { case ").append(state).append(" { true; } default { false; } }; }\n");
                 }
-                
+
                 sb.append("\n");
 
                 for (int i = 0; i < states.size(); i++) {
@@ -118,12 +120,35 @@ public class PlaidHelper {
                     String state = f.getName().replace(".plaid", "");
                     sb.append("method immutable Boolean debugIs").append(state).append("(object, immutable Boolean verbose) { ifElse (is").append(state).append("(object)) { if (verbose) { printLine(\"The object is ").append(state).append("\"); }; true; } /*else*/ { if (verbose) { printLine(\"The object is NOT ").append(state).append("\"); }; false; }; }\n");
                 }
-                
+
                 FileWriter fw = new FileWriter(packageplaidFile);
                 fw.append(sb.toString());
                 fw.flush();
-                fw.close();                
+                fw.close();
             }
+        }
+    }
+
+    public static ArrayList<File> getStateFiles(File packageFolder) throws IOException {
+        ArrayList<File> states = new ArrayList<File>();
+        if (packageFolder.exists() && packageFolder.isDirectory()) {
+            // List plaid files
+            File[] files = packageFolder.listFiles(new FileFilter() {
+                @Override
+                public boolean accept(File file) {
+                    String n = file.getName();
+                    if (file.isFile() && n.endsWith(".plaid")) {
+                        boolean isPackage = n.equals("package.plaid");
+                        boolean isMain = n.equals("main.plaid");
+	                    boolean isInitializing = n.startsWith("i_");
+	                    return ((isPackage || isMain || isInitializing) ? false : true);
+                    } else {
+                        return false;
+                    }
+                }
+            });
+            states.addAll(Arrays.asList(files));
+
             // List sub-folders
             File[] folders = packageFolder.listFiles(new FileFilter() {
                 @Override
@@ -136,32 +161,14 @@ public class PlaidHelper {
                 }
             });
 
-            // Build statecheckers for sub-folders
+            // Get StateFiles for each sub-folder and add them into state list
             for (int i = 0; i < folders.length; i++) {
-            	buildStateCheckers(folders[i], baseFolder);
+                states.addAll(getStateFiles(folders[i]));
             }
+
+            return states;
+        } else {
+            throw new IOException("The argument is not a valid folder.");
         }
-    }
-
-    private static ArrayList<File> getStateFiles(File packageFolder) throws IOException {
-        ArrayList<File> states = new ArrayList<File>();
-        // List plaid files
-        File[] files = packageFolder.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                String n = file.getName();
-                if (file.isFile() && n.endsWith(".plaid")) {
-                    boolean isPackage = n.equals("package.plaid");
-                    boolean isMain = n.equals("main.plaid");
-                    boolean isInitializing = n.startsWith("i_");
-                    return ((isPackage || isMain || isInitializing) ? false : true);
-                } else {
-                    return false;
-                }
-            }
-        });
-        states.addAll(Arrays.asList(files));
-
-        return states;
     }
 }

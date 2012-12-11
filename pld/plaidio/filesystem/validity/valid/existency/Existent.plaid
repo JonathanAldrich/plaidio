@@ -28,7 +28,7 @@ package plaidio.filesystem.validity.valid.existency;
 import plaidio.filesystem.validity.valid.D_Existency;
 import plaidio.filesystem.validity.valid.existency.existent.pathtype.i_PathType;
 
-import plaidio.filesystem.validity.valid.existency._debuger.isExistent;
+import plaidio.statecheckers.*;
 
 /*------------------------------------------------------------------------------
 /**
