@@ -20,16 +20,26 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	Closeable.plaid
+	FILE:	CloseableStream.plaid
 **/
 package plaidio.streams;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A Closeable is a source or destination of data that can be closed.
+	DESC:	A CloseableStream is a source or destination of data that can be closed.
 **/
-state Closeable
+state CloseableStream
 {
-	method void close();
+	method void close() /*[unique CloseableStream this >> unique ClosedStream this]*/
+	{
+		p_close_CloseableStream();
+	}
+
+	// Since, Plaid has no feature for calling base methods,
+	// this protected method is to be used whenever close method is overridden.
+	method void p_close_CloseableStream() /*[unique CloseableStream this >> unique ClosedStream this]*/
+	{
+		this <<- ClosedStream;
+	}
 }

@@ -1,0 +1,60 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	OutputStream.plaid
+**/
+package plaidio.streams;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	This abstract class is the superclass of all classes representing an output stream of bytes.
+			An output stream accepts output bytes and sends them to some sink.
+			Applications that need to define a subclass of OutputStream must always
+			provide at least a method that writes one byte of output.
+**/
+state OutputStream = CloseableStream with FlushableStream with
+{
+    val /*java.io.OutputStream*/ j_Stream;
+
+    method writeByte(immutable Int8 byte) /*[immutable OutputStream >> immutable OutputStream this]*/;
+
+    method writeBytes(unique Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/;
+
+    override method void close()
+    {
+    	p_close_OutputStream();
+    }
+    
+    method void p_close_OutputStream()
+    {
+        // Calling flush does not seem neccessary,
+        // since close method in java flushes the stream by default.
+        flush();
+
+        // Close java output stream
+        j_Stream.close();
+
+        // This should be changed to something like: base.close();
+        p_close_CloseableStream();
+    }
+}
