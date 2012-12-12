@@ -27,7 +27,9 @@
 package com.akefirad.plaid.lang;
 
 import com.akefirad.plaid.lang.collections.Array;
-import com.akefirad.plaid.lang.math.BoundValue;
+import com.akefirad.plaid.lang.collections.BoundInteger;
+import com.akefirad.plaid.lang.collections.InBoundInteger;
+
 import com.akefirad.plaid.testing.makeTestBed;
 
 import com.akefirad.plaid.lang.statecheckers.*;
@@ -42,66 +44,48 @@ method unique Array makeByteArray(immutable Int32 size)
     /*return*/ new Array { val j_Array = com.akefirad.plaid.JavaArray.new(java.lang.Byte.MIN_VALUE, size); };
 }
 
-method unique BoundValue makeBoundValue(upper, lower, value)
-{
-	val v = new BoundValue { val p_Upper = upper; val p_Lower = lower; };
-	v.set(value);
-	/*return*/ v;
-}
-
 method void test_lang(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of com.akefirad.plaid.lang package's features");
 
-	testbed.makeTestCase("makeBoundValue() with in bound value", fn(tc) => {
-		val immutable BoundValue o = makeBoundValue(3, 1, 2);
-		tc.debug("'" + o + "'", verbose);
-		tc.assert(fn() => { debugIsBoundValue(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundValue(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsOutBoundValue(o, verbose) == false; }, verbose);
-	});
-
-	testbed.makeTestCase("makeBoundValue() with out of bound value (too big)", fn(tc) => {
-		val immutable BoundValue o = makeBoundValue(3, 1, 4);
-		tc.debug("'" + o + "'", verbose);
-		tc.assert(fn() => { debugIsBoundValue(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundValue(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsOutBoundValue(o, verbose); }, verbose);
-	});
-
-	testbed.makeTestCase("makeBoundValue() with out of bound value (too small)", fn(tc) => {
-		val immutable BoundValue o = makeBoundValue(3, 1, 0);
-		tc.debug("'" + o + "'", verbose);
-		tc.assert(fn() => { debugIsBoundValue(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundValue(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsOutBoundValue(o, verbose); }, verbose);
-	});
-
 	testbed.makeTestCase("makeByteArray()", fn(tc) => {
-		val array = makeByteArray(5);
+		val o = makeByteArray(5);
 
-		tc.debug("Array Length: " + array.length(), verbose);
-		var i = 0;
+		tc.debug("Array Length: " + o.length(), verbose);
+		var unique InBoundInteger i = o.createIndexer();
+		tc.debug("Array Indexer: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
 		while
 		{
-			i < array.length();
+			isInBoundInteger(i);
 		}
 		/*do*/
 		{
-			array.set(i, com.akefirad.plaid.JavaHelper.castBigIntegerToByte(i + i));
-			i = i + 1;
+			o.set(i, com.akefirad.plaid.JavaHelper.castBigIntegerToByte(i.get() * 2));
+			i.increaseOne();
 		};
 
-		var j = 0;
+		i.set(0);
+		tc.debug("Array Indexer: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
 		while
 		{
-			j < array.length();
+			isInBoundInteger(i);
 		}
 		/*do*/
 		{
-			tc.debug("'" + array.get(j) + "'", verbose);
-			j = j + 1;
+			tc.debug("'" + o.get(i) + "'", verbose);
+			i.increaseOne();
 		};
+
+		tc.debug("Array Indexer: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

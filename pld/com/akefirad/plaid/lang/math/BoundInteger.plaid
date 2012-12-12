@@ -20,7 +20,7 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	OutBoundValue.plaid
+	FILE:	BoundInteger.plaid
 **/
 package com.akefirad.plaid.lang.math;
 
@@ -29,6 +29,42 @@ package com.akefirad.plaid.lang.math;
 	CID:	TS-??
 	DESC:	
 **/
-state OutBoundValue case of BoundValue
+state BoundInteger
 {
+	var immutable Int32 p_Value;
+	val immutable Int32 p_Lower;
+	val immutable Int32 p_Upper;
+
+	method void set(immutable Int32 value)
+	{
+		p_Value = value;
+		ifElse (p_Value < p_Lower || p_Value >= p_Upper)
+		{
+			makeOutBoundInteger();
+		}
+		/*else*/
+		{
+			makeInBoundInteger();
+		}
+	}
+
+	method immutable Int32 get()
+	{
+		/*return*/ p_Value;
+	}
+
+	method void makeInBoundInteger()
+	{
+		this <- InBoundInteger;
+	}
+
+	method void makeOutBoundInteger()
+	{
+		this <- OutBoundInteger;
+	}
+	
+	method immutable String toString()
+	{
+		/*return*/ p_Value.toString();
+	}
 }

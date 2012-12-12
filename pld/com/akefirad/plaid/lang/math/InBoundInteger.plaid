@@ -20,7 +20,7 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	InBoundValue.plaid
+	FILE:	InBoundInteger.plaid
 **/
 package com.akefirad.plaid.lang.math;
 
@@ -29,6 +29,35 @@ package com.akefirad.plaid.lang.math;
 	CID:	TS-??
 	DESC:	
 **/
-state InBoundValue case of BoundValue
+state InBoundInteger case of BoundInteger
 {
+	method immutable Int32 length()
+	{
+		/*return*/ (p_Length - p_Value);
+	}
+	
+	method void increaseOne()
+	{
+		increase(1);
+	}
+
+	method void increase(immutable Int32 steps)
+	{
+		set(p_Value + steps);
+	}
+
+	method void decreaseOne()
+	{
+		decrease(1);
+	}
+
+	method void decrease(immutable Int32 steps)
+	{
+		set(p_Value - steps);
+	}
+
+	method immutable Int32 getRemaining()
+	{
+		/*return*/ (p_Upper - p_Value)
+	}
 }

@@ -25,6 +25,9 @@
 **/
 package com.akefirad.plaid.lang.collections;
 
+import com.akefirad.plaid.lang.math.BoundInteger;
+import com.akefirad.plaid.lang.math.InBoundInteger;
+
 immutable state Array
 {
     val /*com.akefirad.plaid.JavaArray*/ j_Array;
@@ -34,9 +37,9 @@ immutable state Array
         /*return*/ j_Array.length();
     }
     
-    method get(immutable Int32 index)
+    method get(unique InBoundInteger index)
     {
-        /*return*/ j_Array.get(index);
+        /*return*/ j_Array.get(index.get());
     }
 
     method getArray()
@@ -44,14 +47,28 @@ immutable state Array
         /*return*/ j_Array.getArray();
     }
 
-    method void set(immutable Int32 index, item)
+    method void set(unique InBoundInteger index, item)
     {
-        j_Array.set(index, item);
+        j_Array.set(index.get(), item);
     }
 
     method void setArray(array)
     {
         j_Array.setArray(array);
     }
+
+	method unique InBoundInteger createOffset(unique InBoundInteger index)
+	{
+		val unique BoundInteger offset = new BoundInteger { val p_Lower = 0; val p_Upper = length(); };
+		offset.set(index.get());
+		/*return*/ offset;
+	}
+
+	method unique InBoundInteger createIndexer()
+	{
+		val unique BoundInteger indexer = new BoundInteger { val p_Lower = 0; val p_Upper = length(); };
+		indexer.set(0);
+		/*return*/ indexer;
+	}
 }
 
