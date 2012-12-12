@@ -32,8 +32,8 @@ package com.akefirad.plaid.lang.math;
 state BoundInteger
 {
 	var immutable Int32 p_Value;
-	val immutable Int32 p_Lower;
-	val immutable Int32 p_Upper;
+	var immutable Int32 p_Lower;
+	var immutable Int32 p_Upper;
 
 	method void set(immutable Int32 value)
 	{
@@ -51,6 +51,18 @@ state BoundInteger
 	method immutable Int32 get()
 	{
 		/*return*/ p_Value;
+	}
+
+	method setUpper(immutable Int32 value)
+	{
+		p_Upper = value;
+		set(get());
+	}
+
+	method setLower(immutable Int32 value)
+	{
+		p_Lower = value;
+		set(get());
 	}
 
 	method void makeInBoundInteger()

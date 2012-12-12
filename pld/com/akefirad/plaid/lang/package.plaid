@@ -48,6 +48,17 @@ method void test_lang(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of com.akefirad.plaid.lang package's features");
 
+	testbed.makeTestCase("makeByteArray() (a zero-length array))", fn(tc) => {
+		val o = makeByteArray(0);
+
+		tc.debug("Array Length: " + o.length(), verbose);
+		var unique InBoundInteger i = o.createIndexer();
+		tc.debug("Array Indexer: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
+	});
+
 	testbed.makeTestCase("makeByteArray()", fn(tc) => {
 		val o = makeByteArray(5);
 
@@ -57,13 +68,14 @@ method void test_lang(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
+
 		while
 		{
 			isInBoundInteger(i);
 		}
 		/*do*/
 		{
-			o.set(i, com.akefirad.plaid.JavaHelper.castBigIntegerToByte(i.get() * 2));
+			o.set(i, com.akefirad.plaid.JavaHelper.castBigIntegerToByte(i.get()));
 			i.increaseOne();
 		};
 
@@ -86,6 +98,29 @@ method void test_lang(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
+
+		i.set(2);
+		tc.debug("Array Offset: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
+		tc.debug("Array Offset Remaining Count: " + i.countRemainingSteps(), verbose);
+		i.setRemainingSteps(2);
+		tc.debug("Array Offset Remaining Count After Seting Steps: " + i.countRemainingSteps(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
+
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + o.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+
 	});
 
 	testbed.runTestCases(verbose);

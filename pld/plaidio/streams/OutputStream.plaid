@@ -43,8 +43,8 @@ state OutputStream = CloseableStream with FlushableStream with
 
     method writeBytes(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	j_Stream.write();
+    	//j_Stream.write();
     }
 
-    method writeSomeBytes(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/;
+    method writeSomeBytes(immutable Array bytes, immutable InBoundInteger offset, immutable InBoundInteger length) /*[immutable OutputStream >> immutable OutputStream this]*/;
 }

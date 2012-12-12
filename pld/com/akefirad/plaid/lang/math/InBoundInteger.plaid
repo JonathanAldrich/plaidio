@@ -31,11 +31,6 @@ package com.akefirad.plaid.lang.math;
 **/
 state InBoundInteger case of BoundInteger
 {
-	method immutable Int32 length()
-	{
-		/*return*/ (p_Length - p_Value);
-	}
-	
 	method void increaseOne()
 	{
 		increase(1);
@@ -56,8 +51,13 @@ state InBoundInteger case of BoundInteger
 		set(p_Value - steps);
 	}
 
-	method immutable Int32 getRemaining()
+	method immutable Int32 countRemainingSteps()
 	{
-		/*return*/ (p_Upper - p_Value)
+		/*return*/ (p_Upper - p_Value);
+	}
+
+	method void setRemainingSteps(immutable Int32 steps)
+	{
+		setUpper(get() + steps);
 	}
 }
