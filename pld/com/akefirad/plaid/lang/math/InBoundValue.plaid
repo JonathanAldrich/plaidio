@@ -9,7 +9,7 @@
  *  (at your option) any later version.
  * 
  *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
@@ -19,25 +19,16 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-11
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of I/O API for Plaid programming language.
-	FILE:	main.plaid
+	FILE:	InBoundValue.plaid
 **/
-package plaidio;
+package com.akefirad.plaid.lang.math;
 
-import plaidio.streams.test_streams;
-import com.akefirad.plaid.lang.test_lang;
-
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
-	CID: 	ST-11.1
-	DESC:	Main method of the package. It is used for testing.
+	CID:	TS-??
+	DESC:	
 **/
-method main(){
-	val verbose = true;
-	test_lang(verbose);
-	//test_streams(verbose);
-
-	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
+state InBoundValue case of BoundValue
+{
 }

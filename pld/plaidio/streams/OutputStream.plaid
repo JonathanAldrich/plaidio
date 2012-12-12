@@ -34,27 +34,17 @@ package plaidio.streams;
 **/
 state OutputStream = CloseableStream with FlushableStream with
 {
-    val /*java.io.OutputStream*/ j_Stream;
+	val /*java.io.OutputStream*/ j_Stream;
 
-    method writeByte(immutable Int8 byte) /*[immutable OutputStream >> immutable OutputStream this]*/;
-
-    method writeBytes(unique Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/;
-
-    override method void close()
+    method writeInteger(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	p_close_OutputStream();
+    	j_Stream.write(integer);
     }
-    
-    method void p_close_OutputStream()
+
+    method writeBytes(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-        // Calling flush does not seem neccessary,
-        // since close method in java flushes the stream by default.
-        flush();
-
-        // Close java output stream
-        j_Stream.close();
-
-        // This should be changed to something like: base.close();
-        p_close_CloseableStream();
+    	j_Stream.write();
     }
+
+    method writeSomeBytes(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/;
 }

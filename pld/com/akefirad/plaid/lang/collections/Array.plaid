@@ -19,25 +19,39 @@
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	SS-11
+	CID:	
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	DESC:	Main package of I/O API for Plaid programming language.
-	FILE:	main.plaid
+	FILE:	Array.plaid
 **/
-package plaidio;
+package com.akefirad.plaid.lang.collections;
 
-import plaidio.streams.test_streams;
-import com.akefirad.plaid.lang.test_lang;
+immutable state Array
+{
+    val /*com.akefirad.plaid.JavaArray*/ j_Array;
 
-/*------------------------------------------------------------------------------
-/**
-	CID: 	ST-11.1
-	DESC:	Main method of the package. It is used for testing.
-**/
-method main(){
-	val verbose = true;
-	test_lang(verbose);
-	//test_streams(verbose);
+    method immutable Int32 length()
+    {
+        /*return*/ j_Array.length();
+    }
+    
+    method get(immutable Int32 index)
+    {
+        /*return*/ j_Array.get(index);
+    }
 
-	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
+    method getArray()
+    {
+        /*return*/ j_Array.getArray();
+    }
+
+    method void set(immutable Int32 index, item)
+    {
+        j_Array.set(index, item);
+    }
+
+    method void setArray(array)
+    {
+        j_Array.setArray(array);
+    }
 }
+

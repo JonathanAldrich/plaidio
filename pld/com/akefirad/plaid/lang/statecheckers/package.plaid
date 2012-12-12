@@ -1,12 +1,28 @@
 package com.akefirad.plaid.lang.statecheckers;
 
+import com.akefirad.plaid.lang.collections.Array;
+import com.akefirad.plaid.lang.math.BoundValue;
+import com.akefirad.plaid.lang.math.InBoundValue;
+import com.akefirad.plaid.lang.math.OutBoundValue;
+
 method immutable Boolean isString(v) { match (v) { case String { true; } default { false; } }; }
 method immutable Boolean debugIsString(object, immutable Boolean verbose) { ifElse (isString(object)) { if (verbose) { printLine("The object is String"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT String"); }; false; }; }
+
+method immutable Boolean isArray(v) { match (v) { case Array { true; } default { false; } }; }
+method immutable Boolean debugIsArray(object, immutable Boolean verbose) { ifElse (isArray(object)) { if (verbose) { printLine("The object is Array"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Array"); }; false; }; }
+
+method immutable Boolean isBoundValue(v) { match (v) { case BoundValue { true; } default { false; } }; }
+method immutable Boolean debugIsBoundValue(object, immutable Boolean verbose) { ifElse (isBoundValue(object)) { if (verbose) { printLine("The object is BoundValue"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT BoundValue"); }; false; }; }
+
+method immutable Boolean isInBoundValue(v) { match (v) { case InBoundValue { true; } default { false; } }; }
+method immutable Boolean debugIsInBoundValue(object, immutable Boolean verbose) { ifElse (isInBoundValue(object)) { if (verbose) { printLine("The object is InBoundValue"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT InBoundValue"); }; false; }; }
+
+method immutable Boolean isOutBoundValue(v) { match (v) { case OutBoundValue { true; } default { false; } }; }
+method immutable Boolean debugIsOutBoundValue(object, immutable Boolean verbose) { ifElse (isOutBoundValue(object)) { if (verbose) { printLine("The object is OutBoundValue"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OutBoundValue"); }; false; }; }
 
 // plaid.collection 2762:b17367e99a32@default
 //method immutable Boolean isAANode(object) { match (object) { case AANode { true; } default { false; } }; }
 //method immutable Boolean isAATree(object) { match (object) { case AATree { true; } default { false; } }; }
-//method immutable Boolean isArray(object) { match (object) { case Array { true; } default { false; } }; }
 //method immutable Boolean isCollection(object) { match (object) { case Collection { true; } default { false; } }; }
 //method immutable Boolean isEndOfListNode(object) { match (object) { case EndOfListNode { true; } default { false; } }; }
 //method immutable Boolean isHashProvider(object) { match (object) { case HashProvider { true; } default { false; } }; }
@@ -23,7 +39,6 @@ method immutable Boolean debugIsString(object, immutable Boolean verbose) { ifEl
 //
 //method immutable Boolean debugIsAANode(object, immutable Boolean verbose) { ifElse (isAANode(object)) { if (verbose) { printLine("The object is AANode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AANode"); }; false; }; }
 //method immutable Boolean debugIsAATree(object, immutable Boolean verbose) { ifElse (isAATree(object)) { if (verbose) { printLine("The object is AATree"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT AATree"); }; false; }; }
-//method immutable Boolean debugIsArray(object, immutable Boolean verbose) { ifElse (isArray(object)) { if (verbose) { printLine("The object is Array"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Array"); }; false; }; }
 //method immutable Boolean debugIsCollection(object, immutable Boolean verbose) { ifElse (isCollection(object)) { if (verbose) { printLine("The object is Collection"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Collection"); }; false; }; }
 //method immutable Boolean debugIsEndOfListNode(object, immutable Boolean verbose) { ifElse (isEndOfListNode(object)) { if (verbose) { printLine("The object is EndOfListNode"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT EndOfListNode"); }; false; }; }
 //method immutable Boolean debugIsHashProvider(object, immutable Boolean verbose) { ifElse (isHashProvider(object)) { if (verbose) { printLine("The object is HashProvider"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT HashProvider"); }; false; }; }
