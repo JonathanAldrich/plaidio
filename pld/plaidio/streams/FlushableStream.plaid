@@ -31,14 +31,5 @@ package plaidio.streams;
 **/
 state FlushableStream
 {
-    method void flush() /*[immutable FlushableStream this >> immutable FlushableStream this]*/
-    {
-        p_flush_FlushableStream();
-    }
-
-    // Since, Plaid has no feature for calling base methods,
-    // this protected method is to be used whenever flush method is overridden.
-    method void p_flush_FlushableStream() /*[immutable FlushableStream this >> immutable FlushableStream this]*/
-    {
-    }
+    method void flush() /*[immutable FlushableStream this >> immutable FlushableStream this]*/;
 }

@@ -51,7 +51,7 @@ state InBoundInteger case of BoundInteger
 		set(p_Value - steps);
 	}
 
-	method immutable Int32 countRemainingSteps()
+	method immutable Int32 getRemainingSteps()
 	{
 		/*return*/ (p_Upper - p_Value);
 	}

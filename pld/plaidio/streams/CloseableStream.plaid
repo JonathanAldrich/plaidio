@@ -31,15 +31,5 @@ package plaidio.streams;
 **/
 state CloseableStream
 {
-	method void close() /*[unique CloseableStream this >> unique ClosedStream this]*/
-	{
-		p_close_CloseableStream();
-	}
-
-	// Since, Plaid has no feature for calling base methods,
-	// this protected method is to be used whenever close method is overridden.
-	method void p_close_CloseableStream() /*[unique CloseableStream this >> unique ClosedStream this]*/
-	{
-		this <<- ClosedStream;
-	}
+	method void close() /*[unique CloseableStream this >> unique ClosedStream this]*/;
 }

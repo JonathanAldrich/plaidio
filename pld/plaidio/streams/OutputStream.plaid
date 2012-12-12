@@ -24,6 +24,8 @@
 **/
 package plaidio.streams;
 
+import com.akefirad.plaid.lang.statecheckers.*;
+
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
@@ -34,17 +36,48 @@ package plaidio.streams;
 **/
 state OutputStream = CloseableStream with FlushableStream with
 {
-	val /*java.io.OutputStream*/ j_Stream;
+	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/;
 
-    method writeInteger(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/;
+
+    method writeAll(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	j_Stream.write(integer);
+    	writeSome(bytes, bytes.getIndexer());
     }
 
-    method writeBytes(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	//j_Stream.write();
+		while
+		{
+			isInBoundInteger(indexer);
+		}
+		/*do*/
+		{
+			write(bytes.get(indexer));
+			indexer.increaseOne();
+		};
     }
 
-    method writeSomeBytes(immutable Array bytes, immutable InBoundInteger offset, immutable InBoundInteger length) /*[immutable OutputStream >> immutable OutputStream this]*/;
+	method void close() /*[unique OutputStream this >> unique ClosedStream this]*/
+	{
+		p_close_OutputStream();
+	}
+
+	// Since, Plaid has no feature for calling base methods,
+	// this protected method is to be used whenever close method is overridden.
+	method void p_close_OutputStream() /*[unique OutputStream this >> unique ClosedStream this]*/
+	{
+		this <<- ClosedStream;
+	}
+
+    method void flush() /*[immutable OutputStream this >> immutable OutputStream this]*/
+    {
+        p_flush_OutputStream();
+    }
+
+    // Since, Plaid has no feature for calling base methods,
+    // this protected method is to be used whenever flush method is overridden.
+    method void p_flush_OutputStream() /*[immutable OutputStream this >> immutable OutputStream this]*/
+    {
+    }
 }

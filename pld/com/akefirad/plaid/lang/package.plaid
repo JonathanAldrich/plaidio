@@ -52,7 +52,7 @@ method void test_lang(immutable Boolean verbose)
 		val o = makeByteArray(0);
 
 		tc.debug("Array Length: " + o.length(), verbose);
-		var unique InBoundInteger i = o.createIndexer();
+		var unique InBoundInteger i = o.getIndexer();
 		tc.debug("Array Indexer: " + i.get(), verbose);
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
@@ -63,7 +63,7 @@ method void test_lang(immutable Boolean verbose)
 		val o = makeByteArray(5);
 
 		tc.debug("Array Length: " + o.length(), verbose);
-		var unique InBoundInteger i = o.createIndexer();
+		var unique InBoundInteger i = o.getIndexer();
 		tc.debug("Array Indexer: " + i.get(), verbose);
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
@@ -104,9 +104,9 @@ method void test_lang(immutable Boolean verbose)
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
-		tc.debug("Array Offset Remaining Count: " + i.countRemainingSteps(), verbose);
+		tc.debug("Array Offset Remaining Steps Before Setting Steps to 2: " + i.getRemainingSteps(), verbose);
 		i.setRemainingSteps(2);
-		tc.debug("Array Offset Remaining Count After Seting Steps: " + i.countRemainingSteps(), verbose);
+		tc.debug("Array Offset Remaining Steps After Setting Steps to 2: " + i.getRemainingSteps(), verbose);
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
 		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);

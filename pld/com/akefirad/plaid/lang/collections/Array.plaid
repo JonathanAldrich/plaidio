@@ -57,7 +57,7 @@ immutable state Array
         j_Array.setArray(array);
     }
 
-	method unique InBoundInteger createIndexer()
+	method unique InBoundInteger getIndexer()
 	{
 		val unique BoundInteger indexer = new BoundInteger { var p_Lower = 0; var p_Upper = length(); };
 		indexer.set(0);
