@@ -44,23 +44,43 @@ method unique Array makeByteArray(immutable Int32 size)
     /*return*/ new Array { val j_Array = com.akefirad.plaid.JavaArray.new(java.lang.Byte.MIN_VALUE, size); };
 }
 
+method unique Array makeByteArrayFromJavaArray(array)
+{
+    /*return*/ new Array { val j_Array = array; };
+}
+
 method void test_lang(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of com.akefirad.plaid.lang package's features");
 
 	testbed.makeTestCase("makeByteArray() (a zero-length array))", fn(tc) => {
-		val o = makeByteArray(0);
+		val unique Array o = makeByteArray(0);
 
 		tc.debug("Array Length: " + o.length(), verbose);
 		var unique InBoundInteger i = o.getIndexer();
 		tc.debug("Array Indexer: " + i.get(), verbose);
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
+	});
+
+	testbed.makeTestCase("makeByteArray() (randomly generated))", fn(tc) => {
+		val unique Array o = makeByteArrayFromJavaArray(com.akefirad.plaid.JavaHelper.generateRandomBytes(10));
+		tc.debug("Array Length: " + o.length(), verbose);
+		var unique InBoundInteger i = o.getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + o.get(i) + "'", verbose);
+			i.increaseOne();
+		};
 	});
 
 	testbed.makeTestCase("makeByteArray()", fn(tc) => {
-		val o = makeByteArray(5);
+		val unique Array o = makeByteArray(5);
 
 		tc.debug("Array Length: " + o.length(), verbose);
 		var unique InBoundInteger i = o.getIndexer();

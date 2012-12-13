@@ -25,7 +25,8 @@ public class JavaArray<T>
 {
     T[] p_Array;
 
-    public JavaArray(T sample, int size)
+    @SuppressWarnings("unchecked")
+	public JavaArray(T sample, int size)
     {
         p_Array = (T[]) Array.newInstance(sample.getClass(), size);
     }
@@ -40,7 +41,7 @@ public class JavaArray<T>
         p_Array[index] = item;
     }
     
-    public void setArray(T[] array)
+	public void setArray(T[] array)
     {
         p_Array = array;
     }

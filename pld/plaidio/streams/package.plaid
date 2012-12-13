@@ -52,13 +52,9 @@ method void test_streams(immutable Boolean verbose)
 
 	testbed.makeTestCase("create an output stream", fn(tc) => {
 		val unique OutputStream o = makeOutputStream(java.lang.System.out);
-
-		tc.debug("Array Length: " + o.length(), verbose);
-		var unique InBoundInteger i = o.getIndexer();
-		tc.debug("Array Indexer: " + i.get(), verbose);
-		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
+	});
 
 	testbed.runTestCases(verbose);
 }

@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import plaid.runtime.PlaidException;
 import plaid.runtime.PlaidMethod;
@@ -192,5 +193,16 @@ public class JavaHelper {
 
 	public static byte castBigIntegerToByte(BigInteger value) {
 		return (byte) value.intValue();
+	}
+	
+	public static JavaArray<Byte> generateRandomBytes(int size)
+	{
+		JavaArray<Byte> javaarray = new JavaArray<Byte>(Byte.MIN_VALUE, size);
+		byte[] array = new byte[size];
+		Random random = new Random();
+		random.nextBytes(array);
+		for (int i = 0; i < array.length; i++)
+			javaarray.set(i, array[i]);
+		return javaarray;
 	}
 }
