@@ -36,9 +36,29 @@ import com.akefirad.plaid.testing.makeTestBed;
 	CID:	TC-SS-??
 	DESC:	Test cases of plaidio.streams package's features
 **/
+method unique OutputStream makeOutputStream(stream)
+{
+	/*return*/ new OutputStream { val j_Stream = stream; };
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SS-??
+	DESC:	Test cases of plaidio.streams package's features
+**/
 method void test_streams(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.streams package's features");
+
+	testbed.makeTestCase("create an output stream", fn(tc) => {
+		val unique OutputStream o = makeOutputStream(java.lang.System.out);
+
+		tc.debug("Array Length: " + o.length(), verbose);
+		var unique InBoundInteger i = o.getIndexer();
+		tc.debug("Array Indexer: " + i.get(), verbose);
+		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
 
 	testbed.runTestCases(verbose);
 }
