@@ -28,6 +28,8 @@ package com.akefirad.plaid.lang.collections;
 import com.akefirad.plaid.lang.math.BoundInteger;
 import com.akefirad.plaid.lang.math.InBoundInteger;
 
+import com.akefirad.plaid.lang.statecheckers.*;
+
 immutable state Array
 {
     val /*com.akefirad.plaid.JavaArray*/ j_Array;
@@ -44,7 +46,7 @@ immutable state Array
 
     method getArray()
     {
-        /*return*/ j_Array.getArray();
+        /*return*/ j_Array;
     }
 
     method void set(unique InBoundInteger index, item)
@@ -52,9 +54,23 @@ immutable state Array
         j_Array.set(index.get(), item);
     }
 
-    method void setArray(javaarray)
+    method void setArray(array)
     {
-        j_Array = javaarray;
+        j_Array = array;
+    }
+
+    method void forEach(function)
+    {
+		var unique InBoundInteger i = getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			function(get(i));
+			i.increaseOne();
+		};
     }
 
 	method unique InBoundInteger getIndexer()

@@ -26,6 +26,8 @@
 **/
 package plaidio.streams;
 
+import com.akefirad.plaid.lang.makeByteArrayFromJavaArray;
+
 import plaidio.statecheckers.*;
 import com.akefirad.plaid.lang.statecheckers.*;
 
@@ -54,6 +56,54 @@ method void test_streams(immutable Boolean verbose)
 		val unique OutputStream o = makeOutputStream(java.lang.System.out);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
 		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
+	});
+	
+	testbed.makeTestCase("create an output stream and write an integer", fn(tc) => {
+		val unique OutputStream o = makeOutputStream(java.lang.System.out);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.debug("The stream is going to write 'A':", verbose);
+		o.write(65);
+		tc.debug("", verbose);
+		o.flush();
+	});	
+
+	testbed.makeTestCase("create an output stream and write an array of bytes (10)", fn(tc) => {
+		val unique OutputStream o = makeOutputStream(java.lang.System.out);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique Array a = makeByteArrayFromJavaArray(com.akefirad.plaid.JavaHelper.generateRandomBytes(10, 33, 126));
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The randomly generated array contains:", verbose);
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		tc.debug("The randomly generated array is to be written by the stream (all):", verbose);
+		o.writeAll(a);
+		tc.debug("", verbose);
+		o.flush();
+		tc.debug("The randomly generated array is to be written by the stream (partially from 3, 4 items):", verbose);
+		i = a.getIndexer();
+		i.set(3);
+		i.setRemainingSteps(4);
+		o.writeSome(a, i);
+		tc.debug("", verbose);
+		o.flush();
+	});
+
+	testbed.makeTestCase("create an output stream and close it", fn(tc) => {
+		val unique OutputStream o = makeOutputStream(java.lang.System.out);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
+		tc.debug("Since the stream (stdout) is going to close, after this line there should be nothing printed.", verbose);
+		o.close();
+		tc.assert(fn() => { debugIsOutputStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose); }, verbose);
 	});
 
 	testbed.runTestCases(verbose);

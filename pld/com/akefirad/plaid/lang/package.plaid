@@ -60,8 +60,8 @@ method void test_lang(immutable Boolean verbose)
 		var unique InBoundInteger i = o.getIndexer();
 		tc.debug("Array Indexer: " + i.get(), verbose);
 		tc.assert(fn() => { debugIsBoundInteger(i, verbose); }, verbose);
-		tc.assert(fn() => { debugIsInBoundInteger(i, verbose); }, verbose);
-		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsInBoundInteger(i, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsOutBoundInteger(i, verbose); }, verbose);
 	});
 
 	testbed.makeTestCase("makeByteArray() (randomly generated))", fn(tc) => {

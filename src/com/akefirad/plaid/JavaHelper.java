@@ -197,12 +197,42 @@ public class JavaHelper {
 	
 	public static JavaArray<Byte> generateRandomBytes(int size)
 	{
-		JavaArray<Byte> javaarray = new JavaArray<Byte>(Byte.MIN_VALUE, size);
-		byte[] array = new byte[size];
+		JavaArray<Byte> array = new JavaArray<Byte>(Byte.MIN_VALUE, size);
+		byte[] unboxedArray = new byte[size];
 		Random random = new Random();
-		random.nextBytes(array);
-		for (int i = 0; i < array.length; i++)
-			javaarray.set(i, array[i]);
-		return javaarray;
+		random.nextBytes(unboxedArray);
+		Byte[] boxedArray = boxBytes(unboxedArray);
+		array.setArray(boxedArray);
+		return array;
+	}
+
+	public static JavaArray<Byte> generateRandomBytes(int size, int min, int max)
+	{
+		JavaArray<Byte> array = new JavaArray<Byte>(Byte.MIN_VALUE, size);
+		Random random = new Random();
+		for (int i = 0; i < array.length(); i++)
+		{
+			int b = random.nextInt();
+			while (b < min || b > max)
+				b = random.nextInt();
+			array.set(i, (byte)b);
+		}
+		return array;
+	}
+
+	public static byte[] unboxBytes(Byte[] bytes)
+	{
+		byte[] array = new byte[bytes.length];
+		for (int i = 0; i < bytes.length; i++)
+			array[i] = bytes[i];
+		return array; 
+	}
+
+	public static Byte[] boxBytes(byte[] bytes)
+	{
+		Byte[] array = new Byte[bytes.length];
+		for (int i = 0; i < bytes.length; i++)
+			array[i] = bytes[i];
+		return array;
 	}
 }
