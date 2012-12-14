@@ -37,7 +37,7 @@ import com.akefirad.plaid.lang.test_lang;
 method main(){
 	val verbose = true;
 	//test_lang(verbose);
-	test_streams(verbose);
+	//test_streams(verbose);
 
 	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
 }
