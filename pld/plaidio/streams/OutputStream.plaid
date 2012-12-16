@@ -34,52 +34,40 @@ import com.akefirad.plaid.lang.statecheckers.*;
 			Applications that need to define a subclass of OutputStream must always
 			provide at least a method that writes one byte of output.
 **/
-state OutputStream = CloseableStream with FlushableStream with
+state OutputStream
 {
-	val /*java.io.OutputStream*/ j_Stream;
-
 	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/
 	{
 		j_Stream;
 	}
 
-    method write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    {
+    	p_write_OutputStream(integer);
+    }
+
+    method void writeAll(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
+    {
+    	p_writeAll_OutputStream(bytes);
+    }
+
+    method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    {
+    	p_writeSome_OutputStream(bytes, indexer);
+    }
+
+    method void p_write_OutputStream(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	j_Stream.write(integer);
     }
 
-    method writeAll(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void p_writeAll_OutputStream(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	j_Stream.write(bytes.getBytes());
     }
 
-    method writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void p_writeSome_OutputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	j_Stream.write(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
-    }
-
-	method void close() /*[unique OutputStream this >> unique ClosedStream this]*/
-	{
-		p_close_OutputStream();
-	}
-
-	// Since, Plaid has no feature for calling base methods,
-	// this protected method is to be used whenever close method is overridden.
-	method void p_close_OutputStream() /*[unique OutputStream this >> unique ClosedStream this]*/
-	{
-		j_Stream.close();
-		this <<- ClosedStream;
-	}
-
-    method void flush() /*[immutable OutputStream this >> immutable OutputStream this]*/
-    {
-        p_flush_OutputStream();
-    }
-
-    // Since, Plaid has no feature for calling base methods,
-    // this protected method is to be used whenever flush method is overridden.
-    method void p_flush_OutputStream() /*[immutable OutputStream this >> immutable OutputStream this]*/
-    {
-		j_Stream.flush();
     }
 }

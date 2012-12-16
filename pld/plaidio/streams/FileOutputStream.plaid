@@ -20,27 +20,40 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	CloseableStream.plaid
+	FILE:	FileOutputStream.plaid
 **/
 package plaidio.streams;
+
+import com.akefirad.plaid.lang.statecheckers.*;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A CloseableStream is a source or destination of data that can be closed.
+	DESC:	A file output stream is an output stream for writing data to a File.
 **/
-state CloseableStream
+state FileOutputStream
 {
-	method void close() /*[unique OutputStream this >> unique ClosedStream this]*/
-	{
-		p_close_CloseableStream();
-	}
+	val /*java.io.FileOutputStream*/ j_Stream;
 
-	// Since, Plaid has no feature for calling base methods,
-	// this protected method is to be used whenever close method is overridden.
-	method void p_close_CloseableStream() /*[unique OutputStream this >> unique ClosedStream this]*/
-	{
-		j_Stream.close();
-		this <<- ClosedStream;
-	}
+    method void p_write_FileOutputStream(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    }
+
+    method void p_writeAll_FileOutputStream(immutable Array bytes) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    }
+
+    method void p_writeSome_FileOutputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    }
+    
+    method p_makeAppendableFileOutputStream()
+    {
+    	this <- AppendableFileOutputStream;
+    }
+
+    method p_makeOverwrittenFileOutputStream()
+    {
+    	this <- OverwrittenFileOutputStream;
+    }
 }
