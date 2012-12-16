@@ -26,7 +26,7 @@
 **/
 package com.akefirad.plaid.lang;
 
-import com.akefirad.plaid.lang.collections.Array;
+import com.akefirad.plaid.lang.collections.ByteArray;
 import com.akefirad.plaid.lang.collections.BoundInteger;
 import com.akefirad.plaid.lang.collections.InBoundInteger;
 
@@ -39,14 +39,9 @@ method trycatch(tryBlock, catchBlock, immutable String exception)
 	com.akefirad.plaid.JavaHelper.runMethodInTryBlock(tryBlock, catchBlock, exception);
 }
 
-method unique Array makeByteArray(immutable Int32 size)
+method unique ByteArray makeByteArray(immutable Int32 size)
 {
-    /*return*/ new Array { val j_Array = com.akefirad.plaid.JavaArray.new(java.lang.Byte.MIN_VALUE, size); };
-}
-
-method unique Array makeByteArrayFromJavaArray(array)
-{
-    /*return*/ new Array { val j_Array = array; };
+	/*return*/ new ByteArray { val j_Array = com.akefirad.plaid.ByteArray.new(size); };
 }
 
 method void test_lang(immutable Boolean verbose)
@@ -54,7 +49,7 @@ method void test_lang(immutable Boolean verbose)
 	val testbed = makeTestBed("Test cases of com.akefirad.plaid.lang package's features");
 
 	testbed.makeTestCase("makeByteArray() (a zero-length array))", fn(tc) => {
-		val unique Array o = makeByteArray(0);
+		val unique ByteArray o = makeByteArray(0);
 
 		tc.debug("Array Length: " + o.length(), verbose);
 		var unique InBoundInteger i = o.getIndexer();
@@ -65,7 +60,9 @@ method void test_lang(immutable Boolean verbose)
 	});
 
 	testbed.makeTestCase("makeByteArray() (randomly generated))", fn(tc) => {
-		val unique Array o = makeByteArrayFromJavaArray(com.akefirad.plaid.JavaHelper.generateRandomBytes(10));
+		val size = 5;
+		val unique ByteArray o = makeByteArray(size);
+		o.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size));
 		tc.debug("Array Length: " + o.length(), verbose);
 		var unique InBoundInteger i = o.getIndexer();
 		while
@@ -80,7 +77,7 @@ method void test_lang(immutable Boolean verbose)
 	});
 
 	testbed.makeTestCase("makeByteArray()", fn(tc) => {
-		val unique Array o = makeByteArray(5);
+		val unique ByteArray o = makeByteArray(5);
 
 		tc.debug("Array Length: " + o.length(), verbose);
 		var unique InBoundInteger i = o.getIndexer();

@@ -17,43 +17,24 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-package com.akefirad.plaid;
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	MarkableStream.plaid
+**/
+package plaidio.streams;
 
-import java.lang.reflect.Array;
+import com.akefirad.plaid.lang.statecheckers.*;
 
-public class JavaArray<T>
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	
+**/
+state MarkableStream
 {
-    T[] p_Array;
-
-    @SuppressWarnings("unchecked")
-	public JavaArray(T sample, int size)
+    method void mark() /*[unique MarkableStream >> unique MarkedStream this]*/
     {
-        p_Array = (T[]) Array.newInstance(sample.getClass(), size);
-    }
-
-    public int length()
-    {
-        return p_Array.length;
-    }
-    
-    public void set(int index, T item)
-    {
-        p_Array[index] = item;
-    }
-    
-	public void setArray(T[] array)
-    {
-        p_Array = array;
-    }
-
-    public T get(int index)
-    {
-        return p_Array[index];
-    }
-
-    public T[] getArray()
-    {
-        return p_Array;
+    	j_Stream.mark();
     }
 }
-

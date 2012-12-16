@@ -1,0 +1,76 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	InputStream.plaid
+**/
+package plaidio.streams;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	This abstract class is the superclass of all classes representing an input stream of bytes.
+			Applications that need to define a subclass of InputStream must always provide a method that returns the next byte of input.
+**/
+state InputStream = CloseableStream with
+{
+	val /*java.io.InputStream*/ j_Stream;
+
+	method getStream() /*[immutable InputStream >> immutable InputStream this]*/
+	{
+		/*return*/ j_Stream;
+	}
+
+    method immutable Int32 read() /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read();
+    }
+
+    method immutable Int32 readAll(immutable Array bytes) /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes());
+    }
+
+    method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+
+	method immutable Int64 skip(immutable Int64 count) /*[immutable InputStream >> immutable InputStream this]*/
+	{
+		/*return*/ j_Stream.skip();
+	}
+
+	method void close() /*[unique InputStream this >> unique ClosedStream this]*/
+	{
+		p_close_InputStream();
+	}
+
+	// Since, Plaid has no feature for calling base methods,
+	// this protected method is to be used whenever close method is overridden.
+	method void p_close_InputStream() /*[unique InputStream this >> unique ClosedStream this]*/
+	{
+		j_Stream.close();
+		this <<- ClosedStream;
+	}
+}

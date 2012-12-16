@@ -50,12 +50,12 @@ state OutputStream = CloseableStream with FlushableStream with
 
     method writeAll(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	j_Stream.write(com.akefirad.plaid.JavaHelper.unboxBytes(bytes.getArray().getArray()));
+    	j_Stream.write(bytes.getBytes());
     }
 
     method writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
-    	j_Stream.write(com.akefirad.plaid.JavaHelper.unboxBytes(bytes.getArray().getArray()), indexer.get(), indexer.getRemainingSteps());
+    	j_Stream.write(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
     }
 
 	method void close() /*[unique OutputStream this >> unique ClosedStream this]*/

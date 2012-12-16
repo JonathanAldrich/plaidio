@@ -26,7 +26,8 @@
 **/
 package plaidio.streams;
 
-import com.akefirad.plaid.lang.makeByteArrayFromJavaArray;
+import com.akefirad.plaid.lang.makeByteArray;
+import com.akefirad.plaid.lang.collections.ByteArray;
 
 import plaidio.statecheckers.*;
 import com.akefirad.plaid.lang.statecheckers.*;
@@ -35,12 +36,22 @@ import com.akefirad.plaid.testing.makeTestBed;
 
 /*------------------------------------------------------------------------------
 /**
-	CID:	TC-SS-??
-	DESC:	Test cases of plaidio.streams package's features
+	CID:	??
+	DESC:	The constructor for OutputStream
 **/
 method unique OutputStream makeOutputStream(stream)
 {
 	/*return*/ new OutputStream { val j_Stream = stream; };
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for InputStream
+**/
+method unique InputStream makeInputStream(stream)
+{
+	/*return*/ new InputStream { val j_Stream = stream; };
 }
 
 /*------------------------------------------------------------------------------
@@ -67,10 +78,12 @@ method void test_streams(immutable Boolean verbose)
 		o.flush();
 	});	
 
-	testbed.makeTestCase("create an output stream and write an array of bytes (10)", fn(tc) => {
+	testbed.makeTestCase("create an output stream and write an array of bytes (5)", fn(tc) => {
+		val size = 5;
 		val unique OutputStream o = makeOutputStream(java.lang.System.out);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
-		val unique Array a = makeByteArrayFromJavaArray(com.akefirad.plaid.JavaHelper.generateRandomBytes(10, 33, 126));
+		val unique ByteArray a = makeByteArray(size);
+		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 33, 126));
 		var unique InBoundInteger i = a.getIndexer();
 		tc.debug("The randomly generated array contains:", verbose);
 		while
@@ -86,13 +99,62 @@ method void test_streams(immutable Boolean verbose)
 		o.writeAll(a);
 		tc.debug("", verbose);
 		o.flush();
-		tc.debug("The randomly generated array is to be written by the stream (partially from 3, 4 items):", verbose);
+		tc.debug("The randomly generated array is to be written by the stream (partially from 2, 2 items):", verbose);
 		i = a.getIndexer();
-		i.set(3);
-		i.setRemainingSteps(4);
+		i.set(2);
+		i.setRemainingSteps(2);
 		o.writeSome(a, i);
 		tc.debug("", verbose);
 		o.flush();
+	});
+
+	testbed.makeTestCase("create an input stream", fn(tc) => {
+		val unique InputStream o = makeInputStream(java.lang.System.in);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsInputStream(o, verbose); }, verbose);
+	});
+	
+	testbed.makeTestCase("create an input stream and read an integer", fn(tc) => {
+		val unique InputStream o = makeInputStream(java.lang.System.in);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.debug("The stream is going to read:", verbose);
+		val immutable Int32 i = o.read();
+		tc.assert(fn() => { debugIsInt32(i, verbose); }, verbose);
+		tc.debug("The entered value is: " + i.toString(), verbose);
+	});	
+
+	testbed.makeTestCase("create an input stream and read an array of bytes (5)", fn(tc) => {
+		val unique InputStream o = makeInputStream(java.lang.System.in);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(5);
+		tc.debug("The array is to be readed by the stream (partially from 2, 2 items):", verbose);
+		o.readAll(a);
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The entered array contains:", verbose);
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		tc.debug("The array is to be readed by the stream (partially from 2, 2 items):", verbose);
+		i.set(2);
+		i.setRemainingSteps(2);
+		o.readSome(a, i);
+		tc.debug("The entered array contains:", verbose);
+		i = a.getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
 	});
 
 	testbed.makeTestCase("create an output stream and close it", fn(tc) => {

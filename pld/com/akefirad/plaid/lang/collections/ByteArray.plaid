@@ -21,18 +21,16 @@
 /**
 	CID:	
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	Array.plaid
+	FILE:	ByteArray.plaid
 **/
 package com.akefirad.plaid.lang.collections;
 
 import com.akefirad.plaid.lang.math.BoundInteger;
 import com.akefirad.plaid.lang.math.InBoundInteger;
 
-import com.akefirad.plaid.lang.statecheckers.*;
-
-immutable state Array
+immutable state ByteArray
 {
-    val /*com.akefirad.plaid.Array*/ j_Array;
+    val /*com.akefirad.plaid.ByteArray*/ j_Array;
 
     method immutable Int32 length()
     {
@@ -49,6 +47,11 @@ immutable state Array
         /*return*/ j_Array;
     }
 
+    method getBytes()
+    {
+        /*return*/ j_Array.getBytes();
+    }
+
     method void set(unique InBoundInteger index, item)
     {
         j_Array.set(index.get(), item);
@@ -59,18 +62,9 @@ immutable state Array
         j_Array = array;
     }
 
-    method void forEach(function)
+    method void setBytes(bytes)
     {
-		var unique InBoundInteger i = getIndexer();
-		while
-		{
-			isInBoundInteger(i);
-		}
-		/*do*/
-		{
-			function(get(i));
-			i.increaseOne();
-		};
+        j_Array.setBytes(bytes);
     }
 
 	method unique InBoundInteger getIndexer()
