@@ -37,6 +37,21 @@ state FileOutputStream
 {
 	val /*java.io.FileOutputStream*/ j_Stream;
 
+    override method void write(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    	p_write_FileOutputStream(integer);
+    }
+
+    override method void writeAll(immutable Array bytes) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    	p_writeAll_FileOutputStream(bytes);
+    }
+
+    override method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    {
+    	p_writeSome_FileOutputStream(bytes, indexer);
+    }
+
     method void p_write_FileOutputStream(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
     {
     	p_write_OutputStream(integer);

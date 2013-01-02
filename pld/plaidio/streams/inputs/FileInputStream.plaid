@@ -39,6 +39,31 @@ state FileInputStream
 {
 	val /*java.io.FileInputStream*/ j_Stream;
 
+    override method immutable Int32 read() /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_read_FileInputStream();
+    }
+
+    override method immutable Int32 readAll(immutable Array bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_readAll_FileInputStream(bytes);
+    }
+
+    override method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_readSome_FileInputStream(bytes, indexer);
+    }
+
+	override method immutable Int64 skip(immutable Int64 count) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+	{
+		/*return*/ p_skip_FileInputStream(count);
+	}
+
+	override method immutable Int32 available() /*[immutable FileInputStream >> immutable FileInputStream this]*/
+	{
+		/*return*/ p_available_FileInputStream();
+	}
+
     method immutable Int32 p_read_FileInputStream() /*[immutable FileInputStream >> immutable FileInputStream this]*/
     {
     	/*return*/ p_read_InputStream();

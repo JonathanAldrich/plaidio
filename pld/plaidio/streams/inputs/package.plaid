@@ -1,0 +1,164 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	SS-??
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	DESC:	Package plaidio.streams is basic statespace for SR-?? features
+	FILE:	package.plaid
+**/
+package plaidio.streams.inputs;
+
+import com.akefirad.plaid.lang.makeByteArray;
+import com.akefirad.plaid.lang.collections.ByteArray;
+
+import plaidio.statecheckers.*;
+import com.akefirad.plaid.lang.statecheckers.*;
+
+import com.akefirad.plaid.testing.makeTestBed;
+
+typedef state PlaidFileInputStream = InputStream with FileInputStream
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for FileInputStream
+**/
+method unique PlaidFileInputStream makePlaidFileInputStream(immutable String path)
+{
+	val unique PlaidFileInputStream pfis = new PlaidFileInputStream{ val j_Stream = java.io.FileInputStream.new(java.io.File.new(path)); };
+	/*return*/ pfis;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	TC-SS-??
+	DESC:	Test cases of plaidio.streams package's features
+**/
+method void test_inputs(immutable Boolean verbose)
+{
+	val testbed = makeTestBed("Test cases of plaidio.streams.inputs package's features");
+
+	testbed.makeTestCase("create a file input stream", fn(tc) => {
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFileInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
+		tc.debug("The stream is going to be closed...", verbose);
+		o.close();
+		tc.assert(fn() => { debugIsInputStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsCloseableStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsFileInputStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("create a file input stream and read an integer", fn(tc) => {
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.debug("The stream is going to read first byte of the file:", verbose);
+		var immutable Int32 i = o.read();
+		tc.debug("'" + i.toString() + "'", verbose);
+		tc.assert(fn() => { debugIsInt32(i, verbose); }, verbose);		
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file input stream and read an array of bytes (5)", fn(tc) => {
+		val size = 5;
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(size);
+		o.readAll(a);
+		tc.debug("The array read by streams contains:", verbose);
+		var unique InBoundInteger i = a.getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file input stream and read an array of bytes (5) (partially from 2, 2 items):", fn(tc) => {
+		val size = 5;
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(size);
+		var unique InBoundInteger i = a.getIndexer();
+		i.set(2);
+		i.setRemainingSteps(2);
+		o.readSome(a, i);
+		tc.debug("The array read by streams contains:", verbose);
+		i = a.getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file input stream and read an array of bytes (5) after a skip (5)", fn(tc) => {
+		val size = 5;
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(size);
+		o.skip(size);
+		o.readAll(a);
+		tc.debug("The array read by streams contains:", verbose);
+		var unique InBoundInteger i = a.getIndexer();
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file input stream and read an integer until it is available", fn(tc) => {
+		val unique PlaidFileInputStream o = makePlaidFileInputStream("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		while
+		{
+			o.available() > 0;
+		}
+		/*do*/
+		{
+			var immutable Int32 i = o.read();
+			tc.debug("'" + i.toString() + "'", verbose);
+		};
+		o.close();
+	});
+
+	testbed.runTestCases(verbose);
+}
