@@ -1,0 +1,50 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	AlphabetFilePrinter.plaid
+**/
+package plaidio.streams.filters;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	This typestate is a filter output stream which writes only characters.
+			It should be used in composition with an composite OutputStream such as FileOutputStream.
+**/
+state AlphabetFilePrinter
+{
+    override method void write(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+    	p_write_AlphabetFilePrinter(integer);
+    }
+
+    method void p_write_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+
+    	if ((integer > 64 && integer < 91) || (integer > 96 && integer < 123))
+    	{
+    		p_write_FileOutputStream(integer);
+    	};
+    }
+}

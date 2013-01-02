@@ -203,6 +203,11 @@ public class JavaHelper {
 		return bytes;
 	}
 
+	public static char convertInteger2Character(int integer)
+	{
+		return (char)integer;
+	}
+
 	public static byte[] generateRandomBytes(int size, int min, int max)
 	{
 		byte[] bytes = new byte[size];

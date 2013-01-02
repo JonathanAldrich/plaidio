@@ -60,7 +60,7 @@ method unique PlaidFileOutputStream makePlaidFileOutputStream(immutable String p
 	CID:	TC-SS-??
 	DESC:	Test cases of plaidio.streams.outputs package's features
 **/
-method void test_streams(immutable Boolean verbose)
+method void test_outputs(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of plaidio.streams.outputs package's features");
 

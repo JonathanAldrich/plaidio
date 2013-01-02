@@ -27,6 +27,10 @@
 package plaidio;
 
 import plaidio.streams.test_streams;
+import plaidio.streams.inputs.test_inputs;
+import plaidio.streams.outputs.test_outputs;
+import plaidio.streams.filters.test_filters;
+
 import com.akefirad.plaid.lang.test_lang;
 
 /*------------------------------------------------------------------------------
@@ -37,7 +41,10 @@ import com.akefirad.plaid.lang.test_lang;
 method main(){
 	val verbose = true;
 	//test_lang(verbose);
-	test_streams(verbose);
+	//test_streams(verbose);
+	//test_inputs(verbose);
+	//test_outputs(verbose);
+	test_filters(verbose);
 
 	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
 }
