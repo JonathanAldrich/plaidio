@@ -1,6 +1,6 @@
 package com.akefirad.plaid.lang.statecheckers;
 
-import com.akefirad.plaid.lang.collections.Array;
+import com.akefirad.plaid.lang.collections.ByteArray;
 import com.akefirad.plaid.lang.math.BoundInteger;
 import com.akefirad.plaid.lang.math.InBoundInteger;
 import com.akefirad.plaid.lang.math.OutBoundInteger;
@@ -8,8 +8,8 @@ import com.akefirad.plaid.lang.math.OutBoundInteger;
 method immutable Boolean isString(v) { match (v) { case String { true; } default { false; } }; }
 method immutable Boolean debugIsString(object, immutable Boolean verbose) { ifElse (isString(object)) { if (verbose) { printLine("The object is String"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT String"); }; false; }; }
 
-method immutable Boolean isArray(v) { match (v) { case Array { true; } default { false; } }; }
-method immutable Boolean debugIsArray(object, immutable Boolean verbose) { ifElse (isArray(object)) { if (verbose) { printLine("The object is Array"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Array"); }; false; }; }
+method immutable Boolean isByteArray(v) { match (v) { case ByteArray { true; } default { false; } }; }
+method immutable Boolean debugIsByteArray(object, immutable Boolean verbose) { ifElse (isByteArray(object)) { if (verbose) { printLine("The object is ByteArray"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT ByteArray"); }; false; }; }
 
 method immutable Boolean isBoundInteger(v) { match (v) { case BoundInteger { true; } default { false; } }; }
 method immutable Boolean debugIsBoundInteger(object, immutable Boolean verbose) { ifElse (isBoundInteger(object)) { if (verbose) { printLine("The object is BoundInteger"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT BoundInteger"); }; false; }; }
