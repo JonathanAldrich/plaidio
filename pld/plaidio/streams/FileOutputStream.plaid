@@ -30,6 +30,8 @@ import com.akefirad.plaid.lang.statecheckers.*;
 /**
 	CID:	TS-??
 	DESC:	A file output stream is an output stream for writing data to a File.
+			This typestate should be used in composition with an OutputStream
+			which provides low level functionality for output streams.
 **/
 state FileOutputStream
 {
@@ -37,14 +39,17 @@ state FileOutputStream
 
     method void p_write_FileOutputStream(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
     {
+    	p_write_OutputStream(integer);
     }
 
     method void p_writeAll_FileOutputStream(immutable Array bytes) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
     {
+    	p_writeAll_OutputStream(bytes);
     }
 
     method void p_writeSome_FileOutputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
     {
+    	p_writeSome_OutputStream(bytes, indexer);
     }
     
     method p_makeAppendableFileOutputStream()

@@ -34,8 +34,6 @@ import com.akefirad.plaid.lang.statecheckers.*;
 **/
 state InputStream = CloseableStream with
 {
-	val /*java.io.InputStream*/ j_Stream;
-
 	method getStream() /*[immutable InputStream >> immutable InputStream this]*/
 	{
 		/*return*/ j_Stream;
@@ -43,34 +41,54 @@ state InputStream = CloseableStream with
 
     method immutable Int32 read() /*[immutable InputStream >> immutable InputStream this]*/
     {
-    	/*return*/ j_Stream.read();
+    	/*return*/ p_read_InputStream();
     }
 
     method immutable Int32 readAll(immutable Array bytes) /*[immutable InputStream >> immutable InputStream this]*/
     {
-    	/*return*/ j_Stream.read(bytes.getBytes());
+    	/*return*/ p_readAll_InputStream(bytes);
     }
 
     method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
     {
-    	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    	/*return*/ p_readSome_InputStream(bytes, indexer);
     }
 
 	method immutable Int64 skip(immutable Int64 count) /*[immutable InputStream >> immutable InputStream this]*/
 	{
-		/*return*/ j_Stream.skip();
+		/*return*/ p_skip_InputStream(count);
 	}
 
-	method void close() /*[unique InputStream this >> unique ClosedStream this]*/
+	// This method should be considered as a distinct state such as UnavailableInputStream.
+	// Since the implementation of this method is native in java,
+	// it is not easy to implement it as a state. Later it should be implemented.
+	method immutable Int32 available() /*[immutable InputStream >> immutable InputStream this]*/
 	{
-		p_close_InputStream();
+		/*return*/ p_available_InputStream();
 	}
 
-	// Since, Plaid has no feature for calling base methods,
-	// this protected method is to be used whenever close method is overridden.
-	method void p_close_InputStream() /*[unique InputStream this >> unique ClosedStream this]*/
+    method immutable Int32 p_read_InputStream() /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read();
+    }
+
+    method immutable Int32 p_readAll_InputStream(immutable Array bytes) /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes());
+    }
+
+    method immutable Int32 p_readSome_InputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+
+	method immutable Int64 p_skip_InputStream(immutable Int64 count) /*[immutable InputStream >> immutable InputStream this]*/
 	{
-		j_Stream.close();
-		this <<- ClosedStream;
+		/*return*/ j_Stream.skip(count);
+	}
+
+	method immutable Int32 p_available_InputStream() /*[immutable InputStream >> immutable InputStream this]*/
+	{
+		/*return*/ j_Stream.available();
 	}
 }

@@ -34,7 +34,7 @@ import com.akefirad.plaid.lang.statecheckers.*;
 			Applications that need to define a subclass of OutputStream must always
 			provide at least a method that writes one byte of output.
 **/
-state OutputStream
+state OutputStream = CloseableStream with FlushableStream with
 {
 	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/
 	{

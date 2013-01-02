@@ -1,0 +1,65 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	FileInputStream.plaid
+**/
+package plaidio.streams;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	A FileInputStream obtains input bytes from a file in a file system.
+			FileInputStream is meant for reading streams of raw bytes such as image data.
+			For reading streams of characters, consider using FileReader.
+			This typestate should be used in composition with an InputStream
+			which provides low level functionality for input streams.
+**/
+state FileInputStream
+{
+	val /*java.io.FileInputStream*/ j_Stream;
+
+    method immutable Int32 p_read_FileInputStream() /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_read_InputStream();
+    }
+
+    method immutable Int32 p_readAll_FileInputStream(immutable Array bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_readAll_InputStream(bytes);
+    }
+
+    method immutable Int32 p_readSome_FileInputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    {
+    	/*return*/ p_readSome_InputStream(bytes, indexer);
+    }
+
+	method immutable Int64 p_skip_FileInputStream(immutable Int64 count) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+	{
+		/*return*/ p_skip_InputStream(count);
+	}
+
+	method immutable Int32 p_available_FileInputStream() /*[immutable FileInputStream >> immutable FileInputStream this]*/
+	{
+		/*return*/ p_available_InputStream();
+	}}

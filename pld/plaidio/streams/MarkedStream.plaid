@@ -33,12 +33,12 @@ import com.akefirad.plaid.lang.statecheckers.*;
 **/
 state MarkedStream case of MarkableStream
 {
-    method void mark() /*[unique MarkableStream >> unique MarkableStream this]*/
+    method void mark(immutable Int32 readlimit) /*[unique MarkedStream >> unique MarkedStream this]*/
     {
-    	j_Stream.mark();
+    	j_Stream.mark(readlimit);
     }
 
-    method void reset() /*[unique MarkableStream >> unique MarkableStream this]*/
+    method void reset() /*[unique MarkedStream >> unique MarkedStream this]*/
     {
     	j_Stream.reset();
     }
