@@ -1,0 +1,46 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	CloseableStream.plaid
+**/
+package plaidio.streams.auxiliaries;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	A CloseableStream is a source or destination of data that can be closed.
+**/
+state CloseableStream
+{
+	method void close() /*[unique OutputStream this >> unique ClosedStream this]*/
+	{
+		p_close_CloseableStream();
+	}
+
+	// Since, Plaid has no feature for calling base methods,
+	// this protected method is to be used whenever close method is overridden.
+	method void p_close_CloseableStream() /*[unique OutputStream this >> unique ClosedStream this]*/
+	{
+		j_Stream.close();
+		this <<- ClosedStream;
+	}
+}

@@ -20,21 +20,26 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	MarkableStream.plaid
+	FILE:	FlushableStream.plaid
 **/
-package plaidio.streams;
-
-import com.akefirad.plaid.lang.statecheckers.*;
+package plaidio.streams.auxiliaries;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	
+	DESC:	A FlushableStream is a destination of data that can be flushed.
 **/
-state MarkableStream
+state FlushableStream
 {
-    method void mark() /*[unique MarkableStream >> unique MarkedStream this]*/
+    method void flush() /*[immutable OutputStream this >> immutable OutputStream this]*/
     {
-    	j_Stream.mark();
+        p_flush_FlushableStream();
+    }
+
+    // Since, Plaid has no feature for calling base methods,
+    // this protected method is to be used whenever flush method is overridden.
+    method void p_flush_FlushableStream() /*[immutable OutputStream this >> immutable OutputStream this]*/
+    {
+    	j_Stream.flush();
     }
 }

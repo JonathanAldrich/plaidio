@@ -22,7 +22,9 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	InputStream.plaid
 **/
-package plaidio.streams;
+package plaidio.streams.inputs;
+
+import plaidio.streams.auxiliaries.CloseableStream;
 
 import com.akefirad.plaid.lang.statecheckers.*;
 

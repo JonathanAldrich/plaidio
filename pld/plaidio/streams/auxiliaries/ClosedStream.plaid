@@ -20,17 +20,15 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	AppendableFileOutputStream.plaid
+	FILE:	ClosedStream.plaid
 **/
-package plaidio.streams;
-
-import com.akefirad.plaid.lang.statecheckers.*;
+package plaidio.streams.auxiliaries;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A file output stream is an output stream for writing data to a File.
+	DESC:	A ClosedStream is a stream with closed java stream.
 **/
-state AppendableFileOutputStream case of FileOutputStream
+state ClosedStream
 {
 }

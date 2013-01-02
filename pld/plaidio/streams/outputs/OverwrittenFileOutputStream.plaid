@@ -20,26 +20,17 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	MarkedStream.plaid
+	FILE:	OverwrittenFileOutputStream.plaid
 **/
-package plaidio.streams;
+package plaidio.streams.outputs;
 
 import com.akefirad.plaid.lang.statecheckers.*;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	
+	DESC:	A file output stream is an output stream for writing data to a File.
 **/
-state MarkedStream case of MarkableStream
+state OverwrittenFileOutputStream case of FileOutputStream
 {
-    method void mark(immutable Int32 readlimit) /*[unique MarkedStream >> unique MarkedStream this]*/
-    {
-    	j_Stream.mark(readlimit);
-    }
-
-    method void reset() /*[unique MarkedStream >> unique MarkedStream this]*/
-    {
-    	j_Stream.reset();
-    }
 }

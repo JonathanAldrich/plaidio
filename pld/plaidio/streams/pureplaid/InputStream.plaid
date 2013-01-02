@@ -24,8 +24,8 @@
 **/
 package plaidio.streams.pureplaid;
 
-import plaidio.streams.CloseableStream;
-import plaidio.streams.ClosedStream;
+import plaidio.streams.auxiliaries.CloseableStream;
+import plaidio.streams.auxiliaries.ClosedStream;
 
 import com.akefirad.plaid.lang.statecheckers.*;
 

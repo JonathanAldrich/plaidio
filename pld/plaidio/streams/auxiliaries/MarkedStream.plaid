@@ -20,15 +20,26 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	ClosedStream.plaid
+	FILE:	MarkedStream.plaid
 **/
-package plaidio.streams;
+package plaidio.streams.auxiliaries;
+
+import com.akefirad.plaid.lang.statecheckers.*;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A ClosedStream is a stream with closed java stream.
+	DESC:	
 **/
-state ClosedStream
+state MarkedStream case of MarkableStream
 {
+    method void mark(immutable Int32 readlimit) /*[unique MarkedStream >> unique MarkedStream this]*/
+    {
+    	j_Stream.mark(readlimit);
+    }
+
+    method void reset() /*[unique MarkedStream >> unique MarkedStream this]*/
+    {
+    	j_Stream.reset();
+    }
 }

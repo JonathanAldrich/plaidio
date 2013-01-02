@@ -20,26 +20,17 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	FlushableStream.plaid
+	FILE:	AppendableFileOutputStream.plaid
 **/
-package plaidio.streams;
+package plaidio.streams.outputs;
+
+import com.akefirad.plaid.lang.statecheckers.*;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A FlushableStream is a destination of data that can be flushed.
+	DESC:	A file output stream is an output stream for writing data to a File.
 **/
-state FlushableStream
+state AppendableFileOutputStream case of FileOutputStream
 {
-    method void flush() /*[immutable OutputStream this >> immutable OutputStream this]*/
-    {
-        p_flush_FlushableStream();
-    }
-
-    // Since, Plaid has no feature for calling base methods,
-    // this protected method is to be used whenever flush method is overridden.
-    method void p_flush_FlushableStream() /*[immutable OutputStream this >> immutable OutputStream this]*/
-    {
-    	j_Stream.flush();
-    }
 }
