@@ -1,0 +1,77 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	BufferedOutputStream.plaid
+**/
+package plaidio.streams.outputs;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	The class implements a buffered output stream. By setting up such an output stream,
+			an application can write bytes to the underlying output stream without necessarily causing
+			a call to the underlying system for each byte written.
+			This typestate should be used in composition with an OutputStream
+			which provides low level functionality for output streams.
+**/
+
+state BufferedOutputStream
+{
+	val /*java.io.BufferedOutputStream*/ j_Stream;
+
+	override method getStream() /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+	{
+		j_Stream;
+	}
+
+	override method void write(immutable Int32 integer) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	p_write_BufferedOutputStream(integer);
+    }
+
+    override method void writeAll(immutable Array bytes) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	p_writeAll_BufferedOutputStream(bytes);
+    }
+
+    override method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	p_writeSome_BufferedOutputStream(bytes, indexer);
+    }
+
+    method void p_write_BufferedOutputStream(immutable Int32 integer) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	j_Stream.write(integer);
+    }
+
+    method void p_writeAll_BufferedOutputStream(immutable Array bytes) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	j_Stream.write(bytes.getBytes());
+    }
+
+    method void p_writeSome_BufferedOutputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable BufferedOutputStream >> immutable BufferedOutputStream this]*/
+    {
+    	j_Stream.write(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+}

@@ -39,12 +39,9 @@ import com.akefirad.plaid.lang.statecheckers.*;
 **/
 state OutputStream = CloseableStream with FlushableStream with
 {
-	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/
-	{
-		j_Stream;
-	}
+	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/;
 
-    method void write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
+	method void write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	p_write_OutputStream(integer);
     }

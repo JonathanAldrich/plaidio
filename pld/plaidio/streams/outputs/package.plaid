@@ -35,6 +35,7 @@ import com.akefirad.plaid.lang.statecheckers.*;
 import com.akefirad.plaid.testing.makeTestBed;
 
 typedef state PlaidFileOutputStream = OutputStream with FileOutputStream
+typedef state PlaidBufferedOutputStream = OutputStream with FileOutputStream with BufferedOutputStream
 
 /*------------------------------------------------------------------------------
 /**
@@ -43,7 +44,11 @@ typedef state PlaidFileOutputStream = OutputStream with FileOutputStream
 **/
 method unique PlaidFileOutputStream makePlaidFileOutputStream(immutable String path, immutable Boolean appendable)
 {
-	val unique PlaidFileOutputStream pfos = new PlaidFileOutputStream { val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable); };
+	val unique PlaidFileOutputStream pfos = new PlaidFileOutputStream
+		{
+			val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable);
+		};
+
 	ifElse (appendable)
 	{
 		pfos.p_makeAppendableFileOutputStream();
@@ -53,6 +58,40 @@ method unique PlaidFileOutputStream makePlaidFileOutputStream(immutable String p
 		pfos.p_makeOverwrittenFileOutputStream();
 	};
 	/*return*/ pfos;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for BufferedOutputStream
+**/
+method unique PlaidBufferedOutputStream makePlaidBufferedOutputStream(immutable String path, immutable Boolean appendable)
+{
+	// Can we implement like this?
+//	val unique PlaidBufferedOutputStream pbos = new OutputStream
+//		with FileOutputStream
+//		{
+//			val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable);
+//		}
+//		with BufferedOutputStream
+//		{
+//			override val j_Stream = java.io.BufferedOutputStream.new(this.getStream());
+//		};
+
+	val unique PlaidBufferedOutputStream pbbs = new PlaidBufferedOutputStream
+		{
+			override val j_Stream = java.io.BufferedOutputStream.new(java.io.FileOutputStream.new(java.io.File.new(path), appendable));
+		};
+
+	ifElse (appendable)
+	{
+		pbbs.p_makeAppendableFileOutputStream();
+	}
+	/*else*/
+	{
+		pbbs.p_makeOverwrittenFileOutputStream();
+	};
+	/*return*/ pbbs;
 }
 
 /*------------------------------------------------------------------------------
@@ -153,6 +192,27 @@ method void test_outputs(immutable Boolean verbose)
 		i.set(2);
 		i.setRemainingSteps(2);
 		o.writeSome(a, i);
+		o.close();
+	});
+
+	testbed.makeTestCase("create a buffered output stream and write an array of bytes (20)", fn(tc) => {
+		val size = 20;
+		val unique PlaidBufferedOutputStream o = makePlaidBufferedOutputStream("c:\\temp\\test5.bin", false);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(size);
+		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 33, 127));
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The randomly generated array contains:", verbose);
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + a.get(i) + "'", verbose);
+			i.increaseOne();
+		};
+		o.writeAll(a);
 		o.close();
 	});
 
