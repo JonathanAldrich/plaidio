@@ -214,9 +214,9 @@ public class JavaHelper {
 		Random random = new Random();
 		for (int i = 0; i < bytes.length; i++)
 		{
-			int b = random.nextInt();
-			while (b < min || b > max)
-				b = random.nextInt();
+			int b = random.nextInt(max);
+			while (b < min)
+				b = random.nextInt(max);
 			bytes[i] = (byte)b;
 		}
 		return bytes;

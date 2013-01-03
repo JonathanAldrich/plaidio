@@ -38,6 +38,12 @@ import com.akefirad.plaid.lang.statecheckers.*;
 import com.akefirad.plaid.testing.makeTestBed;
 
 typedef state PlaidAlphabetFilePrinter = OutputStream with FileOutputStream with AlphabetFilePrinter
+{
+	method void p_write_LowLevel_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+	{
+		p_write_FileOutputStream(integer);
+	}	
+}
 
 /*------------------------------------------------------------------------------
 /**
@@ -71,19 +77,20 @@ method void test_filters(immutable Boolean verbose)
 		val size = 20;
 		val unique PlaidAlphabetFilePrinter o = makePlaidAlphabetFilePrinter("c:\\temp\\alphabet.txt", false);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
-		val r = java.util.Random.new();
-		var i = 0;
+		val unique ByteArray a = makeByteArray(size);
+		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 32, 127));
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The randomly generated array contains:", verbose);
 		while
 		{
-			i < size
+			isInBoundInteger(i);
 		}
 		/*do*/
 		{
-			var c = r.nextInt(255);
-			tc.debug("'" + com.akefirad.plaid.JavaHelper.convertInteger2Character(c) + "'", verbose);
-			o.write(c);
-			i = i + 1;
+			tc.debug("'" + com.akefirad.plaid.JavaHelper.convertInteger2Character(a.get(i)) + "'", verbose);
+			i.increaseOne();
 		};
+		o.writeAll(a);
 		o.close();
 	});
 

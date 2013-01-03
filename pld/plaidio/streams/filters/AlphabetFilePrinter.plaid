@@ -39,12 +39,42 @@ state AlphabetFilePrinter
     	p_write_AlphabetFilePrinter(integer);
     }
 
-    method void p_write_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    override method void writeAll(immutable Array bytes) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+    	p_writeAll_AlphabetFilePrinter(bytes);
+    }
+
+    override method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+    	p_writeSome_AlphabetFilePrinter(bytes, indexer);
+    }
+
+	method void p_write_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
     {
 
     	if ((integer > 64 && integer < 91) || (integer > 96 && integer < 123))
     	{
-    		p_write_FileOutputStream(integer);
+    		p_write_LowLevel_AlphabetFilePrinter(integer);
     	};
     }
+    
+    method void p_writeAll_AlphabetFilePrinter(immutable Array bytes) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+    	p_writeSome_AlphabetFilePrinter(bytes, bytes.getIndexer());
+    }
+
+    method void p_writeSome_AlphabetFilePrinter(immutable Array bytes, unique InBoundInteger indexer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+    {
+		while
+		{
+			isInBoundInteger(indexer);
+		}
+		/*do*/
+		{
+			p_write_AlphabetFilePrinter(bytes.get(indexer));
+			indexer.increaseOne();
+		};
+    }
+
+    method void p_write_LowLevel_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/;
 }
