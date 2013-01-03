@@ -37,13 +37,30 @@ import com.akefirad.plaid.lang.statecheckers.*;
 
 import com.akefirad.plaid.testing.makeTestBed;
 
-typedef state PlaidAlphabetFilePrinter = OutputStream with FileOutputStream with AlphabetFilePrinter
-{
-	method void p_write_LowLevel_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+typedef state PlaidAlphabetFilePrinter = OutputStream with FileOutputStream
+	with AlphabetFilePrinter
 	{
-		p_write_FileOutputStream(integer);
-	}	
-}
+		method void p_write_LowLevel_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+		{
+			p_write_FileOutputStream(integer);
+		}	
+	}
+
+typedef state PlaidInvertCaseAlphabetFilePrinter = OutputStream with FileOutputStream
+	with InvertCaseAlphabetFilePrinter
+	{
+		method void p_write_LowLevel_InvertCaseAlphabetFilePrinter(immutable Int32 integer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+		{
+			p_write_FileOutputStream(integer);
+		}	
+	}
+	with AlphabetFilePrinter
+	{
+		method void p_write_LowLevel_AlphabetFilePrinter(immutable Int32 integer) /*[immutable AlphabetFilePrinter >> immutable AlphabetFilePrinter this]*/
+		{
+			p_write_InvertCaseAlphabetFilePrinter(integer);
+		}	
+	}
 
 /*------------------------------------------------------------------------------
 /**
@@ -53,6 +70,25 @@ typedef state PlaidAlphabetFilePrinter = OutputStream with FileOutputStream with
 method unique PlaidAlphabetFilePrinter makePlaidAlphabetFilePrinter(immutable String path, immutable Boolean appendable)
 {
 	val unique PlaidAlphabetFilePrinter pafp = new PlaidAlphabetFilePrinter { val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable); };
+	ifElse (appendable)
+	{
+		pafp.p_makeAppendableFileOutputStream();
+	}
+	/*else*/
+	{
+		pafp.p_makeOverwrittenFileOutputStream();
+	};
+	/*return*/ pafp;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for InvertCaseAlphabetFilePrinter
+**/
+method unique PlaidInvertCaseAlphabetFilePrinter makePlaidInvertCaseAlphabetFilePrinter(immutable String path, immutable Boolean appendable)
+{
+	val unique PlaidInvertCaseAlphabetFilePrinter pafp = new PlaidInvertCaseAlphabetFilePrinter { val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable); };
 	ifElse (appendable)
 	{
 		pafp.p_makeAppendableFileOutputStream();
@@ -76,6 +112,27 @@ method void test_filters(immutable Boolean verbose)
 	testbed.makeTestCase("create a alphabet file printer and write an array of bytes (20)", fn(tc) => {
 		val size = 20;
 		val unique PlaidAlphabetFilePrinter o = makePlaidAlphabetFilePrinter("c:\\temp\\alphabet.txt", false);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique ByteArray a = makeByteArray(size);
+		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 32, 127));
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The randomly generated array contains:", verbose);
+		while
+		{
+			isInBoundInteger(i);
+		}
+		/*do*/
+		{
+			tc.debug("'" + com.akefirad.plaid.JavaHelper.convertInteger2Character(a.get(i)) + "'", verbose);
+			i.increaseOne();
+		};
+		o.writeAll(a);
+		o.close();
+	});
+
+	testbed.makeTestCase("create a inverted case alphabet file printer and write an array of bytes (20)", fn(tc) => {
+		val size = 20;
+		val unique PlaidInvertCaseAlphabetFilePrinter o = makePlaidInvertCaseAlphabetFilePrinter("c:\\temp\\invertedcasealphabet.txt", false);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
 		val unique ByteArray a = makeByteArray(size);
 		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 32, 127));

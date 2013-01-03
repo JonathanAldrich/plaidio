@@ -1,0 +1,92 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	InvertCaseAlphabetFilePrinter.plaid
+**/
+package plaidio.streams.filters;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	This typestate is a filter output stream which writes only characters while they are case inverted.
+			If the value passed to the write method is not a alphabet character an exception is thrown.
+			It should be used in composition with an composite OutputStream such as FileOutputStream.
+**/
+state InvertCaseAlphabetFilePrinter
+{
+    override method void write(immutable Int32 integer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+    	p_write_InvertCaseAlphabetFilePrinter(integer);
+    }
+
+    override method void writeAll(immutable Array bytes) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+    	p_writeAll_InvertCaseAlphabetFilePrinter(bytes);
+    }
+
+    override method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+    	p_writeSome_InvertCaseAlphabetFilePrinter(bytes, indexer);
+    }
+
+	method void p_write_InvertCaseAlphabetFilePrinter(immutable Int32 integer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+
+    	ifElse (integer > 64 && integer < 91)
+    	{
+    		p_write_LowLevel_InvertCaseAlphabetFilePrinter(integer + 32);
+    	}
+    	/*else*/
+    	{
+    		ifElse (integer > 96 && integer < 123)
+    		{
+	    		p_write_LowLevel_InvertCaseAlphabetFilePrinter(integer - 32);
+    		}
+    		/*else*/
+    		{
+    			com.akefirad.plaid.JavaHelper.throwException("Invalid Integer! The value is not a alphabet. It is " + integer.toString());
+    		}
+    	};
+    }
+    
+    method void p_writeAll_InvertCaseAlphabetFilePrinter(immutable Array bytes) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+    	p_writeSome_InvertCaseAlphabetFilePrinter(bytes, bytes.getIndexer());
+    }
+
+    method void p_writeSome_InvertCaseAlphabetFilePrinter(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/
+    {
+		while
+		{
+			isInBoundInteger(indexer);
+		}
+		/*do*/
+		{
+			p_write_InvertCaseAlphabetFilePrinter(bytes.get(indexer));
+			indexer.increaseOne();
+		};
+    }
+
+    method void p_write_LowLevel_InvertCaseAlphabetFilePrinter(immutable Int32 integer) /*[immutable InvertCaseAlphabetFilePrinter >> immutable InvertCaseAlphabetFilePrinter this]*/;
+}
