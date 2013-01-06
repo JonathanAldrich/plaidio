@@ -20,17 +20,19 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	OverwrittenFileOutputStream.plaid
+	FILE:	Stream.plaid
 **/
-package plaidio.streams.outputs;
-
-import com.akefirad.plaid.lang.statecheckers.*;
+package plaidio.streams.auxiliaries;
 
 //------------------------------------------------------------------------------
 /**
 	CID:	TS-??
-	DESC:	A file output stream is an output stream for writing data to a File.
+	DESC:	A Stream is an abstract class which provides low level functionality by using a Java stream.
 **/
-state OverwrittenFileOutputStream case of FileOutputStream
+state Stream
 {
+	method getStream() /*[immutable Stream >> immutable Stream this]*/
+	{
+		j_Stream;
+	}
 }

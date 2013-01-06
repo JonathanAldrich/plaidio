@@ -1,0 +1,131 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	PushbackInputStream.plaid
+**/
+package plaidio.streams.filters;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	A PushbackInputStream adds functionality to another input stream,
+			namely the ability to "push back" or "unread" one byte. This is useful in situations
+			where it is convenient for a fragment of code to read an indefinite number of data bytes
+			that are delimited by a particular byte value; after reading the terminating byte,
+			the code fragment can "unread" it, so that the next read operation on the input stream
+			will reread the byte that was pushed back. For example, bytes representing the characters
+			constituting an identifier might be terminated by a byte representing an operator character;
+			a method whose job is to read just an identifier can read until it sees the operator and
+			then push the operator back to be re-read.
+**/
+
+state PushbackInputStream
+{
+	val /*java.io.PushbackInputStream*/ j_Stream;
+
+	override method getStream() /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+	{
+		j_Stream;
+	}
+
+    override method immutable Int32 read() /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ p_read_PushbackInputStream();
+    }
+
+    override method immutable Int32 readAll(immutable Array bytes) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ p_readAll_PushbackInputStream(bytes);
+    }
+
+    override method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ p_readSome_PushbackInputStream(bytes, indexer);
+    }
+
+	override method immutable Int64 skip(immutable Int64 count) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+	{
+		/*return*/ p_skip_PushbackInputStream(count);
+	}
+
+	override method immutable Int32 available() /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+	{
+		/*return*/ p_available_PushbackInputStream();
+	}
+
+    method void unread(immutable Int32 integer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	p_unread_PushbackInputStream(integer);
+    }
+
+    method void unreadAll(immutable Array bytes) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	p_unreadAll_PushbackInputStream(bytes);
+    }
+
+    method void unreadSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	p_unreadSome_PushbackInputStream(bytes, indexer);
+    }
+
+    method immutable Int32 p_read_PushbackInputStream() /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ j_Stream.read();
+    }
+
+    method immutable Int32 p_readAll_PushbackInputStream(immutable Array bytes) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes());
+    }
+
+    method immutable Int32 p_readSome_PushbackInputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+
+	method immutable Int64 p_skip_PushbackInputStream(immutable Int64 count) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+	{
+		/*return*/ j_Stream.skip(count);
+	}
+
+	method immutable Int32 p_available_PushbackInputStream() /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+	{
+		/*return*/ j_Stream.available();
+	}
+
+    method void p_unread_PushbackInputStream(immutable Int32 integer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	j_Stream.unread(integer);
+    }
+
+    method void p_unreadAll_PushbackInputStream(immutable Array bytes) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	j_Stream.unread(bytes.getBytes());
+    }
+
+    method void p_unreadSome_PushbackInputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable PushbackInputStream >> immutable PushbackInputStream this]*/
+    {
+    	j_Stream.unread(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+}

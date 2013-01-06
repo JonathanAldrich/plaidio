@@ -17,20 +17,45 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-/*------------------------------------------------------------------------------
-/**
-	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	AppendableFileOutputStream.plaid
-**/
-package plaidio.streams.outputs;
+package com.akefirad.plaid;
 
-import com.akefirad.plaid.lang.statecheckers.*;
-
-//------------------------------------------------------------------------------
-/**
-	CID:	TS-??
-	DESC:	A file output stream is an output stream for writing data to a File.
-**/
-state AppendableFileOutputStream case of FileOutputStream
+public class CharArray
 {
+    char[] p_Chars;
+
+	public CharArray(int size)
+    {
+		p_Chars = new char[size];
+    }
+
+	public CharArray(String string)
+    {
+		p_Chars = string.toCharArray();
+    }
+
+    public int length()
+    {
+        return p_Chars.length;
+    }
+    
+    public void set(int index, char item)
+    {
+    	p_Chars[index] = item;
+    }
+    
+	public void setChars(char[] chars)
+    {
+		p_Chars = chars;
+    }
+
+    public char get(int index)
+    {
+        return p_Chars[index];
+    }
+
+    public char[] getChars()
+    {
+        return p_Chars;
+    }
 }
+

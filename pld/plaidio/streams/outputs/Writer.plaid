@@ -1,0 +1,73 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	Writer.plaid
+**/
+package plaidio.streams.outputs;
+
+import plaidio.streams.auxiliaries.Stream;
+import plaidio.streams.auxiliaries.CloseableStream;
+import plaidio.streams.auxiliaries.FlushableStream;
+//import plaidio.streams.auxiliaries.Appendable;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	Abstract class for writing to character streams. The only methods that
+			a subclass must implement are write(char[], int, int), flush(), and close().
+			Most subclasses, however, will override some of the methods defined here
+			in order to provide higher efficiency, additional functionality, or both.
+**/
+state Writer = Stream with CloseableStream with FlushableStream with
+{
+	method void write(immutable Int32 integer) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	p_write_Writer(integer);
+    }
+
+    method void writeAll(immutable CharArray chars) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	p_writeAll_Writer(chars);
+    }
+
+    method void writeSome(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	p_writeSome_Writer(chars, indexer);
+    }
+
+    method void p_write_Writer(immutable Int32 integer) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	j_Stream.write(integer);
+    }
+
+    method void p_writeAll_Writer(immutable CharArray chars) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	j_Stream.write(chars.getChars());
+    }
+
+    method void p_writeSome_Writer(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable Writer >> immutable Writer this]*/
+    {
+    	j_Stream.write(chars.getChars(), indexer.get(), indexer.getRemainingSteps());
+    }
+}

@@ -24,6 +24,7 @@
 **/
 package plaidio.streams.outputs;
 
+import plaidio.streams.auxiliaries.Stream;
 import plaidio.streams.auxiliaries.CloseableStream;
 import plaidio.streams.auxiliaries.FlushableStream;
 
@@ -37,21 +38,19 @@ import com.akefirad.plaid.lang.statecheckers.*;
 			Applications that need to define a subclass of OutputStream must always
 			provide at least a method that writes one byte of output.
 **/
-state OutputStream = CloseableStream with FlushableStream with
+state OutputStream = Stream with CloseableStream with FlushableStream with
 {
-	method getStream() /*[immutable OutputStream >> immutable OutputStream this]*/;
-
 	method void write(immutable Int32 integer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	p_write_OutputStream(integer);
     }
 
-    method void writeAll(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void writeAll(immutable ByteArray bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	p_writeAll_OutputStream(bytes);
     }
 
-    method void writeSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void writeSome(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	p_writeSome_OutputStream(bytes, indexer);
     }
@@ -61,12 +60,12 @@ state OutputStream = CloseableStream with FlushableStream with
     	j_Stream.write(integer);
     }
 
-    method void p_writeAll_OutputStream(immutable Array bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void p_writeAll_OutputStream(immutable ByteArray bytes) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	j_Stream.write(bytes.getBytes());
     }
 
-    method void p_writeSome_OutputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
+    method void p_writeSome_OutputStream(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable OutputStream >> immutable OutputStream this]*/
     {
     	j_Stream.write(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
     }

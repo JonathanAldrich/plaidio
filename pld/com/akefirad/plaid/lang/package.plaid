@@ -17,7 +17,7 @@
  *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
  */
 
-/*------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 /**
 	CID:	SS-0.0
 	AUTHOR: Rad Akefirad akefirad@gmail.com
@@ -27,6 +27,7 @@
 package com.akefirad.plaid.lang;
 
 import com.akefirad.plaid.lang.collections.ByteArray;
+import com.akefirad.plaid.lang.collections.CharArray;
 import com.akefirad.plaid.lang.collections.BoundInteger;
 import com.akefirad.plaid.lang.collections.InBoundInteger;
 
@@ -34,16 +35,31 @@ import com.akefirad.plaid.testing.makeTestBed;
 
 import com.akefirad.plaid.lang.statecheckers.*;
 
+//------------------------------------------------------------------------------
 method trycatch(tryBlock, catchBlock, immutable String exception)
 {
 	com.akefirad.plaid.JavaHelper.runMethodInTryBlock(tryBlock, catchBlock, exception);
 }
 
+//------------------------------------------------------------------------------
 method unique ByteArray makeByteArray(immutable Int32 size)
 {
 	/*return*/ new ByteArray { val j_Array = com.akefirad.plaid.ByteArray.new(size); };
 }
 
+//------------------------------------------------------------------------------
+method unique CharArray makeCharArray(immutable Int32 size)
+{
+	/*return*/ new CharArray { val j_Array = com.akefirad.plaid.CharArray.new(size); };
+}
+
+//------------------------------------------------------------------------------
+method unique CharArray convertStringToCharArray(immutable String string)
+{
+	/*return*/ new CharArray { val j_Array = com.akefirad.plaid.CharArray.new(string); };
+}
+
+//------------------------------------------------------------------------------
 method void test_lang(immutable Boolean verbose)
 {
 	val testbed = makeTestBed("Test cases of com.akefirad.plaid.lang package's features");
@@ -137,7 +153,6 @@ method void test_lang(immutable Boolean verbose)
 			tc.debug("'" + o.get(i) + "'", verbose);
 			i.increaseOne();
 		};
-
 	});
 
 	testbed.runTestCases(verbose);

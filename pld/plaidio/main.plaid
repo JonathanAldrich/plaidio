@@ -43,8 +43,8 @@ method main(){
 	//test_lang(verbose);
 	//test_streams(verbose);
 	//test_inputs(verbose);
-	//test_outputs(verbose);
-	test_filters(verbose);
+	test_outputs(verbose);
+	//test_filters(verbose);
 
 	//com.akefirad.plaid.JavaHelper.buildStateCheckers("D:\\Plaid\\Workspace\\plaid-lang\\plaidio\\pld\\plaidio");
 }

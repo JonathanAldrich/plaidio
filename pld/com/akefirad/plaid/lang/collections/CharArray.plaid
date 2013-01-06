@@ -1,0 +1,77 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	CharArray.plaid
+**/
+package com.akefirad.plaid.lang.collections;
+
+import com.akefirad.plaid.lang.math.BoundInteger;
+import com.akefirad.plaid.lang.math.InBoundInteger;
+
+immutable state CharArray
+{
+    val /*com.akefirad.plaid.CharArray*/ j_Array;
+
+    method immutable Int32 length()
+    {
+        /*return*/ j_Array.length();
+    }
+    
+    method get(unique InBoundInteger index)
+    {
+        /*return*/ j_Array.get(index.get());
+    }
+
+    method getArray()
+    {
+        /*return*/ j_Array;
+    }
+
+    method getChars()
+    {
+        /*return*/ j_Array.getChars();
+    }
+
+    method void set(unique InBoundInteger index, item)
+    {
+        j_Array.set(index.get(), item);
+    }
+
+    method void setArray(array)
+    {
+        j_Array = array;
+    }
+
+    method void setChars(chars)
+    {
+        j_Array.setChars(chars);
+    }
+
+	method unique InBoundInteger getIndexer()
+	{
+		val unique BoundInteger indexer = new BoundInteger { var p_Lower = 0; var p_Upper = length(); };
+		indexer.set(0);
+		/*return*/ indexer;
+	}
+}
+

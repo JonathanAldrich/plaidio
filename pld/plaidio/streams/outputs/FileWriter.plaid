@@ -20,7 +20,7 @@
 /*------------------------------------------------------------------------------
 /**
 	AUTHOR: Rad Akefirad akefirad@gmail.com
-	FILE:	FileOutputStream.plaid
+	FILE:	FileWriter.plaid
 **/
 package plaidio.streams.outputs;
 
@@ -33,37 +33,37 @@ import com.akefirad.plaid.lang.statecheckers.*;
 			This typestate should be used in composition with an OutputStream
 			which provides low level functionality for output streams.
 **/
-state FileOutputStream
+state FileWriter
 {
-	val /*java.io.FileOutputStream*/ j_Stream;
+	val /*java.io.FileWriter*/ j_Stream;
 
-    override method void write(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    override method void write(immutable Int32 integer) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_write_FileOutputStream(integer);
+    	p_write_FileWriter(integer);
     }
 
-    override method void writeAll(immutable ByteArray bytes) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    override method void writeAll(immutable CharArray chars) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_writeAll_FileOutputStream(bytes);
+    	p_writeAll_FileWriter(chars);
     }
 
-    override method void writeSome(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    override method void writeSome(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_writeSome_FileOutputStream(bytes, indexer);
+    	p_writeSome_FileWriter(chars, indexer);
     }
 
-    method void p_write_FileOutputStream(immutable Int32 integer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    method void p_write_FileWriter(immutable Int32 integer) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_write_OutputStream(integer);
+    	p_write_Writer(integer);
     }
 
-    method void p_writeAll_FileOutputStream(immutable ByteArray bytes) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    method void p_writeAll_FileWriter(immutable CharArray chars) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_writeAll_OutputStream(bytes);
+    	p_writeAll_Writer(chars);
     }
 
-    method void p_writeSome_FileOutputStream(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable FileOutputStream >> immutable FileOutputStream this]*/
+    method void p_writeSome_FileWriter(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable FileWriter >> immutable FileWriter this]*/
     {
-    	p_writeSome_OutputStream(bytes, indexer);
+    	p_writeSome_Writer(chars, indexer);
     }
 }

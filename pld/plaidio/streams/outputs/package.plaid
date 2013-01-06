@@ -27,6 +27,7 @@
 package plaidio.streams.outputs;
 
 import com.akefirad.plaid.lang.makeByteArray;
+import com.akefirad.plaid.lang.convertStringToCharArray;
 import com.akefirad.plaid.lang.collections.ByteArray;
 
 import plaidio.statecheckers.*;
@@ -35,6 +36,7 @@ import com.akefirad.plaid.lang.statecheckers.*;
 import com.akefirad.plaid.testing.makeTestBed;
 
 typedef state PlaidFileOutputStream = OutputStream with FileOutputStream
+typedef state PlaidFileWriter = Writer with FileWriter
 
 /*------------------------------------------------------------------------------
 /**
@@ -47,16 +49,21 @@ method unique PlaidFileOutputStream makePlaidFileOutputStream(immutable String p
 		{
 			val j_Stream = java.io.FileOutputStream.new(java.io.File.new(path), appendable);
 		};
-
-	ifElse (appendable)
-	{
-		pfos.p_makeAppendableFileOutputStream();
-	}
-	/*else*/
-	{
-		pfos.p_makeOverwrittenFileOutputStream();
-	};
 	/*return*/ pfos;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for FileWriter
+**/
+method unique PlaidFileWriter makePlaidFileWriter(immutable String path, immutable Boolean appendable)
+{
+	val unique PlaidFileWriter pfw = new PlaidFileWriter
+		{
+			val j_Stream = java.io.FileWriter.new(java.io.File.new(path), appendable);
+		};
+	/*return*/ pfw;
 }
 
 /*------------------------------------------------------------------------------
@@ -71,42 +78,20 @@ method void test_outputs(immutable Boolean verbose)
 	testbed.makeTestCase("create a file output stream and close it", fn(tc) => {
 		val unique PlaidFileOutputStream o = makePlaidFileOutputStream("c:\\temp\\test1.bin", false);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsStream(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsFileOutputStream(o, verbose); }, verbose);
 		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
 		tc.debug("The stream is going to be closed...", verbose);
 		o.close();
+		tc.assert(fn() => { debugIsStream(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsOutputStream(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsCloseableStream(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsFileOutputStream(o, verbose) == false; }, verbose);
 		tc.assert(fn() => { debugIsClosedStream(o, verbose); }, verbose);
 	});
 
-	testbed.makeTestCase("create an appendable file output stream", fn(tc) => {
-		val unique PlaidFileOutputStream o = makePlaidFileOutputStream("c:\\temp\\test1.bin", true);
-		tc.debug("'" + o.getStream().toString() + "'", verbose);
-		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsFileOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsAppendableFileOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsOverwrittenFileOutputStream(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
-		o.close();
-	});
-
-	testbed.makeTestCase("create an overwritable file output stream", fn(tc) => {
-		val unique PlaidFileOutputStream o = makePlaidFileOutputStream("c:\\temp\\test1.bin", false);
-		tc.debug("'" + o.getStream().toString() + "'", verbose);
-		tc.assert(fn() => { debugIsOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsFileOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsAppendableFileOutputStream(o, verbose) == false; }, verbose);
-		tc.assert(fn() => { debugIsOverwrittenFileOutputStream(o, verbose); }, verbose);
-		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
-		o.close();
-	});
-	
 	testbed.makeTestCase("create a file output stream and write an integer", fn(tc) => {
 		val unique PlaidFileOutputStream o = makePlaidFileOutputStream("c:\\temp\\test2.bin", false);
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
@@ -157,6 +142,18 @@ method void test_outputs(immutable Boolean verbose)
 		i.set(2);
 		i.setRemainingSteps(2);
 		o.writeSome(a, i);
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file writer and write a string to it.", fn(tc) => {
+		val nl = java.lang.System.getProperty("line.separator");
+		var string = "This is a test for file writer!" + nl + "This is second line." + nl + "This is third line." + nl + "This is the end.";
+		val unique PlaidFileWriter o = makePlaidFileWriter("c:\\temp\\testfilewriter.txt", false);
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique CharArray a = convertStringToCharArray(string);
+		var unique InBoundInteger i = a.getIndexer();
+		tc.debug("The string to be written is: '" + string + "'", verbose);
+		o.writeAll(a);
 		o.close();
 	});
 
