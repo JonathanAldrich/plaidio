@@ -33,6 +33,11 @@ import plaidio.streams.outputs.OutputStream;
 import plaidio.streams.outputs.FileOutputStream;
 import plaidio.streams.outputs.PlaidFileOutputStream;
 import plaidio.streams.outputs.makePlaidFileOutputStream;
+import plaidio.streams.inputs.InputStream;
+import plaidio.streams.inputs.FileInputStream;
+import plaidio.streams.inputs.PlaidFileInputStream;
+import plaidio.streams.inputs.makePlaidFileInputStream;
+import plaidio.streams.auxiliaries.MarkableStream;
 
 import plaidio.statecheckers.*;
 import com.akefirad.plaid.lang.statecheckers.*;
@@ -65,6 +70,7 @@ typedef state PlaidInvertCaseAlphabetFilePrinter = OutputStream with FileOutputS
 	}
 
 typedef state PlaidBufferedOutputStream = OutputStream with FileOutputStream with BufferedOutputStream
+typedef state PlaidBufferedInputStream = InputStream with FileInputStream with BufferedInputStream with MarkableStream
 
 /*------------------------------------------------------------------------------
 /**
@@ -109,15 +115,29 @@ method unique PlaidInvertCaseAlphabetFilePrinter makePlaidInvertCaseAlphabetFile
 	CID:	??
 	DESC:	The constructor for BufferedOutputStream
 **/
-method unique PlaidBufferedOutputStream makePlaidBufferedOutputStream(immutable String path, immutable Boolean appendable)
+method unique PlaidBufferedOutputStream makePlaidBufferedOutputStream(unique OutputStream >> none OutputStream output)
 {
-	val unique PlaidFileOutputStream pfos = makePlaidFileOutputStream(path, appendable);
-	val unique PlaidBufferedOutputStream pbbs = new freeze(pfos)
+	val unique PlaidBufferedOutputStream pbos = new freeze(output)
 		with BufferedOutputStream
 		{
-			override val j_Stream = java.io.BufferedOutputStream.new(pfos.getStream());
+			override val j_Stream = java.io.BufferedOutputStream.new(output.getStream());
 		};
-	/*return*/ pbbs;
+	/*return*/ pbos;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for BufferedInputStream
+**/
+method unique PlaidBufferedInputStream makePlaidBufferedInputStream(unique InputStream >> none InputStream input)
+{
+	val unique PlaidBufferedInputStream pbis = new freeze(input)
+		with BufferedInputStream
+		{
+			override val j_Stream = java.io.BufferedInputStream.new(input.getStream());
+		};
+	/*return*/ pbis;
 }
 
 /*------------------------------------------------------------------------------
@@ -173,7 +193,7 @@ method void test_filters(immutable Boolean verbose)
 
 	testbed.makeTestCase("create a buffered output stream and write an array of bytes (20)", fn(tc) => {
 		val size = 20;
-		val unique PlaidBufferedOutputStream o = makePlaidBufferedOutputStream("c:\\temp\\test5.bin", false);
+		val unique PlaidBufferedOutputStream o = makePlaidBufferedOutputStream(makePlaidFileOutputStream("c:\\temp\\test5.bin", false));
 		tc.debug("'" + o.getStream().toString() + "'", verbose);
 		val unique ByteArray a = makeByteArray(size);
 		a.setBytes(com.akefirad.plaid.JavaHelper.generateRandomBytes(size, 33, 127));
@@ -189,6 +209,44 @@ method void test_filters(immutable Boolean verbose)
 			i.increaseOne();
 		};
 		o.writeAll(a);
+		o.close();
+	});
+
+	testbed.makeTestCase("create a buffered input stream", fn(tc) => {
+		val unique PlaidBufferedInputStream o = makePlaidBufferedInputStream(makePlaidFileInputStream("C:\\boot.ini"));
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.assert(fn() => { debugIsInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFileInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsBufferedInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsMarkableStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsMarkedStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
+		tc.debug("The stream is going to be marked...", verbose);
+		o.mark(10);
+		tc.assert(fn() => { debugIsInputStream(o, verbose) }, verbose);
+		tc.assert(fn() => { debugIsCloseableStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsFileInputStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsMarkableStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsMarkedStream(o, verbose); }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose) == false; }, verbose);
+		tc.debug("The stream is going to be closed...", verbose);
+		o.close();
+		tc.assert(fn() => { debugIsInputStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsCloseableStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsFileInputStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsMarkableStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsMarkedStream(o, verbose) == false; }, verbose);
+		tc.assert(fn() => { debugIsClosedStream(o, verbose); }, verbose);
+	});
+
+	testbed.makeTestCase("create a buffered input stream and read an integer", fn(tc) => {
+		val unique PlaidBufferedInputStream o = makePlaidBufferedInputStream(makePlaidFileInputStream("C:\\boot.ini"));
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		tc.debug("The stream is going to read first byte of the file:", verbose);
+		var immutable Int32 i = o.read();
+		tc.debug("'" + i.toString() + "'", verbose);
+		tc.assert(fn() => { debugIsInt32(i, verbose); }, verbose);		
 		o.close();
 	});
 

@@ -87,4 +87,5 @@ state FileInputStream
 	method immutable Int32 p_available_FileInputStream() /*[immutable FileInputStream >> immutable FileInputStream this]*/
 	{
 		/*return*/ p_available_InputStream();
-	}}
+	}
+}

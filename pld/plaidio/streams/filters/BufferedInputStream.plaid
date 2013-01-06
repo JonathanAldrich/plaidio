@@ -1,0 +1,99 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	BufferedInputStream.plaid
+**/
+package plaidio.streams.filters;
+
+import plaidio.streams.auxiliaries.MarkableStream;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	The class implements a buffered input stream. By setting up such an input stream,
+			an application can read bytes from the underlying input stream without necessarily causing
+			a call to the underlying system for each byte read.
+			This typestate should be used in composition with an InputStream
+			which provides low level functionality for input streams.
+**/
+
+state BufferedInputStream = MarkableStream with
+{
+	val /*java.io.BufferedInputStream*/ j_Stream;
+
+	override method getStream() /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+	{
+		j_Stream;
+	}
+
+    override method immutable Int32 read() /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ p_read_BufferedInputStream();
+    }
+
+    override method immutable Int32 readAll(immutable Array bytes) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ p_readAll_BufferedInputStream(bytes);
+    }
+
+    override method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ p_readSome_BufferedInputStream(bytes, indexer);
+    }
+
+	override method immutable Int64 skip(immutable Int64 count) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+	{
+		/*return*/ p_skip_BufferedInputStream(count);
+	}
+
+	override method immutable Int32 available() /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+	{
+		/*return*/ p_available_BufferedInputStream();
+	}
+
+    method immutable Int32 p_read_BufferedInputStream() /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ j_Stream.read();
+    }
+
+    method immutable Int32 p_readAll_BufferedInputStream(immutable Array bytes) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes());
+    }
+
+    method immutable Int32 p_readSome_BufferedInputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+    {
+    	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
+    }
+
+	method immutable Int64 p_skip_BufferedInputStream(immutable Int64 count) /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+	{
+		/*return*/ j_Stream.skip(count);
+	}
+
+	method immutable Int32 p_available_BufferedInputStream() /*[immutable BufferedInputStream >> immutable BufferedInputStream this]*/
+	{
+		/*return*/ j_Stream.available();
+	}
+}
