@@ -22,7 +22,7 @@
 	AUTHOR: Rad Akefirad akefirad@gmail.com
 	FILE:	BufferedOutputStream.plaid
 **/
-package plaidio.streams.outputs;
+package plaidio.streams.filters;
 
 import com.akefirad.plaid.lang.statecheckers.*;
 
