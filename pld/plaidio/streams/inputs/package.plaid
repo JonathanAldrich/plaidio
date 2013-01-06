@@ -27,7 +27,9 @@
 package plaidio.streams.inputs;
 
 import com.akefirad.plaid.lang.makeByteArray;
+import com.akefirad.plaid.lang.makeCharArray;
 import com.akefirad.plaid.lang.collections.ByteArray;
+import com.akefirad.plaid.lang.collections.CharArray;
 
 import plaidio.statecheckers.*;
 import com.akefirad.plaid.lang.statecheckers.*;
@@ -35,6 +37,7 @@ import com.akefirad.plaid.lang.statecheckers.*;
 import com.akefirad.plaid.testing.makeTestBed;
 
 typedef state PlaidFileInputStream = InputStream with FileInputStream
+typedef state PlaidFileReader = Reader with FileReader
 
 /*------------------------------------------------------------------------------
 /**
@@ -45,6 +48,17 @@ method unique PlaidFileInputStream makePlaidFileInputStream(immutable String pat
 {
 	val unique PlaidFileInputStream pfis = new PlaidFileInputStream{ val j_Stream = java.io.FileInputStream.new(java.io.File.new(path)); };
 	/*return*/ pfis;
+}
+
+/*------------------------------------------------------------------------------
+/**
+	CID:	??
+	DESC:	The constructor for FileReader
+**/
+method unique PlaidFileReader makePlaidFileReader(immutable String path)
+{
+	val unique PlaidFileReader pfr = new PlaidFileReader{ val j_Stream = java.io.FileReader.new(java.io.File.new(path)); };
+	/*return*/ pfr;
 }
 
 /*------------------------------------------------------------------------------
@@ -157,6 +171,16 @@ method void test_inputs(immutable Boolean verbose)
 			var immutable Int32 i = o.read();
 			tc.debug("'" + i.toString() + "'", verbose);
 		};
+		o.close();
+	});
+
+	testbed.makeTestCase("create a file reader and read the content of a file", fn(tc) => {
+		val unique PlaidFileReader o = makePlaidFileReader("C:\\boot.ini");
+		tc.debug("'" + o.getStream().toString() + "'", verbose);
+		val unique CharArray c = makeCharArray(211);
+		o.readAll(c);
+		tc.debug("The content of file is:", verbose);
+		tc.debug(java.lang.String.new(c.getChars()), verbose);
 		o.close();
 	});
 

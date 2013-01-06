@@ -44,12 +44,12 @@ state FileInputStream
     	/*return*/ p_read_FileInputStream();
     }
 
-    override method immutable Int32 readAll(immutable Array bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    override method immutable Int32 readAll(immutable ByteArray bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
     {
     	/*return*/ p_readAll_FileInputStream(bytes);
     }
 
-    override method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    override method immutable Int32 readSome(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
     {
     	/*return*/ p_readSome_FileInputStream(bytes, indexer);
     }
@@ -69,12 +69,12 @@ state FileInputStream
     	/*return*/ p_read_InputStream();
     }
 
-    method immutable Int32 p_readAll_FileInputStream(immutable Array bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    method immutable Int32 p_readAll_FileInputStream(immutable ByteArray bytes) /*[immutable FileInputStream >> immutable FileInputStream this]*/
     {
     	/*return*/ p_readAll_InputStream(bytes);
     }
 
-    method immutable Int32 p_readSome_FileInputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
+    method immutable Int32 p_readSome_FileInputStream(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable FileInputStream >> immutable FileInputStream this]*/
     {
     	/*return*/ p_readSome_InputStream(bytes, indexer);
     }

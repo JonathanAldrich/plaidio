@@ -8,8 +8,12 @@ import plaidio.streams.auxiliaries.MarkableStream;
 import plaidio.streams.auxiliaries.MarkedStream;
 import plaidio.streams.inputs.InputStream;
 import plaidio.streams.inputs.FileInputStream;
+import plaidio.streams.inputs.Reader;
+import plaidio.streams.inputs.FileReader;
 import plaidio.streams.outputs.OutputStream;
 import plaidio.streams.outputs.FileOutputStream;
+import plaidio.streams.outputs.Writer;
+import plaidio.streams.outputs.FileWriter;
 import plaidio.streams.filters.AlphabetFilePrinter;
 import plaidio.streams.filters.BufferedInputStream;
 import plaidio.streams.filters.BufferedOutputStream;
@@ -22,8 +26,12 @@ method immutable Boolean isMarkableStream(object) { match (object) { case Markab
 method immutable Boolean isMarkedStream(object) { match (object) { case MarkedStream { true; } default { false; } }; }
 method immutable Boolean isInputStream(object) { match (object) { case InputStream { true; } default { false; } }; }
 method immutable Boolean isFileInputStream(object) { match (object) { case FileInputStream { true; } default { false; } }; }
+method immutable Boolean isReader(object) { match (object) { case Reader { true; } default { false; } }; }
+method immutable Boolean isFileReader(object) { match (object) { case FileReader { true; } default { false; } }; }
 method immutable Boolean isOutputStream(object) { match (object) { case OutputStream { true; } default { false; } }; }
 method immutable Boolean isFileOutputStream(object) { match (object) { case FileOutputStream { true; } default { false; } }; }
+method immutable Boolean isWriter(object) { match (object) { case Writer { true; } default { false; } }; }
+method immutable Boolean isFileWriter(object) { match (object) { case FileWriter { true; } default { false; } }; }
 method immutable Boolean isAlphabetFilePrinter(object) { match (object) { case AlphabetFilePrinter { true; } default { false; } }; }
 method immutable Boolean isBufferedInputStream(object) { match (object) { case BufferedInputStream { true; } default { false; } }; }
 method immutable Boolean isBufferedOutputStream(object) { match (object) { case BufferedOutputStream { true; } default { false; } }; }
@@ -36,7 +44,11 @@ method immutable Boolean debugIsMarkableStream(object, immutable Boolean verbose
 method immutable Boolean debugIsMarkedStream(object, immutable Boolean verbose) { ifElse (isMarkedStream(object)) { if (verbose) { printLine("The object is MarkedStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT MarkedStream"); }; false; }; }
 method immutable Boolean debugIsInputStream(object, immutable Boolean verbose) { ifElse (isInputStream(object)) { if (verbose) { printLine("The object is InputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT InputStream"); }; false; }; }
 method immutable Boolean debugIsFileInputStream(object, immutable Boolean verbose) { ifElse (isFileInputStream(object)) { if (verbose) { printLine("The object is FileInputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT FileInputStream"); }; false; }; }
+method immutable Boolean debugIsReader(object, immutable Boolean verbose) { ifElse (isReader(object)) { if (verbose) { printLine("The object is Reader"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Reader"); }; false; }; }
+method immutable Boolean debugIsFileReader(object, immutable Boolean verbose) { ifElse (isFileReader(object)) { if (verbose) { printLine("The object is FileReader"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT FileReader"); }; false; }; }
 method immutable Boolean debugIsOutputStream(object, immutable Boolean verbose) { ifElse (isOutputStream(object)) { if (verbose) { printLine("The object is OutputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT OutputStream"); }; false; }; }
 method immutable Boolean debugIsFileOutputStream(object, immutable Boolean verbose) { ifElse (isFileOutputStream(object)) { if (verbose) { printLine("The object is FileOutputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT FileOutputStream"); }; false; }; }
+method immutable Boolean debugIsWriter(object, immutable Boolean verbose) { ifElse (isWriter(object)) { if (verbose) { printLine("The object is Writer"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT Writer"); }; false; }; }
+method immutable Boolean debugIsFileWriter(object, immutable Boolean verbose) { ifElse (isFileWriter(object)) { if (verbose) { printLine("The object is FileWriter"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT FileWriter"); }; false; }; }
 method immutable Boolean debugIsBufferedInputStream(object, immutable Boolean verbose) { ifElse (isBufferedInputStream(object)) { if (verbose) { printLine("The object is BufferedInputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT BufferedInputStream"); }; false; }; }
 method immutable Boolean debugIsBufferedOutputStream(object, immutable Boolean verbose) { ifElse (isBufferedOutputStream(object)) { if (verbose) { printLine("The object is BufferedOutputStream"); }; true; } /*else*/ { if (verbose) { printLine("The object is NOT BufferedOutputStream"); }; false; }; }

@@ -24,6 +24,7 @@
 **/
 package plaidio.streams.inputs;
 
+import plaidio.streams.auxiliaries.Stream;
 import plaidio.streams.auxiliaries.CloseableStream;
 
 import com.akefirad.plaid.lang.statecheckers.*;
@@ -34,24 +35,19 @@ import com.akefirad.plaid.lang.statecheckers.*;
 	DESC:	This abstract class is the superclass of all classes representing an input stream of bytes.
 			Applications that need to define a subclass of InputStream must always provide a method that returns the next byte of input.
 **/
-state InputStream = CloseableStream with
+state InputStream = Stream with CloseableStream with
 {
-	method getStream() /*[immutable InputStream >> immutable InputStream this]*/
-	{
-		/*return*/ j_Stream;
-	}
-
     method immutable Int32 read() /*[immutable InputStream >> immutable InputStream this]*/
     {
     	/*return*/ p_read_InputStream();
     }
 
-    method immutable Int32 readAll(immutable Array bytes) /*[immutable InputStream >> immutable InputStream this]*/
+    method immutable Int32 readAll(immutable ByteArray bytes) /*[immutable InputStream >> immutable InputStream this]*/
     {
     	/*return*/ p_readAll_InputStream(bytes);
     }
 
-    method immutable Int32 readSome(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
+    method immutable Int32 readSome(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
     {
     	/*return*/ p_readSome_InputStream(bytes, indexer);
     }
@@ -74,12 +70,12 @@ state InputStream = CloseableStream with
     	/*return*/ j_Stream.read();
     }
 
-    method immutable Int32 p_readAll_InputStream(immutable Array bytes) /*[immutable InputStream >> immutable InputStream this]*/
+    method immutable Int32 p_readAll_InputStream(immutable ByteArray bytes) /*[immutable InputStream >> immutable InputStream this]*/
     {
     	/*return*/ j_Stream.read(bytes.getBytes());
     }
 
-    method immutable Int32 p_readSome_InputStream(immutable Array bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
+    method immutable Int32 p_readSome_InputStream(immutable ByteArray bytes, unique InBoundInteger indexer) /*[immutable InputStream >> immutable InputStream this]*/
     {
     	/*return*/ j_Stream.read(bytes.getBytes(), indexer.get(), indexer.getRemainingSteps());
     }

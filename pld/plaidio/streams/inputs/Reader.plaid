@@ -1,0 +1,89 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	Reader.plaid
+**/
+package plaidio.streams.inputs;
+
+import plaidio.streams.auxiliaries.Stream;
+import plaidio.streams.auxiliaries.CloseableStream;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	This abstract class is the superclass of all classes representing an input stream of bytes.
+			Applications that need to define a subclass of Reader must always provide a method that returns the next byte of input.
+**/
+state Reader = Stream with CloseableStream with
+{
+    method immutable Int32 read() /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ p_read_Reader();
+    }
+
+    method immutable Int32 readAll(immutable CharArray chars) /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ p_readAll_Reader(chars);
+    }
+
+    method immutable Int32 readSome(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ p_readSome_Reader(chars, indexer);
+    }
+
+	method immutable Int64 skip(immutable Int64 count) /*[immutable Reader >> immutable Reader this]*/
+	{
+		/*return*/ p_skip_Reader(count);
+	}
+
+	method immutable Boolean ready() /*[immutable Reader >> immutable Reader this]*/
+	{
+		/*return*/ p_ready_Reader();
+	}
+
+    method immutable Int32 p_read_Reader() /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ j_Stream.read();
+    }
+
+    method immutable Int32 p_readAll_Reader(immutable CharArray chars) /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ j_Stream.read(chars.getChars());
+    }
+
+    method immutable Int32 p_readSome_Reader(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable Reader >> immutable Reader this]*/
+    {
+    	/*return*/ j_Stream.read(chars.getChars(), indexer.get(), indexer.getRemainingSteps());
+    }
+
+	method immutable Int64 p_skip_Reader(immutable Int64 count) /*[immutable Reader >> immutable Reader this]*/
+	{
+		/*return*/ j_Stream.skip(count);
+	}
+
+	method immutable Boolean p_ready_Reader() /*[immutable Reader >> immutable Reader this]*/
+	{
+		/*return*/ j_Stream.ready();
+	}
+}

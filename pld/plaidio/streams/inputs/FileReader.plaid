@@ -1,0 +1,91 @@
+/**
+ *  Copyright (c) 2012 The PLAIDIO project
+ * 
+ *  This file is part of PLAIDIO, I/O Library for Plaid Language.
+ *
+ *  This library is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ * 
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without ven the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with Plaid Programming Language. If not, see <www.gnu.org/licenses>.
+ */
+
+/*------------------------------------------------------------------------------
+/**
+	AUTHOR: Rad Akefirad akefirad@gmail.com
+	FILE:	FileReader.plaid
+**/
+package plaidio.streams.inputs;
+
+import com.akefirad.plaid.lang.statecheckers.*;
+
+//------------------------------------------------------------------------------
+/**
+	CID:	TS-??
+	DESC:	A FileReader obtains input chars from a file in a file system.
+			FileReader is meant for reading streams of raw chars such as image data.
+			For reading streams of characters, consider using FileReader.
+			This typestate should be used in composition with an InputStream
+			which provides low level functionality for input streams.
+**/
+state FileReader
+{
+	val /*java.io.FileReader*/ j_Stream;
+
+    override method immutable Int32 read() /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_read_FileReader();
+    }
+
+    override method immutable Int32 readAll(immutable CharArray chars) /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_readAll_FileReader(chars);
+    }
+
+    override method immutable Int32 readSome(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_readSome_FileReader(chars, indexer);
+    }
+
+	override method immutable Int64 skip(immutable Int64 count) /*[immutable FileReader >> immutable FileReader this]*/
+	{
+		/*return*/ p_skip_FileReader(count);
+	}
+
+	override method immutable Int32 available() /*[immutable FileReader >> immutable FileReader this]*/
+	{
+		/*return*/ p_available_FileReader();
+	}
+
+    method immutable Int32 p_read_FileReader() /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_read_Reader();
+    }
+
+    method immutable Int32 p_readAll_FileReader(immutable CharArray chars) /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_readAll_Reader(chars);
+    }
+
+    method immutable Int32 p_readSome_FileReader(immutable CharArray chars, unique InBoundInteger indexer) /*[immutable FileReader >> immutable FileReader this]*/
+    {
+    	/*return*/ p_readSome_Reader(chars, indexer);
+    }
+
+	method immutable Int64 p_skip_FileReader(immutable Int64 count) /*[immutable FileReader >> immutable FileReader this]*/
+	{
+		/*return*/ p_skip_Reader(count);
+	}
+
+	method immutable Int32 p_available_FileReader() /*[immutable FileReader >> immutable FileReader this]*/
+	{
+		/*return*/ p_available_Reader();
+	}
+}
